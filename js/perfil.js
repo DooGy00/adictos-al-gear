@@ -3,7 +3,7 @@ $(function () {
  var settings = {
   wall: 1,
   stats: 1,
-  attachments: 1,
+  attachments: 0,
   friends: 1,
   contact: 1,
   rpg: 0,
