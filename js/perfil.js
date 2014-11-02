@@ -1,5 +1,98 @@
-$(function(){if(/\/u\d+/.test(location.pathname)==true)return;var settings={wall:1,stats:1,attachments:0,friends:1,contact:1,rpg:0,close:1,avatar:0};var a=document.getElementsByTagName('A');for(i=0;i<a.length;i++){if(/\/u\d+/.test(a[i].href)==true)a[i].className=a[i].className+' profilePopup'}
-$('.profilePopup:has(img)').removeClass('profilePopup');if(settings.wall==1)var userWall='<span class="propop_tab" id="propop_vm">Muro</span>';else var userWall='';if(settings.stats==1)var userStats='<span class="propop_tab" id="propop_stats">Estadisticas</span>';else var userStats='';if(settings.attachments==1)var userAttachments='<span class="propop_tab" id="propop_attach">Archivos</span>';else var userAttachments='';if(settings.friends==1)var userFriends='<span class="propop_tab" id="propop_friends">Amigos</span>';else var userFriends='';if(settings.contact==1)var userContact='<span class="propop_tab" id="propop_contact">Contacto</span>';else var userContact='';if(settings.rpg==1)var userRpg='<span class="propop_tab" id="propop_rpg">Character sheet</span>';else var userRpg='';if(settings.close==1)var userClose='<span class="propop_tab" id="close_popup" style="float:right;margin-top:-4px;">Cerrar</span>';else var userClose='';$('.profilePopup').click(function(){var UID=$(this).attr('href');var UNM=$(this).text();var SEL='#cp-main .panel, .forumline:has(#profile-advanced-details), .clear + #profile-advanced-details';var LOAD='<center><span class="profileLoading" style="font-weight:bold;font-size:18px;">Cargando...</span></center>';var TAB='#propop_profile, #propop_vm, #propop_stats, #propop_friends, #propop_contact, #propop_rpg, #propop_attach, #propop_close';$('body').append('<div id="profilefilter" style="position:fixed;top:0px;left:0px;right:0px;bottom:0px;background:rgba(0,0,0, 0.5);cursor:pointer;z-index:10;"></div><div id="profcont-container" style="background:#D1D1D1;top:20%;left:15%;right:15%;padding:4px;position:fixed;font-size:12px;-webkit-border-radius:5px;-moz-border-radius:5px;border-radius:5px;-webkit-box-shadow:0px 0px 2px rgba(0,0,0, 0.5) inset;-moz-box-shadow:0px 0px 2px rgba(0,0,0, 0.5) inset;box-shadow:0px 0px 2px rgba(0,0,0, 0.5) inset;z-index:50;"><div class="profile_popup_nav">'+userWall+'<span class="propop_tab" id="propop_profile">Perfil</span>'+userStats+userAttachments+userFriends+userContact+userRpg+userClose+'</div><a href="'+UID+'"><div id="userAVA"></div></a><div id="userprofile" style="height:400px;overflow-y:auto;">'+LOAD+'</div><span id="profileLinks"><a href="'+UID+'">Ver perfil</a><span id="interactionLinks"> | <a href="/privmsg?mode=post&u='+UID.replace(/.*?\/u/,'')+'">Enviar MP</a> | <a href="/privmsg?mode=post_profile&u='+UID.replace(/.*?\/u/,'')+'">Escribir en el muro</a><span style="float:right;"><a href="/profile?friend='+UNM.replace(/\s+/,"+")+'&mode=editprofile&page_profil=friendsfoes">Añadir a amigos</a> | <a href="/profile?foe='+UNM.replace(/\s+/,'+')+'&mode=editprofile&page_profil=friendsfoes">Ignorar</a></span></span></div>');$('#userprofile').load(UID+SEL);if(settings.avatar==1)$('#userAVA').load(UID+' #profile-advanced-right .module:first div img:first, .forumline td.row1.gensmall:first > img:first, .frm-set.profile-view.left dd img:first, dl.left-box.details:first dd img:first, .row1 b .gen:first img:first, .real_avatar img:first');$('#propop_profile').addClass('activeTab');$('#propop_profile').click(function(){if($(this).hasClass('activeTab'))return;$(TAB).removeClass('activeTab');$(this).addClass('activeTab');$('#userprofile').html(LOAD).load(UID+SEL)});$('#propop_vm').click(function(){if($(this).hasClass('activeTab'))return;$(TAB).removeClass('activeTab');$(this).addClass('activeTab');$('#userprofile').html(LOAD).load(UID+'wall'+SEL)});$('#propop_stats').click(function(){if($(this).hasClass('activeTab'))return;$(TAB).removeClass('activeTab');$(this).addClass('activeTab');$('#userprofile').html(LOAD).load(UID+'stats'+SEL)});$('#propop_friends').click(function(){if($(this).hasClass('activeTab'))return;$(TAB).removeClass('activeTab');$(this).addClass('activeTab');$('#userprofile').html(LOAD).load(UID+'friends'+SEL)});$('#propop_contact').click(function(){if($(this).hasClass('activeTab'))return;$(TAB).removeClass('activeTab');$(this).addClass('activeTab');$('#userprofile').html(LOAD).load(UID+'contact'+SEL)});$('#propop_rpg').click(function(){if($(this).hasClass('activeTab'))return;$(TAB).removeClass('activeTab');$(this).addClass('activeTab');$('#userprofile').html(LOAD).load(UID+'rpg'+SEL)});$('#propop_attach').click(function(){if($(this).hasClass('activeTab'))return;$(TAB).removeClass('activeTab');$(this).addClass('activeTab');$('#userprofile').html(LOAD).load(UID+'attachments'+SEL)});if(!document.getElementById('logout'))$('#interactionLinks').remove();$('#profilefilter, #close_popup').click(function(){$('#profilefilter, #profcont-container').remove()});return false});$(".post a[href*='mode=delete']").on("click",function(a){a.preventDefault();var b=$(this).closest(".post");!0==confirm("¿Deseas eliminar el post")&&$.post(this.href,{confirm:1},function(a){b.fadeOut(function(){b.remove()})})});});
+$(function () {
+ if (/\/u\d+/.test(location.pathname) == true) return;
+ var settings = {
+  wall: 1,
+  stats: 1,
+  attachments: 0,
+  friends: 1,
+  contact: 1,
+  rpg: 0,
+  close: 1,
+  avatar: 1
+ };
+ var a = document.getElementsByTagName('A');
+ for (i = 0; i < a.length; i++) {
+  if (/\/u\d+/.test(a[i].href) == true) a[i].className = a[i].className + ' profilePopup'
+ }
+ $('.profilePopup:has(img)').removeClass('profilePopup');
+ if (settings.wall == 1) var userWall = '<span class="propop_tab" id="propop_vm">Muro</span>';
+ else var userWall = ''; if (settings.stats == 1) var userStats = '<span class="propop_tab" id="propop_stats">Estadisticas</span>';
+ else var userStats = ''; if (settings.attachments == 1) var userAttachments = '<span class="propop_tab" id="propop_attach">Archivos</span>';
+ else var userAttachments = ''; if (settings.friends == 1) var userFriends = '<span class="propop_tab" id="propop_friends">Amigos</span>';
+ else var userFriends = ''; if (settings.contact == 1) var userContact = '<span class="propop_tab" id="propop_contact">Contacto</span>';
+ else var userContact = ''; if (settings.rpg == 1) var userRpg = '<span class="propop_tab" id="propop_rpg">Character sheet</span>';
+ else var userRpg = ''; if (settings.close == 1) var userClose = '<span class="propop_tab" id="close_popup" style="float:right;margin-top:-4px;">Cerrar</span>';
+ else var userClose = '';
+ $('.profilePopup').click(function () {
+  var UID = $(this).attr('href');
+  var UNM = $(this).text();
+  var SEL = '#cp-main .panel, .forumline:has(#profile-advanced-details), .clear + #profile-advanced-details';
+  var LOAD = '<center><span class="profileLoading" style="font-weight:bold;font-size:18px;">Cargando...</span></center>';
+  var TAB = '#propop_profile, #propop_vm, #propop_stats, #propop_friends, #propop_contact, #propop_rpg, #propop_attach, #propop_close';
+  $('body').append('<div id="profilefilter" style="position:fixed;top:0px;left:0px;right:0px;bottom:0px;background:rgba(0,0,0, 0.5);cursor:pointer;z-index:10;"></div><div id="profcont-container" style="background:#D1D1D1;top:20%;left:15%;right:15%;padding:4px;position:fixed;font-size:12px;-webkit-border-radius:5px;-moz-border-radius:5px;border-radius:5px;-webkit-box-shadow:0px 0px 2px rgba(0,0,0, 0.5) inset;-moz-box-shadow:0px 0px 2px rgba(0,0,0, 0.5) inset;box-shadow:0px 0px 2px rgba(0,0,0, 0.5) inset;z-index:50;"><div class="profile_popup_nav">' + userWall + '<span class="propop_tab" id="propop_profile">Perfil</span>' + userStats + userAttachments + userFriends + userContact + userRpg + userClose + '</div><a href="' + UID + '"><div id="userAVA"></div></a><div id="userprofile" style="height:400px;overflow-y:auto;">' + LOAD + '</div><span id="profileLinks"><a href="' + UID + '">Ver perfil</a><span id="interactionLinks"> | <a href="/privmsg?mode=post&u=' + UID.replace(/.*?\/u/, '') + '">Enviar MP</a> | <a href="/privmsg?mode=post_profile&u=' + UID.replace(/.*?\/u/, '') + '">Escribir en el muro</a><span style="float:right;"><a href="/profile?friend=' + UNM.replace(/\s+/, "+") + '&mode=editprofile&page_profil=friendsfoes">Añadir a amigos</a> | <a href="/profile?foe=' + UNM.replace(/\s+/, '+') + '&mode=editprofile&page_profil=friendsfoes">Ignorar</a></span></span></div>');
+  $('#userprofile').load(UID + SEL);
+  if (settings.avatar == 1) $('#userAVA').load(UID + ' #profile-advanced-right .module:first div img:first, .forumline td.row1.gensmall:first > img:first, .frm-set.profile-view.left dd img:first, dl.left-box.details:first dd img:first, .row1 b .gen:first img:first, .real_avatar img:first');
+  $('#propop_profile').addClass('activeTab');
+  $('#propop_profile').click(function () {
+   if ($(this).hasClass('activeTab')) return;
+   $(TAB).removeClass('activeTab');
+   $(this).addClass('activeTab');
+   $('#userprofile').html(LOAD).load(UID + SEL)
+  });
+  $('#propop_vm').click(function () {
+   if ($(this).hasClass('activeTab')) return;
+   $(TAB).removeClass('activeTab');
+   $(this).addClass('activeTab');
+   $('#userprofile').html(LOAD).load(UID + 'wall' + SEL)
+  });
+  $('#propop_stats').click(function () {
+   if ($(this).hasClass('activeTab')) return;
+   $(TAB).removeClass('activeTab');
+   $(this).addClass('activeTab');
+   $('#userprofile').html(LOAD).load(UID + 'stats' + SEL)
+  });
+  $('#propop_friends').click(function () {
+   if ($(this).hasClass('activeTab')) return;
+   $(TAB).removeClass('activeTab');
+   $(this).addClass('activeTab');
+   $('#userprofile').html(LOAD).load(UID + 'friends' + SEL)
+  });
+  $('#propop_contact').click(function () {
+   if ($(this).hasClass('activeTab')) return;
+   $(TAB).removeClass('activeTab');
+   $(this).addClass('activeTab');
+   $('#userprofile').html(LOAD).load(UID + 'contact' + SEL)
+  });
+  $('#propop_rpg').click(function () {
+   if ($(this).hasClass('activeTab')) return;
+   $(TAB).removeClass('activeTab');
+   $(this).addClass('activeTab');
+   $('#userprofile').html(LOAD).load(UID + 'rpg' + SEL)
+  });
+  $('#propop_attach').click(function () {
+   if ($(this).hasClass('activeTab')) return;
+   $(TAB).removeClass('activeTab');
+   $(this).addClass('activeTab');
+   $('#userprofile').html(LOAD).load(UID + 'attachments' + SEL)
+  });
+  if (!document.getElementById('logout')) $('#interactionLinks').remove();
+  $('#profilefilter, #close_popup').click(function () {
+   $('#profilefilter, #profcont-container').remove()
+  });
+  return false
+ });
+ $(".post a[href*='mode=delete']").on("click", function (a) {
+  a.preventDefault();
+  var b = $(this).closest(".post");
+  !0 == confirm("¿Deseas eliminar el post") && $.post(this.href, {
+   confirm: 1
+  }, function (a) {
+   b.fadeOut(function () {
+    b.remove()
+   })
+  })
+ });
+});
 var zeditor = {
  version: 'phpbb3',
  lang: {
@@ -12,7 +105,7 @@ var zeditor = {
   flood_message: "No puedes enviar 2 mensajes consecutivos",
   error_message: "Ocurrió un error recarga la página",
   no_message: "Escribe un mensaje",
-  notify_message: _userdata.username +" deseas etiquetar a",
+  notify_message: _userdata.username + " deseas etiquetar a",
   quote_message: "en el Post",
   tag_message_title: " fuiste etiquetado en ",
   tag_message_error: "No se encuentra el nombre",
@@ -110,7 +203,7 @@ var zeditor = {
   case "reply":
    zeditor.url = $('a[href^="/post?t="]').first().attr("href");
    zeditor.mode.innerHTML = zeditor.lang.reply;
-    zeditor.textarea.placeholder =_userdata.username+ " escribe un comentario...";
+   zeditor.textarea.placeholder = _userdata.username + " escribe un comentario...";
    zeditor.textarea.value = "";
    break;
   case "quote":
@@ -125,7 +218,7 @@ var zeditor = {
   case "pm":
    zeditor.url = !1;
    zeditor.mode.innerHTML = zeditor.lang.pm;
-    zeditor.textarea.placeholder = _userdata.username +" redacta tu mensaje privado...";
+   zeditor.textarea.placeholder = _userdata.username + " redacta tu mensaje privado...";
    break
   }
  },
@@ -323,7 +416,7 @@ var zeditor = {
    'post': 'Send',
    'folder': 'inbox'
   }, function () {
-   $("textarea").attr("placeholder", _userdata.username+" tu mensaje privado se envió con éxito")
+   $("textarea").attr("placeholder", _userdata.username + " tu mensaje privado se envió con éxito")
   })
  },
  replace: function (a) {
@@ -427,7 +520,7 @@ var zeditor = {
 };
 var zeditoronbeforeunload = $('#editor-post-button').find('span');
 window.onbeforeunload = function (e) {
- if (zeditor.textarea.value != '') return _userdata.username+ ' tienes texto en el editor que podrias perder'
+ if (zeditor.textarea.value != '') return _userdata.username + ' tienes texto en el editor que podrias perder'
 };
 zeditoronbeforeunload.submit = function (e) {
  window.onbeforeunload = false;
