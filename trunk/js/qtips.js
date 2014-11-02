@@ -3449,4 +3449,5 @@ CHECKS.ie6 = {
 };
 ;}));
 }( window, document ));
+$('[title]').qtip();
 
