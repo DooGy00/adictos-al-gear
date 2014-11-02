@@ -1,3 +1,21 @@
+(function(a) {
+    var c = {
+        check: function() {
+            a.get("/forum", function(b) {
+                document.getElementById("logout") && (0 < a(b).find("#i_icon_mini_new_message").length && !document.getElementById("pm_alert") ? a("body").prepend('<div id="pm_alert"><a href="/privmsg?folder=inbox">' + a(b).find("#i_icon_mini_new_message")[0].title + "</a></div>") : document.getElementById("pm_alert") && document.getElementById("pm_alert").firstChild.innerHTML != a(b).find("#i_icon_mini_new_message")[0].title && (document.getElementById("pm_alert").firstChild.innerHTML = a(b).find("#i_icon_mini_new_message")[0].title))
+            })
+        },
+        init: function() {
+            setInterval(function() {
+                c.check()
+            }, 15E3)
+        }
+    };
+    window.ajaxify = c
+})(jQuery);
+$(function() {
+    ajaxify.init()
+});
 var mpindex = $(".forabg").length;
 if (mp && mpindex) {
  $(function () {
