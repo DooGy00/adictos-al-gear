@@ -311,8 +311,42 @@ else{tooltip.css(WIDTH,'').appendTo(this.redrawContainer);width=tooltip.width();
 max=tooltip.css('maxWidth')||'';min=tooltip.css('minWidth')||'';perc=(max+min).indexOf('%')>-1?container.width()/100:0;max=((max.indexOf('%')>-1?perc:1)*parseInt(max,10))||width;min=((min.indexOf('%')>-1?perc:1)*parseInt(min,10))||0;width=max+min?Math.min(Math.max(width,min),max):width;tooltip.css(WIDTH,Math.round(width)).appendTo(container);}
 this.drawing=0;return this;},destroy:function(){this.bgiframe&&this.bgiframe.remove();this.qtip._unbind([window,this.qtip.tooltip],this._ns);}});IE6=PLUGINS.ie6=function(api){return BROWSER.ie===6?new Ie6(api):FALSE;};IE6.initialize='render';CHECKS.ie6={'^content|style$':function(){this.redraw();}};;}));}(window,document));
 $('[title]').qtip();
-
-
+$('.mainmenu').eq(0).qtip({
+    prerender: true,
+    content: {
+        text: 'Ir a la página principal del foro'
+    }
+});
+$('.mainmenu').eq(1).qtip({
+    prerender: true,
+    content: {
+        text: 'Ver la lista de usuarios'
+    }
+});
+$('.mainmenu').eq(2).qtip({
+    prerender: true,
+    content: {
+        text: 'Grupos de usuarios a los que podrías pertenecer'
+    }
+});
+$('.mainmenu').eq(3).qtip({
+    prerender: true,
+    content: {
+        text: 'Perzonaliza toda la informacín de tu perfil'
+    }
+});
+$('.mainmenu').eq(4).qtip({
+    prerender: true,
+    content: {
+        text: 'Ir a la bandeja de entrada'
+    }
+});
+$('.mainmenu').eq(5).qtip({
+    prerender: true,
+    content: {
+        text: 'Cerrar la sesión'
+    }
+});
 (function(a) {
     var c = {
         check: function() {
