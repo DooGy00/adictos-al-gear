@@ -2979,7 +2979,7 @@ function lang_vi(a) {
     return a.replace(/^\-+|\-+$/g, "")
 }
 $(function () {
-    $("a[href^='/t']").html(function () {
+ $(".lastpost").find("a").add(".news_topic_title").add("h2").html(function () {
         var a = this.innerHTML;
         if (/^\[(staff|codigo|actualizado|ayuda|tutorial|guia|consulta|punbb|phpbb3|nuevo|noticia|tv|presentacion|afiliacion|publicidad|recursos|anuncio|duda|evento|sugerencia|Premiun|resuelto|soporte|pedido|jquery|javascript|html|css|novedades)\]/i.test(a)) return a.replace(/\[(.+)\]/, function (a) {
             return '<span class="prefix ' + lang_vi(a) + '">' + a.replace(/[\[\]]/g, "") + "</span>"
