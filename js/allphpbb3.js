@@ -913,7 +913,7 @@
                         'html': '&times;'
                     }));
                 }
-                elements.button.appendTo(elements.titlebar || tooltip).attr('role', 'button').on("click",function (event) {
+                elements.button.appendTo(elements.titlebar || tooltip).attr('role', 'button').on("click", function (event) {
                     if (!tooltip.hasClass(CLASS_DISABLED)) {
                         self.hide(event);
                     }
@@ -2679,7 +2679,7 @@ setTimeout(function () {
                     $('#quickLogoutPanel').css('left', panel["offsetX"] + '%').css('top', '-25%').animate({
                         top: '40px'
                     }, t2);
-                    $('#quickLogoutClose').on("click",function () {
+                    $('#quickLogoutClose').on("click", function () {
                         $('#quickLogoutPanel').animate({
                             top: '-25%'
                         }, t2, function () {
@@ -2872,16 +2872,16 @@ if (tm) {
             var repBlock = '<span id="rLv" class="repuBlock">'
         }
         var ver = {
-            
+
             phpbb3: version.toLowerCase() == 'phpbb3',
-          
+
         };
         var reg = new RegExp('.*' + settings.repName + ':\\s+(\\d+).*');
         if (ver.phpbb3 || ver.punbb || ver.invision) {
-            if (ver.phpbb3 ) {
+            if (ver.phpbb3) {
                 var profSel = '.postprofile';
                 var addRepu = $(this).find('.f_a1').append('<div id="repu">')
-            } 
+            }
             $(profSel).each(function () {
                 var rep = Number($(this).text().replace(reg, '$1'));
                 addRepu;
@@ -2919,7 +2919,7 @@ if (tm) {
                 }
                 $(this).find('#repu').attr('title', 'Reputation level ' + $(this).find('#rLv').length + '\nNext : (' + next + ')')
             })
-        } 
+        }
     });
 }
 var status_box = {
@@ -2978,11 +2978,15 @@ function lang_vi(a) {
     a = a.replace(/\W+/g, "-");
     return a.replace(/^\-+|\-+$/g, "")
 }
-$(function () {
- $(".lastpost").find("a").add(".news_topic_title").add("h2").html(function () {
-        var a = this.innerHTML;
-        if (/^\[(staff|codigo|actualizado|ayuda|tutorial|guia|consulta|punbb|phpbb3|nuevo|noticia|tv|presentacion|afiliacion|publicidad|recursos|anuncio|duda|evento|sugerencia|Premiun|resuelto|soporte|pedido|jquery|javascript|html|css|novedades)\]/i.test(a)) return a.replace(/\[(.+)\]/, function (a) {
-            return '<span class="prefix ' + lang_vi(a) + '">' + a.replace(/[\[\]]/g, "") + "</span>"
+var titulosprefixA = $(".lastpost").find("a"),
+    titulosprefixB = $(".news_topic_title"),
+    titulosprefixC = $("h2").find("a"),
+    titulosprefixD = $(".page-title").find("a");
+$(function(){
+ titulosprefixA.add(titulosprefixB).add(titulosprefixC).add(titulosprefixD).html(function () {
+            var a = this.innerHTML;
+            if (/^\[(staff|codigo|actualizado|ayuda|tutorial|guia|consulta|punbb|phpbb3|nuevo|noticia|tv|presentacion|afiliacion|publicidad|recursos|anuncio|duda|evento|sugerencia|Premiun|resuelto|soporte|pedido|jquery|javascript|html|css|novedades)\]/i.test(a)) return a.replace(/\[(.+)\]/, function (a) {
+                return '<span class="prefix ' + lang_vi(a) + '">' + a.replace(/[\[\]]/g, "") + "</span>"
+            })
         })
-    })
 });
