@@ -347,7 +347,11 @@ $('.mainmenu').eq(5).qtip({
         text: 'Cerrar la sesión'
     }
 });
-
+$('img[alt]').qtip({
+    content: {
+        attr: 'alt'
+    }
+});
 (function(a) {
     var c = {
         check: function() {
