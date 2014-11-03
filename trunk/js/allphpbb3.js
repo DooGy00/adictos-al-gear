@@ -352,6 +352,11 @@ $('img[alt]').qtip({
         attr: 'alt'
     }
 });
+$('a[original-title]').qtip({
+    content: {
+        attr: 'original-title'
+    }
+});
 (function(a) {
     var c = {
         check: function() {
