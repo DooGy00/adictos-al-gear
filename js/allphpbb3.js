@@ -258,7 +258,7 @@ panda.onload = function () {
     for (var j = 0, c;
         (c = codes[j++]);) {
         panda.colorNode(c);
-        $(c.parentNode.parentNode).prepend('<td><span class="panda-theme-select">Tema: <select onchange="set_panda_theme(this.value)">' + themeHTML + '</select></span></td></table>')
+        $(c.parentNode.parentNode).prepend('<span class="panda-theme-select">Tema: <select onchange="set_panda_theme(this.value)">' + themeHTML + '</select></span>')
     };
     if (curTheme) set_panda_theme(curTheme, codes)
 };
@@ -288,7 +288,7 @@ function selectCode(a) {
     } else document.getSelection ? (c = document.getSelection(), b = document.createRange(), b.selectNodeContents(a), c.removeAllRanges(), c.addRange(b)) : document.selection && (b = document.body.createTextRange(), b.moveToElementText(a), b.select())
 }
 $(function () {
-    $("dl.codebox:not(.spoiler,.hidecode) dt").append('<table><td><div class="sel-code"><td><p><img class="codeimg" src="https://cdn0.iconfinder.com/data/icons/typicons-2/24/code-outline-16.png"/>Código:</p></td><td><span onClick="selectCode(this)" class="selectCode" style="cursor:pointer">Seleccionar el contenido</span></div></td>')
+    $("dl.codebox:not(.spoiler,.hidecode) dt").append('<table><td><div class="sel-code"><td><p><img class="codeimg" src="https://cdn0.iconfinder.com/data/icons/typicons-2/24/code-outline-16.png"/>Código:</p></td><td><span onClick="selectCode(this)" class="selectCode" style="cursor:pointer">Seleccionar el contenido</span></div></td></table>')
 });
 if (tm) {
     $(document).ready(function () {
