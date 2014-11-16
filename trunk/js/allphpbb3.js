@@ -288,7 +288,7 @@ function selectCode(a) {
     } else document.getSelection ? (c = document.getSelection(), b = document.createRange(), b.selectNodeContents(a), c.removeAllRanges(), c.addRange(b)) : document.selection && (b = document.body.createTextRange(), b.moveToElementText(a), b.select())
 }
 $(function () {
-    $("dl.codebox:not(.spoiler,.hidecode) dt").append('<table><td class="sel-code"><td><img class="codeimg" src="https://cdn0.iconfinder.com/data/icons/typicons-2/24/code-outline-16.png"/></td><td class="titulo-code">Código:</td><td onClick="selectCode(this)" class="selectCode" style="cursor:pointer">Seleccionar el contenido</td></table>')
+    $("dl.codebox:not(.spoiler,.hidecode) dt").append('<table class="cabecera-code"><td class="sel-code"><td><img class="codeimg" src="https://cdn0.iconfinder.com/data/icons/typicons-2/24/code-outline-16.png"/></td><td class="titulo-code">Código:</td><td onClick="selectCode(this)" class="selectCode" style="cursor:pointer">Seleccionar el contenido</td></table>')
 });
 if (tm) {
     $(document).ready(function () {
