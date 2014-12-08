@@ -529,3 +529,11 @@ zeditoronbeforeunload.submit = function (e) {
 $(function () {
  zeditor.ready()
 });
+    $(".mp").attr("onclick", "zeditor.start('pm', this)").parent().removeAttr("href").css("cursor", "pointer");
+   $(".post").find(".postnumber").find("a").on("click", function() {
+   zeditor.start('reply', this);
+  var aaa_text = $(this).attr("href");
+    $("#editor-textarea").val('[post]' + aaa_text + '[/post]');
+  
+    
+});
