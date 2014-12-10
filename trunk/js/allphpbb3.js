@@ -153,28 +153,28 @@ if (mp && mpindex) {
 var quicktopic = {
     color: "orange"
 };
-(function (e) {
-    function f() {
-        e("body").prepend('<div id="loading-bar" style="z-index: 9999; background-color: ' + quicktopic.color + '; position: fixed; top: 0; width: 20%; left: 0; height: 3px;"></div>');
-        document.forms.post.message.value = e("#text_editor_textarea").sceditor("instance").val();
-        e.post("/post", e(document.forms.post).serialize() + "&post=1", function (b) {
+(function (l) {
+    function m() {
+        l("body").prepend('<div id="loading-bar" style="z-index: 9999; background-color: ' + quicktopic.color + '; position: fixed; top: 0; width: 20%; left: 0; height: 3px;"></div>');
+        document.forms.post.message.value = l("#text_editor_textarea").sceditor("instance").val();
+        l.post("/post", l(document.forms.post).serialize() + "&post=1", function (g) {
             setInterval(function () {
                 "100%" != document.getElementById("loading-bar").style.width && (document.getElementById("loading-bar").style.width = parseInt(document.getElementById("loading-bar").style.width) + 10 + "%")
             }, 10);
-            window.location = void 0 == quicktopic.redirect ? b.match(/url=(.*?)"/)[1] : quicktopic.redirect
+            window.location = void 0 == quicktopic.redirect ? g.match(/url=(.*?)"/)[1] : quicktopic.redirect
         })
     }
-    var d;
-    d = void 0 == quicktopic.forums || "string" != typeof quicktopic.forums ? "\\d+" : quicktopic.forums.replace(/,\s?/g, "|");
-    RegExp("\\/?post\\?f=(" + d + ").*").test(window.location) && e(function () {
-        e("#text_editor_textarea").length && (e(window).on("beforeunload", function () {
-            if (e(".sceditor-container").find("textarea").val().length || e(".sceditor-container").find("i-frame").contents().find("body").text().length) {
-                return _userdata["username"]+ " todavía no has enviado el mensaje. "
+    var k;
+    k = void 0 == quicktopic.forums || "string" != typeof quicktopic.forums ? "\\d+" : quicktopic.forums.replace(/,\s?/g, "|");
+    RegExp("\\/?post\\?f=(" + k + ").*").test(window.location) && l(function () {
+        l("#text_editor_textarea").length && (l(window).on("beforeunload", function () {
+            if (l(".sceditor-container").find("textarea").val().length || l(".sceditor-container").find("i-frame").contents().find("body").text().length) {
+                return _userdata.username + " todavía no has enviado el mensaje."
             }
-        }), e(document.forms.post.post).on("click", function (b) {
+        }), l(document.forms.post.post).on("click", function (g) {
             $(window).off("beforeunload");
-            b.preventDefault();
-            f()
+            g.preventDefault();
+            m()
         }))
     })
 })(jQuery);
