@@ -1,54 +1,538 @@
-var TA="#text_editor_textarea",it="instance",urlb="https://adictos-al-gear.googlecode.com/svn/trunk/",qr="#quick_reply",ts=window.location.pathname,ind=ts==="/",sub=/\/?f\d+.*/.test(ts),fr=/\/?u(\d+)friends$/.test(ts),pu=/u\d+/.test(ts),pr=/\/profile/.test(ts),mp=/\/privmsg/.test(ts),sr=/\/search/.test(ts),by=/buy-credits/.test(ts),mm=/memberlist/.test(ts),st=/statistics/.test(ts),rg=/register/.test(ts),tm=/\/?t\d+.*/.test(ts),wl=/\/?u(\d+)wall$/.test(ts),in2=/\/?c\d+.*/.test(ts),md=/\/modcp/.test(ts),mer=/\/merge/.test(ts),ps=/\/post/.test(ts),sp=/\/spa/.test(ts),sa=/\/sta/.test(ts),ab=/\/abuse/.test(ts),lgi=/login/.test(ts),admin=/admin/.test(ts),mpst=/privmsg\?mode=post/.test(window.location),ias=ind||sub||in2||sr||mer||sa,sb=ind||sub||in2,sb2=rg||ind||sub||in2,lin="_userdata.session_logged_in == '1'",adds=tm||ind||rg;$.getCss=function(b,f){$(document.createElement("link")).attr({href:b,media:f||"screen",rel:"stylesheet",type:"text/css"}).appendTo("head")};if(ps||mp){function tagprefixo(){$('input[name=subject]').val($('select[name=tags4]').val()+$('input[name=subject]').val())};$(function(){$(function(){$('.sceditor-button-date').before('<a class="sceditor-button sceditor-button-emoticon" unselectable="on" title="Insertar un emoticon"><div unselectable="on"></div></a>');$('body').append('<div id="emoticonsFrame" class="sceditor-dropdown" style="display:none;"><iframe style="border:none;" width="220" height="350" src="/smilies.forum?mode=smilies_frame"></iframe></div>');$('.sceditor-button-emoticon').on("click",function(){$('#emoticonsFrame').css('left',$(this).offset().left);$('#emoticonsFrame').css('top',$(this).offset().top+25);if($('#emoticonsFrame').css('display')=='none')$('#emoticonsFrame').show();else $('#emoticonsFrame').hide()});$('.sceditor-button-source').on("click",function(){$('.sceditor-button-emoticon').removeClass('disabled')});$('.sceditor-button').not('.sceditor-button-emoticon').on("click",function(){$('#emoticonsFrame').hide()});$('.sceditor-container textarea').focus(function(){$('#emoticonsFrame').hide()});$('.sceditor-container iframe').contents().mousedown(function(){$('#emoticonsFrame').hide()});$('#smiley-box').hide();$("#textarea_content").attr("style","width:100%!important");$(".sceditor-group").attr("style","margin-right:-33px!important;margin-left:31px!important;background:#c0dcef!important;border-radius:0!important");$(".sceditor-group").has(".sceditor-button-fascroll").add($(".sceditor-group").has(".sceditor-button-subscript")).add($(".sceditor-button-more")).remove();if($(".page-title").text()==="Publicar un nuevo tema"){$("textarea").attr("placeholder",_userdata.username+" redacta tu nuevo tema, no olvides seleccionar el prefijo correspondiente")}
-if($(".page-title").text()==="Enviar un nuevo mensaje privado"){$("textarea").attr("placeholder",_userdata.username+" redacta un mensaje privado")}
-if($(".page-title").text()==="Publicar una respuesta"){$("textarea").attr("placeholder",_userdata.username+" escribe tu comentario...")}});var sHtmlPrefx='<select id="prefCA" name="tags4" onchange="tagprefixo()">'+'<option value="">'+'(Sin prefijo)'+'</option>'+'<option value="[Tema]">'+'Tema'+'</option>'+'<option value="[Nota]">'+'Nota'+'</option>'+'<option value="[Tutorial]">'+'Tutorial'+'</option>'+'<option value="[CSS]">'+'css'+'</option>'+'<option value="[jQuery]">'+'jquery'+'</option>'+'<option value="[novedades]">'+'novedades'+'</option>'+'<option value="[html]">'+'html'+'</option>'+'<option value="[staff]">'+'staff'+'</option>'+'<option value="[ayuda]">'+'ayuda'+'</option>'+'<option value="[recursos]">'+'recursos'+'</option>'+'<option value="[Resuelto]">'+'Resuelto'+'</option>'+'<option value="[CSS]">'+'CSS'+'</option>'+'<option value="[phpBB3]">'+'phpBB3'+'</option>'+'<option value="[phpBB2]">'+'phpBB2'+'</option>'+'<option value="[Invision]">'+'Invision'+'</option>'+'<option value="[PunBB]">'+'PunBB'+'</option>'+'<option value="[Javascript]">'+'Javascript'+'</option>'+'<option value="[Cerrado]">'+'Cerrado'+'</option>'+'</select> ';try{$('#postingbox').find('input[name=subject]').after(sHtmlPrefx);var mode=$('input[value=reply]').val();if(mode=='reply'){$('select[name=tags4]').css('display','none')}else if(mode=='quote'){$('select[name=tags4]').css('display','none')}}catch(e){if(typeof(console)!='undefined'){console.error(e)}}});}
-if(wl){var twall="Dejar un mensaje en el muro de USERNAME...",Nwall='<div style="margin: 10px auto; width: 90%; color:red">Error enviando el mensaje, recarga la pagina e intenta de nuevo.</div>',rwall='<div style="width: 100%; text-align:center; margin: 50px 0;"><img src="http://www.adictosalgear.org/adictosalgear/files/lodwall.gif"></div>',qwall="Perderas tu mensaje escrito si vas al editor avanzado ¿estas seguro?";$(function(){var a=$('.message-header a');if(a){for(i=0;i<a.length;i++){if((/\/u(\d+)$/g).test(a[i].href)){a[i].href=a[i].href+'wall'}}}
-var b=document.getElementById("new-message-link"),l=document.title.replace(/.*?-\s(.*?)$/,"$1");if(b){var d=$("#cp-main .inner").before('<div id="AAGquickvm_rubbish"></div><form id="AAGquickvm_form" name="post"><div id="AAGquickvm_bb"><span rel="b" style="font-weight:bold">B</span><span rel="u" style="text-decoration: underline">U</span><span rel="i" style="font-style: italic">I</span><span rel="url">URL</span><span rel="img">IMG</span><span rel="quote">"Citar"</span></div><div id="AAGquickvm_main"><textarea id="AAGquickvm_message" placeholder="Enviar mensaje..." name="message"></textarea></div><div id="AAGquickvm_foot"><span id="AAGquickvm_send">Enviar Mensaje</span><span id="AAGquickvm_advanced">Editor de texto avanzado</span></div></form>')[0],c=document.getElementById("AAGquickvm_message"),f=document.getElementById("AAGquickvm_rubbish");c&&(c.setAttribute("placeholder",twall.replace("USERNAME",l)),$("#AAGquickvm_advanced").on("click",function(){confirm(qwall)&&(window.location=b.firstChild.href)}),$("#AAGquickvm_bb span").on("click",function(){var g=this.getAttribute("rel");c.value+="["+g+"]";c.focus();c.value+="[/"+g+"]"}),$("#AAGquickvm_send").on("click",function(){var g=c.value;d.innerHTML=rwall;c.value="";$.post("/privmsg",{username:l,folder:"profile",mode:"post_profile",lt:"",post:1,message:g,subject:"Mensaje para "+l},function(h){0<h.indexOf("Tu mensaje ha sido enviado")?$(f).load(location.pathname+" #cp-main .inner",function(){var i=f.firstChild;$(d).replaceWith(i);d=i;f.innerHTML=""}):(c.value=g,d.innerHTML=Nwall)})}))}})}
-window.open=function(){return{focus:function(){}}};$("meta[http-equiv='refresh'][content]:first").each(function(){window.location.href=$(this).attr("content").replace(/^.*;url=/,"")});$(function(){_lang.Welcome='';_lang["Reputation"]='Me gusta';var style=document.createElement('STYLE');style.id='navScrollStyle';style.innerHTML='#page-header .linklist { margin:0px; }#page-header .navbar .inner{margin-top:-42px} #page-header .mainmenu { padding:9px 6px; background-position:0 37px;} #search_menu.overview.row3{top: 94px!important;}.author-titulo strong{font-size:10px;margin-top:0!important}.avatar-titulo {width: 20px!important;height: 20px!important}.author-titulo{color:#fff;text-shadow:none}';var scrollNav=function(){_scroll=$(window).scrollTop();if(_scroll>=130){$('head').append(style);if($('#fa_toolbar').css('margin-top')=='-30px'){$('#page-header').find('.navbar').find('.navlinks').attr('style','position:fixed!important;top:0px!important;left:8px!important;right:0!important;z-index:900!important;height:49px!important;width:100%;')}else{$('#page-header').find('.navbar').find('.navlinks').attr('style','position:fixed!important;top:41px!important;left:8px!important;right:0!important;z-index:900!important;height:49px!important;width:100%;box-shadow: 0 0 0 1px #000;');if(tm){$(".page-title").attr('style','position:fixed!important;top:21px!important;left:36%;right:0!important;z-index:900!important;height: 49px!important;width: 100%;font-size: 15px;text-transform: capitalize;text-shadow: 0 1px #fff;');$(".page-title").find("a").attr("style","display: inline-block;max-width: 700px;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;font-size: 14px;color: #fff; text-shadow: none;")}}}
-if(_scroll<130){$('#navScrollStyle').remove();$('#page-header').find('.navbar').find('.navlinks').removeAttr('style');if(tm){$('.page-title').add(".page-title a").removeAttr('style')}}};scrollNav();$(window).scroll(function(){scrollNav()});});$(function(){if(pr){$("#main").addClass("profile-fix")}
-if(!ind){$(".navbar.bottom").attr("style","border-top:1px solid #666");}
-if(ind){document.title="phpBB3 Open source";$(".forabg").addClass("index-box");$(".icon").has('a[href$="?view=newest"]').addClass("newpost");var h=$('.forabg').find('.hierarchy').get();for(var i=0,l=h.length;i<l;i++){var fid=h[i].firstChild.href.replace(/.*f(\d+)-.*/,'$1');var x=document.createElement('span');x.style.float='left';x.innerHTML='<div id="acc"  original-title="Crear un tema"><a rel="nofollow" href="/post?f='+fid+'&mode=newtopic"></a></div>';h[i].appendChild(x)}
-var $datatip=$(".estadisticas").find(".log-in");if($datatip.find('a').length>=40){var a=$('.log-in').find('a');if(a){for(i=0;i<a.length;i++){if((/\/u(\d+)$/g).test(a[i].href)){a[i].href=a[i].href+'wall'}}}}else{$datatip.find('strong').hide().add($(".estadisticas").find(".log-in").attr("style","font-size:0"));$datatip.find('a').each(function(){var d=$(this).attr("href");var c=$(this).text();$(this).load(d+"#main-content #profile-advanced-right img:eq(0) ",function(){this.className="t_avatar";$(this).children("img").before("<div id='datatip' style='font-size:10px!important;padding: 15px 5px;'>"+c+"</div>");var a=$('.t_avatar');if(a){for(i=0;i<a.length;i++){if((/\/u(\d+)$/g).test(a[i].href)){a[i].href=a[i].href+'wall'}}}
-$(this).hover(function(){$(this).find("#datatip").fadeToggle()})})})}}
-if(pr||sr){$("#tabs").find("li").eq(4).find("span").text("Amigos");if(document.title==="Editar mi perfil"){$("fieldset").eq(2).find("dl").eq(2).nextAll().not($("fieldset").eq(2).find("dl").eq(8)).remove();}
-$("#tabs").find("span").eq(1).prepend('<img src="https://cdn2.iconfinder.com/data/icons/flat-ui-icons-24-px/24/settings-24-16.png" style="width:12px;display:inline-table;margin-right:3px"/>');$("#tabs").find("span").eq(0).prepend('<img src="https://cdn4.iconfinder.com/data/icons/miu/22/editor_list_view_hambuger_menu_-16.png" style="width:12px;display:inline-table;margin-right:3px"/>');$("#tabs").find("span").eq(2).prepend('<img src="https://cdn0.iconfinder.com/data/icons/iconsweets2/40/pen_signature.png" style="width:12px;display:inline-table;margin-right:3px"/>');$("#tabs").find("span").eq(3).prepend('<img src="https://cdn0.iconfinder.com/data/icons/users-android-l-lollipop-icon-pack/24/checked_user-16.png" style="width:12px;display:inline-table;margin-right:3px"/>');$("#tabs").find("span").eq(4).prepend('<img src="https://cdn0.iconfinder.com/data/icons/users-android-l-lollipop-icon-pack/24/add_user-16.png" style="width:12px;display:inline-table;margin-right:3px"/>');$("#tabs").find("span").eq(5).prepend('<img src="https://cdn2.iconfinder.com/data/icons/pittogrammi/142/100-16.png" style="width:12px;display:inline-table;margin-right:3px"/>');$("#tabs").find("span").eq(6).text("Supervisados").prepend('<img src="https://cdn3.iconfinder.com/data/icons/google-material-design-icons/48/ic_bookmark_48px-16.png" style="width:12px;display:inline-table;margin-right:3px"/>');$("#tabs").find("span").eq(7).prepend('<img src="https://cdn4.iconfinder.com/data/icons/sound-and-audio/32/black_5_favorite_cricle_star-16.png" style="width:12px;display:inline-table;margin-right:3px"/>');$("#tabs").find("span").eq(8).prepend('<img src="https://cdn1.iconfinder.com/data/icons/black-socicons/512/hashtags-16.png" style="width:12px;display:inline-table;margin-right:3px"/>');}
-if(document.title==="Amigos e ignorados"){document.title="Amigos";$("#main-content").addClass("user-ctrl-friends");$(".page-title").eq(3).nextAll().andSelf().remove();}
-if(rg){if($("input.inputbox.narrow").length){var forreg=$("#form_confirm");$("fielset.fields2",function(){forreg.find("dl").last().find(".button2[value='Inicializar de nuevo']").hide();forreg.find("dl").eq(2).find("input").val("58210");forreg.find("dl").eq(4).find("dd").html("<select name='fec_ncto'><option value='11-12-1980' selected='selected'>1975</option></select>");forreg.find("dl").eq(5).find("option").eq(1).attr("selected",true);forreg.find("dl").eq(6).find("option").eq(1).attr("selected",true);forreg.find("dl").eq(7).find(" option").eq(1).attr("selected",true);forreg.find("dl").eq(8).find("input[value='1']").attr("checked",true);forreg.find("dl:gt(0)").not(":last").hide();forreg.find("dl:gt(1)").not(":last").hide()})}}
-if(location.pathname.match(/f[0-9]+-/)){$(".linklist.top").remove();$(".forabg").attr("style","width:98%")}
-$('a[href="/login"]').attr("href","/login?redirect="+encodeURIComponent(location.pathname+location.search));$.getScript("https://adictos-al-gear.googlecode.com/svn/trunk/js/allphpbb3.js");if(pu){$("#profile_field_2_-20").focus(function(){var user=$("#profile-advanced-right").find(".h3").first().find("strong").text();$(this).val(($(this).val()?$(this).val()+"\n":"")+('[img]https://cdn1.iconfinder.com/data/icons/prettyoffice8/16/Flag-red.png[/img]')+new Date().getDate()+"/"+(new Date().getMonth()+1)+"/"+(new Date().getFullYear()-2000)+" Moderado por ([url="+$('#fa_menulist li a[href*="/u"]').attr("href")+"][b]"+_userdata.username+"[/b][/url])"+" : ").unbind("focus");$.post('/privmsg',{folder:'inbox',mode:'post',post:'1',username:''+user+'',subject:'Mensaje automático: Fuiste moderado',message:'Este mensaje es enviado automáticamente:\n  Fuiste  moderado por un miembro de la administración,  te recomiendo leer el reglamento, puedes ver el motivo en tu perfil\n  No responder este mensaje.'}).done(function(){alert(_userdata.username+" se envió un mensaje al usuario que estas moderando")})});var onlineimg=$("#profile-advanced-right").find(".h3").find("em").text(),name=$("#profile-advanced-right").find(".module").eq(0).find("strong").eq(0).text(),pestañaamigos=$("#tabs").find("li").eq(3).find("span").text(),nametoolbar=_userdata.username,frdsdata=$("#profile-advanced-right").find(".module").eq(0),estoyenlinea=document.getElementById("profile-advanced-right");if(estoyenlinea)
-if($(".h3",estoyenlinea)[0].getElementsByTagName("em")[0]){var c=document.createElement("div");$(c).load("/viewonline .forumbg",function(){for(var e=0,t=c.getElementsByTagName("a"),n;n=t[e++];)0<=window.location.href.indexOf(n.href)&&(n=n.parentNode.parentNode.lastChild.innerHTML,estoyenlinea.getElementsByTagName("img")[1].parentNode.innerHTML+='<div class="newonlineprofile"><span class="forum-location"> Estoy: '+n+"</span></div>");$(".newonlineprofile").eq(0).nextAll().remove();if(name==nametoolbar){$('.newonlineprofile').eq(0).find('a').text('Viendo mi perfil');}})}else estoyenlinea.getElementsByTagName("img")[1].parentNode.innerHTML+='<br><span class="forum-location-not">No estoy en el foro</span>';if(onlineimg==="(en línea)"){$("#profile-advanced-right").find(".h3").find("em").attr("style","font-size:0!important").html('<span><img src="http://hitsk.in/t/17/91/11/i_icon_mini_online.png" style="border-radius:0;border:none;margin-bottom:-10px"/></span>');}else{$("#profile-advanced-right").find(".module").find("strong").eq(0).after('<span><img src="http://hitsk.in/t/17/91/11/i_icon_mini_offline.png" style="border-radius:0;border:none;margin-bottom:-10px"/></span>');}
-$("#tabs").find("span").eq(3).text('Amigos');if(fr){$("#profile-advanced-details").addClass("amigos");if(name==nametoolbar){$("#tabs").find("span").eq(3).text('Mis amigos');$("#cp-main").find("h1").addClass("fr-titulo").html("<p class='friendtitulo' style='font-size:18px!important;color:#333;display:block'>"+_userdata.avatar+"Mis amigos</p>");$("#cp-main").find(".friendtitulo").find("img").attr("style"," background: none;border: 1px solid #333;width:20px; border-radius:100%;display:inline-table;margin-bottom:-5px;margin-right:3px");$('title').html("Mis amigos");}else{$("#tabs").find("span").eq(3).text('Amigos de '+name);$("#cp-main").find("h1").addClass("fr-titulo").html("<p class='friendtitulo' style='font-size:18px!important;color:#333;display:block'> Amigos de <span class='imgfrs'></> "+name+"</p>");$("#profile-advanced-right").find(".module").eq(0).find("img").eq(1).clone().prependTo(".imgfrs");$("#cp-main").find(".imgfrs").find("img").attr("style"," background: none;border: 1px solid #333;width:20px; border-radius:100%;");$('title').html("Amigos de "+name);}}
-if(wl){$("#main-content").addClass("wall");$("#cp-main").find(".inner").contents().filter(function(){return this.nodeType===3;}).wrap("<p style='display:table;margin:0 auto'></p>");var nomesswalltxt=$("#cp-main").find(".inner").find("p").text();if(nomesswalltxt==="Ningún mensaje"){$("#cp-main").find(".inner").append('<center><img src="https://cdn1.iconfinder.com/data/icons/hawcons/32/699691-icon-20-sad-face-eyebrows-256.png"></center>');}
-$(".message-footer").find("li").find('a[href*="wall?s"]').addClass("walldelete").html('<img src="http://www.adictosalgear.org/adictosalgear/files/whd.png" />');$(".message-block").find(".last").find('a').addClass("wallmove").html('<img src="http://www.adictosalgear.org/adictosalgear/files/wdlt.png" />');var walldata=$("#profile-advanced-right").find(".module").eq(0),name=$("#profile-advanced-right").find(".module").eq(0).find("strong").eq(0).text();if(name==nametoolbar){$("#cp-main").find("h1").hide().after("<p class='walltitulo'> Mi muro</p>");walldata.find("img").eq(1).clone().prependTo(".walltitulo");$('title').html("Mi muro");$("#tabs").find("span").eq(0).text('Mi muro');walldata.find("img").eq(1).clone().appendTo("#AAGquickvm_bb")}else{$("#cp-main").find("h1").hide().after("<p class='walltitulo'> Escribe un mensaje en el muro de </p>");walldata.find("strong").clone().appendTo(".walltitulo");walldata.find("img").eq(1).clone().prependTo(".walltitulo");$('title').html("Muro de "+name);$("#tabs").find("span").eq(0).text('Muro de '+name);$(_userdata.avatar).appendTo("#AAGquickvm_bb");}
-$('.message-header').find('a').attr("original-title","ir al muro de tu amigo");}
-if(!wl){$("#new-message").find("#tabs").find("span").first().text("Muro");}
-$("h1.page-title").remove();$("#main-content").addClass("profile_fix");$("#tabs").find("span").eq(0).prepend('<img src="https://cdn2.iconfinder.com/data/icons/free-mobile-icon-kit/16/Wall.png" style="width:10px;display:inline-table;margin-right:3px"/>');$("#tabs").find("span").eq(1).prepend('<img src="https://cdn2.iconfinder.com/data/icons/free-mobile-icon-kit/16/List_bullets.png" style="width:10px;display:inline-table;margin-right:3px"/>');$("#tabs").find("span").eq(2).prepend('<img src="https://cdn0.iconfinder.com/data/icons/duesseldorf/16/statistics.png" style="width:10px;display:inline-table;margin-right:3px"/>');$("#tabs").find("span").eq(3).prepend('<img src="https://cdn0.iconfinder.com/data/icons/duesseldorf/16/customers.png" style="width:10px;display:inline-table;margin-right:3px"/>');$("#tabs").find("span").eq(4).prepend('<img src="https://cdn0.iconfinder.com/data/icons/duesseldorf/16/my-account.png" style="width:10px;display:inline-table;margin-right:3px"/>');}
-if(!wl){var $mesblock=$(".message-block"),$nomess=$mesblock.length===0,$mesheader=$(".message-header");$(".wiaag").load('u'+_userdata.user_id+'wall #profile-advanced-details  li:lt(12)',function(){if($nomess){$("#profile-advanced-details2").append('<div class="nomess" >'+_userdata.username+', no tienes mensajes en tu muro</div>');if($('a[href="/login"]').length){$("#left").find(".nomess").text("Conectate para ver tu muro")}}else{$("li").has('a[title="Mover en los archivos de los MP"]').add("li.last").remove();$mesblock.first().has('img[alt="Nuevo mensaje"]').addClass("new-messwall");$mesheader.find("a").attr("title","ir al muro de tu amigo").css("float","right");var a=$('.message-header').find("a");if(a){for(i=0;i<a.length;i++){if((/\/u(\d+)$/g).test(a[i].href)){a[i].href=a[i].href+'wall'}}}}})}
-$('<div id="news_auto_refresh" class="aag_news"/>').appendTo('.headerbar');var u=5;var C=function(b,a){a=b.getElementsByTagName(a)[0];return(a&&a.firstChild&&a.firstChild.nodeValue)||"";},D=document.getElementById("news_auto_refresh");if(!D){return;}
-function A(){$.get("/feed",function(g){var m=g.getElementsByTagName("item"),a=0,b=null;var c='<div class="inner_news"><div class="news_title">TEMAS RECIENTES</div><div class="news_topics">';for(;(b=m[a++]);){var l=C(b,"title"),f=C(b,"description"),i=C(b,"link"),d=C(b,"pubDate");var k=b.getElementsByTagName("guid")[0].nextSibling.firstChild.nodeValue;c+='<div class="news_topic"><a href="'+i+'" class="news_topic_title" onmouseover="$(this.nextSibling).show()" onmouseout="$(this.nextSibling).hide()">'+l+"</a>";c+='<div class="news_topic_desc" style="display:none">'+f+'</div><span class="news_topic_author">'+k+'</span><span class="news_topic_time"></span></div>';if(a>=u){break;}}
-var h=(new Date()).getHours()+":",j=(new Date()).getMinutes();D.innerHTML=c+'</div></div ><div id="newupdate">Actualizado: '+h+(j<10?"0"+j:j)+"</div>";});}
-setInterval(A,80000);A();if(_userdata.session_logged_in===1){var a=function(a){return document.getElementById("i_icon_mini_"+a)};var b=a("new_message");pmno="0 Mensajes";b?(pmno=parseInt(b.title.replace(/\D/g,'')),pmno='<div class="TRnotice" style="display:inline">'+pmno+" Mensaje"+(1<pmno?'s':'')+"</div>"):b=a("message");b.parentNode.innerHTML=pmno;}
-$('#search_menu').load('/search #main-content form');$(".linklist.navlinks").find("li:lt(4)").not("li:eq(0)").remove();$(".linklist.navlinks").find("li:eq(1)").find("a").text("Usuarios");$(".linklist.navlinks").find("li:eq(2)").find("a").text("Grupos");$(".linklist.navlinks").find('a.mainmenu[href^="/login?logout=1"]').html('Salir');$(".linklist.clearfix").find(".rightside").find("a:lt(3)").not("a:eq(1)").remove();$('.copyright').find('a').attr('style','font-size:13px;color:#fff!important;margin-right:-9px').text('Panel de administración ').prependTo('#page-footer .rightside');setInterval(function(){$("#notif_unread").length&&$("#notif_unread").text(function(aagnotif,aagpts){return aagpts.replace(/\(|\)/g,"")});$("#fa_toolbar ul#notif_list a").attr("style","text-decoration:none!important");},10);if(!$("a#logout.mainmenu").length&&adds){$("#main-content").find("div").first().css("display","none");}
-if($('.forabg').find('ul.forums')[0]){$('.hierarchy').next().remove();x=$('.forabg').find('ul.forums').find('dl.icon').get();for(i=0;i<x.length;i++){var topics=x[i].childNodes[1].childNodes[0].nodeValue;var posts=x[i].childNodes[2].childNodes[0].nodeValue;$(x[i]).find('.hierarchy').after('<div class="topicsposts"><span class="hidepost"><b>'+topics+'</b> Temas, <b>'+posts+'</b> Posts</span></div>')}
-$('.forabg').find('dd.topics').add('dd.posts').remove();}
-$("#fa_toolbar",function(){$("#fa_usermenu").find("tr").eq(1).remove();$("#fa_search #fa_textarea").attr({placeholder:"Busca en phpBB3 OS",style:"font-size:12px;background:#fff!important;width:100%;padding:0px;border:1px solid orange;margin:-0.0625em 3px 10px;height:22px!important;outline:none;margin-top:3px;line-height:15px!important;border-radius:3px!important"});var avatar=_userdata.avatar,$welcome=$("#fa_welcome");$welcome.prepend(avatar);$("#fa_welcome").add(".img-index").find('img').wrap('<a href="'+$("#fa_menulist").find('li').find('a').first().attr('href')+'wall'+'">').attr("original-title","Ir a mi muro");if(!$('meta[name=viewport]').length){var d=compileNotif;Toolbar.compileNotif=compileNotif=function(b){var a=d(b);if(b.text.type==FA.Notification.NOTIF_TOPIC_WATCH){var c=a.match(/^(.*) ha escrito un mensaje en (<a href="\/t[0-9]+(p[0-9]+)?-([^#"]*)#[0-9]+">)[^<]+<\/a>$/);c&&(b=c[1]+" también ha comentado en : "+c[2],a=c[4].replace(/\?nid=(\d+)/g,""),a="topic"==a||/^[\s-]*$/.test(a)?"este tema":a.replace(/-/g," ").replace(/(^\s+|\s+$)/g,""),a=b+a+"</a>")}
-return a}}
-$("#fa_service").add("#fa_share").add("#fa_icon").remove();});if(sub){$(".icon").find('strong:contains([ Sondeos ])').replaceWith('<span class="prefix votaciones">Votaciones</span>');$(".header").find(".posts").text("Posts");$(".nomargin.path").find("a.nav").eq(1).remove();$(".nomargin.path").find("a.nav").eq(0).text("Indice");$("#info_open").nextAll().remove();$('a.topictitle').after(' <img id="topicPreview" src="http://i56.servimg.com/u/f56/18/45/41/65/new_wi10.gif" title="Previsualizar tema" alt="Preview" style="cursor:pointer;" />');$('img#topicPreview').on("click",function(){$('body').append('<div id="preview-filter" style="position:fixed;left:0;right:0;top:0;bottom:0;background:rgba(0,0,0, 0.5);cursor:pointer;z-index:10;"></div>'+'<div id="topicPreview-container" style="top:20%;left:15%;right:15%;padding:4px;position:fixed;z-index:50;background:#D1D1D1;border-radius:5px;box-shadow:0px 0px 2px rgba(0,0,0, 0.5) inset;">'+'<div class="topicprv_popup_nav">'+'<span class="topicprv_tab" id="close_prvpopup" style="float:right;margin-top:-4px;">Cerrar</span></div>'+'<div id="topicPreviewing" style="max-height:400px;overflow-y:auto;">'+'<center>'+'<span class="topicPreview-loading" style="font-weight:bold;font-size:18px;">'+'cargando...'+'</span>'+'</center>'+'</div>'+'</div>');$('#topicPreviewing').load(jQuery(this).siblings('a.topictitle').attr('href')+' .post:eq(0)');$('#preview-filter, #close_prvpopup').on("click",function(){$('#preview-filter, #topicPreview-container').remove();});});var sHtml='<a class="bim_thumbPreview">'+'<div style="padding: 1px; border: 1px solid #d5d5d5;">'+'<div class="thumbIMG">'+'<div class="bim_img_container" style="overflow: hidden; background-image: none;">'+'<img src="http://illiweb.com/fa/empty.gif" class="bim_mainThumb">'+'</div>'+'</div>'+'</div>'+'<span class="previewIMG"><img src="http://i55.servimg.com/u/f55/18/17/62/92/no_ima10.jpg"></span>'+'</a>';var oTarget=0,sFound='td:eq(2)',sInsert='',sCommon='a.topictitle',sOverflow='auto',sGetIMG='';var phpBB3=$('.topiclist.topics.bg_none li:not(":empty")');if(phpBB3.length){oTarget=phpBB3;sFound='dd.dterm';sInsert='div.topic-title-container';sOverflow='inherit';sGetIMG='#main-content .post:first .content img:first';}
-oTarget.each(function(index){var oFound=$(this).find(sFound);if(oFound.length){var oInsert=oFound.find(sInsert);var sUrl=oFound.find(sCommon).attr('href');var ID='Udyat_'+index;oFound.attr('id',ID);oFound.css('overflow',sOverflow);$(sHtml).insertAfter(oInsert);var elem=document.getElementById(ID);if(isInViewPort(elem)){$.get(sUrl,function(data){var oImg=$(sGetIMG,data);var sImg='';if(oImg!==undefined){sImg=oImg.attr('src');if(sImg!==undefined){oFound.find('.bim_img_container img').attr('src',sImg);oFound.find('.previewIMG img').attr('src',sImg);}else{oFound.find('.bim_img_container img').attr('src','http://i55.servimg.com/u/f55/18/17/62/92/no_ima10.jpg');}}});}else{$(window).on('scroll.'+sUrl,showImage(sUrl,elem,oFound,sGetIMG));}}});function isInViewPort(elem){var rect=elem.getBoundingClientRect();return(rect.top>=0&&rect.left>=0&&rect.bottom<=(window.innerHeight||document.documentElement.clientHeight)&&rect.right<=(window.innerWidth||document.documentElement.clientWidth));}
-function showImage(event,elem,oBject,sString){return function(){if(isInViewPort(elem)){$(window).off('scroll.'+event);$.get(event,function(data){var oImg=$(sString,data);var sImg='';if(oImg!==undefined){sImg=oImg.attr('src');if(sImg!==undefined){oBject.find('.bim_img_container img').attr('src',sImg);oBject.find('.previewIMG img').attr('src',sImg);}else{oBject.find('.bim_img_container img').attr('src','http://i55.servimg.com/u/f55/18/17/62/92/no_ima10.jpg');}}});}}}}
-if(sub||tm){$(".pathname-box").add(".nomargin.path").html($($(".pathname-box").add(".nomargin.path")).html().replace(/::/g,""));}
-if(tm||sb){$(".plusmenu").find("a").first().text("+");$(".pathname-box").last().find(".nav").eq(1).remove();$("#plus_menu").find("a").eq(5).add($("#plus_menu").find("a").eq(6)).remove();var link4=$("#plus_menu").find(".left-overview").find("a").eq(4);$("<br>").add(link4).appendTo($("#plus_menu").find(".left-overview").find("strong").first());$("#plus_menu").find(".left-overview").last().remove();$(".pathname-box").find("a").first().add($(".pathname-box").last().find("a").first().text("Indice")).text("Indice")}});if(tm){var like_system={dom_ready:false,vote_singular:"Usuario le gusta esto",vote_plural:"Usuarios les gusta esto",callback:function(a,b){jQuery("span.corners-top",a.parentNode.parentNode).after(b)}};$(function(){like_system.dom_ready=true;var r=10;var az=parseInt($("div.pagination")[0].getElementsByTagName("strong")[0].innerHTML);az=(az-1)*r;for(y=0;y<r;y++){if($(".postprofile")[y]){var n=$(".topic-title")[y].getElementsByTagName("a")[0].href;x=$($("h2")[y]).prepend('<span class="postnumber">#<a href="'+n+'">'+(y+1+az)+"</a></span>")}}
-$(".postprofile").find(".f_a2").contents().filter(function(){return this.nodeType===3;}).wrap("<p></p>");$(".post").first().find(".author").clone().addClass("author-titulo").appendTo(".page-title");$(".post").first().find(".postprofile").find("img").eq(0).clone().addClass("avatar-titulo").prependTo("h1");$('a[href^="/profile?mode=email&u="]').find("img").replaceWith('<p class=email style="display:inline;">Email</p>');$('a[title="Enviar mensaje privado"]').find("img").replaceWith('<p class=mp style="display:inline;">MP</p>');$('a[title="Ver perfil de usuario"]').find("img").replaceWith('<p class="perfil" style="display:inline;">Perfil</p>');$('a[title="Visitar el sitio web del autor"]').find("img").replaceWith('<p class="www" style="display:inline;">www</p>');$(".pathname-box").find(".nav").eq(1).remove();$.getScript("https://adictos-al-gear.googlecode.com/svn/trunk/js/perfil.js");var codebox=$(".postbody").first().find(".codebox").length;var userlevelcode=_userdata.user_level===0;var userlogcode=_userdata.session_logged_in===0;if(codebox&&userlevelcode&&userlevelcode){$(".codebox").find("dd").find("code").attr("style","font-size:0");setTimeout(function(){$(".panda-line:first").after('<center><b style="color:#fff;font-size:14px!important">Dedes ingresar al foro para ver el código</b></center>');},500);}});function AAGlike(f,c){var e=c.innerHTML;c.innerHTML="Cargando...";c.onclick="#",jQuery.get(f,function(){c.className+=" AAGnovote";c.innerHTML=e;var a=c.nextSibling,b=parseInt(/\d+/.exec(a.innerHTML)[0])+1;a.innerHTML=a.innerHTML.replace(/\d+/,b)})}
-function init_like_system(){for(var f=jQuery(".vote"),j=0,e;(e=f[j++]);){var c=0,b=0,d=jQuery(".vote-bar",e)[0],a=jQuery(".vote-button",e)[0];if(d){var h=d.title.match(/\d+/g);b=Math.round(parseInt(h[1])*parseInt(h[0]))/100}
-a=a?"<span onclick=\"AAGlike('"+a.firstChild.href+'\',this);" class="AAGlike">'+like_system.vote_singular+"</span>":'<span class="AAGlike AAGnovote">'+like_system.vote_singular+"</span>";var k='<span class="AAGlikecount">'+b+" "+(b==1?like_system.vote_singular:like_system.vote_plural)+"</span>";var g='<div class="AAGvote" style="margin:3px">'+a+k+"</div>";if(like_system.callback){like_system.callback(e,g)}}
-f.remove()}
-like_system.dom_ready?init_like_system():jQuery(function(){init_like_system();$(".AAGlike").on("click",function(){var x=$(this).parents('.post'),user=x.find('.author a').text(),remitente=_userdata.username,numerotema=x.find('.inner div').first().attr('id'),posttext=x.find(".zeditor-message:last").find("span").text(),UID=x.find('.author a').attr('href');nombretema=x.find("h2").find("a:eq(1)").text();$.post('/privmsg',{folder:'inbox',mode:'post',post:'1',username:''+user+'',subject:'A '+remitente+' le gusta tu post en:'+nombretema+'#'+numerotema+'',message:'Este mensaje es enviado automaticamente de el tema [b]'+nombretema+'[/b]\n  A [b]'+remitente+'[/b] le gustó el post:'+'[b][url='+document.location.href+']#'+numerotema+' [/url][/b]:\n [quote]'+user+':\n'+posttext+'[/quote]'})})});}
-(function(){var h={expando:"{BB:"+(new Date).getMilliseconds()+"}",bbcodes:{},basics:[],attrReg:/([\w-]+)=("|'|)(.*?)\2(?=[\s\]])/g,parseTag:function(a,b,c){for(var d=b.insensitive?"i":"",e="\\["+b.tag+"[^\\]]*?\\]",k="\\[\\/"+b.tag+"\\]",d=c?RegExp("("+e+")(?!.*"+e+")((?:.|[\\r\\n])*?)"+k,d):RegExp(e,d),l=[];d.test(a);)a=a.replace(d,function(a,d,e){c||(d=a);var f={},g;for(g in b.defaultAttr)f[g]=b.defaultAttr[g];d=h.attrReg.test(d)?d.match(h.attrReg):[];if(d.length)
-for(var k=0;g=d[k++];)(a=/([\w-]+)=['"]?(.*?)['"]?$/.exec(g))&&a.length&&(a[1]===b.tag&&(a[1]="default"),f[a[1]]=a[2]);if(b.validate&&(c?!b.validate.call(b,e,f):!b.validate.call(b,f)))return l.push(a),h.expando;a=b.replacement;b.replace&&(g=c?b.replace.call(b,e,f):b.replace(f),"string"===typeof g?a=g:g&&"object"===typeof g&&(e=g.content||e,f=g.attr||f,"string"===typeof f&&(f={"default":f})));return h.swapReplacers(a,e,f)});for(d=0;e=l[d++];)a=a.replace(h.expando,e);return a},swapReplacers:function(a,b,c){if(!a)return"";b||(b="");c||(c={});a=a.replace(/{CONTENT}/g,b);for(var d in c)a=a.replace(RegExp("{ATTR-"+d.toUpperCase()+"}","g"),c[d]);c["default"]&&(a=a.replace(/{ATTR}/g,c["default"]));return a.replace(/{ATTR(-[A-Z-]+)?}/g,"")},parse:function(a){var b=h.bbcodes,c=h.basics;h.expando="{BB:"+(new Date).getMilliseconds()+"}";for(var d=0,e;e=c[d++];){var k=e[0];if("string"===typeof k&&-1===e[1].indexOf(k))
-for(;-1!==a.indexOf(k);)a=a.replace(k,e[1]);else a=a.replace(k,e[1])}
-for(var l in b)
-if(b.hasOwnProperty(l)&&(c=b[l])&&c.replacement&&c.tag)try{a=h.parseTag(a,c,c.close)}catch(m){console.log("BB: Error parsing "+c.tag+" tag.",m)}
-return a},add:function(a,b){if(!/^\w+$/.test(a))throw new Exception("Invalid BB tag name: "+a);b.tag||(b.tag=a);b.defaultAttr?"string"===typeof b.defaultAttr&&(b.defaultAttr={"default":b.defaultAttr}):b.defaultAttr={};"close"in b||(b.close=!1);h.bbcodes[a]=b;return this},addSwap:function(a,b){h.basics.push([a,b]);return this}};window.BB=h})();$(function(){var p=$('.post .content');for(var i=0,post;(post=p[i++]);){var codes=post.getElementsByTagName('code'),store=[];for(var j=0,c;(c=codes[j++]);){store.push(c.innerHTML);c.innerHTML=''}
-post.innerHTML=BB.parse(post.innerHTML);for(var s,j=0;(s=store[j]);)codes[j++].innerHTML=s}});BB.add("post",{close:true,replacement:"{CONTENT}",validate:function(content,attr){return /#\d+$/.test(content.replace(/<[^>]+>/g,""))},replace:function(content){content=content.replace(/<[^>]+>/g,"");var postnum=content.substr(content.lastIndexOf("#")+1);return'<span class="LGpopup_post" onclick="LGpopup_post(\''+content+"')\">Post "+postnum+"</span>"}});var popup_post_cache={};function LGpopup_post(url){var pid="p"+url.substr(url.lastIndexOf("#")+1),box=document.getElementById("popup_post");if(!box){box=document.createElement("div");box.id="popup_post";document.body.appendChild(box)}
-box.innerHTML="cargando el post...";var show=function(html){var open='<a href="##" onclick="$(\'#popup_post\').hide()"><img src="https://cdn1.iconfinder.com/data/icons/freeapplication/png/24x24/Close.png" border="0" original-title="Cerrar"/></a><div class="innerpost">';var close='</div><div class="visitpost"><a href="'+url+'">Visitar el post original</a></div>';box.innerHTML=open+BB.parse(html)+close;box.style.display=""};var post=function(post){var message=$(".content, .post-entry, .entry-content",post)[0].innerHTML;popup_post_cache[url]=message;show(message)};popup_post_cache[url]?show(popup_post_cache[url]):document.getElementById(pid)?post(document.getElementById(pid)):$(box).load(url+" #"+pid,function(){post(document.getElementById(pid))})}
-if(mp){BB.add("tag",{close:true,replacement:'{CONTENT}'});}
-BB.add('noguest',{close:true,replacement:'<span class="noguest">{CONTENT}</span>',replace:function(content){if(!document.getElementById('logout'))return'<p class"nguest" style="color:darkorange;font-weight:bold;padding:10px;border-radius:10px;background:#ccc">Para ver el contenido debes estar registrado y logueado,  si no lo estas, ¿que esperas?. </p>';return content}});BB.add("offtopic",{close:true,replacement:'<div class="offtopic" style="padding: 10px; float: center; border: 1px dashed #D17D00; border-left: 5px solid #D17D00; font-size: 11px;font-family:Tahoma; font-weight:bold; border-radius: 5px; margin: 1em 1px 1em 1px;background:#fff; "><img src="https://cdn1.iconfinder.com/data/icons/stuttgart/32/lightbulb.png" border="0"  />Off Topic:<br><span id="off-topic">{CONTENT}</span></div>'});BB.add('ic',{close:true,replacement:'<pre class="inline_code">{CONTENT}</pre>'});BB.add('pdf',{close:true,replacement:'<iframe src="http://docs.google.com/viewer?url={CONTENT}&embedded=true" width="600" height="780" style="border: none;"></iframe>'});BB.add("download",{close:true,replacement:'<div class="descargar" style="border:1px solid #bbb;border-radius:2px;min-height:289px;padding:20px;padding-bottom:20px;width:500px;display:inline-block;margin-left:16%!important;margin:15px;background:#eee;" ><div class=marco2 style="padding:20px;padding-bottom:30px;border:1px solid #bbb;border-radius:2px;text-align:left;background:#FAD39F;"><br/><span class="texto-descarga" style="border:1px solid #bbb;display:inline-table;width:435px;border-radius:2px 2px 0 0;background:#fff;padding:10px;margin-bottom:3px;border-bottom:0!important;"><img class="img-descarga" style="display:inline-table!important" src="http://adictosalgear.org/descargar.png"/><p class="descp1">Advertencia</p><br/><p class="descp2">Comenta para ver el contenido oculto</p></span><div class=titulo style="font-size:15px;font-weight:700;color:#FFFFFF;background:rgb(68,68,68);border-radius:0 0 2px 2px;padding-top:4px;margin-top:-3px;height:60px;text-align:center;width:456px;border:1px solid #bbb;"><p style="display:table;margin:0 auto;padding-top:10px;font-size:15px;">El link será visible solo una vez por post</p></div><span style="display:none"><center style="padding: 5px;background: #F6F7F6;margin-top: 15px;margin-bottom: -15px;border: 1px solid darkgray;border-radius: 5px;">Link de descarga: <pre class="inline_code">{CONTENT}</pre> </center></span></div> </div>'});BB.add("hidecode",{close:true,replacement:'<div class="descargar hidecode" style="border:1px solid #bbb;border-radius:0;min-height:289px;padding:20px;padding-bottom:20px;width:698px;display:inline-block;margin-left:0!important;margin:15px;background:#eee;" ><div class=marco2 style="padding:20px;padding-bottom:30px;border:1px solid #bbb;border-radius:2px;text-align:left;background:rgba(159,222,250,0.31);"><br/><span class="texto-descarga" style="border:1px solid #bbb;display:inline-table;width:635px;border-radius:2px 2px 0 0;background:#fff;padding:10px;margin-bottom:3px;border-bottom:0!important;width: 635px;"><img class="img-descarga" style="display:inline-table!important;border:none!important" src="https://cdn3.iconfinder.com/data/icons/seo-internet-marketing-flat-icons/128/web-code.png"><p class="descp1">Advertencia</p><br/><p class="descp2">Comenta para ver el código</p></span><div class=titulo style="font-size:15px;font-weight:700;color:#FFFFFF;background:rgb(68,68,68);border-radius:0 0 2px 2px;padding-top:4px;margin-top:-3px;height:60px;text-align:center;width:655px;border:1px solid #000;"><p style="display:table;margin:0 auto;padding-top:10px;font-size:15px;">El código será visible temporalmente, si abandonas el tema deberás comentar de nuevo</p></div><span style="display:none"><center style="background:#F6F7F6;margin-top:15px;border:1px solid darkgray;border-radius:0;margin-left:-8px!important;width:670px;height:412px;">Código oculto: <pre class="inline_code" style="padding:0;background:none;margin-top:0;margin-bottom:0;border:none!important;border-radius:0;">{CONTENT}</pre> </center></span></div> </div>'});BB.add("info",{close:true,replacement:'<div class="fa_info">{CONTENT}</div>'});BB.add("ok",{close:true,replacement:'<div class="fa_ok">{CONTENT}</div>'});BB.add("warning",{close:true,replacement:'<div class="fa_warning">{CONTENT}</div>'});BB.add("alert",{close:true,replacement:'<div class="fa_alert">{CONTENT}</div>'});BB.addSwap(/:<\/cite>\[quotelink="(.*?)"]/gi," en el [post]$1[/post]:</cite>");BB.add("iq",{close:!0,defaultAttr:"",replace:function(a,b){return{attr:b&&b.length?"Por"+b:""}},replacement:'<span class="inline_quote" title="{ATTR}">{CONTENT}</span>'});BB.addSwap(/Code:(.*?)\<code\>(?:\<br\>)?\[codetitle=["']?([^\]]+?)["']?]/gi,"$2:$1<code>");for(var LG=1;LG<7;LG++){BB.add("h"+LG,{close:true,insensitive:true,replacement:"<h"+LG+">{CONTENT}</h"+LG+">"})}
+$(function () {
+    if (/\/u\d+/.test(location.pathname) == true) return;
+    var settings = {
+        wall: 1,
+        stats: 1,
+        attachments: 0,
+        friends: 1,
+        contact: 1,
+        rpg: 0,
+        close: 1,
+        avatar: 1
+    };
+    var a = document.getElementsByTagName('A');
+    for (i = 0; i < a.length; i++) {
+        if (/\/u\d+/.test(a[i].href) == true) a[i].className = a[i].className + ' profilePopup'
+    }
+    $('.profilePopup:has(img)').removeClass('profilePopup');
+    if (settings.wall == 1) var userWall = '<span class="propop_tab" id="propop_vm">Muro</span>';
+    else var userWall = ''; if (settings.stats == 1) var userStats = '<span class="propop_tab" id="propop_stats">Estadisticas</span>';
+    else var userStats = ''; if (settings.attachments == 1) var userAttachments = '<span class="propop_tab" id="propop_attach">Archivos</span>';
+    else var userAttachments = ''; if (settings.friends == 1) var userFriends = '<span class="propop_tab" id="propop_friends">Amigos</span>';
+    else var userFriends = ''; if (settings.contact == 1) var userContact = '<span class="propop_tab" id="propop_contact">Contacto</span>';
+    else var userContact = ''; if (settings.rpg == 1) var userRpg = '<span class="propop_tab" id="propop_rpg">Character sheet</span>';
+    else var userRpg = ''; if (settings.close == 1) var userClose = '<span class="propop_tab" id="close_popup" style="float:right;margin-top:-4px;">Cerrar</span>';
+    else var userClose = '';
+    $('.profilePopup').click(function () {
+        var UID = $(this).attr('href');
+        var UNM = $(this).text();
+        var SEL = '#cp-main .panel, .forumline:has(#profile-advanced-details), .clear + #profile-advanced-details';
+        var LOAD = '<center><span class="profileLoading" style="font-weight:bold;font-size:18px;">Cargando...</span></center>';
+        var TAB = '#propop_profile, #propop_vm, #propop_stats, #propop_friends, #propop_contact, #propop_rpg, #propop_attach, #propop_close';
+        $('body').append('<div id="profilefilter" style="position:fixed;top:0px;left:0px;right:0px;bottom:0px;background:rgba(0,0,0, 0.5);cursor:pointer;z-index:10;"></div><div id="profcont-container" style="background:#D1D1D1;top:20%;left:15%;right:15%;padding:4px;position:fixed;font-size:12px;-webkit-border-radius:5px;-moz-border-radius:5px;border-radius:5px;-webkit-box-shadow:0px 0px 2px rgba(0,0,0, 0.5) inset;-moz-box-shadow:0px 0px 2px rgba(0,0,0, 0.5) inset;box-shadow:0px 0px 2px rgba(0,0,0, 0.5) inset;z-index:50;"><div class="profile_popup_nav">' + userWall + '<span class="propop_tab" id="propop_profile">Perfil</span>' + userStats + userAttachments + userFriends + userContact + userRpg + userClose + '</div><a href="' + UID + '"><div id="userAVA"></div></a><div id="userprofile" style="height:400px;overflow-y:auto;">' + LOAD + '</div><span id="profileLinks"><a href="' + UID + '">Ver perfil</a><span id="interactionLinks"> | <a href="/privmsg?mode=post&u=' + UID.replace(/.*?\/u/, '') + '">Enviar MP</a> | <a href="/privmsg?mode=post_profile&u=' + UID.replace(/.*?\/u/, '') + '">Escribir en el muro</a><span style="float:right;"><a href="/profile?friend=' + UNM.replace(/\s+/, "+") + '&mode=editprofile&page_profil=friendsfoes">Añadir a amigos</a> | <a href="/profile?foe=' + UNM.replace(/\s+/, '+') + '&mode=editprofile&page_profil=friendsfoes">Ignorar</a></span></span></div>');
+        $('#userprofile').load(UID + SEL);
+        if (settings.avatar == 1) $('#userAVA').load(UID + ' #profile-advanced-right .module:first div img:first, .forumline td.row1.gensmall:first > img:first, .frm-set.profile-view.left dd img:first, dl.left-box.details:first dd img:first, .row1 b .gen:first img:first, .real_avatar img:first');
+        $('#propop_profile').addClass('activeTab');
+        $('#propop_profile').click(function () {
+            if ($(this).hasClass('activeTab')) return;
+            $(TAB).removeClass('activeTab');
+            $(this).addClass('activeTab');
+            $('#userprofile').html(LOAD).load(UID + SEL)
+        });
+        $('#propop_vm').click(function () {
+            if ($(this).hasClass('activeTab')) return;
+            $(TAB).removeClass('activeTab');
+            $(this).addClass('activeTab');
+            $('#userprofile').html(LOAD).load(UID + 'wall' + SEL)
+        });
+        $('#propop_stats').click(function () {
+            if ($(this).hasClass('activeTab')) return;
+            $(TAB).removeClass('activeTab');
+            $(this).addClass('activeTab');
+            $('#userprofile').html(LOAD).load(UID + 'stats' + SEL)
+        });
+        $('#propop_friends').click(function () {
+            if ($(this).hasClass('activeTab')) return;
+            $(TAB).removeClass('activeTab');
+            $(this).addClass('activeTab');
+            $('#userprofile').html(LOAD).load(UID + 'friends' + SEL)
+        });
+        $('#propop_contact').click(function () {
+            if ($(this).hasClass('activeTab')) return;
+            $(TAB).removeClass('activeTab');
+            $(this).addClass('activeTab');
+            $('#userprofile').html(LOAD).load(UID + 'contact' + SEL)
+        });
+        $('#propop_rpg').click(function () {
+            if ($(this).hasClass('activeTab')) return;
+            $(TAB).removeClass('activeTab');
+            $(this).addClass('activeTab');
+            $('#userprofile').html(LOAD).load(UID + 'rpg' + SEL)
+        });
+        $('#propop_attach').click(function () {
+            if ($(this).hasClass('activeTab')) return;
+            $(TAB).removeClass('activeTab');
+            $(this).addClass('activeTab');
+            $('#userprofile').html(LOAD).load(UID + 'attachments' + SEL)
+        });
+        if (!document.getElementById('logout')) $('#interactionLinks').remove();
+        $('#profilefilter, #close_popup').click(function () {
+            $('#profilefilter, #profcont-container').remove()
+        });
+        return false
+    });
+    $(".post a[href*='mode=delete']").on("click", function (a) {
+        a.preventDefault();
+        var b = $(this).closest(".post");
+        !0 == confirm("¿Deseas eliminar el post") && $.post(this.href, {
+            confirm: 1
+        }, function (a) {
+            b.fadeOut(function () {
+                b.remove()
+            })
+        })
+    });
+});
+var zeditor = {
+    version: 'phpbb3',
+    lang: {
+        reply: "Modo: Respuesta",
+        pm: "Modo: Mensaje Privado",
+        edit: "Modo: Edición",
+        quote: "Modo: Citar",
+        preview: "Modo: Previsualizar",
+        loading: "Cargando...",
+        flood_message: "No puedes enviar 2 mensajes consecutivos",
+        error_message: "Ocurrió un error recarga la página",
+        no_message: "Escribe un mensaje",
+        notify_message: _userdata.username + " deseas etiquetar a",
+        quote_message: "en el Post",
+        tag_message_title: " fuiste etiquetado en ",
+        tag_message_error: "No se encuentra el nombre",
+        tag_message_content: " fuiste etiquetado en ",
+        pm_message_title: "Te enviaron un mensaje en el tema",
+        pm_message_error: "No se encuentra el nombre",
+        reply_button: "Respuesta rápida",
+        pm_button: "Mensaje Privado",
+        subject_button: "Título",
+        preview_button: "Previsualizar",
+        advance_button: "Editor completo",
+        close_button: "Cerrar",
+        offtopic_button: '<img src="http://www.adictosalgear.org/adictosalgear/files/offtopic.png"/>',
+        tagimg_button: '<img src="http://www.adictosalgear.org/adictosalgear/files/tag.png"/>',
+        download_button: '<img src="http://www.adictosalgear.org/adictosalgear/files/savepdf.png"/>',
+        noguest_button: '<img src="http://www.adictosalgear.org/adictosalgear/files/glasses.png"/>',
+        bold_button: '<img src="https://cdn3.iconfinder.com/data/icons/fugue/icon/edit-bold.png"/>',
+        italic_button: '<img src="https://cdn3.iconfinder.com/data/icons/fugue/icon/edit-italic.png"/>',
+        strike_button: '<img src="https://cdn3.iconfinder.com/data/icons/fugue/icon/edit-strike.png"/>',
+        underline_button: '<img src="https://cdn3.iconfinder.com/data/icons/fugue/icon/edit-underline.png"/>',
+        color_button: '<img src="https://cdn2.iconfinder.com/data/icons/crystalproject/Open-Office-Icons/stock_3d-colors-16.png"/>',
+        smiley_button: '<img src="http://i82.servimg.com/u/f82/12/56/56/12/213.png"/>',
+        image_button: '<img src="https://cdn1.iconfinder.com/data/icons/Momentum_GlossyEntireSet/16/img-landscape-add.png"/>',
+        upload_button: '<img src="http://i82.servimg.com/u/f82/12/56/56/12/imag1010.gif"/>',
+        warning_button: '<img src="http://www.adictosalgear.org/adictosalgear/files/error.png"/>',
+        alert_button: '<img src="http://www.adictosalgear.org/adictosalgear/files/alert.png"/>',
+        ok_button: '<img src="http://www.adictosalgear.org/adictosalgear/files/accept.png"/>',
+        info_button: '<img src="http://www.adictosalgear.org/adictosalgear/files/infop.png"/>',
+        code_button: '<img src="https://cdn3.iconfinder.com/data/icons/fugue/icon/edit-code.png"/>',
+        hidecode_button: '<img src="https://cdn1.iconfinder.com/data/icons/jigsoar-icons/16/_code.png"/>',
+        send_button: "Enviar",
+        tag_button: "@",
+        imgur_placeholder1: "Selecciona los archivos",
+        imgur_placeholder2: "URL externa",
+    },
+    imgur_key: '6528448c258cff474ca9701c5bab6927',
+    post_dom: '.post',
+    message_dom: '.zeditor-message',
+    button_dom: '.zeditor-buttons',
+    preview_dom: 0,
+    editor: 0,
+    mode: 0,
+    url: 0,
+    textarea: 0,
+    ready: function () {
+        if (zeditor.version == 'phpbb3') {
+            zeditor.preview_dom = '.content';
+            zeditor.button_dom = '.profile-icons'
+        }
+        $('a[name="quickreply"]').next().add("#quick_reply").remove();
+        if (!window.jQuery) {
+            alert('JQuery is required to run this. Visit http://www.jquery.com/ for more details')
+        } else {
+            zeditor.button(zeditor.button_dom);
+            for (var a = $(zeditor.message_dom), i = 0, l = a.length; i < l; i++) {
+                a[i].innerHTML = zeditor.replace(a[i].innerHTML)
+            }
+            $(document.body).append('<div id="ze-editor" style="display:none"><form id="ze-editor-form" name="ze-editor" method="post" action="/post"><div id="editor-top"><div id="editor-tool"><span onclick="zeditor.add(\'[b]\',\'[/b]\')" class="editor-button-outer" title="Negritas">' + zeditor.lang.bold_button + '</span><span onclick="zeditor.add(\'[i]\',\'[/i]\')"  class="editor-button-outer" title="Italica">' + zeditor.lang.italic_button + '</span><span onclick="zeditor.add(\'[u]\',\'[/u]\')"  class="editor-button-outer" title="Subrayado">' + zeditor.lang.underline_button + '</span><span onclick="zeditor.add(\'[strike]\',\'[/strike]\')"  class="editor-button-outer" title="Cancelado">' + zeditor.lang.strike_button + '</span><span class="editor-button-outer" title="Color de la fuente" onclick="zeditor.popup(\'ze-color\', this);zeditor.createColor()">' + zeditor.lang.color_button + '</span><span title="Tags para colocar código, contine además el hide" onclick="zeditor.add(\'[hide][code]\',\'[/code][/hide]\')"  class="editor-button-outer">' + zeditor.lang.code_button + '</span><span title="Ocultar un code" onclick="zeditor.add(\'[hidecode]\',\' [/hidecode]\')" class="editor-button-outer">' + zeditor.lang.hidecode_button + '</span><span class="editor-button-outer" onclick="zeditor.popup(\'ze-smiley\', this);zeditor.createSmilies()" title="Smilies">' + zeditor.lang.smiley_button + '</span><span class="editor-button-outer" onclick="zeditor.popup(\'ze-upload\', this);zeditor.imgur.prepare()" title="Subir una imagen">' + zeditor.lang.upload_button + '</span><span class="editor-button-outer" onclick="zeditor.tag(this)" title="Etiqueta al usuario de este post">' + zeditor.lang.tag_button + '</span><span title="Ocultar un link para compartir" onclick="zeditor.add(\'[download]\',\' [/download]\')" class="editor-button-outer">' + zeditor.lang.download_button + '</span><span title="ocultar texto de los visitantes" onclick="zeditor.add(\'[noguest]\',\'[/noguest]\')" class="editor-button-outer">' + zeditor.lang.noguest_button + '</span><span title="Colocar tags IMG a una imagen" onclick="zeditor.add(\'[img]\',\'[/img]\')" class="editor-button-outer">' + zeditor.lang.tagimg_button + '</span><span title="Contenido offtopic" onclick="zeditor.add(\'[offtopic]\',\'[/offtopic]\')" class="editor-button-outer">' + zeditor.lang.offtopic_button + '</span><div class="modbar" style="display:none"><span title="Moderación Warning" onclick="zeditor.add(\'[warning]\',\'[/warning]\')" class="editor-button-outer">' + zeditor.lang.warning_button + '</span><span title="Moderación Alerta" onclick="zeditor.add(\'[alert]\',\'[/alert]\')" class="editor-button-outer">' + zeditor.lang.alert_button + '</span><span title="Moderación todo esta bien" onclick="zeditor.add(\'[ok]\',\'[/ok]\')" class="editor-button-outer">' + zeditor.lang.ok_button + '</span><span title="Moderación Información" onclick="zeditor.add(\'[info]\',\'[/info]\')" class="editor-button-outer">' + zeditor.lang.info_button + '</span></div></div></div><div id="ze-popups"><div id="ze-subject" class="ze-popups" style="display:none"><input id="editor-subject" type="text"></input></div><div id="ze-mode" class="ze-popups" style="display:none"><p><center>Selecciona un tema</center></p><p><input type="radio" name="ze-mode" checked="checked"> Light grey</input><p></div><div id="ze-color" class="ze-popups" style="display:none"></div><div id="ze-smiley" class="ze-popups" style="display:none"></div><div id="ze-image" class="ze-popups" style="display:none"><input type="text" style="height:20px;border:1px solid #BDBDBD" /><div><br><span class="editor-button-confirm" onclick="zeditor.popup(\'ze-image\', this);zeditor.add(\'[img]\'+this.parentNode.previousSibling.value, \'[/img]\');this.parentNode.previousSibling.value=\'\'">OK</span></div></div><div id="ze-upload" class="ze-popups" style="display:none"><div id="ze-imgur"><span id="ze-imgur-mode" class="editor-button-confirm" onclick="zeditor.imgur.mode()">Mode</span><span onclick="zeditor.imgur.files()"><input id="ze-imgur-input" type="input" placeholder="' + zeditor.lang.imgur_placeholder1 + '" value="" disabled></span><span id="ze-imgur-submit" class="editor-button-confirm" onclick="zeditor.imgur.submit(this)">Submit</span><input type="file" id="ze-imgur-placeholder" multiple><div id="ze-imgur-status"></div><div id="ze-imgur-images"></div></div></div></div><div id="outer-preview"><div id="ze-preview" ondblclick="zeditor.closePreview(this)"></div><div id="editor-loading" style="display: none"><img src="http://i11.servimg.com/u/f11/16/80/27/29/ajax-l10.gif" /><br>' + zeditor.lang.loading + '</div><textarea name="message" id="editor-textarea" placeholder="Escribe tu mensaje"></textarea></div><div id="editor-data"><input type="hidden" value="reply" name="mode"><input type="hidden" value="1" name="notify"></div><div id="editor-post-tool"><div id="editor-post-button"><span  id="editor-send-button" onclick="zeditor.post(this)">' + zeditor.lang.send_button + '</span><span onclick="zeditor.preview(this)" id="editor-preview-button">' + zeditor.lang.preview_button + '</span><span onclick="zeditor.advance()">' + zeditor.lang.advance_button + '</span></div><div id="editor-mode"><span onclick="zeditor.popup(\'ze-subject\', this)">' + zeditor.lang.subject_button + '</span><span onclick="zeditor.popup(\'ze-mode\', this)"></span></div></div></form></div>')
+        }
+        zeditor.textarea = document.getElementById('editor-textarea');
+        zeditor.subject = document.getElementById('editor-subject');
+        zeditor.mode = document.getElementById('editor-mode').getElementsByTagName('span')[1];
+        zeditor.editor = document.getElementById('ze-editor');
+        if (_userdata.user_level >= 1) {
+            $(".modbar").removeAttr("style")
+        }
+    },
+    quote: function (a) {
+        zeditor.loading('on');
+        $.get(a.href, function (data) {
+            zeditor.textarea.value = $(data).find('#text_editor_textarea').val().replace(/]/, '][quotelink="' + location.pathname + '#' + a.href.match(/[0-9]+/) + '"]');
+            zeditor.textarea.focus();
+            zeditor.loading('off')
+        })
+    },
+    edit: function (a) {
+        zeditor.loading('on');
+        zeditor.url = a.href;
+        $.get(a.href, function (data) {
+            zeditor.textarea.value = $(data).find('#text_editor_textarea').val();
+            zeditor.subject.value = $(data).find('input[name="subject"]').val();
+            zeditor.textarea.focus();
+            zeditor.loading('off')
+        })
+    },
+    button: function (where) {
+        $(where).each(function () {
+            $(this).find('a[href*="quote"]').attr('onclick', 'zeditor.start(\'quote\', this); return false');
+            $(this).parent().parent().after('<a class="pbutton1" onclick="zeditor.start(\'reply\', this)">' + zeditor.lang.reply_button + '</a><a class="pbutton2" onclick="zeditor.start(\'pm\', this)">' + zeditor.lang.pm_button + '</a>');
+            $(this).find('a[href*="editpost"]').attr('onclick', 'zeditor.start(\'edit\', this); return false')
+        })
+    },
+    start: function (a, dom) {
+        $(zeditor.editor).appendTo($(dom).parents(zeditor.post_dom).find(zeditor.message_dom));
+        $(zeditor.editor).slideDown();
+        switch (a) {
+        case "reply":
+            zeditor.url = $('a[href^="/post?t="]').first().attr("href");
+            zeditor.mode.innerHTML = zeditor.lang.reply;
+            zeditor.textarea.placeholder = _userdata.username + " escribe un comentario...";
+            zeditor.textarea.value = "";
+            break;
+        case "quote":
+            zeditor.url = dom.href;
+            zeditor.quote(dom);
+            zeditor.mode.innerHTML = zeditor.lang.quote;
+            break;
+        case "edit":
+            zeditor.edit(dom);
+            zeditor.mode.innerHTML = zeditor.lang.edit;
+            break;
+        case "pm":
+            zeditor.url = !1;
+            zeditor.mode.innerHTML = zeditor.lang.pm;
+            zeditor.textarea.placeholder = _userdata.username + " redacta tu mensaje privado...";
+            break
+        }
+    },
+    add: function (x, y) {
+        zeditor.textarea.focus();
+        if (typeof (zeditor.textarea) != "undefined") {
+            var longueur = parseInt(zeditor.textarea.value.length);
+            var selStart = zeditor.textarea.selectionStart;
+            var selEnd = zeditor.textarea.selectionEnd;
+            zeditor.textarea.value = zeditor.textarea.value.substring(0, selStart) + x + zeditor.textarea.value.substring(selStart, selEnd) + y + zeditor.textarea.value.substring(selEnd, longueur)
+        } else zeditor.textarea.value += x + y;
+        zeditor.textarea.focus()
+    },
+    preview: function (a) {
+        preview = document.getElementById('ze-preview');
+        if (preview.style.display == 'block') {
+            preview.style.display = 'none';
+            document.getElementById('editor-top').setAttribute('style', 'height:38px; transform: scaleY(1);-webkit-transform: scaleY(1)');
+            a.innerHTML = zeditor.lang.preview_button
+        } else {
+            a.innerHTML = zeditor.lang.close_button;
+            document.getElementById('editor-top').setAttribute('style', 'height:3px; transform: scaleY(0);-webkit-transform: scaleY(0)');
+            $.post(zeditor.url, {
+                "message": zeditor.textarea.value,
+                "preview": "Preview",
+            }, function (data) {
+                preview.style.display = 'block';
+                preview.innerHTML = zeditor.replace($(data).find(zeditor.preview_dom).html())
+            })
+        }
+    },
+    closePreview: function (a) {
+        $(a).hide();
+        zeditor.textarea.focus();
+        document.getElementById('editor-preview-button').innerHTML = zeditor.lang.preview_button;
+        document.getElementById('editor-top').setAttribute('style', 'height:38px; transform: scaleY(1);-webkit-transform:scaleY(1)')
+    },
+    post: function (a) {
+        if (zeditor.mode.innerHTML == zeditor.lang.quote) {
+            zeditor.url = $('a[href^="/post?t="]').first().attr("href")
+        }
+        if (zeditor.url) {
+            if (zeditor.textarea.value == 0) {
+                alert(zeditor.lang.no_message)
+            } else {
+                $.post(zeditor.url, {
+                    'post': 'Send',
+                    'message': zeditor.textarea.value,
+                    'subject': zeditor.subject.value
+                }, function (data) {
+                    var en = "Tu mensaje ha sido publicado con éxito",
+                        vi = "Tu mensaje ha sido publicado con éxito";
+                    b = (data.indexOf(en) < 0) ? vi : en;
+                    index = data.indexOf(b);
+                    if (data.indexOf("Flood control") > 0) {
+                        alert(zeditor.lang.flood_message)
+                    } else if (data.indexOf('A new message') > 0) {
+                        $.post('/post', $(data).find("form[name='post']").serialize() + '&post=1', function (c) {
+                            (index < 0) ? alert(zeditor.lang.error_message) : zeditor.newPost($(c).find('p:contains("' + b + '") a:first').attr('href'));
+                            zeditor.closePreview('#ze-preview')
+                        })
+                    } else {
+                        (index < 0) ? alert(zeditor.lang.error_message) : zeditor.newPost($(data).find('p:contains("' + b + '") a:first').attr('href'));
+                        zeditor.closePreview('#ze-preview')
+                    }
+                })
+            }
+        } else {
+            zeditor.pm(a)
+        }
+    },
+    newPost: function (a) {
+        var b = a.split('#')[1];
+        zeditor.editor.style.display = 'none';
+        if (zeditor.mode.innerHTML == zeditor.lang.reply || zeditor.mode.innerHTML == zeditor.lang.quote) {
+            $.get(a, function (data) {
+                $('<div class="zeditor-new">' + zeditor.replace($(data).find("#p" + b).wrapAll('<div></div>').parent().html()) + '</div>').insertAfter(zeditor.post_dom + ':last');
+                $('html,body').animate({
+                    scrollTop: $('.zeditor-new:last').offset().top
+                }, 600);
+                zeditor.button('.zeditor-new:last ' + zeditor.button_dom)
+            })
+        }
+        if (zeditor.mode.innerHTML == zeditor.lang.edit) {
+            dom = $(zeditor.editor).parents(zeditor.post_dom).find(zeditor.message_dom);
+            $.get(a, function (data) {
+                $(dom).html(zeditor.replace($(data).find('#p' + b + ' ' + zeditor.message_dom).html()));
+                $(dom).hide().fadeIn('slow')
+            })
+        }
+        zeditor.textarea.value = '', $(function () {
+            if (_userdata.user_posts > 5) {
+                if ($(".post").first().find(".descargar").length > 0) {
+                    $(".descargar").find("a,span").removeAttr("style")
+                }
+            }
+        })
+    },
+    popup: function (a, b) {
+        zeditor.textarea.focus();
+        x = document.getElementById(a);
+        y = document.getElementById('ze-editor').offsetWidth;
+        if (x.style.display == 'none') {
+            position = $(b).position().left;
+            x.setAttribute('style', 'display: block');
+            if (position + x.offsetWidth + 20 > y) {
+                position = y - x.offsetWidth - 20
+            }
+            x.style.left = position - 30 + 'px'
+        } else {
+            x.style.display = 'none'
+        }
+        $('#' + a).siblings().hide()
+    },
+    createSmilies: function () {
+        smiley = document.getElementById('ze-smiley');
+        if (smiley.innerHTML == '') {
+            $(smiley).load('/smilies.forum?mode=smilies_frame', function () {
+                this.innerHTML = this.innerHTML.replace(/alt=\"(.*?)\"/g, 'onclick="zeditor.smiley(\'$1\')"')
+            })
+        }
+    },
+    createColor: function () {
+        if (!document.getElementById('ze-color-inner')) {
+            var c = '<table cellspacing="0" id="ze-color-inner">';
+            var colors = new Array('00', '33', '66', '99', 'CC', 'FF');
+            for (i = 5; i >= 0; i--) {
+                c = c + '<tr>';
+                for (j = 5; j >= 0; j--) {
+                    for (k = 5; k >= 0; k--) {
+                        var col = colors[j] + colors[i] + colors[k];
+                        c = c + '<td style="background: #' + col + '" title="#' + col + '"><div style="background:#' + col + '" onclick="zeditor.add(\'[color=#' + col + ']\', \'[/color]\');zeditor.hideColor()"></div></td>'
+                    }
+                }
+                c = c + '</tr>'
+            }
+            document.getElementById('ze-color').innerHTML = c + '</table><div id="ze-color-info"><div class="ze-color-input"><div>#</div><input id="ze-color-hex" maxlength="6" onkeypress="zeditor.convertHex(this)" placeholder="000000"></div><div class="ze-color-input"><div>R</div><input id="ze-color-r" maxlength="3" onkeypress="zeditor.convertRGB()" placeholder="000"></div><div class="ze-color-input"><div>G</div><input id="ze-color-g" maxlength="3" onkeypress="zeditor.convertRGB()" placeholder="000"></div><div class="ze-color-input"><div>B</div><input id="ze-color-b" maxlength="3" onkeypress="zeditor.convertRGB()" placeholder="000"></div><div class="editor-button-confirm" onclick="zeditor.submitColor()">OK</div></div>'
+        }
+    },
+    hideColor: function () {
+        document.getElementById('ze-color').setAttribute('style', 'display:none')
+    },
+    submitColor: function () {
+        if (document.getElementById('ze-color-hex').value !== '') {
+            zeditor.add('[color=#' + document.getElementById('ze-color-hex').value + ']', '[/color]')
+        } else {
+            zeditor.add('[color=#000000]', '[/color]')
+        }
+        zeditor.hideColor()
+    },
+    convertHex: function (a) {
+        var a = a.value,
+            result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(a);
+        result ? (document.getElementById('ze-color-r').value = parseInt(result[1], 16), document.getElementById('ze-color-g').value = parseInt(result[2], 16), document.getElementById('ze-color-b').value = parseInt(result[3], 16)) : null
+    },
+    convertRGB: function () {
+        var r = document.getElementById('ze-color-r').value,
+            g = document.getElementById('ze-color-g').value,
+            b = document.getElementById('ze-color-b').value,
+            rgb = b | (g << 8) | (r << 16);
+        document.getElementById('ze-color-hex').value = (0x1000000 + rgb).toString(16).slice(1)
+    },
+    smiley: function (a) {
+        zeditor.textarea.value += a;
+        zeditor.textarea.focus();
+        document.getElementById('ze-smiley').style.display = 'none'
+    },
+    tag: function (a) {
+        var e = $(a).parents(zeditor.post_dom).find('a[href^="/u"]:has(span)').eq(0).text(),
+            b = $(a).parents(zeditor.post_dom).find('h2 a').attr("href");
+        zeditor.textarea.value += '[tag]' + e + '[/tag] ';
+        tagname = e;
+        if (e.length > 0) {
+            if (confirm(zeditor.lang.notify_message + ' ' + e + '?')) {
+                zeditor.post_pm(e, zeditor.lang.tag_message_title + ' "' + document.title + '"', tagname + zeditor.lang.tag_message_content + ' <a href="' + b + '"> ' + document.title + ' en el post: ' + b.split("#")[1] + '</a>')
+            }
+        } else {
+            alert(zeditor.lang.tag_message_error)
+        }
+    },
+    pm: function (a) {
+        var e = $(a).parents(zeditor.post_dom).find('a[href^="/u"]:not(:empty)').eq(0).text();
+        if (e.length > 0) {
+            zeditor.post_pm(e, zeditor.lang.pm_message_title + ' "' + document.title + '"', zeditor.textarea.value)
+        } else {
+            alert(zeditor.lang.pm_message_error)
+        }
+        zeditor.textarea.value = ''
+    },
+    post_pm: function (name, subject, message) {
+        $.post('/privmsg?mode=post&post=1', {
+            'username[]': name,
+            'subject': subject,
+            'message': message,
+            'post': 'Send',
+            'folder': 'inbox'
+        }, function () {
+            $("textarea").attr("placeholder", _userdata.username + " tu mensaje privado se envió con éxito")
+        })
+    },
+    replace: function (a) {
+        return a.replace(/\[tag\](.*?)\[\/tag\]/g, function (a, b) {
+            return '<a href="/profile?mode=viewprofile&u=' + b.replace(/ /g, "+") + '" onmouseover="zeditor.avatar(this, this.href)" class="ze-avatar">@' + b + '</a>'
+        }).replace(/:<\/cite>\[quotelink="(\S+)"\]/gi, function (a, b) {
+            return ' ' + zeditor.lang.quote_message + ' <a href="' + b + '"> ' + b.split("#")[1] + '</a></cite>';
+        })
+    },
+    loading: function (a) {
+        b = document.getElementById('editor-loading');
+        a == 'on' ? (b.style.display = '') : (b.style.display = 'none')
+    },
+    advance: function () {
+        if (zeditor.textarea.value != '') {
+            if (confirm("Si continuas al editor avanzado perderas lo escrito")) {
+                location.href = zeditor.url
+            }
+        } else {
+            location.href = zeditor.url
+        }
+    },
+    avatar: function (a, b) {
+        if (a.getElementsByTagName('span')[0] == null) {
+            $.get(b, function (data) {
+                a.innerHTML += '<span>' + $(data).find('#profile-advanced-right img:first')[0].outerHTML + '</span>'
+            })
+        }
+    },
+    imgur: {
+        input: 0,
+        holder: [],
+        prepare: function () {
+            zeditor.imgur.input = document.getElementById('ze-imgur-input');
+            document.getElementById('ze-imgur-placeholder').addEventListener("change", function (e) {
+                var a = e.target.files;
+                for (i = 0; i < a.length; i++) {
+                    if (a[i].type.match(/image.*/)) {
+                        zeditor.imgur.holder.push(a[i])
+                    }
+                    zeditor.imgur.input.value = this.value
+                }
+            }, false)
+        },
+        mode: function () {
+            if (zeditor.imgur.input.placeholder == zeditor.lang.imgur_placeholder1) {
+                zeditor.imgur.input.placeholder = zeditor.lang.imgur_placeholder2;
+                zeditor.imgur.input.disabled = false;
+                zeditor.imgur.input.parentNode.removeAttribute('onclick');
+                zeditor.imgur.input.value = ''
+            } else {
+                zeditor.imgur.input.placeholder = zeditor.lang.imgur_placeholder1;
+                zeditor.imgur.input.disabled = true;
+                zeditor.imgur.input.parentNode.setAttribute('onclick', 'zeditor.imgur.files()');
+                zeditor.imgur.input.value = ''
+            }
+        },
+        files: function () {
+            document.getElementById('ze-imgur-placeholder').click()
+        },
+        upload: function (file) {
+            document.body.className = "uploading";
+            var fd = new FormData();
+            fd.append("image", file);
+            fd.append("key", zeditor.imgur_key);
+            var xhr = new XMLHttpRequest();
+            var output = document.getElementById("ze-imgur-images");
+            xhr.open("POST", "http://api.imgur.com/2/upload.json");
+            xhr.onload = function () {
+                if (this.status == 400) {
+                    document.getElementById("ze-imgur-status").innerHTML = JSON.parse(xhr.responseText).error.message
+                } else {
+                    var links = JSON.parse(xhr.responseText).upload.links;
+                    var dimage = links.small_square;
+                    var dlink = links.imgur_page;
+                    var a = document.createElement("a");
+                    a.href = dlink;
+                    a.addEventListener("click", function (event) {
+                        event.preventDefault();
+                        zeditor.textarea.value += '[img]' + this.firstChild.src.replace('s.', '.') + '[/img]'
+                    });
+                    var img = document.createElement("img");
+                    img.src = dimage;
+                    a.appendChild(img);
+                    output.appendChild(a);
+                    document.body.className = "uploaded"
+                }
+            };
+            xhr.send(fd)
+        },
+        submit: function () {
+            if (zeditor.imgur.input.placeholder == zeditor.lang.imgur_placeholder1) {
+                for (var i = 0; i < zeditor.imgur.holder.length; i++) {
+                    zeditor.imgur.upload(zeditor.imgur.holder[i])
+                }
+            } else {
+                zeditor.imgur.upload(document.getElementById('ze-imgur-input').value);
+            }
+        },
+    },
+};
+var zeditoronbeforeunload = $('#editor-post-button').find('span');
+window.onbeforeunload = function (e) {
+    if (zeditor.textarea.value != '') return _userdata.username + ' tienes texto en el editor que podrias perder'
+};
+zeditoronbeforeunload.submit = function (e) {
+    window.onbeforeunload = false;
+}
+$(function () {
+    zeditor.ready()
+});
+$(".mp").attr("onclick", "zeditor.start('pm', this)").parent().removeAttr("href").css("cursor", "pointer");
+$(".post").find(".postnumber").find("a").on("click", function () {
+    zeditor.start('reply', this);
+    var aaa_text = $(this).attr("href");
+    $("#editor-textarea").val('[post]' + aaa_text + '[/post]');
+});
