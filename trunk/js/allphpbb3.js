@@ -4,7 +4,7 @@ var e = $(".pagination"),
     h = $(".pathname-box"),
     f = $(".topic-actions");
 var k = document.getElementsByTagName("a");
-watchBTN = '<img style="display: inline-table;margin-bottom: -6px;" src="https://cdn2.iconfinder.com/data/icons/snipicons/5000/eye-open-20.png"><p style="display: inline-table;"> Seguir el tema</p>', unwatchBTN = '<img style="display: inline-table;margin-bottom: -6px;" src="https://cdn2.iconfinder.com/data/icons/snipicons/500/eye-close-20.png"><p style="display: inline-table;"> Dejar de seguir el tema </p>', b = $('a[href*="?watch=topic"]'), g = $('a[href*="?unwatch=topic"]');
+watchBTN = '<img style="display: inline-table;margin-bottom: 2px;" src="https://cdn2.iconfinder.com/data/icons/snipicons/5000/eye-open-20.png"><p style="display: inline-table;"> Seguir el tema</p>', unwatchBTN = '<img style="display: inline-table;margin-bottom: 2px;" src="https://cdn2.iconfinder.com/data/icons/snipicons/500/eye-close-20.png"><p style="display: inline-table;"> Dejar de seguir el tema </p>', b = $('a[href*="?watch=topic"]'), g = $('a[href*="?unwatch=topic"]');
 if (k) {
     for (var j = 0; j < k.length; j++) {
         if ((/\?unwatch=topic/gi).test(k[j].href) === true) {
@@ -49,7 +49,7 @@ g.on("click", function (p) {
 
 if(sub){
     var h = document.getElementsByTagName("a");
-    watchBTN = '<img style="display: inline-table;margin-bottom: -6px;" src="https://cdn2.iconfinder.com/data/icons/snipicons/5000/eye-open-20.png"><p style="display: inline-table;"> Vigilar</p>', unwatchBTN = '<img style="display: inline-table;margin-bottom: -6px;" src="https://cdn2.iconfinder.com/data/icons/snipicons/500/eye-close-20.png"><p style="display: inline-table;"> Dejar de Vigilar este foro </p>';
+    watchBTN = '<img style="display: inline-table;margin-bottom: 2px;" src="https://cdn2.iconfinder.com/data/icons/snipicons/5000/eye-open-20.png"><p style="display: inline-table;"> Vigilar</p>', unwatchBTN = '<img style="display: inline-table;margin-bottom: 2px;" src="https://cdn2.iconfinder.com/data/icons/snipicons/500/eye-close-20.png"><p style="display: inline-table;"> Dejar de Vigilar este foro </p>';
     if (h) {
         for (var f = 0; f < h.length; f++) {
             if ((/\?unwatch=forum/gi).test(h[f].href) === true) {
