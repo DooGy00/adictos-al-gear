@@ -3069,5 +3069,28 @@ $("a[original-title]").qtip({
         attr: "original-title"
     }
 });
+          if(ps){
+          function AAGpreview() {
+if (ajax_preview_form) {
+$("#text_editor_textarea").sceditor("instance").updateOriginal();
+var l = $(ajax_preview_form).serialize(),
+m, k;
+if (3 > ajax_preview_form.message.length) {
+return alert("El mensaje es muy corto")
+}(k = document.getElementById("AAGpreview_overlay")) || (k = document.createElement("div"), k.id = "AAGpreview_overlay", document.body.appendChild(k), $(k).on("click", function () {
+$("#AAGpreview_overlay").add("#AAGpreview_box").hide()
+}));
+(m = document.getElementById("AAGpreview_box")) || (m = document.createElement("div"), m.id = "AAGpreview_box", document.body.appendChild(m));
+m.style.display = k.style.display = "block";
+m.innerHTML = '<h3>Previsualizar</h3><br><div id="inner_preview">Cargando...</div>';
+$.post(ajax_preview_form.action, l + "&preview=1", function (g) {
+g = g.substring(g.indexOf('class="h3">Previsualización'));
+g = g.substring(0, g.indexOf('class="corners-bottom">')).replace(/.*class="content"\>(.*?)\<\/div\>\<\/div\>\<span/, "$1");
+window.AAGBB && (g = BB.parse(g));
+document.getElementById("inner_preview").innerHTML = g
+})
+}
+}
+          }
 console.log("*************************** '¡allcode.js Listo!' *************************");
 console.log("***************************************************************************");
