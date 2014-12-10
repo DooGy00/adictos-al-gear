@@ -1,3 +1,103 @@
+if(tm){
+var e = $(".pagination"),
+    c = $("#plus_menu"),
+    h = $(".pathname-box"),
+    f = $(".topic-actions");
+var k = document.getElementsByTagName("a");
+watchBTN = '<img style="display: inline-table;margin-bottom: -6px;" src="https://cdn2.iconfinder.com/data/icons/snipicons/5000/eye-open-20.png"><p style="display: inline-table;"> Seguir el tema</p>', unwatchBTN = '<img style="display: inline-table;margin-bottom: -6px;" src="https://cdn2.iconfinder.com/data/icons/snipicons/500/eye-close-20.png"><p style="display: inline-table;"> Dejar de seguir el tema </p>', b = $('a[href*="?watch=topic"]'), g = $('a[href*="?unwatch=topic"]');
+if (k) {
+    for (var j = 0; j < k.length; j++) {
+        if ((/\?unwatch=topic/gi).test(k[j].href) === true) {
+            k[j].innerHTML = unwatchBTN;
+            k[j].title = "Dejar de vigilar este tema";
+            k[j].className = "tnvig-tem"
+        }
+        if ((/\?watch=topic/gi).test(k[j].href) === true) {
+            k[j].innerHTML = watchBTN;
+            k[j].title = "Vigilar este tema";
+            k[j].className = "tvig-tem"
+        }
+    }
+}
+b.on("click", function (p) {
+    p.preventDefault();
+    var m = $(this).attr("href");
+    var o = $(this);
+    $.post(m, {
+        confirm: 1
+    }).success(function () {
+        o.html(unwatchBTN);
+        o.removeAttr("href");
+        o.attr("original-title", "Recargar la página para dar click y dejar de vigilar este tema");
+        alert("Estas siguiendo el tema")
+    })
+});
+g.on("click", function (p) {
+    p.preventDefault();
+    var o = $(this).attr("href");
+    var m = $(this);
+    $.post(o, {
+        confirm: 1
+    }).success(function () {
+        m.html(watchBTN);
+        m.removeAttr("href");
+        m.attr("original-title", "Recargar la página para dar click y vigilar este tema");
+        alert("Ya no sigues el tema")
+    })
+});
+}
+
+if(sub){
+    var h = document.getElementsByTagName("a");
+    watchBTN = '<img style="display: inline-table;margin-bottom: -6px;" src="https://cdn2.iconfinder.com/data/icons/snipicons/5000/eye-open-20.png"><p style="display: inline-table;"> Vigilar</p>', unwatchBTN = '<img style="display: inline-table;margin-bottom: -6px;" src="https://cdn2.iconfinder.com/data/icons/snipicons/500/eye-close-20.png"><p style="display: inline-table;"> Dejar de Vigilar este foro </p>';
+    if (h) {
+        for (var f = 0; f < h.length; f++) {
+            if ((/\?unwatch=forum/gi).test(h[f].href) === true) {
+                h[f].innerHTML = unwatchBTN;
+                h[f].title = "Dejar de vigilar este subforo";
+                h[f].className = "tnvig-tem"
+            }
+            if ((/\?watch=forum/gi).test(h[f].href) === true) {
+                h[f].innerHTML = watchBTN;
+                h[f].title = "vigilar este subforo";
+                h[f].className = "tnvig-tem"
+            }
+        }
+    }
+    var e = $('a[href*="?watch=forum"]');
+    e.on("click", function (m) {
+        m.preventDefault();
+        var j = $(this).attr("href");
+        var k = $(this);
+        $.post(j, {
+            confirm: 1
+        }).success(function () {
+            var o = k.attr("href");
+            o.replace(/\?watch=forum/g, "?unwatch=forum");
+            k.html(unwatchBTN);
+            k.attr("href", o);
+            k.attr("original-title", "Dejar de vigilar este subforo");
+            alert("vigilas este  subforo")
+        })
+    });
+    var c = $('a[href*="?unwatch=forum"]');
+    c.on("click", function (m) {
+        m.preventDefault();
+        var k = $(this).attr("href");
+        var j = $(this);
+        $.post(k, {
+            confirm: 1
+        }).success(function () {
+            var o = j.attr("href");
+            o.replace(/\?unwatch=forum/g, "?watch=forum");
+            j.html(watchBTN);
+            j.attr("href", o);
+            j.attr("original-title", "Vigilar este subforo");
+            alert("Ya no sigues el subforo")
+        })
+    })
+
+}
 (function (b) {
     var d = {
         check: function () {
