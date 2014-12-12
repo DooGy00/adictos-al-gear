@@ -618,7 +618,10 @@ if (tm) {
             },
         },
     };
-    var zeditoronbeforeunload = $('#editor-post-button').find('span');
+    var bulad =$('#editor-post-button').find('span');
+    var buda = $(".pbutton1");
+    var zeditoronbeforeunload =bulad || buda;
+     
     window.onbeforeunload = function (e) {
         if (zeditor.textarea.value != '') return _userdata.username + ' tienes texto en el editor que podrias perder'
     };
