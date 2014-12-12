@@ -194,7 +194,7 @@ if (tm) {
     var zeditor = {
         version: 'phpbb3',
         lang: {
-            reply: "Modo: <font color="purple">Respuesta</font>",
+            reply: 'Modo: <font color="purple">Respuesta</font>',
             pm: "Modo: Mensaje Privado",
             edit: "Modo: Edición",
             quote: "Modo: Citar",
