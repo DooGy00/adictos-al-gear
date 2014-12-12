@@ -305,13 +305,13 @@ if (tm) {
                 zeditor.mode.innerHTML = zeditor.lang.reply;
                 zeditor.textarea.placeholder = _userdata.username + " escribe un comentario...";
                 if (zeditor.textarea.value != '') {
-                if (confirm("Si continuas  perderas lo escrito")) {
+                if (confirm(_userdata.username+" si continuas  perderas lo escrito")) {
                     location.href = zeditor.url
                 }
             } else {
-                location.href = zeditor.url
-            }
+             
                 zeditor.textarea.value = "";
+            }
                 break;
             case "quote":
                 zeditor.url = dom.href;
@@ -625,10 +625,8 @@ if (tm) {
             },
         },
     };
-    var bulad =$('#editor-post-button').find('span');
-    var buda = $(".pbutton1");
-    var zeditoronbeforeunload =bulad || buda;
-     
+   
+    var zeditoronbeforeunload = $('#editor-post-button').find('span');
     window.onbeforeunload = function (e) {
         if (zeditor.textarea.value != '') return _userdata.username + ' tienes texto en el editor que podrias perder'
     };
