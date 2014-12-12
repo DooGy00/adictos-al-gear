@@ -308,7 +308,7 @@ if (tm) {
                 if (confirm(_userdata.username+" si continuas  perderas lo escrito")) {
                     location.href = zeditor.url
                 }
-            else {
+                } else {
              zeditor.textarea.value = "";
             }
                 break;
