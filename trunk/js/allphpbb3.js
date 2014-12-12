@@ -305,13 +305,14 @@ if (tm) {
                 zeditor.mode.innerHTML = zeditor.lang.reply;
                 zeditor.textarea.placeholder = _userdata.username + " escribe un comentario...";
                 if (zeditor.textarea.value != '') {
-                if (confirm(_userdata.username+" si deseas publicar tu mensaje presiona ENVIAR,  de continuar  perderas lo escrito")) {
-                    location.href = zeditor.url
-                }
-                } else {
-              $("#editor-send-button ").css("background","gold");
-              
-            }
+              if (confirm(_userdata.username+" si deseas publicar tu mensaje presiona ENVIAR,  de continuar  perderas lo escrito")) {
+    location.href = zeditor.url
+}
+ else {
+    $("#editor-send-button ").css("background","gold");
+
+}
+}
                 break;
             case "quote":
                 zeditor.url = dom.href;
