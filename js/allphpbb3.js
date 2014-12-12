@@ -308,9 +308,8 @@ if (tm) {
                 if (confirm(_userdata.username+" si continuas  perderas lo escrito")) {
                     location.href = zeditor.url
                 }
-            } else {
-             
-                zeditor.textarea.value = "";
+            else {
+             zeditor.textarea.value = "";
             }
                 break;
             case "quote":
