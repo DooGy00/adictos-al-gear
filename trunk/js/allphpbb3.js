@@ -309,7 +309,8 @@ if (tm) {
                     location.href = zeditor.url
                 }
                 } else {
-             zeditor.textarea.value = "";
+              $("#editor-send-button ").css("background","gold");
+              
             }
                 break;
             case "quote":
