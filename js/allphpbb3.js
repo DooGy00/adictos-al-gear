@@ -253,7 +253,7 @@ if (tm) {
                 zeditor.preview_dom = '.content';
                 zeditor.button_dom = '.profile-icons'
             }
-            $('a[name="quickreply"]').next().add("#quick_reply").remove();
+           
             if (!window.jQuery) {
                 alert('JQuery is required to run this. Visit http://www.jquery.com/ for more details')
             } else {
@@ -304,6 +304,13 @@ if (tm) {
                 zeditor.url = $('a[href^="/post?t="]').first().attr("href");
                 zeditor.mode.innerHTML = zeditor.lang.reply;
                 zeditor.textarea.placeholder = _userdata.username + " escribe un comentario...";
+                if (zeditor.textarea.value != '') {
+                if (confirm("Si continuas  perderas lo escrito")) {
+                    location.href = zeditor.url
+                }
+            } else {
+                location.href = zeditor.url
+            }
                 zeditor.textarea.value = "";
                 break;
             case "quote":
