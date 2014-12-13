@@ -1,6 +1,14 @@
 if (lin || ps || mp) {
-    var TA = "#text_editor_textarea", 
-    j = $(TA),
+   var ta = document.getElementById('text_editor_textarea');
+   if(ta && document.post) {
+      var fix_it = function() {
+         var sc = $(ta).data('sceditor');
+         sc ? sc.bind('keypress', sc.updateOriginal).blur(sc.updateOriginal) : setTimeout(fix_it, 200);   
+      };
+      fix_it();
+   } 
+   var TA = "#text_editor_textarea", 
+    j = $(ta),
       it = "instance";
 
     $(".sceditor-toolbar", function () {
