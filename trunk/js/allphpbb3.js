@@ -7,25 +7,22 @@ if (lin || ps || mp) {
       };
       fix_it();
    } 
-   var j = $("#text_editor_textarea"),
-      it = "instance";
-
     $(".sceditor-toolbar", function () {
         $('<a class="sceditor-button post-preview-button" unselectable="on" title="Post Preview"><div unselectable="on" style="background-image:url(http://www.adictosalgear.org/adictosalgear/files/tv.png)!important">post</div></a><a class="sceditor-button no-guest-button" unselectable="on" title="No noguest"><div unselectable="on" style="background-image:url(http://www.adictosalgear.org/adictosalgear/files/glasses.png)!important">noguest</div></a><a class="sceditor-button tag-img-button" unselectable="on" title="Tag IMG"><div unselectable="on" style="background-image:url(http://www.adictosalgear.org/adictosalgear/files/tag.png)!important">IMG</div></a><a class="sceditor-button download-button" unselectable="on" title="Formato descargar"><div unselectable="on" style="background-image:url(http://www.adictosalgear.org/adictosalgear/files/savepdf.png)!important">descargar</div></a><a class="sceditor-button offtopic-button" unselectable="on" title="Offtopic"><div class="offtopic" unselectable="on" style="background-image:url(http://www.adictosalgear.org/adictosalgear/files/offtopic.png)!important" ></div></a><a title="Insert a linked image" class="sceditor-button sceditor-button-imganc"><div class="button-img-link" unselectable="on" style="background:url(http://i39.servimg.com/u/f39/18/21/41/30/imganc10.png)!important;">IMG link</div></a>').insertBefore(".sceditor-button-quote");
         $(".post-preview-button").on("click", function () {
-            j.sceditor(it).insertText("[post]", "[/post]")
+            $("#text_editor_textarea").sceditor("instance").insertText("[post]", "[/post]")
         });
         $(".no-guest-button").on("click", function () {
-            j.sceditor(it).insertText("[noguest]", "[/noguest]")
+            $("#text_editor_textarea").sceditor("instance").insertText("[noguest]", "[/noguest]")
         });
         $(".tag-img-button").on("click", function () {
-            j.sceditor(it).insertText("[img]", "[/img]")
+            $("#text_editor_textarea").sceditor("instance").insertText("[img]", "[/img]")
         });
         $(".download-button").on("click", function () {
-            j.sceditor(it).insertText("[download]", " [/download]")
+            $("#text_editor_textarea").sceditor("instance").insertText("[download]", " [/download]")
         });
         $(".offtopic-button").on("click", function () {
-            j.sceditor(it).insertText("[offtopic]", "[/offtopic]")
+            $("#text_editor_textarea").sceditor("instance").insertText("[offtopic]", "[/offtopic]")
         });
         $(".sceditor-button-size").on("click", function () {
             m(9, "before");
@@ -37,7 +34,7 @@ if (lin || ps || mp) {
             m(28, "after");
             m(29, "after");
             $(".sceditor-fontsize-option.new-size").on("click", function (o) {
-                j.sceditor(it).insertText("[size=" + $(this).attr("data-size") + "]", "[/size]");
+                $("#text_editor_textarea").sceditor("instance").insertText("[size=" + $(this).attr("data-size") + "]", "[/size]");
                 $(".sceditor-fontsize-picker").remove();
                 o.preventDefault()
             })
@@ -88,16 +85,16 @@ if (lin || ps || mp) {
         if (_userdata.user_level >= 1) {
             $('<a class="sceditor-button warning-button" unselectable="on" title="Advertencia"><div unselectable="on" style="background-image:url(http://www.adictosalgear.org/adictosalgear/files/error.png)!important">Advertencia</div></a><a class="sceditor-button alert-button" unselectable="on" title="Alerta"><div unselectable="on" style="background-image:url(http://www.adictosalgear.org/adictosalgear/files/alert.png)!important">Alerta</div></a><a class="sceditor-button ok-button" unselectable="on" title="Éxito"><div unselectable="on" style="background-image:url(http://www.adictosalgear.org/adictosalgear/files/accept.png)!important">Exito</div></a><a class="sceditor-button info-button" unselectable="on" title="Información"><div unselectable="on" style="background-image:url(http://www.adictosalgear.org/adictosalgear/files/infop.png)!important">info</div></a>').insertBefore(".sceditor-button-source");
             $(".warning-button").on("click", function () {
-                j.sceditor(it).insertText("[warning]", "[/warning]")
+                $("#text_editor_textarea").sceditor("instance").insertText("[warning]", "[/warning]")
             });
             $(".alert-button").on("click", function () {
-                j.sceditor(it).insertText("[alert]", "[/alert]")
+                $("#text_editor_textarea").sceditor("instance").insertText("[alert]", "[/alert]")
             });
             $(".ok-button").on("click", function () {
-                j.sceditor(it).insertText("[ok]", "[/ok]")
+                $("#text_editor_textarea").sceditor("instance").insertText("[ok]", "[/ok]")
             });
             $(".info-button").on("click", function () {
-                j.sceditor(it).insertText("[info]", "[/info]")
+                $("#text_editor_textarea").sceditor("instance").insertText("[info]", "[/info]")
             })
         }
     })
