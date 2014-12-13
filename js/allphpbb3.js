@@ -7,8 +7,7 @@ if (lin || ps || mp) {
       };
       fix_it();
    } 
-   var TA = "#text_editor_textarea", 
-    j = $(ta),
+   var j = $("#text_editor_textarea"),
       it = "instance";
 
     $(".sceditor-toolbar", function () {
