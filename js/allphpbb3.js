@@ -1,5 +1,6 @@
 if (lin || ps || mp) {
-    var j = $(TA),
+    var TA = "#text_editor_textarea", 
+    j = $(TA),
       it = "instance";
 
     $(".sceditor-toolbar", function () {
