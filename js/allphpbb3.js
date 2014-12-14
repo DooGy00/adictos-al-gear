@@ -462,10 +462,10 @@ if (tm) {
                 zeditor.mode.innerHTML = zeditor.lang.reply;
                 zeditor.textarea.placeholder = _userdata.username + " escribe un comentario...";
                 if (zeditor.textarea.value != "") {
-                  
+
                     if (confirm(_userdata.username + " si deseas publicar tu mensaje presiona ENVIAR,  de continuar  perderas lo escrito")) {
-                        location.href = zeditor.url;
-                        window.onbeforeunload = false;
+                        zeditor.textarea.value != "";
+
                     } else {
                         $("#editor-send-button ").css("background", "gold");
                     }
@@ -701,8 +701,8 @@ if (tm) {
         },
         advance: function () {
             window.onbeforeunload = false;
-                location.href = zeditor.url;
-            
+            location.href = zeditor.url;
+
         },
         avatar: function (a, b) {
             if (a.getElementsByTagName("span")[0] == null) {
@@ -784,7 +784,7 @@ if (tm) {
         },
     };
     var zeditoronbeforeunload = $("#editor-post-button").find("span");
-   
+
     window.onbeforeunload = function (e) {
         if (zeditor.textarea.value != "") {
             return _userdata.username + " tienes texto en el editor que podrias perder";
