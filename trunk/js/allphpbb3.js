@@ -443,6 +443,18 @@ if (tm) {
         edit: function (a) {
             zeditor.loading("on");
             zeditor.url = a.href;
+             if (zeditor.textarea.value != "") {
+                    if (confirm(_userdata.username + " de continuar  perderas lo escrito")) {
+                        $.get(a.href, function (data) {
+                zeditor.textarea.value = $(data).find("#text_editor_textarea").val();
+                zeditor.subject.value = $(data).find('input[name="subject"]').val();
+                zeditor.textarea.focus();
+                zeditor.loading("off");
+            });
+                    } else {
+                      
+                    }
+                }
             $.get(a.href, function (data) {
                 zeditor.textarea.value = $(data).find("#text_editor_textarea").val();
                 zeditor.subject.value = $(data).find('input[name="subject"]').val();
