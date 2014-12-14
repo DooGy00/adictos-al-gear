@@ -455,13 +455,14 @@ if (tm) {
                        
                       return
                     }
-                }
+                        }else{
             $.get(a.href, function (data) {
                 zeditor.textarea.value = $(data).find("#text_editor_textarea").val();
                 zeditor.subject.value = $(data).find('input[name="subject"]').val();
                 zeditor.textarea.focus();
                 zeditor.loading("off");
             });
+            }
         },
         button: function (where) {
             $(where).each(function () {
