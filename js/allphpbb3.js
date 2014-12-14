@@ -699,8 +699,16 @@ if (tm) {
             a == "on" ? (b.style.display = "") : (b.style.display = "none");
         },
         advance: function () {
-            window.onbeforeunload = false;
-            location.href = zeditor.url;
+         if (!$(".edit-mode").length)) {
+    window.onbeforeunload = false;
+    location.href = zeditor.url;
+} else {
+    if (confirm(_userdata.username + " si deseas publicar tu mensaje presiona ENVIAR,  de continuar  perderas lo escrito")) {
+        location.href = zeditor.url;
+    } else {
+       
+    }
+}
 
         },
         avatar: function (a, b) {
