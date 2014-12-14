@@ -452,6 +452,7 @@ if (tm) {
                 zeditor.loading("off");
             });
                     } else {
+                        zeditor.textarea.focus();
                        zeditor.loading("off");
                       return
                     }
