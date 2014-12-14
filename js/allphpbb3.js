@@ -698,7 +698,7 @@ if (tm) {
             a == "on" ? (b.style.display = "") : (b.style.display = "none");
         },
         advance: function () {
-      
+            window.onbeforeunload = false;
                 location.href = zeditor.url;
             
         },
@@ -784,7 +784,7 @@ if (tm) {
     var zeditoronbeforeunload = $("#editor-post-button").find("span");
    
     window.onbeforeunload = function (e) {
-        if (zeditor.textarea.value != "" && !$(".edit-mode").length) {
+        if (zeditor.textarea.value != "") {
             return _userdata.username + " tienes texto en el editor que podrias perder";
         }
     };
