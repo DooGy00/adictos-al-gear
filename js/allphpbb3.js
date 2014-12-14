@@ -911,24 +911,7 @@ if (sub) {
             alert("Ya no sigues el subforo");
         });
     });
-}(function (b) {
-    var d = {
-        check: function () {
-            b.get("/forum", function (a) {
-                document.getElementById("logout") && (0 < b(a).find("#i_icon_mini_new_message").length && !document.getElementById("pm_alert") ? b("body").prepend('<div id="pm_alert"><a href="/privmsg?folder=inbox">' + b(a).find("#i_icon_mini_new_message")[0].title + "</a></div>") : document.getElementById("pm_alert") && document.getElementById("pm_alert").firstChild.innerHTML != b(a).find("#i_icon_mini_new_message")[0].title && (document.getElementById("pm_alert").firstChild.innerHTML = b(a).find("#i_icon_mini_new_message")[0].title));
-            });
-        },
-        init: function () {
-            setInterval(function () {
-                d.check();
-            }, 15000);
-        }
-    };
-    window.ajaxify = d;
-})(jQuery);
-$(function () {
-    ajaxify.init();
-});
+}
 var mpindex = $(".forabg").length;
 if (mp && mpindex) {
     $(function () {
