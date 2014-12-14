@@ -703,7 +703,7 @@ if (tm) {
     window.onbeforeunload = false;
     location.href = zeditor.url;
 } else {
-    if (confirm(_userdata.username + " si deseas publicar tu mensaje presiona ENVIAR,  de continuar  perderas lo escrito")) {
+    if (confirm(_userdata.username + " de continuar  perderas lo escrito ¿Deseas ir al editor avanzado?")) {
         location.href = zeditor.url;
     } else {
        
