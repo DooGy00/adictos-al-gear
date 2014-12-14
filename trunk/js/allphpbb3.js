@@ -700,9 +700,11 @@ if (tm) {
         },
         advance: function () {
          if ($(".edit-mode").length) {
+     location.href = zeditor.url;
     window.onbeforeunload = false;
-    location.href = zeditor.url;
+   
 } else {
+ window.onbeforeunload = false;
     if (confirm(_userdata.username + " de continuar  perderas lo escrito ¿Deseas ir al editor avanzado?")) {
         location.href = zeditor.url;
     } else {
