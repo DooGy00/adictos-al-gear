@@ -782,9 +782,9 @@ if (tm) {
         },
     };
     var zeditoronbeforeunload = $("#editor-post-button").find("span");
-    
+    var advancebutton = ;
     window.onbeforeunload = function (e) {
-        if (zeditor.textarea.value != "" && advancebutton) {
+        if (zeditor.textarea.value != "" && !$(".edit-mode").length) {
             return _userdata.username + " tienes texto en el editor que podrias perder";
         }
     };
