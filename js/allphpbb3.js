@@ -782,7 +782,7 @@ if (tm) {
         },
     };
     var zeditoronbeforeunload = $("#editor-post-button").find("span");
-    var advancebutton =  if ($("#editor-send-button").text() === "Edición");
+    var advancebutton =  $("#editor-send-button").text() === "Edición";
     window.onbeforeunload = function (e) {
         if (zeditor.textarea.value != "") {
             return _userdata.username + " tienes texto en el editor que podrias perder";
