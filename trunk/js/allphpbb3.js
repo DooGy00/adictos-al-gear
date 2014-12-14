@@ -462,13 +462,8 @@ if (tm) {
                 zeditor.mode.innerHTML = zeditor.lang.reply;
                 zeditor.textarea.placeholder = _userdata.username + " escribe un comentario...";
                 if (zeditor.textarea.value != "") {
-
-                    if (confirm(_userdata.username + " si deseas publicar tu mensaje presiona ENVIAR,  de continuar  perderas lo escrito")) {
-                        zeditor.textarea.value != "";
-
-                    } else {
-                        $("#editor-send-button ").css("background", "gold");
-                    }
+                    alert(_userdata.username + " si deseas publicar tu mensaje presiona ENVIAR");
+                    $("#editor-send-button ").css("background", "gold");
                 }
                 break;
             case "quote":
