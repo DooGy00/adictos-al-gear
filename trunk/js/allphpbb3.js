@@ -452,7 +452,7 @@ if (tm) {
                 zeditor.loading("off");
             });
                     } else {
-                       
+                       zeditor.loading("off");
                       return
                     }
                         }else{
