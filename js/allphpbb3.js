@@ -453,7 +453,7 @@ if (tm) {
             });
                     } else {
                        
-                      return{zeditor.loading("off");}
+                      return
                     }
                 }
             $.get(a.href, function (data) {
