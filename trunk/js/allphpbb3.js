@@ -164,7 +164,7 @@ if (tm) {
         } else {
             var userClose = "";
         }
-        $(".profilePopup").click(function () {
+        $(".profilePopup").on("click",function () {
             var UID = $(this).attr("href");
             var UNM = $(this).text();
             var SEL = "#cp-main .panel, .forumline:has(#profile-advanced-details), .clear + #profile-advanced-details";
@@ -176,7 +176,7 @@ if (tm) {
                 $("#userAVA").load(UID + " #profile-advanced-right .module:first div img:first, .forumline td.row1.gensmall:first > img:first, .frm-set.profile-view.left dd img:first, dl.left-box.details:first dd img:first, .row1 b .gen:first img:first, .real_avatar img:first");
             }
             $("#propop_profile").addClass("activeTab");
-            $("#propop_profile").click(function () {
+            $("#propop_profile").on("click",function () {
                 if ($(this).hasClass("activeTab")) {
                     return;
                 }
@@ -184,7 +184,7 @@ if (tm) {
                 $(this).addClass("activeTab");
                 $("#userprofile").html(LOAD).load(UID + SEL);
             });
-            $("#propop_vm").click(function () {
+            $("#propop_vm").on("click",function () {
                 if ($(this).hasClass("activeTab")) {
                     return;
                 }
@@ -192,7 +192,7 @@ if (tm) {
                 $(this).addClass("activeTab");
                 $("#userprofile").html(LOAD).load(UID + "wall" + SEL);
             });
-            $("#propop_stats").click(function () {
+            $("#propop_stats").on("click",function () {
                 if ($(this).hasClass("activeTab")) {
                     return;
                 }
@@ -200,7 +200,7 @@ if (tm) {
                 $(this).addClass("activeTab");
                 $("#userprofile").html(LOAD).load(UID + "stats" + SEL);
             });
-            $("#propop_friends").click(function () {
+            $("#propop_friends").on("click",function () {
                 if ($(this).hasClass("activeTab")) {
                     return;
                 }
@@ -208,7 +208,7 @@ if (tm) {
                 $(this).addClass("activeTab");
                 $("#userprofile").html(LOAD).load(UID + "friends" + SEL);
             });
-            $("#propop_contact").click(function () {
+            $("#propop_contact").on("click",function () {
                 if ($(this).hasClass("activeTab")) {
                     return;
                 }
@@ -216,7 +216,7 @@ if (tm) {
                 $(this).addClass("activeTab");
                 $("#userprofile").html(LOAD).load(UID + "contact" + SEL);
             });
-            $("#propop_rpg").click(function () {
+            $("#propop_rpg").on("click",function () {
                 if ($(this).hasClass("activeTab")) {
                     return;
                 }
@@ -224,7 +224,7 @@ if (tm) {
                 $(this).addClass("activeTab");
                 $("#userprofile").html(LOAD).load(UID + "rpg" + SEL);
             });
-            $("#propop_attach").click(function () {
+            $("#propop_attach").on("click",function () {
                 if ($(this).hasClass("activeTab")) {
                     return;
                 }
@@ -235,7 +235,7 @@ if (tm) {
             if (!document.getElementById("logout")) {
                 $("#interactionLinks").remove();
             }
-            $("#profilefilter, #close_popup").click(function () {
+            $("#profilefilter, #close_popup").on("click",function () {
                 $("#profilefilter, #profcont-container").remove();
             });
             return false;
@@ -326,7 +326,7 @@ if (tm) {
                                 l = !0;
                             }, 100), l = !1);
                         });
-                        d.clickOut && a(document).click(function (b) {
+                        d.clickOut && a(document).on("click",function (b) {
                             a(b.target).closest(c).length || a(b.target).closest(h.join()).length || k(f);
                         });
                     }
@@ -443,26 +443,26 @@ if (tm) {
         edit: function (a) {
             zeditor.loading("on");
             zeditor.url = a.href;
-             if (zeditor.textarea.value != "") {
-                    if (confirm(_userdata.username + " de continuar  perderas lo escrito")) {
-                        $.get(a.href, function (data) {
-                zeditor.textarea.value = $(data).find("#text_editor_textarea").val();
-                zeditor.subject.value = $(data).find('input[name="subject"]').val();
-                zeditor.textarea.focus();
-                zeditor.loading("off");
-            });
-                    } else {
+            if (zeditor.textarea.value != "") {
+                if (confirm(_userdata.username + " de continuar  perderas lo escrito")) {
+                    $.get(a.href, function (data) {
+                        zeditor.textarea.value = $(data).find("#text_editor_textarea").val();
+                        zeditor.subject.value = $(data).find('input[name="subject"]').val();
                         zeditor.textarea.focus();
-                       zeditor.loading("off");
-                      return
-                    }
-                        }else{
-            $.get(a.href, function (data) {
-                zeditor.textarea.value = $(data).find("#text_editor_textarea").val();
-                zeditor.subject.value = $(data).find('input[name="subject"]').val();
-                zeditor.textarea.focus();
-                zeditor.loading("off");
-            });
+                        zeditor.loading("off");
+                    });
+                } else {
+                    zeditor.textarea.focus();
+                    zeditor.loading("off");
+                    return
+                }
+            } else {
+                $.get(a.href, function (data) {
+                    zeditor.textarea.value = $(data).find("#text_editor_textarea").val();
+                    zeditor.subject.value = $(data).find('input[name="subject"]').val();
+                    zeditor.textarea.focus();
+                    zeditor.loading("off");
+                });
             }
         },
         button: function (where) {
@@ -714,18 +714,18 @@ if (tm) {
             a == "on" ? (b.style.display = "") : (b.style.display = "none");
         },
         advance: function () {
-         if ($(".edit-mode").length) {
-     location.href = zeditor.url;
-    window.onbeforeunload = false;
-   
-} else {
- window.onbeforeunload = false;
-    if (confirm(_userdata.username + " de continuar  perderas lo escrito ¿Deseas ir al editor avanzado?")) {
-        location.href = zeditor.url;
-    } else {
-       
-    }
-}
+            if ($(".edit-mode").length) {
+                location.href = zeditor.url;
+                window.onbeforeunload = false;
+
+            } else {
+                window.onbeforeunload = false;
+                if (confirm(_userdata.username + " de continuar  perderas lo escrito ¿Deseas ir al editor avanzado?")) {
+                    location.href = zeditor.url;
+                } else {
+
+                }
+            }
 
         },
         avatar: function (a, b) {
@@ -836,7 +836,7 @@ if (tm) {
     if (level === 1 | level === 2 | trash) {
         $(".left-box").first().after('<div id="moderation_tool" class="act_mod"><p class="mod" title="Moderar tema">Moderar</p></div>');
         $("#moderation_tool").append('<div id="popw" class="action_mod"><div class="mod_hover"></div><div class="popwinner"><li><a href="' + del + '">Eliminar este tema</a></li><li><a href="' + trash + '">Enviar a la papelera</a></li><li><a href="' + move + '">Mover este tema</a></li><li><a href="' + lockunlock + '">Bloquear/Desbloquear</a></li><li><a href="' + split + '">Separar este tema</a></li><li><a href="' + merge + '">Fusionar el tema</a></li></div></div>');
-        $(".mod").click(function () {
+        $(".mod").on("click",function () {
             $(".action_mod").slideToggle(300);
         });
     }
@@ -3773,10 +3773,10 @@ $(function () {
                 aS = aV.points || [{
                     x: aV.x1.baseVal.value,
                     y: aV.y1.baseVal.value
-                }, {
+                    }, {
                     x: aV.x2.baseVal.value,
                     y: aV.y2.baseVal.value
-                }];
+                    }];
                 for (aM = [], aT = -1, aU = aS.numberOfItems || aS.length; ++aT < aU;) {
                     aQ = aS.getItem ? aS.getItem(aT) : aS[aT];
                     aM.push.apply(aM, [aQ.x, aQ.y]);
@@ -3998,7 +3998,7 @@ function AAGpreview() {
             b, c;
         if (3 > ajax_preview_form.message.length) {
             return alert("El mensaje es muy corto");
-        }(c = document.getElementById("AAGpreview_overlay")) || (c = document.createElement("div"), c.id = "AAGpreview_overlay", document.body.appendChild(c), $(c).click(function () {
+        }(c = document.getElementById("AAGpreview_overlay")) || (c = document.createElement("div"), c.id = "AAGpreview_overlay", document.body.appendChild(c), $(c).on("click",function () {
             $("#AAGpreview_overlay").add("#AAGpreview_box").hide();
         }));
         (b = document.getElementById("AAGpreview_box")) || (b = document.createElement("div"), b.id = "AAGpreview_box", document.body.appendChild(b));
@@ -4014,7 +4014,7 @@ function AAGpreview() {
 }
 $(function () {
     window.ajax_preview_form = document.post || document.getElementById("quick_reply") || null;
-    ajax_preview_form && ajax_preview_form.preview && (ajax_preview_form.preview.type = "button", $(ajax_preview_form.preview).click(AAGpreview));
+    ajax_preview_form && ajax_preview_form.preview && (ajax_preview_form.preview.type = "button", $(ajax_preview_form.preview).on("click",AAGpreview));
 });
-console.log("*************************** '¡allcode.js Listo!' *************************");
+console.log("*************************** '¡allcode.js Listo!' **************************");
 console.log("***************************************************************************");
