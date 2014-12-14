@@ -699,7 +699,7 @@ if (tm) {
             a == "on" ? (b.style.display = "") : (b.style.display = "none");
         },
         advance: function () {
-         if (!$(".edit-mode").length) {
+         if ($(".edit-mode").length) {
     window.onbeforeunload = false;
     location.href = zeditor.url;
 } else {
