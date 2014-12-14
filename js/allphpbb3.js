@@ -452,7 +452,8 @@ if (tm) {
                 zeditor.loading("off");
             });
                     } else {
-                      
+                       
+                      return{zeditor.loading("off");}
                     }
                 }
             $.get(a.href, function (data) {
