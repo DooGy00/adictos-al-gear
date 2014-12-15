@@ -717,11 +717,15 @@ if (tm) {
             if ($(".edit-mode").length) {
                 location.href = zeditor.url;
                 window.onbeforeunload = false;
-            } else {
+            } 
+            
+           if (!$(".edit-mode").length && zeditor.textarea.value != '') {
                 window.onbeforeunload = false;
                 if (confirm(_userdata.username + " de continuar  perderas lo escrito ¿Deseas ir al editor avanzado?")) {
                     location.href = zeditor.url;
-                } else {}
+                } else {
+                zeditor.textarea.focus();
+                }
             }
         },
         avatar: function (a, b) {
