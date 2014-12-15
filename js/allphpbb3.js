@@ -27,7 +27,7 @@ $(function () {
 if ($("#fa_menulist").length) {
     var status_box = {
         lang: {
-            woym: " ¿Que tienes en mente?",
+            woym: _userdata.username + " ¿que tienes en mente?",
             update: '<img src="http://www.adictosalgear.org/adictosalgear/files/pencil.png">',
             too_short: "Status muy corto.",
             updated: "¡Actualizado!",
