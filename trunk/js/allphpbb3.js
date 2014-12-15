@@ -713,22 +713,20 @@ if (tm) {
             b = document.getElementById("editor-loading");
             a == "on" ? (b.style.display = "") : (b.style.display = "none");
         },
-       advance: function () {
+     advance: function () {
     if ($(".edit-mode").length) {
         location.href = zeditor.url;
         window.onbeforeunload = false;
     } else {
         if (confirm(_userdata.username + " de continuar  perderas lo escrito ¿Deseas ir al editor avanzado?")) {
             location.href = zeditor.url;
-        }
-
-} else {
-        window.onbeforeunload = false;
-        if (zeditor.textarea.value != "") {
-            location.href = zeditor.url;
+        } else {
+            window.onbeforeunload = false;
+            if (zeditor.textarea.value != "") {
+                location.href = zeditor.url;
+            }
         }
     }
-
 },
         avatar: function (a, b) {
             if (a.getElementsByTagName("span")[0] == null) {
