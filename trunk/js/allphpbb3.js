@@ -1,3 +1,46 @@
+if ($("#fa_menulist").length) {
+    var status_box = {
+        lang: {
+            woym: " ¿Que tienes en mente?",
+            update: '<img src="http://www.adictosalgear.org/adictosalgear/files/pencil.png">',
+            too_short: "Status muy corto.",
+            updated: "¡Actualizado!",
+            error: "Error. Intenta de nuevo."
+        },
+        init: function(j, g) {
+            if (j) {
+                var k = my_getcookie("fa_" + location.host.replace(/\./g, "_") + "_data");
+                this.user_id = k ? parseInt(k.split("userid")[1].replace(/s:\d+/g, "").match(/\d+/)) : 0;
+                if (g) {
+                    for (var h in g) {
+                        this.lang[h] = g[h]
+                    }
+                }
+                this.outer = document.getElementById("AAGstatus");
+                this.outer.innerHTML = '<input id="AAGstatus_input" type="text" placeholder="' + this.lang.woym + '"><div onclick="status_box.update()" class="status-button">' + this.lang.update + '</div><span id="AAGstatus_notice"></span>';
+                this.input = document.getElementById("AAGstatus_input");
+                this.id = j;
+                this.initiated = !0
+            }
+        },
+        update: function() {
+            if (this.initiated) {
+                var h = document.getElementById("AAGstatus_notice");
+                if (2 > this.input.value.length) {
+                    return h.innerHTML = this.lang.too_short = this.lang.too_short
+                }
+                var g = document.getElementById("logout");
+                g && (g = g.href, g = g.substring(g.indexOf("tid=") + 4, g.indexOf("&key")), g = "id=" + this.id.substring(this.id.lastIndexOf("_") + 1) + '&active=1&content=[["' + this.id + '", "' + this.input.value + '"]]&tid=' + g + "&user=" + this.user_id, $.post("/ajax_profile.forum?jsoncallback=jQuery1", g, function(j) {
+                    0 < j.indexOf(status_box.input.value) ? (status_box.input.value = "", h.innerHTML = status_box.lang.updated, setTimeout("document.getElementById('AAGstatus_notice').innerHTML=\" \"", 2500)) : h.innerHTML = status_box.lang.error
+                }))
+            }
+        }
+    };
+    if (_userdata.session_logged_in == "1") {
+        $("#fa_menulist").prepend('<div id="AAGstatus"></div>');
+        status_box.init("profile_field_13_1");
+    }
+}
 if (lin || ps || mp) {
     var ta = document.getElementById("text_editor_textarea");
     if (ta && document.post) {
@@ -1315,49 +1358,7 @@ if (tm) {
         }
     });
 }
-if ($("#fa_menulist").length) {
-    var status_box = {
-        lang: {
-            woym: " ¿Que tienes en mente?",
-            update: '<img src="http://www.adictosalgear.org/adictosalgear/files/pencil.png">',
-            too_short: "Status muy corto.",
-            updated: "¡Actualizado!",
-            error: "Error. Intenta de nuevo."
-        },
-        init: function(j, g) {
-            if (j) {
-                var k = my_getcookie("fa_" + location.host.replace(/\./g, "_") + "_data");
-                this.user_id = k ? parseInt(k.split("userid")[1].replace(/s:\d+/g, "").match(/\d+/)) : 0;
-                if (g) {
-                    for (var h in g) {
-                        this.lang[h] = g[h]
-                    }
-                }
-                this.outer = document.getElementById("AAGstatus");
-                this.outer.innerHTML = '<input id="AAGstatus_input" type="text" placeholder="' + this.lang.woym + '"><div onclick="status_box.update()" class="status-button">' + this.lang.update + '</div><span id="AAGstatus_notice"></span>';
-                this.input = document.getElementById("AAGstatus_input");
-                this.id = j;
-                this.initiated = !0
-            }
-        },
-        update: function() {
-            if (this.initiated) {
-                var h = document.getElementById("AAGstatus_notice");
-                if (2 > this.input.value.length) {
-                    return h.innerHTML = this.lang.too_short = this.lang.too_short
-                }
-                var g = document.getElementById("logout");
-                g && (g = g.href, g = g.substring(g.indexOf("tid=") + 4, g.indexOf("&key")), g = "id=" + this.id.substring(this.id.lastIndexOf("_") + 1) + '&active=1&content=[["' + this.id + '", "' + this.input.value + '"]]&tid=' + g + "&user=" + this.user_id, $.post("/ajax_profile.forum?jsoncallback=jQuery1", g, function(j) {
-                    0 < j.indexOf(status_box.input.value) ? (status_box.input.value = "", h.innerHTML = status_box.lang.updated, setTimeout("document.getElementById('AAGstatus_notice').innerHTML=\" \"", 2500)) : h.innerHTML = status_box.lang.error
-                }))
-            }
-        }
-    };
-    if (_userdata.session_logged_in == "1") {
-        $("#fa_menulist").prepend('<div id="AAGstatus"></div>');
-        status_box.init("profile_field_13_1");
-    }
-}
+
 $("#fa_welcome").on("click", function () {
     $("#fa_menulist").slideToggle(100);
 });
