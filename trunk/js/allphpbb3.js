@@ -63,7 +63,7 @@ if ($("#fa_menulist").length) {
         }
     };
     if (_userdata.session_logged_in == "1") {
-        $("#fa_usermenu").append('<div id="AAGstatus"></div>');
+        $("#fa_menulist").append('<div id="AAGstatus"></div>');
         status_box.init("profile_field_13_1");
     }
 }
