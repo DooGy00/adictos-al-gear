@@ -714,14 +714,14 @@ if (tm) {
             a == "on" ? (b.style.display = "") : (b.style.display = "none");
         },
         advance: function () {
-            if ($(".edit-mode").length && zeditor.textarea.value != "") {
+            if ($(".edit-mode").length ) {
                 location.href = zeditor.url;
                 window.onbeforeunload = false;
             } else {
-                
+              if(zeditor.textarea.value != ""){
                 window.onbeforeunload = false;
                 if (confirm(_userdata.username + " de continuar  perderas lo escrito ¿Deseas ir al editor avanzado?")) {
-                    location.href = zeditor.url;
+                  location.href = zeditor.url;}
                 } else {}
                }
             
