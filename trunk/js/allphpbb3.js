@@ -717,7 +717,7 @@ advance: function () {
     if ($(".edit-mode").length) {
         location.href = zeditor.url;
         window.onbeforeunload = false;
-    } else {
+    } 
         window.onbeforeunload = false;
         if (zeditor.textarea.value = "") {
             location.href = zeditor.url;
@@ -726,7 +726,7 @@ advance: function () {
                 location.href = zeditor.url;
             }
         }
-    }
+    
 },
         avatar: function (a, b) {
             if (a.getElementsByTagName("span")[0] == null) {
