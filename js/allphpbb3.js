@@ -718,12 +718,16 @@ if (tm) {
                 location.href = zeditor.url;
                 window.onbeforeunload = false;
             } else {
+              window.onbeforeunload = false;
               if(zeditor.textarea.value != ""){
-                window.onbeforeunload = false;
+                location.href = zeditor.url;
+               
+              }else{
                 if (confirm(_userdata.username + " de continuar  perderas lo escrito ¿Deseas ir al editor avanzado?")) {
-                  location.href = zeditor.url;}
-                } else {}
-               }
+                  location.href = zeditor.url;
+                 }
+              }
+            }
             
         },
         avatar: function (a, b) {
