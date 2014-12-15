@@ -717,16 +717,13 @@ advance: function () {
     if ($(".edit-mode").length) {
         location.href = zeditor.url;
         window.onbeforeunload = false;
-    } 
-        window.onbeforeunload = false;
-        if (zeditor.textarea.value = "") {
-            location.href = zeditor.url;
-        } else {
-            if (confirm(_userdata.username + " de continuar  perderas lo escrito ¿Deseas ir al editor avanzado?")) {
+    } else{
+    window.onbeforeunload = false;
+       if (confirm(_userdata.username + " de continuar  perderas lo escrito ¿Deseas ir al editor avanzado?")) {
                 location.href = zeditor.url;
             }
+        
         }
-    
 },
         avatar: function (a, b) {
             if (a.getElementsByTagName("span")[0] == null) {
