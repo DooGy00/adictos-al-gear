@@ -1324,32 +1324,32 @@ if ($("#fa_menulist").length) {
             updated: "¡Actualizado!",
             error: "Error. Intenta de nuevo."
         },
-        init: function (e, f) {
-            if (e) {
-                var h = my_getcookie("fa_" + location.host.replace(/\./g, "_") + "_data");
-                this.user_id = h ? parseInt(h.split("userid")[1].replace(/s:\d+/g, "").match(/\d+/)) : 0;
-                if (f) {
-                    for (var g in f) {
-                        this.lang[g] = f[g];
+        init: function(j, g) {
+            if (j) {
+                var k = my_getcookie("fa_" + location.host.replace(/\./g, "_") + "_data");
+                this.user_id = k ? parseInt(k.split("userid")[1].replace(/s:\d+/g, "").match(/\d+/)) : 0;
+                if (g) {
+                    for (var h in g) {
+                        this.lang[h] = g[h]
                     }
                 }
                 this.outer = document.getElementById("AAGstatus");
-                this.outer.innerHTML = '<input id="AAGstatus_input" type="text" placeholder="' + _userdata.username + this.lang.woym + '"><div onclick="status_box.update()" class="status-button">' + this.lang.update + '</div><span id="AAGstatus_notice"></span>';
+                this.outer.innerHTML = '<input id="AAGstatus_input" type="text" placeholder="' + this.lang.woym + '"><div onclick="status_box.update()" class="status-button">' + this.lang.update + '</div><span id="AAGstatus_notice"></span>';
                 this.input = document.getElementById("AAGstatus_input");
-                this.id = e;
-                this.initiated = !0;
+                this.id = j;
+                this.initiated = !0
             }
         },
-        update: function () {
+        update: function() {
             if (this.initiated) {
-                var c = document.getElementById("AAGstatus_notice");
+                var h = document.getElementById("AAGstatus_notice");
                 if (2 > this.input.value.length) {
-                    return c.innerHTML = this.lang.too_short = this.lang.too_short;
+                    return h.innerHTML = this.lang.too_short = this.lang.too_short
                 }
-                var d = document.getElementById("logout");
-                d && (d = d.href, d = d.substring(d.indexOf("tid=") + 4, d.indexOf("&key")), d = "id=" + this.id.substring(this.id.lastIndexOf("_") + 1) + '&active=1&content=[["' + this.id + '", "' + this.input.value + '"]]&tid=' + d + "&user=" + this.user_id, $.post("/ajax_profile.forum?jsoncallback=jQuery1", d, function (b) {
-                    0 < b.indexOf(status_box.input.value) ? (status_box.input.value = "", c.innerHTML = status_box.lang.updated, setTimeout("document.getElementById('AAGstatus_notice').innerHTML=\" \"", 2500)) : c.innerHTML = status_box.lang.error;
-                }));
+                var g = document.getElementById("logout");
+                g && (g = g.href, g = g.substring(g.indexOf("tid=") + 4, g.indexOf("&key")), g = "id=" + this.id.substring(this.id.lastIndexOf("_") + 1) + '&active=1&content=[["' + this.id + '", "' + this.input.value + '"]]&tid=' + g + "&user=" + this.user_id, $.post("/ajax_profile.forum?jsoncallback=jQuery1", g, function(j) {
+                    0 < j.indexOf(status_box.input.value) ? (status_box.input.value = "", h.innerHTML = status_box.lang.updated, setTimeout("document.getElementById('AAGstatus_notice').innerHTML=\" \"", 2500)) : h.innerHTML = status_box.lang.error
+                }))
             }
         }
     };
