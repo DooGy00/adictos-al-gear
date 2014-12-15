@@ -719,7 +719,7 @@ advance: function () {
         window.onbeforeunload = false;
     } else {
         window.onbeforeunload = false;
-        if (zeditor.textarea.value != "") {
+        if (zeditor.textarea.value = "") {
             location.href = zeditor.url;
         } else {
             if (confirm(_userdata.username + " de continuar  perderas lo escrito ¿Deseas ir al editor avanzado?")) {
