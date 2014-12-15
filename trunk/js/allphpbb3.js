@@ -727,7 +727,7 @@ advance: function () {
             zeditor.textarea.focus();
         }
     }
-    if (!$(".edit-mode").length && zeditor.textarea.value = '') {
+    if (!$(".edit-mode").length && zeditor.textarea.value === '') {
         location.href = zeditor.url;
     }
 },
