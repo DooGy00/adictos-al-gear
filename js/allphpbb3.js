@@ -158,7 +158,7 @@ if (mp) {
 }
 if (tm) {
     $(function () {
- $("p.right").find("iframe").addClass("facelike").detach().appendTo('.post:eq(0)');
+ 
         if (/\/u\d+/.test(location.pathname) == true) {
             return;
         }
@@ -1063,7 +1063,8 @@ setTimeout(function () {
             });
         }
     });
-}, 100);
+  if(tm){$("p.right").find("iframe").addClass("facelike").detach().appendTo('.post:eq(0)');}
+}, 500);
 (function () {
     function e(d, g) {
         return g ? d.replace(/\r?\n/g, "<br/>") : d.replace(/\<br\s?\/?\>/gi, "\n");
