@@ -158,6 +158,7 @@ if (mp) {
 }
 if (tm) {
     $(function () {
+ $("p.right").find("iframe").addClass("facelike").detach().appendTo('.post:eq(0)');
         if (/\/u\d+/.test(location.pathname) == true) {
             return;
         }
