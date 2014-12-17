@@ -1064,7 +1064,7 @@ setTimeout(function () {
         }
     });
   if(tm){$("p.right").find("iframe").addClass("facelike").detach().appendTo('.post:eq(0)');}
-}, 500);
+}, 1500);
 (function () {
     function e(d, g) {
         return g ? d.replace(/\r?\n/g, "<br/>") : d.replace(/\<br\s?\/?\>/gi, "\n");
