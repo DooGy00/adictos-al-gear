@@ -1097,10 +1097,14 @@ setTimeout(function() {
             })
         }
     });
+
+}, 500);
+
+ setTimeout(function() {
     if (tm) {
         $("p.right").find("iframe").addClass("facelike").detach().appendTo(".post:eq(0)")
     }
-}, 1500);
+}, 5000);
 (function() {
     function m(o, a) {
         return a ? o.replace(/\r?\n/g, "<br/>") : o.replace(/\<br\s?\/?\>/gi, "\n")
