@@ -764,35 +764,38 @@ if (tm) {
             b = document.getElementById("editor-loading");
             d == "on" ? (b.style.display = "") : (b.style.display = "none")
         },
-        advance: function() {
+       advance: function () {
     if ($(".edit-mode").length || $(".quote-mode").length) {
         location.href = zeditor.url;
         window.onbeforeunload = false
     }
-    var editA =!$(".edit-mode").length;
-    var quotA =!$(".quote-mode").length;
-
-    if ( editA && zeditor.textarea.value != "") {
-        window.onbeforeunload = false;
-        if (confirm(_userdata.username + " de continuar  perderas lo escrito ¿Deseas ir al editor avanzado?")) {
+    var editA = !$(".edit-mode").length;
+    var quotA = !$(".quote-mode").length;
+    if (editA) {
+        if (editA && zeditor.textarea.value != "") {
+            window.onbeforeunload = false;
+            if (confirm(_userdata.username + " de continuar  perderas lo escrito ¿Deseas ir al editor avanzado?")) {
+                location.href = zeditor.url
+            } else {
+                zeditor.textarea.focus()
+            }
+        }
+        if (editA && zeditor.textarea.value === "") {
             location.href = zeditor.url
-        } else {
-            zeditor.textarea.focus()
         }
     }
-    if (editA && zeditor.textarea.value === "") {
-        location.href = zeditor.url
-    }
-    if ( quotA && zeditor.textarea.value != "") {
-        window.onbeforeunload = false;
-        if (confirm(_userdata.username + " de continuar  perderas lo escrito ¿Deseas ir al editor avanzado?")) {
-            location.href = zeditor.url
-        } else {
-            zeditor.textarea.focus()
+    if (quotA) {
+        if (quotA && zeditor.textarea.value != "") {
+            window.onbeforeunload = false;
+            if (confirm(_userdata.username + " de continuar  perderas lo escrito ¿Deseas ir al editor avanzado?")) {
+                location.href = zeditor.url
+            } else {
+                zeditor.textarea.focus()
+            }
         }
-    }
-    if (quotA && zeditor.textarea.value === "") {
-        location.href = zeditor.url
+        if (quotA && zeditor.textarea.value === "") {
+            location.href = zeditor.url
+        }
     }
 },
         avatar: function(g, d) {
