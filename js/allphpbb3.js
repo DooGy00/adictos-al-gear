@@ -549,7 +549,7 @@ if (tm) {
                     zeditor.url = !1;
                     zeditor.mode.innerHTML = zeditor.lang.pm;
                     zeditor.textarea.placeholder = _userdata.username + " redacta tu mensaje privado...";
-                    var g = $(d).parents(zeditor.post_dom).find('a[href^="/u"]:not(:empty)').eq(0).text();
+                    var g = $(".post").parents().find('a[href^="/u"]:not(:empty)').eq(0).text();
               $("#editor-post-tool").append('<span class="mp-msg">Mensaje para:'+ g +'</span>');
                     break
             }
