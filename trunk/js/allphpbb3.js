@@ -784,7 +784,7 @@ if (tm) {
             location.href = zeditor.url
         }
     }
-    if ($(".quote-mode").length) {
+    
         if (quotA && zeditor.textarea.value != "") {
             window.onbeforeunload = false;
             if (confirm(_userdata.username + " de continuar  perderas lo escrito ¿Deseas ir al editor avanzado?")) {
@@ -796,7 +796,7 @@ if (tm) {
         if (quotA && zeditor.textarea.value === "") {
             location.href = zeditor.url
         }
-    }
+    
 },
         avatar: function(g, d) {
             if (g.getElementsByTagName("span")[0] == null) {
