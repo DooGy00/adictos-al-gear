@@ -159,6 +159,18 @@ if (mp) {
 }
 if (tm) {
     $(function() {
+    $(".postbody .clearfix").each(function () {
+600 <= $(this).height() && $(this).addClass("baivietdai").height(310).after('<p class="thugon"><span><span class="viewfull">Ver completo</span><span class="viewhide" style="display:none">Colapsar</span></span><span><span class="fullOff" style="float:right">Desactivar colapso</span><span class="fullOn" style="float:right;display:none">Activar colapso</span></span></p>')
+});
+"100%" == my_getcookie("thugonbaiviet") && ($(".fullOn, .viewhide,.fullOff, .viewfull").toggle(), $(".baivietdai").height("100%"));
+$(".viewfull, .viewhide, .fullOff, .fullOn").click(function () {
+var c = "100%",
+a = $(this),
+b = a.attr("class");
+if ("viewhide" == b || "fullOn" == b) c = 310;
+"fullOff" == b || "fullOn" == b ? (my_setcookie("thugonbaiviet", c, !0), $(".fullOff, .fullOn").toggle()) : (a.closest(".thugon").prev().height(c), $(window).scrollTop(a.closest(".post").offset().top));
+a.hide().siblings().show()
+});
         if (/\/u\d+/.test(location.pathname) == true) {
             return
         }
