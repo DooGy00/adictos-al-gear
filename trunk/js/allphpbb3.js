@@ -402,8 +402,8 @@ if (tm) {
     var zeditor = {
         version: "phpbb3",
         lang: {
-            reply: 'Modo: <font color="purple">Respuesta</font>',
-            pm: 'Modo: <font color="darkblue">Mensaje Privado</font>',
+            reply: 'Modo: <font color="purple" class="reply-mode">Respuesta</font>',
+            pm: 'Modo: <font color="darkblue" class="mp-mode">Mensaje Privado</font>',
             edit: 'Modo: <font color="red" class="edit-mode">Edición</font>',
             quote: 'Modo: <font color="green" class="quote-mode">Citar</font>',
             preview: 'Modo: <font color="lightblue">Previsualizar</font>',
@@ -768,8 +768,12 @@ if (tm) {
     if ($(".edit-mode").length) {
         location.href = zeditor.url;
         window.onbeforeunload = false
-    }
-    var editA = !$(".edit-mode").length;
+          }
+           if ($(".quote-mode").length) {
+        location.href = zeditor.url;
+        window.onbeforeunload = false
+          }
+    var editA = $(".reply-mode").length ||$(".mp-mode").length;
   
  
         if (editA && zeditor.textarea.value != "") {
