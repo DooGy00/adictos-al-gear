@@ -771,7 +771,7 @@ if (tm) {
     }
     var editA = !$(".edit-mode").length;
     var quotA = !$(".quote-mode").length;
-    if ($(".edit-mode").length) {
+    if (editA) {
         if (editA && zeditor.textarea.value != "") {
             window.onbeforeunload = false;
             if (confirm(_userdata.username + " de continuar  perderas lo escrito ¿Deseas ir al editor avanzado?")) {
@@ -784,7 +784,7 @@ if (tm) {
             location.href = zeditor.url
         }
     }
-    
+    if (quotA) {
         if (quotA && zeditor.textarea.value != "") {
             window.onbeforeunload = false;
             if (confirm(_userdata.username + " de continuar  perderas lo escrito ¿Deseas ir al editor avanzado?")) {
@@ -796,7 +796,18 @@ if (tm) {
         if (quotA && zeditor.textarea.value === "") {
             location.href = zeditor.url
         }
-    
+    }
+    if (quotA&&editA){
+        window.onbeforeunload = false;
+        if (confirm(_userdata.username + " de continuar  perderas lo escrito ¿Deseas ir al editor avanzado?")) {
+            location.href = zeditor.url
+        } else {
+            zeditor.textarea.focus()
+        }
+        if (zeditor.textarea.value === "") {
+            location.href = zeditor.url
+        }
+    }
 },
         avatar: function(g, d) {
             if (g.getElementsByTagName("span")[0] == null) {
