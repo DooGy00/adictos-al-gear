@@ -778,7 +778,7 @@ if (tm) {
      }else{
       window.onbeforeunload = false;
             if (confirm(_userdata.username + " de continuar  perderas lo escrito ¿Deseas ir al editor avanzado?")) {
-                location.href = zeditor.url
+                location.href = "privmsg?mode=post"
             } else {
                 zeditor.textarea.focus()
             }
