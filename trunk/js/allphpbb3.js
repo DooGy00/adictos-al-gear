@@ -764,7 +764,7 @@ if (tm) {
             b = document.getElementById("editor-loading");
             d == "on" ? (b.style.display = "") : (b.style.display = "none")
         },
-       advance: function () {
+     advance: function () {
     if ($(".edit-mode").length || $(".quote-mode").length) {
         location.href = zeditor.url;
         window.onbeforeunload = false
@@ -797,17 +797,7 @@ if (tm) {
             location.href = zeditor.url
         }
     }
-    if (quotA&&editA){
-        window.onbeforeunload = false;
-        if (confirm(_userdata.username + " de continuar  perderas lo escrito ¿Deseas ir al editor avanzado?")) {
-            location.href = zeditor.url
-        } else {
-            zeditor.textarea.focus()
-        }
-        if (zeditor.textarea.value === "") {
-            location.href = zeditor.url
-        }
-    }
+   
 },
         avatar: function(g, d) {
             if (g.getElementsByTagName("span")[0] == null) {
