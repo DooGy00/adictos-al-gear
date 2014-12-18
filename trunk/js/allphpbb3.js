@@ -771,7 +771,7 @@ if (tm) {
     }
     var editA = !$(".edit-mode").length;
     var quotA = !$(".quote-mode").length;
-    if (editA) {
+    if ($(".edit-mode").length) {
         if (editA && zeditor.textarea.value != "") {
             window.onbeforeunload = false;
             if (confirm(_userdata.username + " de continuar  perderas lo escrito ¿Deseas ir al editor avanzado?")) {
@@ -784,7 +784,7 @@ if (tm) {
             location.href = zeditor.url
         }
     }
-    if (quotA) {
+    if ($(".quote-mode").length) {
         if (quotA && zeditor.textarea.value != "") {
             window.onbeforeunload = false;
             if (confirm(_userdata.username + " de continuar  perderas lo escrito ¿Deseas ir al editor avanzado?")) {
