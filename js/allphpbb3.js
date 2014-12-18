@@ -785,7 +785,7 @@ if (tm) {
                 zeditor.textarea.focus()
             }
         }
-        if (editA && zeditor.textarea.value === "") {
+        if ($(".reply-mode").length && zeditor.textarea.value === "") {
             location.href = zeditor.url
         }
     
