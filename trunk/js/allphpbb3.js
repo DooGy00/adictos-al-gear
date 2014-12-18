@@ -780,10 +780,10 @@ if (tm) {
             zeditor.textarea.focus()
         }
     }
-    if (quotA && zeditor.textarea.value === "") {
+    if (editA && zeditor.textarea.value === "") {
         location.href = zeditor.url
     }
-    if (quotA && zeditor.textarea.value != "") {
+    if ( quotA && zeditor.textarea.value != "") {
         window.onbeforeunload = false;
         if (confirm(_userdata.username + " de continuar  perderas lo escrito ¿Deseas ir al editor avanzado?")) {
             location.href = zeditor.url
@@ -791,7 +791,7 @@ if (tm) {
             zeditor.textarea.focus()
         }
     }
-    if (editA && zeditor.textarea.value === "") {
+    if (quotA && zeditor.textarea.value === "") {
         location.href = zeditor.url
     }
 },
