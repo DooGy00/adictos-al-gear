@@ -773,12 +773,14 @@ if (tm) {
         location.href = zeditor.url;
         window.onbeforeunload = false
           }
+          var textUID =$(".mp-mode").parents(zeditor.post_dom).find('.author').find('a[href^="/u"]').eq(0).attr("href").split("u");
+          textUID[1]
      if ($(".mp-mode").length&& zeditor.textarea.value === ""){
-   location.href = "privmsg?mode=post";
+   location.href = "privmsg?mode=post&u="+textUID[1];
      }else{
       window.onbeforeunload = false;
             if (confirm(_userdata.username + " de continuar  perderas lo escrito ¿Deseas ir al editor avanzado?")) {
-                location.href = "privmsg?mode=post"
+                location.href = "privmsg?mode=post&u="+textUID[1];
             } else {
                 zeditor.textarea.focus()
             }
