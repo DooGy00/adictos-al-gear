@@ -1,4 +1,3 @@
-
 if ($("#fa_menulist").length) {
     var status_box = {
         lang: {
@@ -766,7 +765,7 @@ if (tm) {
             d == "on" ? (b.style.display = "") : (b.style.display = "none")
         },
         advance: function() {
-            if ($(".edit-mode").length) {
+            if ($(".edit-mode").length || $(".quote-mode").length) {
                 location.href = zeditor.url;
                 window.onbeforeunload = false
             }
