@@ -736,7 +736,8 @@ if (tm) {
         pm: function(d) {
             var g = $(d).parents(zeditor.post_dom).find('a[href^="/u"]:not(:empty)').eq(0).text();
             if (g.length > 0) {
-                zeditor.post_pm(g, zeditor.lang.pm_message_title + ' "' + document.title + '"', zeditor.textarea.value)
+                zeditor.post_pm(g, zeditor.lang.pm_message_title + ' "' + document.title + '"', zeditor.textarea.value);
+                $("#editor-post-tool").append('<span class="mp-msg">Mensaje para:'+ g +'</span>')
             } else {
                 alert(zeditor.lang.pm_message_error)
             }
