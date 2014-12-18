@@ -773,8 +773,16 @@ if (tm) {
         location.href = zeditor.url;
         window.onbeforeunload = false
           }
-     if ($(".mp-mode").length){
+     if ($(".mp-mode").length&& zeditor.textarea.value === ""){
    location.href = "privmsg?mode=post";
+     }else{
+      window.onbeforeunload = false;
+            if (confirm(_userdata.username + " de continuar  perderas lo escrito ¿Deseas ir al editor avanzado?")) {
+                location.href = zeditor.url
+            } else {
+                zeditor.textarea.focus()
+            }
+     
      }
   if ($(".reply-mode").length && zeditor.textarea.value != "") {
             window.onbeforeunload = false;
