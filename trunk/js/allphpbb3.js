@@ -773,11 +773,10 @@ if (tm) {
         location.href = zeditor.url;
         window.onbeforeunload = false
           }
-          
-    var editA = $(".reply-mode").length ||$(".mp-mode").length;
-  
- 
-        if (editA && zeditor.textarea.value != "") {
+     if ($(".mp-mode").length){
+   location.href = "privmsg?mode=post";
+     }
+  if ($(".reply-mode").length && zeditor.textarea.value != "") {
             window.onbeforeunload = false;
             if (confirm(_userdata.username + " de continuar  perderas lo escrito ¿Deseas ir al editor avanzado?")) {
                 location.href = zeditor.url
