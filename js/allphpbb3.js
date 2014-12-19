@@ -930,7 +930,7 @@ a.hide().siblings().show()
     });
     if($(".baivietdai").length){
 $(".pbutton1").add(".pbutton2").add(".quote a").add(".edit a").add(".mp").add(".postnumber a").on("click",function(){
-$(".baivietdai").removeAttr("style")
+$(".baivietdai").closets().removeAttr("style")
 zeditor.textarea.focus();
 
 });
