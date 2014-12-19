@@ -907,7 +907,8 @@ a.hide().siblings().show()
     $(".post").find(".postnumber").find("a").on("click", function() {
         zeditor.start("reply", this);
         var a = $(this).attr("href");
-        $("#editor-textarea").val("[post]" + a + "[/post]")
+        $("#editor-textarea").val("[post]" + a + "[/post]");
+        zeditor.textarea.focus();
     });
     if($(".baivietdai").length){
 $(".pbutton1").add(".pbutton2").add(".quote a").add(".edit a").add(".mp").add(".postnumber a").on("click",function(){
