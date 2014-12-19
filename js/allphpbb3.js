@@ -924,8 +924,12 @@ a.hide().siblings().show()
         });
     if($(".baivietdai").length){
 $(".pbutton1").add(".pbutton2").add(".quote a").add(".edit a").add(".mp").add(".postnumber a").on("click",function(){
-$(this).find(".baivietdai").attr("style","height:auto!important");
-zeditor.textarea.focus();
+$('body,html').stop().animate({
+    scrollTop: $('#ze-editor').offset().top
+     }, 100);
+   zeditor.textarea.focus();
+  return false
+        });
 });
 }
     var level = _userdata.user_level;
