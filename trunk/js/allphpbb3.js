@@ -476,7 +476,7 @@ a.hide().siblings().show()
         ready: function() {
             if (zeditor.version == "phpbb3") {
                 zeditor.preview_dom = ".content";
-                zeditor.button_dom = ".profile-icons"
+                zeditor.button_dom = ".post .inner"
             }
             if (!window.jQuery) {
                 alert("JQuery is required to run this. Visit http://www.jquery.com/ for more details")
@@ -528,13 +528,14 @@ a.hide().siblings().show()
                 })
             }
         },
-        button: function(a) {
-            $(a).each(function() {
-                $(this).find('a[href*="quote"]').attr("onclick", "zeditor.start('quote', this); return false");
-                $(this).parent().parent().after('<table><td><a class="pbutton1" onclick="zeditor.start(\'reply\', this)">' + zeditor.lang.reply_button + '</a></td><td><a class="pbutton2" onclick="zeditor.start(\'pm\', this)">' + zeditor.lang.pm_button + "</a></td></table>");
-                $(this).find('a[href*="editpost"]').attr("onclick", "zeditor.start('edit', this); return false")
-            })
-        },
+  
+        button: function (where) {
+   $(where).each(function () {
+      $(this).append('<div class="zeditor-tools"><a class="pbutton" onclick="zeditor.start(\'reply\', this)">' + zeditor.lang.reply_button + '</a><a class="pbutton" onclick="zeditor.start(\'pm\', this)">' + zeditor.lang.pm_button + '</a></div>');
+      $(this).find('a[href*="quote"]').attr('onclick', 'zeditor.start(\'quote\', this); return false').prependTo($(this).find('.zeditor-tools'));
+      $(this).find('a[href*="editpost"]').attr('onclick', 'zeditor.start(\'edit\', this); return false').prependTo($(this).find('.zeditor-tools'));
+   });
+},
         start: function(d, g) {
             $(zeditor.editor).appendTo($(g).parents(zeditor.post_dom).find(zeditor.message_dom));
             $(zeditor.editor).slideDown();
