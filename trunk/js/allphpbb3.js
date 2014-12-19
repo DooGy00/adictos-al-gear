@@ -909,6 +909,13 @@ a.hide().siblings().show()
         var a = $(this).attr("href");
         $("#editor-textarea").val("[post]" + a + "[/post]")
     });
+    if($(".baivietdai").length){
+$(".pbutton1").add(".pbutton2").add(".quote a").add(".edit a").add(".mp").add(".postnumber a").on("click",function(){
+$(".baivietdai").removeAttr("style")
+zeditor.textarea.focus();
+
+});
+}
     var level = _userdata.user_level;
     var del = $('a[href*="mode=delete"]').attr("href");
     var trash = $('a[href*="mode=trash"]').attr("href");
