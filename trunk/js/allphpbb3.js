@@ -908,7 +908,7 @@ a.hide().siblings().show()
         zeditor.start("reply", this);
         var a = $(this).attr("href");
         $("#editor-textarea").val("[post]" + a + "[/post]");
-          $("#editor-textarea").val('[post]' + aaa_text + '[/post]');
+         
     $('body,html').stop().animate({
     scrollTop: $('#ze-editor').offset().top;
     zeditor.textarea.focus();
