@@ -903,7 +903,18 @@ a.hide().siblings().show()
     $(function() {
         zeditor.ready()
     });
-    $(".mp").attr("onclick", "zeditor.start('pm', this)").parent().removeAttr("href").css("cursor", "pointer");
+   
+    $(".mp").on("click", function(a) {
+     a.preventDefault();
+    zeditor.start('pm', this);
+    $('body,html').stop().animate({
+    scrollTop: $('#ze-editor').offset().top
+   
+  }, 100);
+   zeditor.textarea.focus();
+  return false
+    });
+    
     $(".post").find(".postnumber").find("a").on("click", function() {
         zeditor.start("reply", this);
         var a = $(this).attr("href");
