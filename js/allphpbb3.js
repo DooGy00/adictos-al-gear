@@ -159,18 +159,18 @@ if (mp) {
 }
 if (tm) {
     $(function() {
-    $(".postbody .clearfix").each(function () {
-600 <= $(this).height() && $(this).addClass("baivietdai").height(310).after('<p class="thugon"><span><span class="viewfull">Ver completo</span><span class="viewhide" style="display:none">Colapsar</span></span><span><span class="fullOff" style="float:right">Desactivar colapso</span><span class="fullOn" style="float:right;display:none">Activar colapso</span></span></p>')
-});
-"100%" == my_getcookie("thugonbaiviet") && ($(".fullOn, .viewhide,.fullOff, .viewfull").toggle(), $(".baivietdai").height("100%"));
-$(".viewfull, .viewhide, .fullOff, .fullOn").click(function () {
-var c = "100%",
-a = $(this),
-b = a.attr("class");
-if ("viewhide" == b || "fullOn" == b) c = 310;
-"fullOff" == b || "fullOn" == b ? (my_setcookie("thugonbaiviet", c, !0), $(".fullOff, .fullOn").toggle()) : (a.closest(".thugon").prev().height(c), $(window).scrollTop(a.closest(".post").offset().top));
-a.hide().siblings().show()
-});
+        $(".postbody .clearfix").each(function() {
+            600 <= $(this).height() && $(this).addClass("baivietdai").height(310).after('<p class="thugon"><span><span class="viewfull">Ver completo</span><span class="viewhide" style="display:none">Colapsar</span></span><span><span class="fullOff" style="float:right">Desactivar colapso</span><span class="fullOn" style="float:right;display:none">Activar colapso</span></span></p>')
+        });
+        "100%" == my_getcookie("thugonbaiviet") && ($(".fullOn, .viewhide,.fullOff, .viewfull").toggle(), $(".baivietdai").height("100%"));
+        $(".viewfull, .viewhide, .fullOff, .fullOn").click(function() {
+            var c = "100%",
+                a = $(this),
+                b = a.attr("class");
+            if ("viewhide" == b || "fullOn" == b) c = 310;
+            "fullOff" == b || "fullOn" == b ? (my_setcookie("thugonbaiviet", c, !0), $(".fullOff, .fullOn").toggle()) : (a.closest(".thugon").prev().height(c), $(window).scrollTop(a.closest(".post").offset().top));
+            a.hide().siblings().show()
+        });
         if (/\/u\d+/.test(location.pathname) == true) {
             return
         }
@@ -528,8 +528,8 @@ a.hide().siblings().show()
                 })
             }
         },
-  
-       button: function(a) {
+
+        button: function(a) {
             $(a).each(function() {
                 $(this).find('a[href*="quote"]').attr("onclick", "zeditor.start('quote', this); return false");
                 $(this).parent().parent().after('<table><td><a class="pbutton1" onclick="zeditor.start(\'reply\', this)">' + zeditor.lang.reply_button + '</a></td><td><a class="pbutton2" onclick="zeditor.start(\'pm\', this)">' + zeditor.lang.pm_button + "</a></td></table>");
@@ -563,8 +563,8 @@ a.hide().siblings().show()
                     zeditor.mode.innerHTML = zeditor.lang.pm;
                     zeditor.textarea.placeholder = _userdata.username + " redacta tu mensaje privado...";
                     var g = $(".mp-mode").parents(zeditor.post_dom).find('.author').find('a[href^="/u"]').eq(0).text();
-                    $(".mp-msg").html("Mensaje para:"+ g);
-              
+                    $(".mp-msg").html("Mensaje para:" + g);
+
                     break
             }
         },
@@ -753,7 +753,7 @@ a.hide().siblings().show()
             var g = $(d).parents(zeditor.post_dom).find('a[href^="/u"]:not(:empty)').eq(0).text();
             if (g.length > 0) {
                 zeditor.post_pm(g, zeditor.lang.pm_message_title + ' "' + document.title + '"', zeditor.textarea.value);
-              
+
             } else {
                 alert(zeditor.lang.pm_message_error)
             }
@@ -781,37 +781,37 @@ a.hide().siblings().show()
             b = document.getElementById("editor-loading");
             d == "on" ? (b.style.display = "") : (b.style.display = "none")
         },
-   advance: function () {
-    if ($(".edit-mode").length || $(".quote-mode").length) {
-        location.href = zeditor.url;
-        window.onbeforeunload = false
-          }
-          var textUID =$(".mp-mode").parents(zeditor.post_dom).find('.author').find('a[href^="/u"]').eq(0).attr("href").split("u");
-          textUID[1]
-     if ($(".mp-mode").length&& zeditor.textarea.value === ""){
-   location.href = "privmsg?mode=post&u="+textUID[1];
-     }else{
-      window.onbeforeunload = false;
-            if (confirm(_userdata.username + " de continuar  perderas lo escrito ¿Deseas ir al editor avanzado?")) {
-                location.href = "privmsg?mode=post&u="+textUID[1];
-            } else {
-                zeditor.textarea.focus()
+        advance: function() {
+            if ($(".edit-mode").length || $(".quote-mode").length) {
+                location.href = zeditor.url;
+                window.onbeforeunload = false
             }
-     
-     }
-  if ($(".reply-mode").length && zeditor.textarea.value != "") {
-            window.onbeforeunload = false;
-            if (confirm(_userdata.username + " de continuar  perderas lo escrito ¿Deseas ir al editor avanzado?")) {
+            var textUID = $(".mp-mode").parents(zeditor.post_dom).find('.author').find('a[href^="/u"]').eq(0).attr("href").split("u");
+            textUID[1]
+            if ($(".mp-mode").length && zeditor.textarea.value === "") {
+                location.href = "privmsg?mode=post&u=" + textUID[1];
+            } else {
+                window.onbeforeunload = false;
+                if (confirm(_userdata.username + " de continuar  perderas lo escrito ¿Deseas ir al editor avanzado?")) {
+                    location.href = "privmsg?mode=post&u=" + textUID[1];
+                } else {
+                    zeditor.textarea.focus()
+                }
+
+            }
+            if ($(".reply-mode").length && zeditor.textarea.value != "") {
+                window.onbeforeunload = false;
+                if (confirm(_userdata.username + " de continuar  perderas lo escrito ¿Deseas ir al editor avanzado?")) {
+                    location.href = zeditor.url
+                } else {
+                    zeditor.textarea.focus()
+                }
+            }
+            if ($(".reply-mode").length && zeditor.textarea.value === "") {
                 location.href = zeditor.url
-            } else {
-                zeditor.textarea.focus()
             }
-        }
-        if ($(".reply-mode").length && zeditor.textarea.value === "") {
-            location.href = zeditor.url
-        }
-    
-},
+
+        },
         avatar: function(g, d) {
             if (g.getElementsByTagName("span")[0] == null) {
                 $.get(d, function(a) {
@@ -904,34 +904,34 @@ a.hide().siblings().show()
         zeditor.ready()
     });
     $(".mp").on("click", function(a) {
-     a.preventDefault();
-    zeditor.start('pm', this);
-    $('body,html').stop().animate({
-    scrollTop: $('#ze-editor').offset().top
-    }, 100);
-   zeditor.textarea.focus();
-  return false
+        a.preventDefault();
+        zeditor.start('pm', this);
+        $('body,html').stop().animate({
+            scrollTop: $('#ze-editor').offset().top
+        }, 100);
+        zeditor.textarea.focus();
+        return false
     });
-        $(".post").find(".postnumber").find("a").on("click", function() {
+    $(".post").find(".postnumber").find("a").on("click", function() {
         zeditor.start("reply", this);
         var a = $(this).attr("href");
         $("#editor-textarea").val("[post]" + a + "[/post]");
-             $('body,html').stop().animate({
-    scrollTop: $('#ze-editor').offset().top
-     }, 100);
-   zeditor.textarea.focus();
-  return false
+        $('body,html').stop().animate({
+            scrollTop: $('#ze-editor').offset().top
+        }, 100);
+        zeditor.textarea.focus();
+        return false
+    });
+    if ($(".baivietdai").length) {
+        $(".pbutton1").add(".pbutton2").add(".quote a").add(".edit a").add(".mp").add(".postnumber a").on("click", function() {
+        $('body,html').stop().animate({
+            scrollTop: $('#ze-editor').offset().top
+        }, 100);
+        zeditor.textarea.focus();
+        return false
+    });
         });
-    if($(".baivietdai").length){
-$(".pbutton1").add(".pbutton2").add(".quote a").add(".edit a").add(".mp").add(".postnumber a").on("click",function(){
-$('body,html').stop().animate({
-    scrollTop: $('#ze-editor').offset().top
-     }, 100);
-   zeditor.textarea.focus();
-  return false
-        });
-});
-}
+    }
     var level = _userdata.user_level;
     var del = $('a[href*="mode=delete"]').attr("href");
     var trash = $('a[href*="mode=trash"]').attr("href");
@@ -1124,7 +1124,7 @@ setTimeout(function() {
 
 }, 500);
 
- setTimeout(function() {
+setTimeout(function() {
     if (tm) {
         $("p.right").find("iframe").addClass("facelike").detach().appendTo(".post:eq(0)")
     }
