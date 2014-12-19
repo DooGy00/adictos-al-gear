@@ -926,13 +926,17 @@ if (tm) {
         return false
           }
     });
-    if ($(".baivietdai").length) {
-        $(".pbutton1").add(".pbutton2").add(".quote a").add(".edit a").add(".mp").add(".postnumber a").on("click", function() {
-        $("#ze-editor").offset({top:-50});
+  if ($(".baivietdai").length) {
+    $(".pbutton1").add(".pbutton2").add(".quote a").add(".edit a").add(".mp").add(".postnumber a").on("click", function() {
+        $('body,html').stop().animate({
+            scrollTop: $('#ze-editor').offset().top
+        }, 100);
         zeditor.textarea.focus();
         return false
     });
-   }
+
+
+}
     var level = _userdata.user_level;
     var del = $('a[href*="mode=delete"]').attr("href");
     var trash = $('a[href*="mode=trash"]').attr("href");
