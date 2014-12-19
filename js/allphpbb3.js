@@ -158,6 +158,7 @@ if (mp) {
     $(".post-icon").find("img").replaceWith("<buttom>Enviar un MP</buttom>")
 }
 if (tm) {
+if($('img[alt="Este tema está cerrado y no puedes editar mensajes o responder"]').length ) {$(".tema-info").attr("style","background: linear-gradient(to bottom, #febbbb 0%,#fe9090 45%,#ff5c5c 100%)");$(".tema-info").find("h1").prepend('<img src="https://cdn2.iconfinder.com/data/icons/pittogrammi/142/91-48.png"style="margin-top: -10px;margin-bottom: -12px;">')}
     $(function() {
         $(".postbody .clearfix").each(function() {
             600 <= $(this).height() && $(this).addClass("baivietdai").height(310).after('<p class="thugon"><span><span class="viewfull">Ver completo</span><span class="viewhide" style="display:none">Colapsar</span></span><span><span class="fullOff" style="float:right">Desactivar colapso</span><span class="fullOn" style="float:right;display:none">Activar colapso</span></span></p>')
