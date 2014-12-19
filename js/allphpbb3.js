@@ -910,9 +910,10 @@ a.hide().siblings().show()
         $("#editor-textarea").val("[post]" + a + "[/post]");
          
     $('body,html').stop().animate({
-    scrollTop: $('#ze-editor').offset().top;
-    zeditor.textarea.focus();
+    scrollTop: $('#ze-editor').offset().top
+   
   }, 100);
+   zeditor.textarea.focus();
   return false
         
     });
