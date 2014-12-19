@@ -930,8 +930,7 @@ if (tm) {
         zeditor.textarea.focus();
         return false
     });
-        });
-    }
+   }
     var level = _userdata.user_level;
     var del = $('a[href*="mode=delete"]').attr("href");
     var trash = $('a[href*="mode=trash"]').attr("href");
