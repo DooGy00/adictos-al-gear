@@ -559,6 +559,7 @@ if (tm) {
                     zeditor.mode.innerHTML = zeditor.lang.edit;
                     break;
                 case "pm":
+                    zeditor.textarea.focus();
                     zeditor.url = !1;
                     zeditor.mode.innerHTML = zeditor.lang.pm;
                     zeditor.textarea.placeholder = _userdata.username + " redacta tu mensaje privado...";
