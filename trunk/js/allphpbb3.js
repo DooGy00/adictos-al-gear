@@ -908,7 +908,13 @@ a.hide().siblings().show()
         zeditor.start("reply", this);
         var a = $(this).attr("href");
         $("#editor-textarea").val("[post]" + a + "[/post]");
-        zeditor.textarea.focus();
+          $("#editor-textarea").val('[post]' + aaa_text + '[/post]');
+    $('body,html').stop().animate({
+    scrollTop: $('#ze-editor').offset().top;
+    zeditor.textarea.focus();
+  }, 100);
+  return false
+        
     });
     if($(".baivietdai").length){
 $(".pbutton1").add(".pbutton2").add(".quote a").add(".edit a").add(".mp").add(".postnumber a").on("click",function(){
