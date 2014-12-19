@@ -903,36 +903,29 @@ a.hide().siblings().show()
     $(function() {
         zeditor.ready()
     });
-   
     $(".mp").on("click", function(a) {
      a.preventDefault();
     zeditor.start('pm', this);
     $('body,html').stop().animate({
     scrollTop: $('#ze-editor').offset().top
-   
-  }, 100);
+    }, 100);
    zeditor.textarea.focus();
   return false
     });
-    
-    $(".post").find(".postnumber").find("a").on("click", function() {
+        $(".post").find(".postnumber").find("a").on("click", function() {
         zeditor.start("reply", this);
         var a = $(this).attr("href");
         $("#editor-textarea").val("[post]" + a + "[/post]");
-         
-    $('body,html').stop().animate({
+             $('body,html').stop().animate({
     scrollTop: $('#ze-editor').offset().top
-   
-  }, 100);
+     }, 100);
    zeditor.textarea.focus();
   return false
-        
-    });
+        });
     if($(".baivietdai").length){
 $(".pbutton1").add(".pbutton2").add(".quote a").add(".edit a").add(".mp").add(".postnumber a").on("click",function(){
-$(this).find(".baivietdai").removeAttr("style");
+$(this).find(".baivietdai").attr("style","height:auto!important");
 zeditor.textarea.focus();
-
 });
 }
     var level = _userdata.user_level;
