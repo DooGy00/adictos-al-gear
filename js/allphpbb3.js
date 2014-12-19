@@ -924,9 +924,11 @@ if (tm) {
     });
     if ($(".baivietdai").length) {
         $(".pbutton1").add(".pbutton2").add(".quote a").add(".edit a").add(".mp").add(".postnumber a").on("click", function() {
+        $(".baivietdai").attr("style","overflow:auto!important");
         $('body,html').stop().animate({
             scrollTop: $('#ze-editor').offset().top
         }, 100);
+        $("#ze-editor").offset({top:100});
         zeditor.textarea.focus();
         return false
     });
