@@ -531,7 +531,7 @@ a.hide().siblings().show()
         button: function(a) {
             $(a).each(function() {
                 $(this).find('a[href*="quote"]').attr("onclick", "zeditor.start('quote', this); return false");
-                $(this).parent().parent().after('<a class="pbutton1" onclick="zeditor.start(\'reply\', this)">' + zeditor.lang.reply_button + '</a><a class="pbutton2" onclick="zeditor.start(\'pm\', this)">' + zeditor.lang.pm_button + "</a>");
+                $(this).parent().parent().after('<table><a class="pbutton1" onclick="zeditor.start(\'reply\', this)">' + zeditor.lang.reply_button + '</a><a class="pbutton2" onclick="zeditor.start(\'pm\', this)">' + zeditor.lang.pm_button + "</a></table>");
                 $(this).find('a[href*="editpost"]').attr("onclick", "zeditor.start('edit', this); return false")
             })
         },
