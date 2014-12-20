@@ -7,7 +7,7 @@ if (wl) {
         $(window).off("beforeunload")
     }))
 }
-if (wl) {
+if (pu) {
     $("#field_id-20 #profile_field_2_-20.inputbox").length && ($(window).on("beforeunload", function () {
         if ($("#field_id-20 #profile_field_2_-20.inputbox").val().length) {
             return _userdata.username + " todavía no has enviado el mensaje."
