@@ -1,11 +1,8 @@
    if ($("#field_id1").length) {
-           
-                
-                $(".module .h3:first").next().find("img").insertAfter("#banner-image").attr("style", "width:120px;height:120px;border-radius:100%;position:absolute;margin-top:-111px;margin-left:-269px;border:4px double #fff;");
-         
-            
- 
-        }
+          $(".module .h3:first").next().find("img").insertAfter("#banner-image").attr("style", "width:120px;height:120px;border-radius:100%;position:absolute;margin-top:-111px;margin-left:-269px;border:4px double #fff;");
+                $(".forum-location-not").insertAfter("h1").attr("style","margin-left:14px;margin-top:-13px!important;margin-bottom:3px;display:inherit;");
+                $(".newonlineprofile").insertAfter("h1").attr("style","margin-left:14px;margin-top:-13px!important;margin-bottom:3px;display:inherit;");
+         }
 if ($("#fa_menulist").length) {
     var status_box = {
         lang: {
