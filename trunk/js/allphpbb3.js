@@ -9,8 +9,8 @@ if (wl) {
 }
 if (pu) {
     $("#field_id-20").find(".ajax-profil_valid").length && ($(window).on("beforeunload", function () {
-        if ($("textarea").val().length) {
-            return _userdata.username + " todavía no has enviado el mensaje."
+        if ($("#field_id-20").find(".ajax-profil_valid").length) {
+            return _userdata.username + " ¿has terminado de moderar"
         }
     }), $("#field_id-20").find(".ajax-profil_valid").submit(function () {
         $(window).off("beforeunload")
