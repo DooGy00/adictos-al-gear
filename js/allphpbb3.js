@@ -8,7 +8,7 @@ if (wl) {
     }))
 }
 if (pu) {
-    !$("#field_id-20").find(".ajax-profil_valid").length && ($(window).on("beforeunload", function () {
+    $("#field_id-20").find(".ajax-profil_valid").length && ($(window).on("beforeunload", function () {
         if ($("textarea").val().length) {
             return _userdata.username + " todavía no has enviado el mensaje."
         }
