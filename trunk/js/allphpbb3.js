@@ -4,7 +4,7 @@
                 $(".module .h3:first").next().find("img").insertAfter("#banner-image").attr("style", "width:120px;height:120px;border-radius:100%;position:absolute;margin-top:-111px;margin-left:-269px;border:4px double #fff;");
          
             
-        },300);
+        },30);
         }
 if ($("#fa_menulist").length) {
     var status_box = {
