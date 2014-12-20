@@ -9,7 +9,7 @@ if (wl) {
 }
 if (pu) {
     $("#field_id-20").find(".ajax-profil_valid").length && ($(window).on("beforeunload", function () {
-        if ($("#field_id-20").find(".ajax-profil_valid").length) {
+        if ($("#profile_field_2_-20.inputbox").lenght) {
             return _userdata.username + " ¿has terminado de moderar"
         }
     }), $("#field_id-20").find(".ajax-profil_valid").submit(function () {
