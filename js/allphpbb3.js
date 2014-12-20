@@ -7,6 +7,15 @@ if (wl) {
         $(window).off("beforeunload")
     }))
 }
+if (pu) {
+    $("#field_id-20").length && ($(window).on("beforeunload", function () {
+        if ($("textarea").val().length) {
+            return _userdata.username + " todavía no has enviado el mensaje."
+        }
+    }), $("#field_id-20").find(".ajax-profil_valid").submit(function () {
+        $(window).off("beforeunload")
+    }))
+}
 if ($("#field_id1").length) {
     $(".module .h3:first").next().find("img").insertAfter("#banner-image").attr("style", "width:120px;height:120px;border-radius:100%;position:absolute;margin-top:-111px;margin-left:-269px;border:4px double #fff;");
     setTimeout(function() {
