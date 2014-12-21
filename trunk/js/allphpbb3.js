@@ -180,6 +180,67 @@ if (tm) {
         $(".tema-info").find("h1").prepend('<img src="https://cdn2.iconfinder.com/data/icons/pittogrammi/142/91-48.png"style="margin-top: -10px;margin-bottom: -12px;">')
     }
     $(function() {
+        //Bloquear topico//
+    $('a[href*="/modcp?mode=lock"]').on('click', function (lock) {
+
+        lock.preventDefault();
+        var url = $(this).attr('href');
+        $.ajax({
+            url: url,
+            type: 'GET',
+            success: function (lokS) {
+
+                    alert('Tópico bloqueado.');
+                    window.location.reload();
+
+            },
+            error: function () {
+                alert('Fallo bloquear el tema vía Ajax\nSeras redireccionado para hacerlo manualmente.');
+                window.location.href = url;
+            }
+        });
+    });
+    //Desbloquear topico//
+    $('a[href*="/modcp?mode=unlock"]').on('click', function (unlock) {
+
+        unlock.preventDefault();
+        var url = $(this).attr('href');
+        $.ajax({
+            url: url,
+            type: 'GET',
+            success: function (unlokS) {
+
+                    alert('Tema desbloqueado.');
+                    window.location.reload();
+
+            },
+            error: function () {
+                alert('Fallo desbloquear el tema vía Ajax\nSeras redireccionado para hacerlo manualmente.');
+                window.location.href = url;
+            }
+        });
+    });
+
+    //Lixeira topico//
+    $('a[href*="/modcp?mode=trash"]').on('click', function (unlock) {
+
+        unlock.preventDefault();
+        var url = $(this).attr('href');
+        $.ajax({
+            url: url,
+            type: 'GET',
+            success: function (unlokS) {
+          alert('Se envió el tema a la papelera');
+                    window.location.reload();
+
+            },
+            error: function () {
+                alert('Fallo el envio a la papelera vía Ajax\nSeras redireccionado para hacerlo manualmente.');
+                window.open(url);
+            }
+        });
+    });
+
         $(".postbody .clearfix").each(function() {
             600 <= $(this).height() && $(this).addClass("baivietdai").height(310).after('<p class="thugon"><span><span class="viewfull">Ver completo</span><span class="viewhide" style="display:none">Colapsar</span></span><span><span class="fullOff" style="float:right">Desactivar colapso</span><span class="fullOn" style="float:right;display:none">Activar colapso</span></span></p>')
         });
