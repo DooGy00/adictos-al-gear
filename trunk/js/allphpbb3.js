@@ -680,7 +680,8 @@ if (tm) {
                   zeditor.url = !1;
                 zeditor.mode.innerHTML = zeditor.lang.pm;
                 zeditor.textarea.placeholder = _userdata.username + " redacta tu mensaje privado...";
-                
+                 var textg = $(".mp-mode").parents(zeditor.post_dom).find('.author').find('a[href^="/u"]').eq(0).text();
+                    $(".mp-msg").html("Mensaje para:" + textg);
                     break
             }
         },
@@ -866,7 +867,7 @@ if (tm) {
             }
         },
       pm: function (a) {
-            var e = $(a).parents(zeditor.post_dom).find('a[href^="/u"]:not(:empty)').eq(0).text();
+            var e = $(a).closets(zeditor.post_dom).find('a[href^="/u"]:not(:empty)').eq(0).text();
             if (e.length > 0) {
                 zeditor.post_pm(e, zeditor.lang.pm_message_title + ' "' + document.title + '"', zeditor.textarea.value)
             } else {
