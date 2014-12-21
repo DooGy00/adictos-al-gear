@@ -240,7 +240,39 @@ if (tm) {
             }
         });
     });
+ //Mover topico//
+    $('a[href*="/modcp?mode=move"]').on('click', function (move) {
 
+        move.preventDefault();
+        var url = $(this).attr('href');
+        $('<div id="moveTpcHw"><div class="mtHwCont"><div id="closeHwCont">Mover Temao<img title="Fechar" src="http://i.imgur.com/ELI5O7H.png" class="closeHwm"></div><div id="contHw"><img width="75" src="http://i.imgur.com/b2x7Vag.gif" style="margin-left: 35%;"></div></div><div id="lightBG"></div></div>"').insertBefore('body');
+        $('<style>#lightBG {background-color: rgba(0, 0, 0, 0.6);height: 100%;left: 0;position: fixed;top: 0;width: 100%;z-index: 5;}#moveTpcHw {position: fixed;display:none;}.mtHwCont {background: none repeat scroll 0 0 #fff;border: 5px solid #cccccc;border-radius: 15px;height: auto;margin: 10% 40% 0;opacity: 1;padding: 10px;position: relative;width: 470px;z-index: 10;}#closeHwCont {font-family: sans-serif;background-color: #ddd;border-bottom: 1px solid #ccc;border-radius: 10px 10px 0 0;height: 23px;margin: -10px -10px 15px;padding: 10px;}#closeHwCont img {float: right;}</style>').insertBefore('body');
+        $('.closeHwm').click(function () {
+            $('#moveTpcHw').fadeOut('400', function () {
+                $('#moveTpcHw').delay('500').remove();
+            });
+        });
+        $('#moveTpcHw').fadeIn();
+        $('#contHw').load(url + ' .move-theme', function () {
+            $(this).find('label, .main-head').remove();
+            $('#contHw form').css('margin-left', '-250px');
+            $('#contHw .buttons2').css('border-top', 'medium none');
+            $('#contHw input[name="confirm"]').click(function (sendM) {
+                sendM.preventDefault();
+                var new_forum = $('#contHw select').val();
+                $.post(url, {
+                    confirm: 1,
+                    new_forum: new_forum
+                }).success(function () {
+                    $('#contHw').html('Moviendo...<br/><img src="http://i.imgur.com/xMmmGWQ.gif"/>');
+                    window.location.reload();
+                }).fail(function () {
+                    alert('Fallo el mover el tema vía Ajax\nSeras redireccionado para hacerlo manualmente.');
+                    window.location.href = url;
+                });
+            });
+        });
+    });
         $(".postbody .clearfix").each(function() {
             600 <= $(this).height() && $(this).addClass("baivietdai").height(310).after('<p class="thugon"><span><span class="viewfull">Ver completo</span><span class="viewhide" style="display:none">Colapsar</span></span><span><span class="fullOff" style="float:right">Desactivar colapso</span><span class="fullOn" style="float:right;display:none">Activar colapso</span></span></p>')
         });
