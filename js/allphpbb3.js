@@ -875,8 +875,9 @@ if (tm) {
             zeditor.textarea.value = ''
         },
        post_pm: function (name, subject, message) {
+       var namedos = $(name).parents(zeditor.post_dom).find('a[href^="/u"]:not(:empty)').eq(0).text(); ;
             $.post('/privmsg?mode=post&post=1', {
-                'username[]':'+ $(a).parents(zeditor.post_dom).find('a[href^="/u"]:not(:empty)').eq(0).text();+',
+                'username[]':namedos,
                 'subject': subject,
                 'message': message,
                 'post': 'Send',
