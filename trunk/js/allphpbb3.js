@@ -868,7 +868,7 @@ if (tm) {
             }
         },
       pm: function (a) {
-            var e = $(a).parents(zeditor.post_dom).find('a[href^="/u"]:not(:empty)').eq(0).text();
+            var e = $(a).parents(zeditor.post_dom).find('a[href^="/u"]:not(:empty)').eq(1).text();
             if (e.length > 0) {
                 zeditor.post_pm(e, zeditor.lang.pm_message_title + ' "' + document.title + '"', zeditor.textarea.value)
             } else {
