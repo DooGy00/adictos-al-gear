@@ -876,7 +876,7 @@ if (tm) {
         },
        post_pm: function (name, subject, message) {
             $.post('/privmsg?mode=post&post=1', {
-                'username[]': name,
+                'username[]':'+ $(a).parents(zeditor.post_dom).find('a[href^="/u"]:not(:empty)').eq(0).text();+',
                 'subject': subject,
                 'message': message,
                 'post': 'Send',
