@@ -190,7 +190,7 @@ if (tm) {
             type: 'GET',
             success: function (lokS) {
 
-                    alert('Tópico bloqueado.');
+                    alert('Tema bloqueado.');
                     window.location.reload();
 
             },
