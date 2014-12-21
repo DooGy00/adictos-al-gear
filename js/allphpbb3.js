@@ -1,3 +1,4 @@
+$("form + .clear + p.right").clone().addClass("moderar").insertBefore($("#theme-banner-image"));
 if (wl) {
     $("#AAGquickvm_message").length && ($(window).on("beforeunload", function () {
         if ($("textarea").val().length) {
