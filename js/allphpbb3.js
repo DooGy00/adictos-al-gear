@@ -1045,20 +1045,7 @@ if (tm) {
             return false
         });
     }
-    var level = _userdata.user_level;
-    var del = $('a[href*="mode=delete"]').attr("href");
-    var trash = $('a[href*="mode=trash"]').attr("href");
-    var move = $('a[href*="mode=move"]').attr("href");
-    var lockunlock = $('a[href*="mode=lock"]').attr("href");
-    var split = $('a[href*="mode=split"]').attr("href");
-    var merge = $('a[href*="merge"]').attr("href");
-    if (level === 1 | level === 2 | trash) {
-        $(".tema-info").after('<div id="moderation_tool" class="act_mod"><p class="mod" title="Moderar tema">Moderar</p></div>');
-        $("#moderation_tool").append('<div id="popw" class="action_mod"><div class="mod_hover"></div><div class="popwinner"><li><a href="' + del + '">Eliminar este tema</a></li><li><a href="' + trash + '">Enviar a la papelera</a></li><li><a href="' + move + '">Mover este tema</a></li><li><a href="' + lockunlock + '">Bloquear/Desbloquear</a></li><li><a href="' + split + '">Separar este tema</a></li><li><a href="' + merge + '">Fusionar el tema</a></li></div></div>');
-        $(".mod").on("click", function() {
-            $(".action_mod").slideToggle(300)
-        })
-    }
+ 
 }
 if (sub) {
     var h = document.getElementsByTagName("a");
