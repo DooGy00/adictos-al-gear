@@ -643,14 +643,14 @@ if (tm) {
                 })
             }
         },
-          if (_userdata.session_logged_in) {
+        
         button: function(a) {
             $(a).each(function() {
                 $(this).find('a[href*="quote"]').attr("onclick", "zeditor.start('quote', this); return false");
                 $(this).parent().parent().after('<table><td><a class="pbutton1" onclick="zeditor.start(\'reply\', this)">' + zeditor.lang.reply_button + '</a></td><td><a class="pbutton2" onclick="zeditor.start(\'pm\', this)">' + zeditor.lang.pm_button + "</a></td></table>");
                 $(this).find('a[href*="editpost"]').attr("onclick", "zeditor.start('edit', this); return false")
                   })
-                  }
+                  
               },
               
         start: function(d, g) {
