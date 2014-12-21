@@ -876,13 +876,13 @@ if (tm) {
             }
             zeditor.textarea.value = ""
         },
-        post_pm: function(a, d, g) {
-            $.post("/privmsg?mode=post&post=1", {
-                "username[]": a,
-                subject: d,
-                message: g,
-                post: "Send",
-                folder: "inbox"
+       post_pm: function (name, subject, message) {
+            $.post('/privmsg?mode=post&post=1', {
+                'username[]': name,
+                'subject': subject,
+                'message': message,
+                'post': 'Send',
+                'folder': 'inbox'
             }, function() {
                 $("textarea").attr("placeholder", _userdata.username + " tu mensaje privado se envió con éxito")
             })
