@@ -622,6 +622,7 @@ if (tm) {
         edit: function(d) {
             zeditor.loading("on");
             zeditor.url = d.href;
+            
             if (zeditor.textarea.value != "") {
                 if (confirm(_userdata.username + " de continuar  perderas lo escrito")) {
                     $.get(d.href, function(a) {
@@ -666,17 +667,27 @@ if (tm) {
                         alert(_userdata.username + " si deseas publicar tu mensaje presiona ENVIAR");
                         $("#editor-send-button ").css("background", "gold")
                     }
+                     if ($("#editor-send-button").text() === "Guardar") {
+                    $("#editor-send-button").text("Enviar")
+                }
                     break;
                 case "quote":
                     zeditor.url = g.href;
                     zeditor.quote(g);
                     zeditor.mode.innerHTML = zeditor.lang.quote;
+                     if ($("#editor-send-button").text() === "Guardar") {
+                    $("#editor-send-button").text("Enviar")
+                }
                     break;
                 case "edit":
                     zeditor.edit(g);
                     zeditor.mode.innerHTML = zeditor.lang.edit;
+                    $("#editor-send-button").text("Guardar");
                     break;
                 case "pm":
+                 if ($("#editor-send-button").text() === "Guardar") {
+                    $("#editor-send-button").text("Enviar")
+                }
                     zeditor.textarea.focus();
                     zeditor.url = !1;
                     zeditor.mode.innerHTML = zeditor.lang.pm;
