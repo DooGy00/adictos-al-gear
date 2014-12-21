@@ -677,12 +677,10 @@ if (tm) {
                     zeditor.mode.innerHTML = zeditor.lang.edit;
                     break;
                 case "pm":
-                    zeditor.textarea.focus();
-                    zeditor.url = !1;
-                    zeditor.mode.innerHTML = zeditor.lang.pm;
-                    zeditor.textarea.placeholder = _userdata.username + " redacta tu mensaje privado...";
-                    var textg = $(".mp-mode").parents(zeditor.post_dom).find('.author').find('a[href^="/u"]').eq(0).text();
-                    $(".mp-msg").html("Mensaje para:" + textg);
+                  zeditor.url = !1;
+                zeditor.mode.innerHTML = zeditor.lang.pm;
+                zeditor.textarea.placeholder = _userdata.username + " redacta tu mensaje privado...";
+                
                     break
             }
         },
