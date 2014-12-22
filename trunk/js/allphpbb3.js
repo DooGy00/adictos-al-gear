@@ -1406,9 +1406,8 @@ $(function() {
 });
 console.log("*************************** '¡allcode.js Listo!' **************************");
 console.log("***************************************************************************");
-if (/\/u\d+/.test(location.pathname) == true) {
-return
-}
+if (!pu ) 
+
 var m = {
 wall: 1,
 stats: 1,
@@ -1537,3 +1536,4 @@ $("#profilefilter, #profcont-container").remove()
 });
 return false
 });
+}
