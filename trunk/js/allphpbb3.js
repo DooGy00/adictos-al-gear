@@ -1406,3 +1406,134 @@ $(function() {
 });
 console.log("*************************** '¡allcode.js Listo!' **************************");
 console.log("***************************************************************************");
+if (/\/u\d+/.test(location.pathname) == true) {
+return
+}
+var m = {
+wall: 1,
+stats: 1,
+attachments: 0,
+friends: 1,
+contact: 1,
+rpg: 0,
+close: 1,
+avatar: 1
+};
+var r = document.getElementsByTagName("A");
+for (i = 0; i < r.length; i++) {
+if (/\/u\d+/.test(r[i].href) == true) {
+r[i].className = r[i].className + " profilePopup"
+}
+}
+$(".profilePopup:has(img)").removeClass("profilePopup");
+if (m.wall == 1) {
+var o = '<span class="propop_tab" id="propop_vm">Muro</span>'
+} else {
+var o = ""
+}
+if (m.stats == 1) {
+var g = '<span class="propop_tab" id="propop_stats">Estadisticas</span>'
+} else {
+var g = ""
+}
+if (m.attachments == 1) {
+var d = '<span class="propop_tab" id="propop_attach">Archivos</span>'
+} else {
+var d = ""
+}
+if (m.friends == 1) {
+var n = '<span class="propop_tab" id="propop_friends">Amigos</span>'
+} else {
+var n = ""
+}
+if (m.contact == 1) {
+var l = '<span class="propop_tab" id="propop_contact">Contacto</span>'
+} else {
+var l = ""
+}
+if (m.rpg == 1) {
+var p = '<span class="propop_tab" id="propop_rpg">Character sheet</span>'
+} else {
+var p = ""
+}
+if (m.close == 1) {
+var q = '<span class="propop_tab" id="close_popup" style="float:right;margin-top:-4px;">Cerrar</span>'
+} else {
+var q = ""
+}
+$(".profilePopup").on("click", function() {
+var s = $(this).attr("href");
+var u = $(this).text();
+var v = "#cp-main .panel, .forumline:has(#profile-advanced-details), .clear + #profile-advanced-details";
+var a = '<center><span class="profileLoading" style="font-weight:bold;font-size:18px;">Cargando...</span></center>';
+var t = "#propop_profile, #propop_vm, #propop_stats, #propop_friends, #propop_contact, #propop_rpg, #propop_attach, #propop_close";
+$("body").append('<div id="profilefilter" style="position:fixed;top:0px;left:0px;right:0px;bottom:0px;background:rgba(0,0,0, 0.5);cursor:pointer;z-index:10;"></div><div id="profcont-container" style="background:#D1D1D1;top:20%;left:15%;right:15%;padding:4px;position:fixed;font-size:12px;-webkit-border-radius:5px;-moz-border-radius:5px;border-radius:5px;-webkit-box-shadow:0px 0px 2px rgba(0,0,0, 0.5) inset;-moz-box-shadow:0px 0px 2px rgba(0,0,0, 0.5) inset;box-shadow:0px 0px 2px rgba(0,0,0, 0.5) inset;z-index:50;"><div class="profile_popup_nav">' + o + '<span class="propop_tab" id="propop_profile">Perfil</span>' + g + d + n + l + p + q + '</div><a href="' + s + '"><div id="userAVA"></div></a><div id="userprofile" style="height:400px;overflow-y:auto;">' + a + '</div><span id="profileLinks"><a href="' + s + '">Ver perfil</a><span id="interactionLinks"> | <a href="/privmsg?mode=post&u=' + s.replace(/.*?\/u/, "") + '">Enviar MP</a> | <a href="/privmsg?mode=post_profile&u=' + s.replace(/.*?\/u/, "") + '">Escribir en el muro</a><span style="float:right;"><a href="/profile?friend=' + u.replace(/\s+/, "+") + '&mode=editprofile&page_profil=friendsfoes">Añadir a amigos</a> | <a href="/profile?foe=' + u.replace(/\s+/, "+") + '&mode=editprofile&page_profil=friendsfoes">Ignorar</a></span></span></div>');
+$("#userprofile").load(s + v);
+if (m.avatar == 1) {
+$("#userAVA").load(s + " #profile-advanced-right .module:first div img:first, .forumline td.row1.gensmall:first > img:first, .frm-set.profile-view.left dd img:first, dl.left-box.details:first dd img:first, .row1 b .gen:first img:first, .real_avatar img:first")
+}
+$("#propop_profile").addClass("activeTab");
+$("#propop_profile").on("click", function() {
+if ($(this).hasClass("activeTab")) {
+return
+}
+$(t).removeClass("activeTab");
+$(this).addClass("activeTab");
+$("#userprofile").html(a).load(s + v)
+});
+$("#propop_vm").on("click", function() {
+if ($(this).hasClass("activeTab")) {
+return
+}
+$(t).removeClass("activeTab");
+$(this).addClass("activeTab");
+$("#userprofile").html(a).load(s + "wall" + v)
+});
+$("#propop_stats").on("click", function() {
+if ($(this).hasClass("activeTab")) {
+return
+}
+$(t).removeClass("activeTab");
+$(this).addClass("activeTab");
+$("#userprofile").html(a).load(s + "stats" + v)
+});
+$("#propop_friends").on("click", function() {
+if ($(this).hasClass("activeTab")) {
+return
+}
+$(t).removeClass("activeTab");
+$(this).addClass("activeTab");
+$("#userprofile").html(a).load(s + "friends" + v)
+});
+$("#propop_contact").on("click", function() {
+if ($(this).hasClass("activeTab")) {
+return
+}
+$(t).removeClass("activeTab");
+$(this).addClass("activeTab");
+$("#userprofile").html(a).load(s + "contact" + v)
+});
+$("#propop_rpg").on("click", function() {
+if ($(this).hasClass("activeTab")) {
+return
+}
+$(t).removeClass("activeTab");
+$(this).addClass("activeTab");
+$("#userprofile").html(a).load(s + "rpg" + v)
+});
+$("#propop_attach").on("click", function() {
+if ($(this).hasClass("activeTab")) {
+return
+}
+$(t).removeClass("activeTab");
+$(this).addClass("activeTab");
+$("#userprofile").html(a).load(s + "attachments" + v)
+});
+if (!document.getElementById("logout")) {
+$("#interactionLinks").remove()
+}
+$("#profilefilter, #close_popup").on("click", function() {
+$("#profilefilter, #profcont-container").remove()
+});
+return false
+});
