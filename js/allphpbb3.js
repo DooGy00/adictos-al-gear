@@ -665,6 +665,7 @@ if (tm) {
             $(zeditor.editor).slideDown();
             switch (d) {
                 case "reply":
+                    zeditor.textarea.focus();
                     zeditor.url = $('a[href^="/post?t="]').first().attr("href");
                     zeditor.mode.innerHTML = zeditor.lang.reply;
                     zeditor.textarea.placeholder = _userdata.username + " escribe un comentario...";
@@ -683,11 +684,13 @@ if (tm) {
                      if ($("#editor-send-button").text() === "Guardar") {
                     $("#editor-send-button").text("Enviar")
                 }
+                zeditor.textarea.focus();
                     break;
                 case "edit":
                     zeditor.edit(g);
                     zeditor.mode.innerHTML = zeditor.lang.edit;
                     $("#editor-send-button").text("Guardar");
+                    zeditor.textarea.focus();
                     break;
                 case "pm":
                  if ($("#editor-send-button").text() === "Guardar") {
@@ -699,6 +702,7 @@ if (tm) {
                     zeditor.textarea.placeholder = _userdata.username + " redacta tu mensaje privado...";
                     var textg = $(".mp-mode").parents(zeditor.post_dom).find('.author').find('a[href^="/u"]').eq(0).text();
                     $(".mp-msg").html("Mensaje para:" + textg);
+                    zeditor.textarea.focus();
                     break
             }
         },
