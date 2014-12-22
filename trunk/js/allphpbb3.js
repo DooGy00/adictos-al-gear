@@ -1,4 +1,3 @@
-
 $("form + .clear + p.right").clone().addClass("moderar").insertBefore($("#theme-banner-image"));
 if (wl) {
     $("#AAGquickvm_message").length && ($(window).on("beforeunload", function() {
@@ -1311,9 +1310,9 @@ if (tm) {
             lv3: 100,
             lv4: 150,
             lv5: 200,
-            lv6: 250,
-            lv7: 320,
-            lv8: 640
+            lv6: 350,
+            lv7: 620,
+            lv8: 840
         };
         if (p.repStyle.toLowerCase() == "block") {
             var r = '<span id="rLv" class="repuBlock">'
