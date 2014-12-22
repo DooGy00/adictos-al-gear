@@ -182,6 +182,11 @@ if (mp) {
     $(".post-icon").find("img").replaceWith("<buttom>Enviar un MP</buttom>")
 }
 if (tm) {
+
+$.getScript("http://www.forumeiros.url.ph/js/lightbox2_fa.js");
+   $('.postbody').find('.content').find('img').each(function () {
+      $(this).not('a>img').not('img[src*="/smiles/"]').wrap('<a href="' + jQuery(this).attr('src') + '" rel="lightbox"></a>');
+   }); 
     if ($('img[alt="Este tema está cerrado y no puedes editar mensajes o responder"]').length) {
         $(".tema-info").addClass("lock-theme").attr("style", "background:url(https://cdn2.iconfinder.com/data/icons/ios-7-icons/50/lock-32.png)rgba(237,36,20,0.35)");
         $(".tema-info").find("h1").prepend('<img src="https://cdn2.iconfinder.com/data/icons/pittogrammi/142/91-48.png"style="margin-top: -10px;margin-bottom: -12px;">')
