@@ -1066,7 +1066,7 @@ if (tm) {
          $(".baivietdai").height("auto");
           $('body,html').stop().animate({
                 scrollTop: $('#ze-editor-form').offset().top
-            }, 100);
+            }, 500);
             zeditor.textarea.focus();
            
         });
