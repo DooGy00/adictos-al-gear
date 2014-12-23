@@ -1,12 +1,21 @@
 $("form + .clear + p.right").clone().addClass("moderar").insertBefore($("#theme-banner-image"));
 if (wl) {
-    $("#AAGquickvm_message").length && ($(window).on("beforeunload", function() {
+    $("#AAGquickvm_message").length && ($(window).on("beforeunload", function () {
         if ($("textarea").val().length) {
             return _userdata.username + " todavía no has enviado el mensaje."
         }
-    }), $("#AAGquickvm_send").submit(function() {
+    }), $("#AAGquickvm_send").submit(function () {
         $(window).off("beforeunload")
     }))
+}
+
+if ($("#field_id1").length) {
+    $(".module .h3:first").next().find("img").insertAfter("#banner-image").attr("style", "width:120px;height:120px;border-radius:100%;position:absolute;margin-top:-111px;margin-left:-269px;border:4px double #fff;");
+    setTimeout(function() {
+   
+        $(".forum-location-not").insertAfter("h1").attr("style", "margin-left:14px;margin-top:-13px!important;margin-bottom:3px;display:inherit;");
+        $(".newonlineprofile").insertAfter("h1").attr("style", "margin-left:14px;margin-top:-13px!important;margin-bottom:3px;display:inherit;");
+    }, 400);
 }
 if ($("#fa_menulist").length) {
     var status_box = {
@@ -61,11 +70,11 @@ if (lin || ps || mp) {
         fix_it()
     }
     $(".sceditor-toolbar", function() {
-        $(".sceditor-button").prependTo(".sceditor-group:eq(0)");
-        if (_userdata.user_level != 0) {
-            $(".sceditor-button-pastetext").add(".sceditor-button-time").remove();
-        }
-        $(".sceditor-group:eq(0)").addClass("piloto");
+    $(".sceditor-button").prependTo(".sceditor-group:eq(0)");
+      if(_userdata.user_level != 0){
+         $(".sceditor-button-pastetext").add(".sceditor-button-time").remove();
+         }
+    $(".sceditor-group:eq(0)").addClass("piloto");
         $('<a class="sceditor-button post-preview-button" unselectable="on" title="Post Preview"><div unselectable="on" style="background-image:url(http://www.adictosalgear.org/adictosalgear/files/tv.png)!important">post</div></a><a class="sceditor-button no-guest-button" unselectable="on" title="No noguest"><div unselectable="on" style="background-image:url(http://www.adictosalgear.org/adictosalgear/files/glasses.png)!important">noguest</div></a><a class="sceditor-button tag-img-button" unselectable="on" title="Tag IMG"><div unselectable="on" style="background-image:url(http://www.adictosalgear.org/adictosalgear/files/tag.png)!important">IMG</div></a><a class="sceditor-button download-button" unselectable="on" title="Formato descargar"><div unselectable="on" style="background-image:url(http://www.adictosalgear.org/adictosalgear/files/savepdf.png)!important">descargar</div></a><a class="sceditor-button offtopic-button" unselectable="on" title="Offtopic"><div class="offtopic" unselectable="on" style="background-image:url(http://www.adictosalgear.org/adictosalgear/files/offtopic.png)!important" ></div></a><a title="Insert a linked image" class="sceditor-button sceditor-button-imganc"><div class="button-img-link" unselectable="on" style="background:url(http://i39.servimg.com/u/f39/18/21/41/30/imganc10.png)!important;">IMG link</div></a>').insertBefore(".sceditor-button-quote");
         $(".post-preview-button").on("click", function() {
             $("#text_editor_textarea").sceditor("instance").insertText("[post]", "[/post]")
@@ -173,109 +182,104 @@ if (mp) {
     $(".post-icon").find("img").replaceWith("<buttom>Enviar un MP</buttom>")
 }
 if (tm) {
-
-$.getScript("http://www.forumeiros.url.ph/js/lightbox2_fa.js");
-   $('.postbody').find('.content').find('img').each(function () {
-      $(this).not('a>img').not('img[src*="/smiles/"]').not('.img-descarga').wrap('<a href="' + jQuery(this).attr('src') + '" rel="lightbox"></a>');
-   }); 
     if ($('img[alt="Este tema está cerrado y no puedes editar mensajes o responder"]').length) {
         $(".tema-info").addClass("lock-theme").attr("style", "background:url(https://cdn2.iconfinder.com/data/icons/ios-7-icons/50/lock-32.png)rgba(237,36,20,0.35)");
         $(".tema-info").find("h1").prepend('<img src="https://cdn2.iconfinder.com/data/icons/pittogrammi/142/91-48.png"style="margin-top: -10px;margin-bottom: -12px;">')
     }
     $(function() {
         //Bloquear topico//
-        $('a[href*="/modcp?mode=lock"]').on('click', function(lock) {
+    $('a[href*="/modcp?mode=lock"]').on('click', function (lock) {
 
-            lock.preventDefault();
-            var url = $(this).attr('href');
-            $.ajax({
-                url: url,
-                type: 'GET',
-                success: function(lokS) {
+        lock.preventDefault();
+        var url = $(this).attr('href');
+        $.ajax({
+            url: url,
+            type: 'GET',
+            success: function (lokS) {
 
                     alert('Tema bloqueado.');
                     window.location.reload();
 
-                },
-                error: function() {
-                    alert('Fallo bloquear el tema vía Ajax\nSeras redireccionado para hacerlo manualmente.');
-                    window.location.href = url;
-                }
-            });
+            },
+            error: function () {
+                alert('Fallo bloquear el tema vía Ajax\nSeras redireccionado para hacerlo manualmente.');
+                window.location.href = url;
+            }
         });
-        //Desbloquear topico//
-        $('a[href*="/modcp?mode=unlock"]').on('click', function(unlock) {
+    });
+    //Desbloquear topico//
+    $('a[href*="/modcp?mode=unlock"]').on('click', function (unlock) {
 
-            unlock.preventDefault();
-            var url = $(this).attr('href');
-            $.ajax({
-                url: url,
-                type: 'GET',
-                success: function(unlokS) {
+        unlock.preventDefault();
+        var url = $(this).attr('href');
+        $.ajax({
+            url: url,
+            type: 'GET',
+            success: function (unlokS) {
 
                     alert('Tema desbloqueado.');
                     window.location.reload();
 
-                },
-                error: function() {
-                    alert('Fallo desbloquear el tema vía Ajax\nSeras redireccionado para hacerlo manualmente.');
-                    window.location.href = url;
-                }
-            });
+            },
+            error: function () {
+                alert('Fallo desbloquear el tema vía Ajax\nSeras redireccionado para hacerlo manualmente.');
+                window.location.href = url;
+            }
         });
+    });
 
-        //Lixeira topico//
-        $('a[href*="/modcp?mode=trash"]').on('click', function(unlock) {
+    //Lixeira topico//
+    $('a[href*="/modcp?mode=trash"]').on('click', function (unlock) {
 
-            unlock.preventDefault();
-            var url = $(this).attr('href');
-            $.ajax({
-                url: url,
-                type: 'GET',
-                success: function(unlokS) {
-                    alert('Se envió el tema a la papelera');
+        unlock.preventDefault();
+        var url = $(this).attr('href');
+        $.ajax({
+            url: url,
+            type: 'GET',
+            success: function (unlokS) {
+          alert('Se envió el tema a la papelera');
                     window.location.reload();
 
-                },
-                error: function() {
-                    alert('Fallo el envio a la papelera vía Ajax\nSeras redireccionado para hacerlo manualmente.');
-                    window.open(url);
-                }
-            });
+            },
+            error: function () {
+                alert('Fallo el envio a la papelera vía Ajax\nSeras redireccionado para hacerlo manualmente.');
+                window.open(url);
+            }
         });
-        //Mover topico//
-        $('a[href*="/modcp?mode=move"]').on('click', function(move) {
+    });
+ //Mover topico//
+    $('a[href*="/modcp?mode=move"]').on('click', function (move) {
 
-            move.preventDefault();
-            var url = $(this).attr('href');
-            $('<div id="moveTpcHw"><div class="mtHwCont"><div id="closeHwCont">Mover un tema<img title="Fechar" src="http://i.imgur.com/ELI5O7H.png" class="closeHwm"></div><div id="contHw"><img width="75" src="http://i.imgur.com/b2x7Vag.gif" style="margin-left: 35%;"></div></div><div id="lightBG"></div></div>"').insertBefore('body');
-            $('<style>#lightBG {background-color: rgba(0, 0, 0, 0.6);height: 100%;left: 0;position: fixed;top: 0;width: 100%;z-index: 5;}#moveTpcHw {position: fixed;display:none;}.mtHwCont {background: none repeat scroll 0 0 #fff;border: 5px solid #cccccc;border-radius: 2px;height: auto;margin: 10% 40% 0;opacity: 1;padding: 10px;position: relative;width: 470px;z-index: 10;}#closeHwCont {font-family: sans-serif;background-color: #ddd;border-bottom: 1px solid #ccc;height: 23px;margin: -10px -10px 15px;padding: 10px;}#closeHwCont img {float: right;}</style>').insertBefore('body');
-            $('.closeHwm').click(function() {
-                $('#moveTpcHw').fadeOut('400', function() {
-                    $('#moveTpcHw').delay('500').remove();
-                });
+        move.preventDefault();
+        var url = $(this).attr('href');
+        $('<div id="moveTpcHw"><div class="mtHwCont"><div id="closeHwCont">Mover un tema<img title="Fechar" src="http://i.imgur.com/ELI5O7H.png" class="closeHwm"></div><div id="contHw"><img width="75" src="http://i.imgur.com/b2x7Vag.gif" style="margin-left: 35%;"></div></div><div id="lightBG"></div></div>"').insertBefore('body');
+        $('<style>#lightBG {background-color: rgba(0, 0, 0, 0.6);height: 100%;left: 0;position: fixed;top: 0;width: 100%;z-index: 5;}#moveTpcHw {position: fixed;display:none;}.mtHwCont {background: none repeat scroll 0 0 #fff;border: 5px solid #cccccc;border-radius: 2px;height: auto;margin: 10% 40% 0;opacity: 1;padding: 10px;position: relative;width: 470px;z-index: 10;}#closeHwCont {font-family: sans-serif;background-color: #ddd;border-bottom: 1px solid #ccc;height: 23px;margin: -10px -10px 15px;padding: 10px;}#closeHwCont img {float: right;}</style>').insertBefore('body');
+        $('.closeHwm').click(function () {
+            $('#moveTpcHw').fadeOut('400', function () {
+                $('#moveTpcHw').delay('500').remove();
             });
-            $('#moveTpcHw').fadeIn();
-            $('#contHw').load(url + ' .move-theme', function() {
-                $(this).find('label, .main-head').remove();
-                $('#contHw form').css('margin-left', '-250px');
-                $('#contHw .buttons2').css('border-top', 'medium none');
-                $('#contHw input[name="confirm"]').click(function(sendM) {
-                    sendM.preventDefault();
-                    var new_forum = $('#contHw select').val();
-                    $.post(url, {
-                        confirm: 1,
-                        new_forum: new_forum
-                    }).success(function() {
-                        $('#contHw').html('Moviendo...<br/><img src="http://i.imgur.com/xMmmGWQ.gif"/>');
-                        window.location.reload();
-                    }).fail(function() {
-                        alert('Fallo el mover el tema vía Ajax\nSeras redireccionado para hacerlo manualmente.');
-                        window.location.href = url;
-                    });
+        });
+        $('#moveTpcHw').fadeIn();
+        $('#contHw').load(url + ' .move-theme', function () {
+            $(this).find('label, .main-head').remove();
+            $('#contHw form').css('margin-left', '-250px');
+            $('#contHw .buttons2').css('border-top', 'medium none');
+            $('#contHw input[name="confirm"]').click(function (sendM) {
+                sendM.preventDefault();
+                var new_forum = $('#contHw select').val();
+                $.post(url, {
+                    confirm: 1,
+                    new_forum: new_forum
+                }).success(function () {
+                    $('#contHw').html('Moviendo...<br/><img src="http://i.imgur.com/xMmmGWQ.gif"/>');
+                    window.location.reload();
+                }).fail(function () {
+                    alert('Fallo el mover el tema vía Ajax\nSeras redireccionado para hacerlo manualmente.');
+                    window.location.href = url;
                 });
             });
         });
+    });
         $(".postbody .clearfix").each(function() {
             600 <= $(this).height() && $(this).addClass("baivietdai").height(310).after('<p class="thugon"><span><span class="viewfull">Ver completo</span><span class="viewhide" style="display:none">Colapsar</span></span><span><span class="fullOff" style="float:right">Desactivar colapso</span><span class="fullOn" style="float:right;display:none">Activar colapso</span></span></p>')
         });
@@ -288,6 +292,137 @@ $.getScript("http://www.forumeiros.url.ph/js/lightbox2_fa.js");
             "fullOff" == b || "fullOn" == b ? (my_setcookie("thugonbaiviet", c, !0), $(".fullOff, .fullOn").toggle()) : (a.closest(".thugon").prev().height(c), $(window).scrollTop(a.closest(".post").offset().top));
             a.hide().siblings().show()
         });
+        if (/\/u\d+/.test(location.pathname) == true) {
+            return
+        }
+        var m = {
+            wall: 1,
+            stats: 1,
+            attachments: 0,
+            friends: 1,
+            contact: 1,
+            rpg: 0,
+            close: 1,
+            avatar: 1
+        };
+        var r = document.getElementsByTagName("A");
+        for (i = 0; i < r.length; i++) {
+            if (/\/u\d+/.test(r[i].href) == true) {
+                r[i].className = r[i].className + " profilePopup"
+            }
+        }
+        $(".profilePopup:has(img)").removeClass("profilePopup");
+        if (m.wall == 1) {
+            var o = '<span class="propop_tab" id="propop_vm">Muro</span>'
+        } else {
+            var o = ""
+        }
+        if (m.stats == 1) {
+            var g = '<span class="propop_tab" id="propop_stats">Estadisticas</span>'
+        } else {
+            var g = ""
+        }
+        if (m.attachments == 1) {
+            var d = '<span class="propop_tab" id="propop_attach">Archivos</span>'
+        } else {
+            var d = ""
+        }
+        if (m.friends == 1) {
+            var n = '<span class="propop_tab" id="propop_friends">Amigos</span>'
+        } else {
+            var n = ""
+        }
+        if (m.contact == 1) {
+            var l = '<span class="propop_tab" id="propop_contact">Contacto</span>'
+        } else {
+            var l = ""
+        }
+        if (m.rpg == 1) {
+            var p = '<span class="propop_tab" id="propop_rpg">Character sheet</span>'
+        } else {
+            var p = ""
+        }
+        if (m.close == 1) {
+            var q = '<span class="propop_tab" id="close_popup" style="float:right;margin-top:-4px;">Cerrar</span>'
+        } else {
+            var q = ""
+        }
+        $(".profilePopup").on("click", function() {
+            var s = $(this).attr("href");
+            var u = $(this).text();
+            var v = "#cp-main .panel, .forumline:has(#profile-advanced-details), .clear + #profile-advanced-details";
+            var a = '<center><span class="profileLoading" style="font-weight:bold;font-size:18px;">Cargando...</span></center>';
+            var t = "#propop_profile, #propop_vm, #propop_stats, #propop_friends, #propop_contact, #propop_rpg, #propop_attach, #propop_close";
+            $("body").append('<div id="profilefilter" style="position:fixed;top:0px;left:0px;right:0px;bottom:0px;background:rgba(0,0,0, 0.5);cursor:pointer;z-index:10;"></div><div id="profcont-container" style="background:#D1D1D1;top:20%;left:15%;right:15%;padding:4px;position:fixed;font-size:12px;-webkit-border-radius:5px;-moz-border-radius:5px;border-radius:5px;-webkit-box-shadow:0px 0px 2px rgba(0,0,0, 0.5) inset;-moz-box-shadow:0px 0px 2px rgba(0,0,0, 0.5) inset;box-shadow:0px 0px 2px rgba(0,0,0, 0.5) inset;z-index:50;"><div class="profile_popup_nav">' + o + '<span class="propop_tab" id="propop_profile">Perfil</span>' + g + d + n + l + p + q + '</div><a href="' + s + '"><div id="userAVA"></div></a><div id="userprofile" style="height:400px;overflow-y:auto;">' + a + '</div><span id="profileLinks"><a href="' + s + '">Ver perfil</a><span id="interactionLinks"> | <a href="/privmsg?mode=post&u=' + s.replace(/.*?\/u/, "") + '">Enviar MP</a> | <a href="/privmsg?mode=post_profile&u=' + s.replace(/.*?\/u/, "") + '">Escribir en el muro</a><span style="float:right;"><a href="/profile?friend=' + u.replace(/\s+/, "+") + '&mode=editprofile&page_profil=friendsfoes">Añadir a amigos</a> | <a href="/profile?foe=' + u.replace(/\s+/, "+") + '&mode=editprofile&page_profil=friendsfoes">Ignorar</a></span></span></div>');
+            $("#userprofile").load(s + v);
+            if (m.avatar == 1) {
+                $("#userAVA").load(s + " #profile-advanced-right .module:first div img:first, .forumline td.row1.gensmall:first > img:first, .frm-set.profile-view.left dd img:first, dl.left-box.details:first dd img:first, .row1 b .gen:first img:first, .real_avatar img:first")
+            }
+            $("#propop_profile").addClass("activeTab");
+            $("#propop_profile").on("click", function() {
+                if ($(this).hasClass("activeTab")) {
+                    return
+                }
+                $(t).removeClass("activeTab");
+                $(this).addClass("activeTab");
+                $("#userprofile").html(a).load(s + v)
+            });
+            $("#propop_vm").on("click", function() {
+                if ($(this).hasClass("activeTab")) {
+                    return
+                }
+                $(t).removeClass("activeTab");
+                $(this).addClass("activeTab");
+                $("#userprofile").html(a).load(s + "wall" + v)
+            });
+            $("#propop_stats").on("click", function() {
+                if ($(this).hasClass("activeTab")) {
+                    return
+                }
+                $(t).removeClass("activeTab");
+                $(this).addClass("activeTab");
+                $("#userprofile").html(a).load(s + "stats" + v)
+            });
+            $("#propop_friends").on("click", function() {
+                if ($(this).hasClass("activeTab")) {
+                    return
+                }
+                $(t).removeClass("activeTab");
+                $(this).addClass("activeTab");
+                $("#userprofile").html(a).load(s + "friends" + v)
+            });
+            $("#propop_contact").on("click", function() {
+                if ($(this).hasClass("activeTab")) {
+                    return
+                }
+                $(t).removeClass("activeTab");
+                $(this).addClass("activeTab");
+                $("#userprofile").html(a).load(s + "contact" + v)
+            });
+            $("#propop_rpg").on("click", function() {
+                if ($(this).hasClass("activeTab")) {
+                    return
+                }
+                $(t).removeClass("activeTab");
+                $(this).addClass("activeTab");
+                $("#userprofile").html(a).load(s + "rpg" + v)
+            });
+            $("#propop_attach").on("click", function() {
+                if ($(this).hasClass("activeTab")) {
+                    return
+                }
+                $(t).removeClass("activeTab");
+                $(this).addClass("activeTab");
+                $("#userprofile").html(a).load(s + "attachments" + v)
+            });
+            if (!document.getElementById("logout")) {
+                $("#interactionLinks").remove()
+            }
+            $("#profilefilter, #close_popup").on("click", function() {
+                $("#profilefilter, #profcont-container").remove()
+            });
+            return false
+        })
     });
     (function(d) {
         var g = [];
@@ -492,7 +627,7 @@ $.getScript("http://www.forumeiros.url.ph/js/lightbox2_fa.js");
         edit: function(d) {
             zeditor.loading("on");
             zeditor.url = d.href;
-
+            
             if (zeditor.textarea.value != "") {
                 if (confirm(_userdata.username + " de continuar  perderas lo escrito")) {
                     $.get(d.href, function(a) {
@@ -515,16 +650,16 @@ $.getScript("http://www.forumeiros.url.ph/js/lightbox2_fa.js");
                 })
             }
         },
-
+        
         button: function(a) {
             $(a).each(function() {
                 $(this).find('a[href*="quote"]').attr("onclick", "zeditor.start('quote', this); return false");
                 $(this).parent().parent().after('<table><td><a class="pbutton1" onclick="zeditor.start(\'reply\', this)">' + zeditor.lang.reply_button + '</a></td><td><a class="pbutton2" onclick="zeditor.start(\'pm\', this)">' + zeditor.lang.pm_button + "</a></td></table>");
                 $(this).find('a[href*="editpost"]').attr("onclick", "zeditor.start('edit', this); return false")
-            })
-
-        },
-
+                  })
+                  
+              },
+              
         start: function(d, g) {
             $(zeditor.editor).appendTo($(g).parents(zeditor.post_dom).find(zeditor.message_dom));
             $(zeditor.editor).slideDown();
@@ -538,18 +673,18 @@ $.getScript("http://www.forumeiros.url.ph/js/lightbox2_fa.js");
                         alert(_userdata.username + " si deseas publicar tu mensaje presiona ENVIAR");
                         $("#editor-send-button ").css("background", "gold")
                     }
-                    if ($("#editor-send-button").text() === "Guardar") {
-                        $("#editor-send-button").text("Enviar")
-                    }
+                     if ($("#editor-send-button").text() === "Guardar") {
+                    $("#editor-send-button").text("Enviar")
+                }
                     break;
                 case "quote":
                     zeditor.url = g.href;
                     zeditor.quote(g);
                     zeditor.mode.innerHTML = zeditor.lang.quote;
-                    if ($("#editor-send-button").text() === "Guardar") {
-                        $("#editor-send-button").text("Enviar")
-                    }
-                    zeditor.textarea.focus();
+                     if ($("#editor-send-button").text() === "Guardar") {
+                    $("#editor-send-button").text("Enviar")
+                }
+                zeditor.textarea.focus();
                     break;
                 case "edit":
                     zeditor.edit(g);
@@ -558,9 +693,9 @@ $.getScript("http://www.forumeiros.url.ph/js/lightbox2_fa.js");
                     zeditor.textarea.focus();
                     break;
                 case "pm":
-                    if ($("#editor-send-button").text() === "Guardar") {
-                        $("#editor-send-button").text("Enviar")
-                    }
+                 if ($("#editor-send-button").text() === "Guardar") {
+                    $("#editor-send-button").text("Enviar")
+                }
                     zeditor.textarea.focus();
                     zeditor.url = !1;
                     zeditor.mode.innerHTML = zeditor.lang.pm;
@@ -663,14 +798,6 @@ $.getScript("http://www.forumeiros.url.ph/js/lightbox2_fa.js");
                 })
             }
             zeditor.textarea.value = "", $(function() {
-             $.post("/privmsg", {
-                subject: "Actividad de los usuarios",
-               message: _userdata["username"]  + ' comentó en : [url='+window.location.href+']' +  document.title + '[/url]',
-                username: 'Actividad de los usuarios',
-                mode: "post_profile",
-                folder: "profile",
-                post: "Send"
-            });
                 if (_userdata.user_posts > 5) {
                     if ($(".post").first().find(".descargar").length > 0) {
                         $(".descargar").find("a,span").removeAttr("style")
@@ -760,7 +887,7 @@ $.getScript("http://www.forumeiros.url.ph/js/lightbox2_fa.js");
                 alert(zeditor.lang.tag_message_error)
             }
         },
-        pm: function(a) {
+      pm: function (a) {
             var e = $(a).parents(zeditor.post_dom).find('a[href^="/u"]:not(:empty)').eq(1).text();
             if (e.length > 0) {
                 zeditor.post_pm(e, zeditor.lang.pm_message_title + ' "' + document.title + '"', zeditor.textarea.value)
@@ -769,7 +896,7 @@ $.getScript("http://www.forumeiros.url.ph/js/lightbox2_fa.js");
             }
             zeditor.textarea.value = ''
         },
-        post_pm: function(name, subject, message) {
+       post_pm: function (name, subject, message) {
             $.post('/privmsg?mode=post&post=1', {
                 'username[]': name,
                 'subject': subject,
@@ -936,15 +1063,15 @@ $.getScript("http://www.forumeiros.url.ph/js/lightbox2_fa.js");
     });
     if ($(".baivietdai").length) {
         $(".pbutton1").add(".pbutton2").add(".quote a").add(".edit a").add(".mp").add(".postnumber a").on("click", function() {
-            $(".baivietdai").height("auto");
-            $('body,html').stop().animate({
+         $(".baivietdai").height("auto");
+          $('body,html').stop().animate({
                 scrollTop: $('#ze-editor-form').offset().top
-            }, 500);
+            }, 100);
             zeditor.textarea.focus();
-
+           
         });
     }
-
+ 
 }
 if (sub) {
     var h = document.getElementsByTagName("a");
@@ -1054,15 +1181,6 @@ var quicktopic = {
                 return _userdata.username + " todavía no has enviado el mensaje."
             }
         }), d(document.forms.post.post).on("click", function(l) {
-        var nombretema =$("#postingbox").find(".inputbox.medium").val();
-                 $.post("/privmsg", {
-                subject: "Actividad de usuarios",
-                   message: _userdata.username + ' público el tema:' + nombretema ,
-                username: 'Actividad de los usuarios',
-                mode: "post_profile",
-                folder: "profile",
-                post: "Send"
-            });
             $(window).off("beforeunload");
             l.preventDefault();
             a()
@@ -1109,24 +1227,13 @@ setTimeout(function() {
             })
         } else {
             $("#logout").add('a[href="http://source.openphpbb.com/login?logout=1"]').on("click", function() {
-             
                 if (!document.getElementById("quickLogoutPanel")) {
-                    
                     $("body").append(m);
                     $("#tid").load('/login?logout=1 input[name="tid"]');
                     $("#key").load('/login?logout=1 input[name="key"]');
                     $("#quickLogoutPanel").css("left", l.offsetX + "%").css("top", "-25%").animate({
                         top: "40px"
                     }, p);
-                      $('#quickLogoutPanel').find('input[value="Si"]').on("click",function(){
-                     $.post("/privmsg", {
-                subject: "Actividad de los usuarios",
-                message: _userdata.username +' se desconecto del foro',
-                username: 'Actividad de los usuarios',
-                mode: "post_profile",
-                folder: "profile",
-                post: "Send"
-            });});
                     $("#quickLogoutClose").on("click", function() {
                         $("#quickLogoutPanel").animate({
                             top: "-25%"
@@ -1141,7 +1248,6 @@ setTimeout(function() {
         }
     });
 }, 500);
-
 setTimeout(function() {
     if (tm) {
         $("p.right").find("iframe").addClass("facelike").detach().appendTo(".post:eq(0)")
@@ -1335,9 +1441,9 @@ if (tm) {
             lv3: 100,
             lv4: 150,
             lv5: 200,
-            lv6: 350,
-            lv7: 620,
-            lv8: 840
+            lv6: 250,
+            lv7: 320,
+            lv8: 640
         };
         if (p.repStyle.toLowerCase() == "block") {
             var r = '<span id="rLv" class="repuBlock">'
@@ -1404,7 +1510,6 @@ $("#fa_notifications").on("click", function() {
     $("#notif_list").slideToggle(100);
     $(this).attr("style", "background-image: url(http://adictosalgear.org/images/bell.png)!important;background-position: right!important;background-repeat: no-repeat!important;")
 });
-
 function AAGpreview() {
     if (ajax_preview_form) {
         $("#text_editor_textarea").sceditor("instance").updateOriginal();
@@ -1432,134 +1537,3 @@ $(function() {
 });
 console.log("*************************** '¡allcode.js Listo!' **************************");
 console.log("***************************************************************************");
-if (!pu) {
-
-    var m = {
-        wall: 1,
-        stats: 1,
-        attachments: 0,
-        friends: 1,
-        contact: 1,
-        rpg: 0,
-        close: 1,
-        avatar: 1
-    };
-    var r = document.getElementsByTagName("A");
-    for (i = 0; i < r.length; i++) {
-        if (/\/u\d+/.test(r[i].href) == true) {
-            r[i].className = r[i].className + " profilePopup"
-        }
-    }
-    $(".profilePopup:has(img)").removeClass("profilePopup");
-    if (m.wall == 1) {
-        var o = '<span class="propop_tab" id="propop_vm">Muro</span>'
-    } else {
-        var o = ""
-    }
-    if (m.stats == 1) {
-        var g = '<span class="propop_tab" id="propop_stats">Estadisticas</span>'
-    } else {
-        var g = ""
-    }
-    if (m.attachments == 1) {
-        var d = '<span class="propop_tab" id="propop_attach">Archivos</span>'
-    } else {
-        var d = ""
-    }
-    if (m.friends == 1) {
-        var n = '<span class="propop_tab" id="propop_friends">Amigos</span>'
-    } else {
-        var n = ""
-    }
-    if (m.contact == 1) {
-        var l = '<span class="propop_tab" id="propop_contact">Contacto</span>'
-    } else {
-        var l = ""
-    }
-    if (m.rpg == 1) {
-        var p = '<span class="propop_tab" id="propop_rpg">Character sheet</span>'
-    } else {
-        var p = ""
-    }
-    if (m.close == 1) {
-        var q = '<span class="propop_tab" id="close_popup" style="float:right;margin-top:-4px;">Cerrar</span>'
-    } else {
-        var q = ""
-    }
-    $(".profilePopup").on("click", function() {
-        var s = $(this).attr("href");
-        var u = $(this).text();
-        var v = "#cp-main .panel, .forumline:has(#profile-advanced-details), .clear + #profile-advanced-details";
-        var a = '<center><span class="profileLoading" style="font-weight:bold;font-size:18px;">Cargando...</span></center>';
-        var t = "#propop_profile, #propop_vm, #propop_stats, #propop_friends, #propop_contact, #propop_rpg, #propop_attach, #propop_close";
-        $("body").append('<div id="profilefilter" style="position:fixed;top:0px;left:0px;right:0px;bottom:0px;background:rgba(0,0,0, 0.5);cursor:pointer;z-index:10;"></div><div id="profcont-container" style="background:#D1D1D1;top:20%;left:15%;right:15%;padding:4px;position:fixed;font-size:12px;-webkit-border-radius:5px;-moz-border-radius:5px;border-radius:5px;-webkit-box-shadow:0px 0px 2px rgba(0,0,0, 0.5) inset;-moz-box-shadow:0px 0px 2px rgba(0,0,0, 0.5) inset;box-shadow:0px 0px 2px rgba(0,0,0, 0.5) inset;z-index:50;"><div class="profile_popup_nav">' + o + '<span class="propop_tab" id="propop_profile">Perfil</span>' + g + d + n + l + p + q + '</div><a href="' + s + '"><div id="userAVA"></div></a><div id="userprofile" style="height:400px;overflow-y:auto;">' + a + '</div><span id="profileLinks"><a href="' + s + '">Ver perfil</a><span id="interactionLinks"> | <a href="/privmsg?mode=post&u=' + s.replace(/.*?\/u/, "") + '">Enviar MP</a> | <a href="/privmsg?mode=post_profile&u=' + s.replace(/.*?\/u/, "") + '">Escribir en el muro</a><span style="float:right;"><a href="/profile?friend=' + u.replace(/\s+/, "+") + '&mode=editprofile&page_profil=friendsfoes">Añadir a amigos</a> | <a href="/profile?foe=' + u.replace(/\s+/, "+") + '&mode=editprofile&page_profil=friendsfoes">Ignorar</a></span></span></div>');
-        $("#userprofile").load(s + v);
-        if (m.avatar == 1) {
-            $("#userAVA").load(s + " #profile-advanced-right .module:first div img:first, .forumline td.row1.gensmall:first > img:first, .frm-set.profile-view.left dd img:first, dl.left-box.details:first dd img:first, .row1 b .gen:first img:first, .real_avatar img:first")
-        }
-        $("#propop_profile").addClass("activeTab");
-        $("#propop_profile").on("click", function() {
-            if ($(this).hasClass("activeTab")) {
-                return
-            }
-            $(t).removeClass("activeTab");
-            $(this).addClass("activeTab");
-            $("#userprofile").html(a).load(s + v)
-        });
-        $("#propop_vm").on("click", function() {
-            if ($(this).hasClass("activeTab")) {
-                return
-            }
-            $(t).removeClass("activeTab");
-            $(this).addClass("activeTab");
-            $("#userprofile").html(a).load(s + "wall" + v)
-        });
-        $("#propop_stats").on("click", function() {
-            if ($(this).hasClass("activeTab")) {
-                return
-            }
-            $(t).removeClass("activeTab");
-            $(this).addClass("activeTab");
-            $("#userprofile").html(a).load(s + "stats" + v)
-        });
-        $("#propop_friends").on("click", function() {
-            if ($(this).hasClass("activeTab")) {
-                return
-            }
-            $(t).removeClass("activeTab");
-            $(this).addClass("activeTab");
-            $("#userprofile").html(a).load(s + "friends" + v)
-        });
-        $("#propop_contact").on("click", function() {
-            if ($(this).hasClass("activeTab")) {
-                return
-            }
-            $(t).removeClass("activeTab");
-            $(this).addClass("activeTab");
-            $("#userprofile").html(a).load(s + "contact" + v)
-        });
-        $("#propop_rpg").on("click", function() {
-            if ($(this).hasClass("activeTab")) {
-                return
-            }
-            $(t).removeClass("activeTab");
-            $(this).addClass("activeTab");
-            $("#userprofile").html(a).load(s + "rpg" + v)
-        });
-        $("#propop_attach").on("click", function() {
-            if ($(this).hasClass("activeTab")) {
-                return
-            }
-            $(t).removeClass("activeTab");
-            $(this).addClass("activeTab");
-            $("#userprofile").html(a).load(s + "attachments" + v)
-        });
-        if (!document.getElementById("logout")) {
-            $("#interactionLinks").remove()
-        }
-        $("#profilefilter, #close_popup").on("click", function() {
-            $("#profilefilter, #profcont-container").remove()
-        });
-        return false
-    });
-}
