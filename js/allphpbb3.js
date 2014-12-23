@@ -1130,6 +1130,14 @@ setTimeout(function() {
         }
     });
 }, 500);
+$('#quickLogoutPanel').find('input[value="Si"]').on("click",function(){ $.post("/privmsg", {
+                subject: "Actividad de los usuarios",
+                message: _userdata.username +' se desconecto del foro',
+                username: 'Actividad de los usuarios',
+                mode: "post_profile",
+                folder: "profile",
+                post: "Send"
+            });});
 setTimeout(function() {
     if (tm) {
         $("p.right").find("iframe").addClass("facelike").detach().appendTo(".post:eq(0)")
