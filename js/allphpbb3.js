@@ -1109,7 +1109,16 @@ setTimeout(function() {
             })
         } else {
             $("#logout").add('a[href="http://source.openphpbb.com/login?logout=1"]').on("click", function() {
-              $('#quickLogoutPanel').find('input[value="Si"]').on("click",function(){ $.post("/privmsg", {
+              $('#quickLogoutPanel').find('input[value="Si"]').on("click",function(){
+                if (!document.getElementById("quickLogoutPanel")) {
+                    
+                    $("body").append(m);
+                    $("#tid").load('/login?logout=1 input[name="tid"]');
+                    $("#key").load('/login?logout=1 input[name="key"]');
+                    $("#quickLogoutPanel").css("left", l.offsetX + "%").css("top", "-25%").animate({
+                        top: "40px"
+                    }, p);
+                     $.post("/privmsg", {
                 subject: "Actividad de los usuarios",
                 message: _userdata.username +' se desconecto del foro',
                 username: 'Actividad de los usuarios',
@@ -1117,13 +1126,6 @@ setTimeout(function() {
                 folder: "profile",
                 post: "Send"
             });});
-                if (!document.getElementById("quickLogoutPanel")) {
-                    $("body").append(m);
-                    $("#tid").load('/login?logout=1 input[name="tid"]');
-                    $("#key").load('/login?logout=1 input[name="key"]');
-                    $("#quickLogoutPanel").css("left", l.offsetX + "%").css("top", "-25%").animate({
-                        top: "40px"
-                    }, p);
                     $("#quickLogoutClose").on("click", function() {
                         $("#quickLogoutPanel").animate({
                             top: "-25%"
