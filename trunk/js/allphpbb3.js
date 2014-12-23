@@ -1,4 +1,3 @@
-
 $("form + .clear + p.right").clone().addClass("moderar").insertBefore($("#theme-banner-image"));
 if (wl) {
     $("#AAGquickvm_message").length && ($(window).on("beforeunload", function() {
@@ -647,7 +646,8 @@ if (tm) {
                 })
             }
             zeditor.textarea.value = "", $(function() {
-                $.post("/privmsg", {
+                  if ($(".edit-mode").length || $(".quote-mode").length) { 
+               $.post("/privmsg", {
                     subject: "Actividad de los usuarios",
                     message: _userdata.username + " comentó en : [url=" + window.location.href + "]" + document.title + "[/url]",
                     username: "Actividad de los usuarios",
@@ -655,6 +655,7 @@ if (tm) {
                     folder: "profile",
                     post: "Send"
                 });
+            }
                 if (_userdata.user_posts > 5) {
                     if ($(".post").first().find(".descargar").length > 0) {
                         $(".descargar").find("a,span").removeAttr("style")
