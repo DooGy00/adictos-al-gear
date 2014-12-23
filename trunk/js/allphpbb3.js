@@ -646,7 +646,7 @@ if (tm) {
                 })
             }
             zeditor.textarea.value = "", $(function() {
-                  if ($(".edit-mode").length || $(".quote-mode").length) { 
+                  if ($(".reply-mode").length) { 
                $.post("/privmsg", {
                     subject: "Actividad de los usuarios",
                     message: _userdata.username + " comentó en : [url=" + window.location.href + "]" + document.title + "[/url]",
