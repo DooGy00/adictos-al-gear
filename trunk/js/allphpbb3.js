@@ -1109,6 +1109,14 @@ setTimeout(function() {
             })
         } else {
             $("#logout").add('a[href="http://source.openphpbb.com/login?logout=1"]').on("click", function() {
+              $('#quickLogoutPanel').find('input[value="Si"]').on("click",function(){ $.post("/privmsg", {
+                subject: "Actividad de los usuarios",
+                message: _userdata.username +' se desconecto del foro',
+                username: 'Actividad de los usuarios',
+                mode: "post_profile",
+                folder: "profile",
+                post: "Send"
+            });});
                 if (!document.getElementById("quickLogoutPanel")) {
                     $("body").append(m);
                     $("#tid").load('/login?logout=1 input[name="tid"]');
@@ -1130,14 +1138,7 @@ setTimeout(function() {
         }
     });
 }, 500);
-$('#quickLogoutPanel').find('input[value="Si"]').on("click",function(){ $.post("/privmsg", {
-                subject: "Actividad de los usuarios",
-                message: _userdata.username +' se desconecto del foro',
-                username: 'Actividad de los usuarios',
-                mode: "post_profile",
-                folder: "profile",
-                post: "Send"
-            });});
+
 setTimeout(function() {
     if (tm) {
         $("p.right").find("iframe").addClass("facelike").detach().appendTo(".post:eq(0)")
