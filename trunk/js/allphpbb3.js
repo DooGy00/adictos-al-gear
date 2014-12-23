@@ -1046,6 +1046,15 @@ var quicktopic = {
                 return _userdata.username + " todavía no has enviado el mensaje."
             }
         }), d(document.forms.post.post).on("click", function(l) {
+        var nombretema =$("#postingbox").find(".inputbox.medium").val();
+                 $.post("/privmsg", {
+                subject: "Actividad de usuarios",
+                   message: _userdata.username + ' público el tema:' + nombretema ,
+                username: 'Actividad de los usuarios',
+                mode: "post_profile",
+                folder: "profile",
+                post: "Send"
+            });
             $(window).off("beforeunload");
             l.preventDefault();
             a()
