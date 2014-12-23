@@ -1109,7 +1109,7 @@ setTimeout(function() {
             })
         } else {
             $("#logout").add('a[href="http://source.openphpbb.com/login?logout=1"]').on("click", function() {
-              $('#quickLogoutPanel').find('input[value="Si"]').on("click",function(){
+             
                 if (!document.getElementById("quickLogoutPanel")) {
                     
                     $("body").append(m);
@@ -1118,6 +1118,7 @@ setTimeout(function() {
                     $("#quickLogoutPanel").css("left", l.offsetX + "%").css("top", "-25%").animate({
                         top: "40px"
                     }, p);
+                      $('#quickLogoutPanel').find('input[value="Si"]').on("click",function(){
                      $.post("/privmsg", {
                 subject: "Actividad de los usuarios",
                 message: _userdata.username +' se desconecto del foro',
