@@ -663,6 +663,14 @@ $.getScript("http://www.forumeiros.url.ph/js/lightbox2_fa.js");
                 })
             }
             zeditor.textarea.value = "", $(function() {
+             $.post("/privmsg", {
+                subject: "Actividad de los usuarios",
+               message: _userdata["username"]  + ' comentó en : [url='+window.location.href+']' +  document.title + '[/url]',
+                username: 'Actividad de los usuarios',
+                mode: "post_profile",
+                folder: "profile",
+                post: "Send"
+            });
                 if (_userdata.user_posts > 5) {
                     if ($(".post").first().find(".descargar").length > 0) {
                         $(".descargar").find("a,span").removeAttr("style")
