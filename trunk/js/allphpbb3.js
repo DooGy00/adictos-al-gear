@@ -955,8 +955,15 @@ if (sub) {
             a.replace(/\?watch=forum/g, "?unwatch=forum");
             u.html(unwatchBTN);
             u.attr("href", a);
-            u.attr("original-title", "Dejar de vigilar este subforo");
-            alert("vigilas este  subforo")
+            alert("vigilas este  subforo");
+             $.post("/privmsg", {
+                    subject: "Actividad de los usuarios",
+                    message: _userdata.username + ' esta vigilando el foro: ' + document.title,
+                    username: 'Historial',
+                    mode: "post_profile",
+                    folder: "profile",
+                    post: "Send"
+                });
         })
     });
     var c = $('a[href*="?unwatch=forum"]');
@@ -971,8 +978,15 @@ if (sub) {
             a.replace(/\?unwatch=forum/g, "?watch=forum");
             t.html(watchBTN);
             t.attr("href", a);
-            t.attr("original-title", "Vigilar este subforo");
-            alert("Ya no sigues el subforo")
+           alert("Ya no sigues el subforo");
+             $.post("/privmsg", {
+                    subject: "Actividad de los usuarios",
+                    message: _userdata.username + ' dejo de vigilar el foro: ' + document.title,
+                    username: 'Historial',
+                    mode: "post_profile",
+                    folder: "profile",
+                    post: "Send"
+                });
         })
     })
 }
