@@ -272,7 +272,8 @@ var zeditor = {
                 }
                 if (_userdata.user_posts > 5) {
                     if ($(".post").first().find(".descargar").length > 0) {
-                        $(".descargar").find("a,span").removeAttr("style")
+                        $(".descargar").find("a,span").removeAttr("style");
+                        $(".info-new").remove();
                     }
                 }
             })
