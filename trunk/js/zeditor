@@ -515,7 +515,7 @@ $(".author").find("strong").attr("title", "Menciona a este usuario").on("click",
     zeditor.start('reply', this);
     zeditor.textarea.focus();
     isTagName = $(this).text();
-    $('#editor-textarea')[0].value += '"@' + isTagName + '" ';
+    $('#editor-textarea')[0].value += '@"' + isTagName + '", ';
     $('body,html').stop().animate({
         scrollTop: $('#ze-editor').offset().top
     }, 100);
