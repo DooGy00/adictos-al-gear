@@ -246,14 +246,15 @@ var zeditor = {
         if (zeditor.mode.innerHTML == zeditor.lang.reply || zeditor.mode.innerHTML == zeditor.lang.quote) {
             $.get(a, function (t) {
                 $('<div class="zeditor-new">' + zeditor.replace($(t).find("#p" + s).wrapAll("<div></div>").parent().html()) + "</div>").insertAfter(zeditor.post_dom + ":last");
+                 $(".postprofile").last().find(".f_a2").contents().filter(function () {
+            return this.nodeType === 3;
+        }).wrap("<p></p>");
                 $("html,body").animate({
                     scrollTop: $(".zeditor-new:last").offset().top
                 }, 300);
                 zeditor.button(".zeditor-new:last " + zeditor.button_dom)
             });
-             $(".postprofile").last().find(".f_a2").contents().filter(function () {
-            return this.nodeType === 3;
-        }).wrap("<p></p>");
+            
         }
         if (zeditor.mode.innerHTML == zeditor.lang.edit) {
             dom = $(zeditor.editor).parents(zeditor.post_dom).find(zeditor.message_dom);
