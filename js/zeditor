@@ -250,7 +250,10 @@ var zeditor = {
                     scrollTop: $(".zeditor-new:last").offset().top
                 }, 300);
                 zeditor.button(".zeditor-new:last " + zeditor.button_dom)
-            })
+            });
+             $(".postprofile").last().find(".f_a2").contents().filter(function () {
+            return this.nodeType === 3;
+        }).wrap("<p></p>");
         }
         if (zeditor.mode.innerHTML == zeditor.lang.edit) {
             dom = $(zeditor.editor).parents(zeditor.post_dom).find(zeditor.message_dom);
@@ -270,9 +273,7 @@ var zeditor = {
                     post: "Send"
                 });
             }
-             $(".postprofile").last().find(".f_a2").contents().filter(function () {
-            return this.nodeType === 3;
-        }).wrap("<p></p>");
+            
             if (_userdata.user_posts > 5) {
                 if ($(".post").first().find(".descargar").length > 0) {
                     $(".descargar").find("a,span").removeAttr("style");
