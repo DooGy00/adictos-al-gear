@@ -17,7 +17,7 @@ var zeditor = {
         tag_message_content: " fuiste etiquetado en ",
         pm_message_title: "Te enviaron un mensaje en el tema",
         pm_message_error: "No se encuentra el nombre",
-        reply_button: "Respuesta rápida",
+        reply_button: "Responder",
         pm_button: "Mensaje Privado",
         subject_button: "Título",
         preview_button: "Previsualizar",
