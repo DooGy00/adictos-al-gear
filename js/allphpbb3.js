@@ -1,4 +1,13 @@
-  $('#AAGquickvm_send').on("click", function () {
+
+if (wl) {
+	$("#AAGquickvm_message").length && ($(window).on("beforeunload", function() {
+		if ($("textarea").val().length) {
+			return _userdata.username + " todavía no has enviado el mensaje."
+		}
+	}), $("#AAGquickvm_send").submit(function() {
+		$(window).off("beforeunload")
+	}));
+     $('#AAGquickvm_send').on("click", function () {
          var name = $("#profile-advanced-right").find(".module").eq(0).find("strong").eq(0).text()
         $.post("/privmsg", {
             subject: 'Mensaje automático',
@@ -9,15 +18,6 @@
             post: "Send"
         });
     });
-
-if (wl) {
-	$("#AAGquickvm_message").length && ($(window).on("beforeunload", function() {
-		if ($("textarea").val().length) {
-			return _userdata.username + " todavía no has enviado el mensaje."
-		}
-	}), $("#AAGquickvm_send").submit(function() {
-		$(window).off("beforeunload")
-	}))
 }
 if ($("#fa_menulist").length) {
 	var status_box = {
