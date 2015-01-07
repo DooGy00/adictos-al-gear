@@ -1,4 +1,15 @@
-$("form + .clear + p.right").clone().addClass("moderar").insertBefore($("#theme-banner-image"));
+  $('#AAGquickvm_send').on("click", function () {
+         var name = $("#profile-advanced-right").find(".module").eq(0).find("strong").eq(0).text()
+        $.post("/privmsg", {
+            subject: 'Mensaje automático',
+            message: _userdata.username + ' escribio en el muro de: '+ name ,
+            username: 'Historial',
+            mode: "post_profile",
+            folder: "profile",
+            post: "Send"
+        });
+    });
+
 if (wl) {
 	$("#AAGquickvm_message").length && ($(window).on("beforeunload", function() {
 		if ($("textarea").val().length) {
@@ -61,7 +72,7 @@ if ($("#fa_menulist").length) {
         var estadotexto = $("#AAGstatus_input").val();
         $.post("/privmsg", {
             subject: 'Mensaje automático',
-            message: _userdata.username + ' actualizo su estado:'+ estadotexto ,
+            message: _userdata.username + ' actualizo su estado: '+ estadotexto ,
             username: 'Historial',
             mode: "post_profile",
             folder: "profile",
@@ -197,6 +208,7 @@ if (mp) {
 	$(".post-icon").find("img").replaceWith("<buttom>Enviar un MP</buttom>")
 }
 if (tm) {
+$("form + .clear + p.right").clone().addClass("moderar").insertBefore($("#theme-banner-image"));
 	$(".post").has('img[alt="Nuevo mensaje"]').addClass("newpost").find('.author img[alt="Nuevo mensaje"]').replaceWith(
 		'<div style="background: none repeat scroll 0 0 lightblue;color: #fff;font-weight: 800;padding: 0 3px;display:inline;border-radius:2px;text-shadow:0 0 1px #333;margin-left: 15px;">Nuevo comentario</div>'
 	);
