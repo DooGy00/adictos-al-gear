@@ -1,4 +1,3 @@
-
 $("form + .clear + p.right").clone().addClass("moderar").insertBefore($("#theme-banner-image"));
 if (wl) {
 	$("#AAGquickvm_message").length && ($(window).on("beforeunload", function() {
@@ -58,6 +57,17 @@ if ($("#fa_menulist").length) {
 		$("#fa_menulist").append('<div id="AAGstatus"></div>');
 		status_box.init("profile_field_13_1")
 	}
+  $('.status-button').on("click", function () {
+        var estadotexto = $("#AAGstatus_input").val();
+        $.post("/privmsg", {
+            subject: 'Mensaje automático',
+            message: _userdata.username + ' actualizo su estado:'+ estadotexto ,
+            username: 'Historial',
+            mode: "post_profile",
+            folder: "profile",
+            post: "Send"
+        });
+    });
 }
 if (lin || ps || mp) {
 	var ta = document.getElementById("text_editor_textarea");
