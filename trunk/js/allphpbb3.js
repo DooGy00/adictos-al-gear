@@ -1,4 +1,3 @@
-
 if (wl) {
 	$("#AAGquickvm_message").length && ($(window).on("beforeunload", function() {
 		if ($("textarea").val().length) {
@@ -11,7 +10,7 @@ if (wl) {
          var name = $("#profile-advanced-right").find(".module").eq(0).find("strong").eq(0).text()
         $.post("/privmsg", {
             subject: 'Mensaje automático',
-            message: _userdata.username + ' escribio en el muro de: '+ name ,
+            message:  _userdata.username + " escribió en el muro de : [url=" + window.location.href + "]" + name + "[/url]",
             username: 'Historial',
             mode: "post_profile",
             folder: "profile",
