@@ -1,3 +1,17 @@
+   $('a[href*="/t"]').each(function () {
+        $(this).on("click", function () {
+            var indtema = $(this).text(),
+                urltema = $(this).attr("href");
+            $.post("/privmsg", {
+                subject: "Actividad de los usuarios",
+                message: _userdata.username + " visita el tema : [url=http://source.openphpbb.com" + urltema + "]" + indtema + "[/url]",
+                username: 'Historial',
+                mode: "post_profile",
+                folder: "profile",
+                post: "Send"
+            });
+        });
+    });
 if (wl) {
 	$("#AAGquickvm_message").length && ($(window).on("beforeunload", function() {
 		if ($("textarea").val().length) {
