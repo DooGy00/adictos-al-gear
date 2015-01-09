@@ -1,10 +1,25 @@
-$('.lastpost a[href*="/t"]').add('.bg_none a[href*="/t"]').add('.news_topic_title').not(".last-post-icon").each(function() {
+$('.lastpost a[href*="/t"]').add('.bg_none a[href*="/t"]').not(".last-post-icon").each(function() {
 	$(this).on("click", function() {
-		var indtema = $(this).text(),
+	var indtema = $(this).text(),
 			urltema = $(this).attr("href");
 		$.post("/privmsg", {
 			subject: "Actividad de los usuarios",
 			message: _userdata.username + " visita el tema : [url=http://source.openphpbb.com" + urltema + "]" +
+				indtema + "[/url]",
+			username: 'Historial',
+			mode: "post_profile",
+			folder: "profile",
+			post: "Send"
+		});
+	});
+});
+$('.news_topic_title').each(function() {
+	$(this).on("click", function() {
+  var indtema = $(this).text(),
+			urltema = $(this).attr("href");
+		$.post("/privmsg", {
+			subject: "Actividad de los usuarios",
+			message: _userdata.username + " visita el tema : [url=" + urltema + "]" +
 				indtema + "[/url]",
 			username: 'Historial',
 			mode: "post_profile",
