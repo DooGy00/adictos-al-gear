@@ -533,7 +533,7 @@ if (sub) {
 			a.replace(/\?watch=forum/g, "?unwatch=forum");
 			u.html(unwatchBTN);
 			u.attr("href", a);
-			alert("vigilas este  subforo");
+		  
 			$.post("/privmsg", {
 				subject: "Actividad de los usuarios",
 				message: _userdata.username + " esta vigilando el subforo: [url=" + window.location.href + "]" + document.title + "[/url]",
@@ -556,7 +556,7 @@ if (sub) {
 			a.replace(/\?unwatch=forum/g, "?watch=forum");
 			t.html(watchBTN);
 			t.attr("href", a);
-			alert("Ya no sigues el subforo");
+		  
 			$.post("/privmsg", {
 				subject: "Actividad de los usuarios",
 				message:  _userdata.username + " dejo de vigilar el subforo: [url=" + window.location.href + "]" + document.title + "[/url]",
