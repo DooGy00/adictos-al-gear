@@ -526,6 +526,6 @@ $(".author").find("strong").attr("title", "Menciona a este usuario").on("click",
     }, 100);
     return false;
 });
-if(!_userdata.session_logged_in === 1){
+if(_userdata.session_logged_in != 1){
 $(".pbutton1").add(".pbutton2").removeAttr("onclick");
 }
