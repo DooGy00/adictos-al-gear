@@ -337,7 +337,7 @@ if (tm) {
 				})
 			})
 		});
-		$(".postbody .clearfix").each(function() {
+		$(".postbody").add(".clearfix").each(function() {
 			600 <= $(this).height() && $(this).addClass("baivietdai").height(310).after(
 				'<p class="thugon"><span><span class="viewfull">Ver completo</span><span class="viewhide" style="display:none">Colapsar</span></span><span><span class="fullOff" style="float:right">Desactivar colapso</span><span class="fullOn" style="float:right;display:none">Activar colapso</span></span></p>'
 			)
