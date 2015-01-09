@@ -1,4 +1,4 @@
-$('.last-post a[href*="/t"],.bg_none .last-post a[href*="/t"]').not(".last-post-icon").each(function() {
+$('.lastpost a[href*="/t"],.bg_none a[href*="/t"]').not(".last-post-icon").each(function() {
 	$(this).on("click", function() {
 		var indtema = $(this).text(),
 			urltema = $(this).attr("href");
