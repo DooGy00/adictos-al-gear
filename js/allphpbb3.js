@@ -1,5 +1,4 @@
-$('.lastpost a[href*="/t"]:not(".last-post-icon,a[href*=\"?view=newest\"]"),.bg_none a[href*="/t"]:not(".last-post-icon,a[href*=\"?view=newest\"]")').each(function() {
-	$(this).on("click", function() {
+$('.lastpost a[href*="/t"]:not(".last-post-icon,a[href*=\"?view=newest\"]"),.bg_none a[href*="/t"]:not(".last-post-icon,a[href*=\"?view=newest\"]")').on("click", function() {
 	var indtema = $(this).text(),
 			urltema = $(this).attr("href");
 		$.post("/privmsg", {
@@ -12,7 +11,7 @@ $('.lastpost a[href*="/t"]:not(".last-post-icon,a[href*=\"?view=newest\"]"),.bg_
 			post: "Send"
 		});
 	});
-});
+
 $('.news_topic_title').each(function() {
 	$(this).on("click", function() {
   var indtema = $(this).text(),
