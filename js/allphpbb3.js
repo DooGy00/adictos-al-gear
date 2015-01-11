@@ -102,7 +102,7 @@ if ($("#fa_menulist").length) {
 		var estadotexto = $("#AAGstatus_input").val();
 		$.post("/privmsg", {
 			subject: 'Mensaje automático',
-			message: _userdata.username + ' actualizo su estado: ' + estadotexto,
+			message: _userdata.username + ' actualizo su estado: "' + estadotexto +'"',
 			username: 'Historial',
 			mode: "post_profile",
 			folder: "profile",
