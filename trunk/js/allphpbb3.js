@@ -102,7 +102,7 @@ if ($("#fa_menulist").length) {
 		var estadotexto = $("#AAGstatus_input").val();
 		$.post("/privmsg", {
 			subject: 'Mensaje automático',
-			message: _userdata.username + ' actualizo su estado: [color=#FF0000]"' + estadotexto +'"[/color]',
+			message: _userdata.username + ' actualizo su estado: [color=#FF0000][b]"' + estadotexto +'"[/b][/color]',
 			username: 'Historial',
 			mode: "post_profile",
 			folder: "profile",
@@ -658,7 +658,7 @@ var quicktopic = {
 			var v = $("#postingbox").find(".inputbox.medium").val();
 			$.post("/privmsg", {
 				subject: "Mensaje automático",
-				message: _userdata.username + " público el tema:" + v,
+				message: _userdata.username + " público el tema:[b][color=#9400D3]" + v + "[/b][/color]",
 				username: "Historial",
 				mode: "post_profile",
 				folder: "profile",
