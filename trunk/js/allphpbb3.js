@@ -3,7 +3,7 @@ $('.lastpost a[href*="/t"]:not(".last-post-icon,a[href*=\"?view=newest\"]"),.bg_
 			urltema = $(this).attr("href");
 		$.post("/privmsg", {
 			subject: "Actividad de los usuarios",
-			message: _userdata.username + " visita el tema : [url=http://source.openphpbb.com" + urltema + "]" +
+			message: _userdata.username + " visitó el tema : [url=http://source.openphpbb.com" + urltema + "]" +
 				indtema + "[/url]",
 			username: 'Historial',
 			mode: "post_profile",
@@ -16,7 +16,7 @@ $('.news_topic_title').on("click", function() {
 			urltema = $(this).attr("href");
 		$.post("/privmsg", {
 			subject: "Actividad de los usuarios",
-			message: _userdata.username + " visita el tema : [url=" + urltema + "]" +
+			message: _userdata.username + " visitó el tema : [url=" + urltema + "]" +
 				indtema + "[/url]",
 			username: 'Historial',
 			mode: "post_profile",
