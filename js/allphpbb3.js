@@ -1010,10 +1010,7 @@ if (tm) {
 		}
 	})
 }
-.animate({
-  height: "toggle",
-  opacity: "toggle"
-});
+
 $("#fa_welcome").on("click", function() {
 	$("#fa_menulist").animate({
   height: "toggle",
