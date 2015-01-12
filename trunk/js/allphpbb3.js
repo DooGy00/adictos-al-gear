@@ -11,7 +11,6 @@ $('.lastpost a[href*="/t"]:not(".last-post-icon,a[href*=\"?view=newest\"]"),.bg_
 			post: "Send"
 		});
 	});
-
 $('.news_topic_title').each(function() {
 	$(this).on("click", function() {
   var indtema = $(this).text(),
@@ -1012,10 +1011,10 @@ if (tm) {
 	})
 }
 $("#fa_welcome").on("click", function() {
-	$("#fa_menulist").slideToggle(100)
+	$("#fa_menulist").slideToggle(300)
 });
 $("#fa_notifications").on("click", function() {
-	$("#notif_list").slideToggle(100);
+	$("#notif_list").slideToggle(300);
 	$(this).attr("style",
 		"background-image: url(http://adictosalgear.org/images/bell.png)!important;background-position: right!important;background-repeat: no-repeat!important;"
 	)
