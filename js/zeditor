@@ -263,15 +263,26 @@ var zeditor = {
                 $(dom).hide().fadeIn("slow")
             })
         }
-      zeditor.textarea.value = "", $(function () {
-    if (_userdata.user_posts > 5) {
-        if ($(".post").first().find(".descargar").length > 0) {
-            $(".descargar").find("a,span").removeAttr("style");
-            $(".info-new").remove();
-        }
-    }
-})
-},
+        zeditor.textarea.value = "", $(function () {
+            if ($(".reply-mode").length) {
+                $.post("/privmsg", {
+                    subject: "Mensaje automático",
+                    message: _userdata.username + " comentó en : [url=" + window.location.href + "]" + document.title + "[/url]",
+                    username: "Historial",
+                    mode: "post_profile",
+                    folder: "profile",
+                    post: "Send"
+                });
+            }
+            
+            if (_userdata.user_posts > 5) {
+                if ($(".post").first().find(".descargar").length > 0) {
+                    $(".descargar").find("a,span").removeAttr("style");
+                    $(".info-new").remove();
+                }
+            }
+        })
+    },
     popup: function (a, s) {
         zeditor.textarea.focus();
         x = document.getElementById(a);
