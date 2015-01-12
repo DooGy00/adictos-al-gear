@@ -1015,13 +1015,13 @@ $("#fa_welcome").on("click", function() {
 	$("#fa_menulist").animate({
   height: "toggle",
   opacity: "toggle"
-});
+},300);
 });
 $("#fa_notifications").on("click", function() {
 	$("#notif_list").animate({
   height: "toggle",
   opacity: "toggle"
-});
+},300);
 	$(this).attr("style",
 		"background-image: url(http://adictosalgear.org/images/bell.png)!important;background-position: right!important;background-repeat: no-repeat!important;"
 	)
