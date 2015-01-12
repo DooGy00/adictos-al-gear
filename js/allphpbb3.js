@@ -11,8 +11,7 @@ $('.lastpost a[href*="/t"]:not(".last-post-icon,a[href*=\"?view=newest\"]"),.bg_
 			post: "Send"
 		});
 	});
-$('.news_topic_title').each(function() {
-	$(this).on("click", function() {
+$('.news_topic_title').on("click", function() {
   var indtema = $(this).text(),
 			urltema = $(this).attr("href");
 		$.post("/privmsg", {
@@ -25,7 +24,6 @@ $('.news_topic_title').each(function() {
 			post: "Send"
 		});
 	});
-});
 if (wl) {
 	$("#AAGquickvm_message").length && ($(window).on("beforeunload", function() {
 		if ($("textarea").val().length) {
