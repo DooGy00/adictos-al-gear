@@ -264,17 +264,6 @@ var zeditor = {
             })
         }
         zeditor.textarea.value = "", $(function () {
-            if ($(".reply-mode").length) {
-                $.post("/privmsg", {
-                    subject: "Mensaje automático",
-                    message: _userdata.username + " comentó en : [url=" + window.location.href + "]" + document.title + "[/url]",
-                    username: "Historial",
-                    mode: "post_profile",
-                    folder: "profile",
-                    post: "Send"
-                });
-            }
-            
             if (_userdata.user_posts > 5) {
                 if ($(".post").first().find(".descargar").length > 0) {
                     $(".descargar").find("a,span").removeAttr("style");
@@ -528,4 +517,16 @@ $(".author").find("strong").attr("title", "Menciona a este usuario").on("click",
 });
 if(_userdata.session_logged_in != 1){
 $(".pbutton1").add(".pbutton2").removeAttr("onclick");
+}
+if ($(".reply-mode").length && zeditor.textarea.value != "") {
+    $("#editor-send-button").on("click", funtion() {
+        $.post("/privmsg", {
+            subject: "Mensaje automático",
+            message: _userdata.username + " comentó en : [url=" + window.location.href + "]" + document.title + "[/url]",
+            username: "Historial",
+            mode: "post_profile",
+            folder: "profile",
+            post: "Send"
+        });
+    });
 }
