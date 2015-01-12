@@ -138,8 +138,9 @@ var zeditor = {
             if ($("#editor-send-button").text() === "Guardar") {
                 $("#editor-send-button").text("Enviar")
             }
-            if ($(".reply-mode").length && zeditor.textarea.value != "") {
+           
     $("#editor-send-button").on("click", function () {
+     if ($(".reply-mode").length && zeditor.textarea.value != "") {
         $.post("/privmsg", {
             subject: "Mensaje automático",
             message: _userdata.username + " comentó en : [url=" + window.location.href + "]" + document.title + "[/url]",
@@ -148,9 +149,9 @@ var zeditor = {
             folder: "profile",
             post: "Send"
         });
-
+       }
     });
-}
+
             break;
         case "quote":
             zeditor.url = a.href;
