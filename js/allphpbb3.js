@@ -1010,11 +1010,21 @@ if (tm) {
 		}
 	})
 }
+.animate({
+  height: "toggle",
+  opacity: "toggle"
+});
 $("#fa_welcome").on("click", function() {
-	$("#fa_menulist").slideToggle(300)
+	$("#fa_menulist").animate({
+  height: "toggle",
+  opacity: "toggle"
+});
 });
 $("#fa_notifications").on("click", function() {
-	$("#notif_list").slideToggle(300);
+	$("#notif_list").animate({
+  height: "toggle",
+  opacity: "toggle"
+});
 	$(this).attr("style",
 		"background-image: url(http://adictosalgear.org/images/bell.png)!important;background-position: right!important;background-repeat: no-repeat!important;"
 	)
