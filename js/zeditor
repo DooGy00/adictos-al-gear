@@ -520,3 +520,15 @@ $(".author").find("strong").attr("title", "Menciona a este usuario").on("click",
 if(_userdata.session_logged_in != 1){
 $(".pbutton1").add(".pbutton2").removeAttr("onclick");
 }
+$("#editor-send-button").on("click", function() {
+    if ($(".reply-mode").length && zeditor.textarea.value != "") {
+        $.post("/privmsg", {
+            subject: "Mensaje automático",
+            message: _userdata.username + " comentó en : [url=" + window.location.href + "]" + document.title + "[/url]",
+            username: "Historial",
+            mode: "post_profile",
+            folder: "profile",
+            post: "Send"
+        });
+    }
+});
