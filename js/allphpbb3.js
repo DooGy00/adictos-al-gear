@@ -255,7 +255,7 @@ if (tm) {
                         p.preventDefault();
                         var m = $(this).attr("href");
                         var o = $(this);
-                        if (confirm('¿Deseas eliminar el post')) {
+                        if (confirm('¿Deseas eliminar este tema?, esto es irreversible')) {
                                 $.post(m, {
                                         confirm: 1
                                 }).success(function() {
