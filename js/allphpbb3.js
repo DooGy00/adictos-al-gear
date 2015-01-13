@@ -292,7 +292,13 @@ if (tm) {
                 type: "GET",
                 success: function (t) {
                     alert("Tema bloqueado.");
-                    window.location.reload()
+                     $.ajax({
+                url: "",
+                context: document.body,
+                success: function (s, x) {
+                    $(this).html(s);
+                }
+            });
                 },
                 error: function () {
                     alert("Fallo bloquear el tema vía Ajax\nSeras redireccionado para hacerlo manualmente.");
@@ -308,7 +314,13 @@ if (tm) {
                 type: "GET",
                 success: function (t) {
                     alert("Tema desbloqueado.");
-                    window.location.reload()
+                     $.ajax({
+                url: "",
+                context: document.body,
+                success: function (s, x) {
+                    $(this).html(s);
+                }
+            });
                 },
                 error: function () {
                     alert("Fallo desbloquear el tema vía Ajax\nSeras redireccionado para hacerlo manualmente.");
@@ -324,7 +336,13 @@ if (tm) {
                 type: "GET",
                 success: function (t) {
                     alert("Se envió el tema a la papelera");
-                    window.location.reload()
+                     $.ajax({
+                url: "",
+                context: document.body,
+                success: function (s, x) {
+                    $(this).html(s);
+                }
+            });
                 },
                 error: function () {
                     alert("Fallo el envio a la papelera vía Ajax\nSeras redireccionado para hacerlo manualmente.");
