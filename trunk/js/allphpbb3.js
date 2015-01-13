@@ -6,13 +6,7 @@ $('#profile-advanced-add').find('a[href^="/profile?mode=editprofile&page_profil=
             url: url,
             type: 'GET',
             success: function (frdelS) {
-                $.ajax({
-                url: "",
-                context: document.body,
-                success: function (s, x) {
-                    $(this).html(s);
-                }
-            });
+                window.location.reload();
             },
             error: function () {
                 alert('Fallo, intentalo de nuevo');
@@ -26,13 +20,7 @@ $('#profile-advanced-add').find('a[href="/profile?friend=Thor&mode=editprofile&p
             url: url,
             type: 'GET',
             success: function (fraddS) {
-               $.ajax({
-                url: "",
-                context: document.body,
-                success: function (s, x) {
-                    $(this).html(s);
-                }
-            });
+                window.location.reload();
             },
             error: function () {
                 alert('Fallo, intentalo de nuevo');
