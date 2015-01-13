@@ -1,3 +1,19 @@
+if(pu){
+$('#profile-advanced-add a[href^="/profile?mode=editprofile&page_profil=friendsfoes&remove="]').on('click', function (frdel) {
+        frdel.preventDefault();
+        var url = $(this).attr('href');
+        $.ajax({
+            url: url,
+            type: 'GET',
+            success: function (frdelS) {
+                window.location.reload();
+            },
+            error: function () {
+                alert('Fallo, intentalo de nuevo');
+            }
+        });
+    });
+}
 $('.lastpost a[href*="/t"]:not(".last-post-icon,a[href*=\"?view=newest\"]"),.bg_none a[href*="/t"]:not(".last-post-icon,a[href*=\"?view=newest\"]")').on("click", function () {
     var indtema = $(this).text(),
         urltema = $(this).attr("href");
