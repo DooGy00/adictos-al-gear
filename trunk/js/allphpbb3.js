@@ -513,6 +513,27 @@ if (sub) {
                 folder: "profile",
                 post: "Send"
             });
+            var c = $('a[href*="?unwatch=forum"]');
+            c.on("click", function (s) {
+                s.preventDefault();
+                var u = $(this).attr("href");
+                var t = $(this);
+                $.post(u, {
+                    confirm: 1
+                }).success(function () {
+                    t.attr("href",window.location.href+"?watch=forum");
+                    t.html(watchBTN);
+
+                    $.post("/privmsg", {
+                        subject: "Actividad de los usuarios",
+                        message: _userdata.username + " dejo de vigilar el subforo: [url=" + window.location.href + "]" + document.title + "[/url]",
+                        username: 'Historial',
+                        mode: "post_profile",
+                        folder: "profile",
+                        post: "Send"
+                    });
+                })
+            })
         })
     });
     var c = $('a[href*="?unwatch=forum"]');
