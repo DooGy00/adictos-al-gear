@@ -1,11 +1,25 @@
 if(pu){
-$('#profile-advanced-add a[href^="/profile?mode=editprofile&page_profil=friendsfoes&remove="]').on('click', function (frdel) {
+$('#profile-advanced-add').find('a[href^="/profile?mode=editprofile&page_profil=friendsfoes&remove="]').on('click', function (frdel) {
         frdel.preventDefault();
         var url = $(this).attr('href');
         $.ajax({
             url: url,
             type: 'GET',
             success: function (frdelS) {
+                window.location.reload();
+            },
+            error: function () {
+                alert('Fallo, intentalo de nuevo');
+            }
+        });
+    });
+$('#profile-advanced-add').find('a[href="/profile?friend=Thor&mode=editprofile&page_profil=friendsfoes"]').on('click', function (fradd) {
+        fradd.preventDefault();
+        var url = $(this).attr('href');
+        $.ajax({
+            url: url,
+            type: 'GET',
+            success: function (fraddS) {
                 window.location.reload();
             },
             error: function () {
