@@ -4,7 +4,7 @@ $('.lastpost a[href*="/t"]:not(".last-post-icon,a[href*=\"?view=newest\"]"),.bg_
     $.post("/privmsg", {
         subject: "Actividad de los usuarios",
         message: _userdata.username + " visitó el tema : [url=http://"+location.hostname + urltema + "]" +
-            indtema + "[/url]",
+        indtema + "[/url]",
         username: 'Historial',
         mode: "post_profile",
         folder: "profile",
@@ -17,7 +17,7 @@ $('.news_topic_title').on("click", function () {
     $.post("/privmsg", {
         subject: "Actividad de los usuarios",
         message: _userdata.username + " visitó el tema : [url=" + urltema + "]" +
-            indtema + "[/url]",
+        indtema + "[/url]",
         username: 'Historial',
         mode: "post_profile",
         folder: "profile",
@@ -340,15 +340,15 @@ if (tm) {
         var a = [];
         jQuery.fn.zzConfirm = function (v) {
             var z = jQuery.extend({
-                    content: "¿Estás seguro?",
-                    lang: ["Ok", "Cancelar"],
-                    width: "auto",
-                    dir: "left",
-                    toggle: !1,
-                    clickOut: !1,
-                    ok: function (D, C) {},
-                    cancel: function (D, C) {}
-                }, v),
+                content: "¿Estás seguro?",
+                lang: ["Ok", "Cancelar"],
+                width: "auto",
+                dir: "left",
+                toggle: !1,
+                clickOut: !1,
+                ok: function (D, C) {},
+                cancel: function (D, C) {}
+            }, v),
                 A, w, t = function (E, H) {
                     var I = E.outerWidth(),
                         F = E.outerHeight(),
@@ -360,17 +360,17 @@ if (tm) {
                         O = G + (I - J) / 2,
                         L = z.dir;
                     switch (L) {
-                    case "top":
-                        N = M - K - 10;
-                        break;
-                    case "bottom":
-                        N = M + F + 10;
-                        break;
-                    case "left":
-                        O = G - J - 10;
-                        break;
-                    case "right":
-                        O = G + I + 10
+                        case "top":
+                            N = M - K - 10;
+                            break;
+                        case "bottom":
+                            N = M + F + 10;
+                            break;
+                        case "left":
+                            O = G - J - 10;
+                            break;
+                        case "right":
+                            O = G + I + 10
                     }
                     H.attr("class", L).show().animate({
                         left: O,
@@ -504,7 +504,7 @@ if (sub) {
         }).success(function () {
             u.attr("href",window.location.href+"?unwatch=forum");
             u.html(unwatchBTN);
-            u.attr("href", a);
+           
             $.post("/privmsg", {
                 subject: "Actividad de los usuarios",
                 message: _userdata.username + " esta vigilando el subforo: [url=" + window.location.href + "]" + document.title + "[/url]",
@@ -523,9 +523,9 @@ if (sub) {
         $.post(u, {
             confirm: 1
         }).success(function () {
-          t.attr("href",window.location.href+"?watch=forum");
+            t.attr("href",window.location.href+"?watch=forum");
             t.html(watchBTN);
-            t.attr("href", a);
+        
             $.post("/privmsg", {
                 subject: "Actividad de los usuarios",
                 message: _userdata.username + " dejo de vigilar el subforo: [url=" + window.location.href + "]" + document.title + "[/url]",
@@ -624,9 +624,9 @@ setTimeout(function () {
         var z = t.time;
         if (A == 1) {
             var v = "box-shadow:2px 2px 6px rgba(0,0,0,0.3);"
-        } else {
-            var v = "box-shadow:none;"
-        }
+            } else {
+                var v = "box-shadow:none;"
+                }
         var w = "position:fixed;background:" + t.background + ";border:1px solid " + t.border + ";display:inline-block;padding:10px;z-index:99999;" + v;
         var u = '<div id="quickLoginPanel" style="' + w + '"><fieldset class="fields1 left fld_connexion"><form name="form_login" method="post" action="/login"><dl><dt><label for="username">Usuario:</label></dt><dd><input id="username" class="inputbox autowidth" type="text" value="" maxlength="40" size="25" name="username" tabindex="1"></dd></dl><dl><dt><label for="password">Contraseña:</label></dt><dd><input id="password" class="inputbox autowidth" type="password" maxlength="25" size="25" name="password" tabindex="2"></dd><dd><a href="/profile?mode=sendpassword">Olvide mi contraseña</a></dd></dl><dl><dd><label for="autologin"><input id="autologin" class="radio" type="checkbox" tabindex="4" name="autologin">Ingresar automaticamente</label></dd></dl><dl><dt>&nbsp;</dt><dd><input type="hidden" value="" name="redirect"><input type="hidden" value="" name="query"><input class="button1" type="submit" value="Entrar" tabindex="6" name="login"></dd></dl><a href="" id="quickLoginClose">Cerrar</a><form></fieldset></div>';
         var a = '<div id="quickLogoutPanel" style="' + w + '"><form method="post" action="/login?logout=true"><p>¿Estas seguro de salir?</p><fieldset class="submit-buttons"><div id="tid" style="display:none;"></div><div id="key" style="display:none;"></div><input class="button2" type="submit" value="Si" name="confirm" ' +
@@ -817,12 +817,12 @@ panda.onload = function () {
         A = my_getcookie("panda-theme"),
         z = '<option value="null"> -------------- </option>';
     for (var w = 0, v;
-        (v = a[w++]);) {
+         (v = a[w++]);) {
         z += '<option value="' + v + '" ' + (A && A == v ? ' selected="selected"' : "") + ">";
         z += v.charAt(0).toUpperCase() + v.substr(1) + "</option>"
     }
     for (var u = 0, B;
-        (B = t[u++]);) {
+         (B = t[u++]);) {
         panda.colorNode(B);
         $(B.parentNode.parentNode).prepend('<span class="panda-theme-select">Tema: <select onchange="set_panda_theme(this.value)">' + z + "</select></span>")
     }
@@ -834,7 +834,7 @@ panda.onload = function () {
 function set_panda_theme(u, s) {
     s = s || document.getElementsByTagName("code");
     for (var t = 0, a;
-        (a = s[t++]);) {
+         (a = s[t++]);) {
         a.className = a.className.replace(/\s?panda-theme-\w+\s?/, "") + " panda-theme-" + u
     }
     my_setcookie("panda-theme", u, 1)
@@ -881,13 +881,13 @@ if (tm) {
         };
         if (z.repStyle.toLowerCase() == "block") {
             var v = '<span id="rLv" class="repuBlock">'
-        } else {
-            if (z.repStyle.toLowerCase() == "image") {
-                var v = '<img id="rLv" src="' + z.repImage + '"/>'
             } else {
-                var v = '<span id="rLv" class="repuBlock">'
+                if (z.repStyle.toLowerCase() == "image") {
+                    var v = '<img id="rLv" src="' + z.repImage + '"/>'
+                    } else {
+                        var v = '<span id="rLv" class="repuBlock">'
+                        }
             }
-        }
         var a = {
             phpbb3: u.toLowerCase() == "phpbb3",
         };
@@ -896,44 +896,44 @@ if (tm) {
             if (a.phpbb3) {
                 var A = ".postprofile";
                 var t = $(this).find(".f_a1").append('<div id="repu">')
-            }
+                }
             $(A).each(function () {
                 var s = Number($(this).text().replace(w, "$1"));
                 t;
                 if (s >= B.lv1) {
                     $(this).find("#repu").append(v);
                     var C = s + "/" + B.lv2
-                }
+                    }
                 if (s >= B.lv2) {
                     $(this).find("#repu").append(v);
                     var C = s + "/" + B.lv3
-                }
+                    }
                 if (s >= B.lv3) {
                     $(this).find("#repu").append(v);
                     var C = s + "/" + B.lv4
-                }
+                    }
                 if (s >= B.lv4) {
                     $(this).find("#repu").append(v);
                     var C = s + "/" + B.lv5
-                }
+                    }
                 if (s >= B.lv5) {
                     $(this).find("#repu").append(v);
                     var C = s + "/" + B.lv6
-                }
+                    }
                 if (s >= B.lv6) {
                     $(this).find("#repu").append(v);
                     var C = s + "/" + B.lv7
-                }
+                    }
                 if (s >= B.lv7) {
                     $(this).find("#repu").append(v);
                     var C = s + "/" + B.lv8
-                }
+                    }
                 if (s >= B.lv8) {
                     $(this).find("#repu").append(v);
                     var C = "MAX"
-                }
+                    }
                 $(this).find("#repu").attr("title", "Reputation level " + $(this).find("#rLv").length + "\nNext : (" +
-                    C + ")")
+                                           C + ")")
             })
         }
     })
@@ -999,39 +999,39 @@ if (!pu) {
     $(".profilePopup:has(img)").removeClass("profilePopup");
     if (m.wall == 1) {
         var o = '<span class="propop_tab" id="propop_vm">Muro</span>'
-    } else {
-        var o = ""
-    }
+        } else {
+            var o = ""
+            }
     if (m.stats == 1) {
         var g = '<span class="propop_tab" id="propop_stats">Estadisticas</span>'
-    } else {
-        var g = ""
-    }
+        } else {
+            var g = ""
+            }
     if (m.attachments == 1) {
         var d = '<span class="propop_tab" id="propop_attach">Archivos</span>'
-    } else {
-        var d = ""
-    }
+        } else {
+            var d = ""
+            }
     if (m.friends == 1) {
         var n = '<span class="propop_tab" id="propop_friends">Amigos</span>'
-    } else {
-        var n = ""
-    }
+        } else {
+            var n = ""
+            }
     if (m.contact == 1) {
         var l = '<span class="propop_tab" id="propop_contact">Contacto</span>'
-    } else {
-        var l = ""
-    }
+        } else {
+            var l = ""
+            }
     if (m.rpg == 1) {
         var p = '<span class="propop_tab" id="propop_rpg">Character sheet</span>'
-    } else {
-        var p = ""
-    }
+        } else {
+            var p = ""
+            }
     if (m.close == 1) {
         var q = '<span class="propop_tab" id="close_popup" style="float:right;margin-top:-4px;">Cerrar</span>'
-    } else {
-        var q = ""
-    }
+        } else {
+            var q = ""
+            }
     $(".profilePopup").on("click", function () {
         var C = $(this).attr("href");
         var A = $(this).text();
@@ -1039,7 +1039,7 @@ if (!pu) {
         var w = '<center><span class="profileLoading" style="font-weight:bold;font-size:18px;">Cargando...</span></center>';
         var B = "#propop_profile, #propop_vm, #propop_stats, #propop_friends, #propop_contact, #propop_rpg, #propop_attach, #propop_close";
         $("body").append('<div id="profilefilter" style="position:fixed;top:0px;left:0px;right:0px;bottom:0px;background:rgba(0,0,0, 0.5);cursor:pointer;z-index:10;"></div><div id="profcont-container" style="background:#D1D1D1;top:20%;left:15%;right:15%;padding:4px;position:fixed;font-size:12px;-webkit-border-radius:5px;-moz-border-radius:5px;border-radius:5px;-webkit-box-shadow:0px 0px 2px rgba(0,0,0, 0.5) inset;-moz-box-shadow:0px 0px 2px rgba(0,0,0, 0.5) inset;box-shadow:0px 0px 2px rgba(0,0,0, 0.5) inset;z-index:50;"><div class="profile_popup_nav">' +
-            o + '<span class="propop_tab" id="propop_profile">Perfil</span>' + g + d + n + l + p + q + '</div><a href="' + C + '"><div id="userAVA"></div></a><div id="userprofile" style="height:400px;overflow-y:auto;">' + w + '</div><span id="profileLinks"><a href="' + C + '">Ver perfil</a><span id="interactionLinks"> | <a href="/privmsg?mode=post&u=' + C.replace(/.*?\/u/, "") + '">Enviar MP</a> | <a href="/privmsg?mode=post_profile&u=' + C.replace(/.*?\/u/, "") + '">Escribir en el muro</a><span style="float:right;"><a href="/profile?friend=' + A.replace(/\s+/, "+") + '&mode=editprofile&page_profil=friendsfoes">Añadir a amigos</a> | <a href="/profile?foe=' + A.replace(/\s+/, "+") + '&mode=editprofile&page_profil=friendsfoes">Ignorar</a></span></span></div>');
+                         o + '<span class="propop_tab" id="propop_profile">Perfil</span>' + g + d + n + l + p + q + '</div><a href="' + C + '"><div id="userAVA"></div></a><div id="userprofile" style="height:400px;overflow-y:auto;">' + w + '</div><span id="profileLinks"><a href="' + C + '">Ver perfil</a><span id="interactionLinks"> | <a href="/privmsg?mode=post&u=' + C.replace(/.*?\/u/, "") + '">Enviar MP</a> | <a href="/privmsg?mode=post_profile&u=' + C.replace(/.*?\/u/, "") + '">Escribir en el muro</a><span style="float:right;"><a href="/profile?friend=' + A.replace(/\s+/, "+") + '&mode=editprofile&page_profil=friendsfoes">Añadir a amigos</a> | <a href="/profile?foe=' + A.replace(/\s+/, "+") + '&mode=editprofile&page_profil=friendsfoes">Ignorar</a></span></span></div>');
         $("#userprofile").load(C + z);
         if (m.avatar == 1) {
             $("#userAVA").load(C + " #profile-advanced-right .module:first div img:first, .forumline td.row1.gensmall:first > img:first, .frm-set.profile-view.left dd img:first, dl.left-box.details:first dd img:first, .row1 b .gen:first img:first, .real_avatar img:first")
