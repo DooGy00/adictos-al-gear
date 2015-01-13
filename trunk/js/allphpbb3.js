@@ -292,13 +292,7 @@ if (tm) {
                 type: "GET",
                 success: function (t) {
                     alert("Tema bloqueado.");
-                    $.ajax({
-                url: "",
-                context: document.body,
-                success: function (s, x) {
-                    $(this).html(s);
-                }
-            });
+                    window.location.reload()
                 },
                 error: function () {
                     alert("Fallo bloquear el tema vía Ajax\nSeras redireccionado para hacerlo manualmente.");
