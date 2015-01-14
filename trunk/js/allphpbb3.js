@@ -624,6 +624,21 @@ if (mp && mpindex) {
         })
     })
 }
+if(ps){
+  var s = document.getElementsByTagName('INPUT'),i;
+        for (i=0; i<s.length; i++) {
+            if (/subject/.test(s[i].name)) {
+                var d = document.createElement('DIV');
+                d.innerHTML = '<div class="h3">Temas similares</div><div id="topicSimilar">Temas similares</div>';
+                s[i].parentNode.appendChild(d);
+                s[i].onkeyup = function() {
+                    if (this.value.length > 3) $('#topicSimilar').load('/search?search_keywords='+encodeURIComponent(this.value)+' a.topictitle', function() {
+                        $(this).find('a').attr({'target' : '_blank', 'style' : 'display:block'});
+                    });
+                    else $('#topicSimilar').html('No similar topics..');
+                }
+            }
+        }
 var quicktopic = {
     color: "orange"
 };
@@ -661,6 +676,7 @@ var quicktopic = {
         }))
     })
 })(jQuery);
+}
 setTimeout(function () {
     $(function () {
         var t = {
