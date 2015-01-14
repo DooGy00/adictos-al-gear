@@ -1,3 +1,12 @@
+$(window).load(function () {
+    setTimeout(function () {
+        $('#notif_list').find('li').find('.contentText').prepend('<div class="ava"><img src="http://i.imgur.com/DJp0z9U.png"/></div>');
+        $('.ava').each(function () {
+            var userLink = $(this).parents().find('a[href*="/u"]').attr('href');
+            $(this).load(userLink + ' #profile-advanced-right .module:first div img:first');
+        });
+    }, 2000);
+});
 if(pu){
 $('#profile-advanced-add').find('a[href^="/profile?mode=editprofile&page_profil=friendsfoes&remove="]').on('click', function (frdel) {
         frdel.preventDefault();
