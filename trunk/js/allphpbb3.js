@@ -513,7 +513,7 @@ if (tm) {
             $(".baivietdai").height("auto");
             $("body,html").stop().animate({
                 scrollTop: $("#ze-editor-form").offset().top
-            });
+            },0);
             zeditor.textarea.focus()
         })
     }
