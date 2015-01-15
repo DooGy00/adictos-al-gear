@@ -229,7 +229,7 @@ var zeditor = {
 				zeditor.edit(a);
 				zeditor.mode.innerHTML = zeditor.lang.edit;
 				$("#editor-send-button").text("Guardar");
-				if($(".thugon").length){
+				if($(".thugon").length && $("#editor-send-button").text() ==="Guardar" ){
        $(".baivietdai").height("100%")
         
         }
