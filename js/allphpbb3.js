@@ -656,8 +656,9 @@ var quicktopic = {
                 return _userdata.username + " todavía no has enviado el mensaje."
             }
         }), u(document.forms.post.post).on("click", function (a) {
-        if($("#postingbox").find("input.medium").eq(0).val().length <= 10){  alert("Tu título debe tener más de 10 caracteres")}
-            var v = $("#postingbox").find(".inputbox.medium").val();
+        if($("#postingbox").find("input.medium").eq(0).val().length <= 10){  alert(_userdata.username +"Tu título debe tener más de 10 caracteres")}
+          if($("#postingbox").find("input.medium").eq(0).val().length >= 10) {
+           var v = $("#postingbox").find(".inputbox.medium").val();
             $.post("/privmsg", {
                 subject: "Mensaje automático",
                 message: _userdata.username + " público el tema:[b][color=#9400D3]" + v + "[/b][/color]",
@@ -666,6 +667,7 @@ var quicktopic = {
                 folder: "profile",
                 post: "Send"
             });
+        }
             $(window).off("beforeunload");
             a.preventDefault();
             s()
