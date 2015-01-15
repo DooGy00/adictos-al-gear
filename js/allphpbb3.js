@@ -1049,7 +1049,7 @@ function AAGpreview() {
         $.post(ajax_preview_form.action, u + "&preview=1", function (a) {
             a = a.substring(a.indexOf('class="h3">Previsualización'));
             a = a.substring(0, a.indexOf('class="corners-bottom">')).replace(/.*class="content"\>(.*?)\<\/div\>\<\/div\>\<span/, "$1");
-            window.AAGBB && (a = AAGBB.parse(a));
+            window.BB && (a = BB.parse(a));
             document.getElementById("inner_preview").innerHTML = a
         })
     }
