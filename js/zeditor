@@ -278,7 +278,8 @@ var zeditor = {
 				preview: "Preview",
 			}, function(s) {
 				preview.style.display = "block";
-				preview.innerHTML = zeditor.replace($(s).find(zeditor.preview_dom).html())
+				preview.innerHTML = zeditor.replace($(s).find(zeditor.preview_dom).html());
+         window.BB && (preview = BB.parse(preview));
 			})
 		}
 	},
