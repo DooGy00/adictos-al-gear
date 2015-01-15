@@ -46,6 +46,7 @@ var zeditor = {
 		code_button: '<img src="https://cdn3.iconfinder.com/data/icons/fugue/icon/edit-code.png"/>',
 		hidecode_button: '<img src="https://cdn1.iconfinder.com/data/icons/jigsoar-icons/16/_code.png"/>',
 		postlink_button: '<img src="https://cdn3.iconfinder.com/data/icons/fatcow/16/link_add.png">',
+    inlinecode_button: '<img src="https://cdn2.iconfinder.com/data/icons/ledicons/page_code.png">',
 		send_button: "Enviar",
 		tag_button: "@",
 		imgur_placeholder1: "Selecciona los archivos",
@@ -97,6 +98,8 @@ var zeditor = {
 				zeditor.lang.postlink_button +
 				'</span><span title="Tags para colocar código, contine además el hide" onclick="zeditor.add(\'[hide][code]\',\'[/code][/hide]\')"  class="editor-button-outer">' +
 				zeditor.lang.code_button +
+				'</span><span title="Tags para colocar código en línea" onclick="zeditor.add(\'[ic]\',\'[/ic]\')"  class="editor-button-outer">' +
+				zeditor.lang.inlinecode_button +
 				'</span><span title="Tags para colocar código oculto, contine además el hide" onclick="zeditor.add(\'[hidecode]\',\'[/hidecode]\')"  class="editor-button-outer">' +
 				zeditor.lang.hidecode_button +
 				'</span><span class="editor-button-outer" onclick="zeditor.popup(\'ze-smiley\', this);zeditor.createSmilies()" title="Smilies">' +
