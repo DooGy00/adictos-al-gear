@@ -133,7 +133,7 @@ var zeditor = {
                 zeditor.lang.send_button + '</span><span onclick="zeditor.preview(this)" id="editor-preview-button">' +
                 zeditor.lang.preview_button + '</span><span class="advance-button" onclick="zeditor.advance()">' +
                 zeditor.lang.advance_button +
-                '</span><span class="cancel-button" onclick="$(\'#ze-editor\').slideToggle();">' +
+                '</span><span class="cancel-button" onclick="$(\'#ze-editor\').slideToggle();window.onbeforeunload = false">' +
                 zeditor.lang.cancel_button +
                 '</span></div><div id="editor-mode"><span onclick="zeditor.popup(\'ze-subject\', this)">' + zeditor.lang
                 .subject_button +
