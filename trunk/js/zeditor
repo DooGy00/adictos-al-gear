@@ -1,4 +1,3 @@
-
 var zeditor = {
 	version: "phpbb3",
 	lang: {
@@ -232,7 +231,7 @@ var zeditor = {
 				$("#editor-send-button").text("Guardar");
 				zeditor.textarea.focus();
         if($(".thugon").length){
-        $(this).removeClass("baivietdai").height("100%")
+        $(".clearfix").removeClass("baivietdai").height("100%")
         
         }
 				break;
