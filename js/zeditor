@@ -229,11 +229,11 @@ var zeditor = {
 				zeditor.edit(a);
 				zeditor.mode.innerHTML = zeditor.lang.edit;
 				$("#editor-send-button").text("Guardar");
-				zeditor.textarea.focus();
-        if($(".thugon").length){
-        $(".clearfix").removeClass("baivietdai").height("100%")
+				if($(".thugon").length){
+       $(".baivietdai").height("100%")
         
         }
+        zeditor.textarea.focus();
 				break;
 			case "pm":
 				if ($("#editor-send-button").text() === "Guardar") {
