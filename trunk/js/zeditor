@@ -279,7 +279,7 @@ var zeditor = {
 			}, function(s) {
 				preview.style.display = "block";
 				preview.innerHTML = zeditor.replace($(s).find(zeditor.preview_dom).html());
-         window.BB && (preview = BB.parse(preview));
+         window.BB && (preview = BB.parse(a));
 			})
 		}
 	},
