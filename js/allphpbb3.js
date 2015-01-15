@@ -50,6 +50,20 @@ $('.news_topic_title').on("click", function () {
     });
 });
 if (wl) {
+$('a[href*="wall?d"]').on('click', function (p) {
+    p.preventDefault();
+    var m = $(this).attr("href");
+    var TID = $('a[href*="tid="]').attr('href').split('tid=')[1].split('&')[0];
+    if (confirm('¿Deseas eliminar el post')) {
+        $.post(m, {
+            tid: TID,
+            confirm: 1
+        }).success(function () {
+            alert(' borrado');
+         window.location.reload();
+        })
+    }
+})
     $("#AAGquickvm_message").length && ($(window).on("beforeunload", function () {
         if ($("textarea").val().length) {
             return _userdata.username + " todavía no has enviado el mensaje."
