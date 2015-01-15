@@ -55,7 +55,7 @@ $('a[href*="wall?d"]').on('click', function (p) {
     var m = $(this).attr("href");
     var TID = $('a[href*="tid="]').attr('href').split('tid=')[1].split('&')[0];
     if (confirm('¿Deseas eliminar el post')) {
-     var b = $(this).closest("ol + li");
+     var b = $(this).closest(".avatar,.message-block");
         $.post(m, {
             tid: TID,
             confirm: 1
