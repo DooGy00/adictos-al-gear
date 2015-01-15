@@ -65,7 +65,7 @@ $('a[href*="wall?d"]').on('click', function (p) {
           })
        })
     }
-})
+});
     $("#AAGquickvm_message").length && ($(window).on("beforeunload", function () {
         if ($("textarea").val().length) {
             return _userdata.username + " todavía no has enviado el mensaje."
