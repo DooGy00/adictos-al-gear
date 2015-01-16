@@ -221,7 +221,7 @@ var zeditor = {
                     });
                 }
             });
-            $(".mp-msg").fadeOut();
+            $(".mp-msg").fadeOut("200");
             break;
         case "quote":
             zeditor.url = a.href;
@@ -231,7 +231,7 @@ var zeditor = {
                 $("#editor-send-button").text("Enviar")
             }
             zeditor.textarea.focus();
-            $(".mp-msg").fadeOut();
+            $(".mp-msg").fadeOut("200");
             break;
         case "edit":
             zeditor.edit(a);
@@ -241,7 +241,7 @@ var zeditor = {
                 $(".baivietdai").height("100%")
             }
             zeditor.textarea.focus();
-            $(".mp-msg").fadeOut();
+            $(".mp-msg").fadeOut("200");
             break;
         case "pm":
             if ($("#editor-send-button").text() === "Guardar") {
