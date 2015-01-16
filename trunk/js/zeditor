@@ -98,8 +98,7 @@ var zeditor = {
                 zeditor.lang.color_button +
                 '</span><span title="Inserta un url" onclick="zeditor.add(\'[url]\',\'[/url]\')" class="editor-button-outer">' +
                 zeditor.lang.postlink_button +
-                '</span>
-                <span title="Spoilers" onclick="zeditor.add(\'[spoiler]\',\'[/spoiler]\')" class="editor-button-outer">' +
+                '</span><span title="Spoilers" onclick="zeditor.add(\'[spoiler]\',\'[/spoiler]\')" class="editor-button-outer">' +
                 zeditor.lang.spoiler_button +
                 '</span><span title="Tags para colocar código, contine además el hide" onclick="zeditor.add(\'[hide][code]\',\'[/code][/hide]\')"  class="editor-button-outer">' +
                 zeditor.lang.code_button +
