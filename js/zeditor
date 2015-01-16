@@ -558,9 +558,12 @@ $(function () {
 $(".author").find("strong").attr("title", "Menciona a este usuario").on("click", function (event) {
     event.preventDefault();
     zeditor.start('reply', this);
-   isTagName = $(this).text();
+   
+    isTagName = $(this).text();
     $('#editor-textarea')[0].value += '@"' + isTagName + '", ';
-    $('.baivietdai').height(100%);
+    $('body,html').stop().animate({
+        scrollTop: $('#ze-editor').offset().top
+    }, 100);
     zeditor.textarea.focus();
     return false;
 });
