@@ -252,7 +252,7 @@ var zeditor = {
             zeditor.mode.innerHTML = zeditor.lang.pm;
             zeditor.textarea.placeholder = _userdata.username + " redacta tu mensaje privado...";
             var s = $(".mp-mode").parents(zeditor.post_dom).find(".author").find('a[href^="/u"]').eq(0).text();
-            $(".mp-msg").html("Mensaje para:" + s);
+            $(".mp-msg").fadeIn().html("Mensaje para:" + s);
             zeditor.textarea.focus();
             break
         }
