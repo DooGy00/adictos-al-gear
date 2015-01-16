@@ -1,4 +1,3 @@
-
 var zeditor = {
 	version: "phpbb3",
 	lang: {
@@ -493,7 +492,7 @@ var zeditor = {
 		}
 		var a = $(".mp-mode").parents(zeditor.post_dom).find(".author").find('a[href^="/u"]').eq(0).attr("href").split(
 			"u");
-		a[1];
+		
 		if ($(".mp-mode").length && zeditor.textarea.value === "") {
 			location.href = "privmsg?mode=post&u=" + a[1]
 		} else {
