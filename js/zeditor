@@ -247,12 +247,13 @@ var zeditor = {
             if ($("#editor-send-button").text() === "Guardar") {
                 $("#editor-send-button").text("Enviar")
             }
+            $(".mp-msg").fadeIn("200");
             zeditor.textarea.focus();
             zeditor.url = !1;
             zeditor.mode.innerHTML = zeditor.lang.pm;
             zeditor.textarea.placeholder = _userdata.username + " redacta tu mensaje privado...";
             var s = $(".mp-mode").parents(zeditor.post_dom).find(".author").find('a[href^="/u"]').eq(0).text();
-            $(".mp-msg").fadeIn().html("Mensaje para:" + s);
+            $(".mp-msg").show().html("Mensaje para:" + s);
             zeditor.textarea.focus();
             break
         }
