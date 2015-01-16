@@ -1042,7 +1042,7 @@ $("#fa_notifications").on("click", function () {
 
 function AAGpreview() {
     if (ajax_preview_form) {
-        $("#text_editor_textarea").sceditor("instance").add($("#editor-textarea")).updateOriginal();
+        $("#text_editor_textarea").sceditor("instance").updateOriginal();
         var u = $(ajax_preview_form).serialize(),
             t, s;
         if (3 > ajax_preview_form.message.length) {
@@ -1062,7 +1062,7 @@ function AAGpreview() {
     }
 }
 $(function () {
-    window.ajax_preview_form = document.post || document.getElementById("ze-editor") || null;
+    window.ajax_preview_form = document.post || null;
     ajax_preview_form && ajax_preview_form.preview && (ajax_preview_form.preview.type = "button", $(ajax_preview_form.preview).on("click", AAGpreview))
 });
 console.log("*************************** '¡allcode.js Listo!' **************************");
