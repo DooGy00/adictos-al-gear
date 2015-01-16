@@ -557,7 +557,7 @@ $(function () {
 });
 $(".author").find("strong").attr("title", "Menciona a este usuario").on("click", function (event) {
     event.preventDefault();
-    $('.baivietdai').height(auto); 
+    $('.baivietdai').height("100%"); 
     zeditor.textarea.focus();
     zeditor.start('reply', this);
     isTagName = $(this).text();
