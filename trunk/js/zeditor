@@ -561,9 +561,7 @@ $(".author").find("strong").attr("title", "Menciona a este usuario").on("click",
    
     isTagName = $(this).text();
     $('#editor-textarea')[0].value += '@"' + isTagName + '", ';
-    $('body,html').stop().animate({
-        scrollTop: $('#ze-editor').offset().top
-    }, 100);
+$('.baivietdai').height(auto);    
     zeditor.textarea.focus();
     return false;
 });
