@@ -563,7 +563,7 @@ $(".author").find("strong").attr("title", "Menciona a este usuario").on("click",
     $('#editor-textarea')[0].value += '@"' + isTagName + '", ';
 $('.baivietdai').height(auto);    
     zeditor.textarea.focus();
-    return false;
+    
 });
 if (_userdata.session_logged_in != 1) {
     $(".pbutton1").add(".pbutton2").removeAttr("onclick");
