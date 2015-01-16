@@ -50,7 +50,8 @@ var zeditor = {
         inlinecode_button: '<img src="https://cdn2.iconfinder.com/data/icons/ledicons/page_code.png">',
         send_button: "Enviar",
         tag_button: "@",
-        imgur_placeholder1: "Selecciona los archivos",
+        spoiler_button:'<img src="https://cdn3.iconfinder.com/data/icons/humano2/16x16/apps/kblogger.png">',
+        imgur_placeholder1: "Selecciona los archivos que deseas subir",
         imgur_placeholder2: "URL externa",
     },
     imgur_key: "6528448c258cff474ca9701c5bab6927",
@@ -97,6 +98,9 @@ var zeditor = {
                 zeditor.lang.color_button +
                 '</span><span title="Inserta un url" onclick="zeditor.add(\'[url]\',\'[/url]\')" class="editor-button-outer">' +
                 zeditor.lang.postlink_button +
+                '</span>
+                <span title="Spoilers" onclick="zeditor.add(\'[spoiler]\',\'[/spoiler]\')" class="editor-button-outer">' +
+                zeditor.lang.spoiler_button +
                 '</span><span title="Tags para colocar código, contine además el hide" onclick="zeditor.add(\'[hide][code]\',\'[/code][/hide]\')"  class="editor-button-outer">' +
                 zeditor.lang.code_button +
                 '</span><span title="Tags para colocar código en línea" onclick="zeditor.add(\'[ic]\',\'[/ic]\')"  class="editor-button-outer">' +
