@@ -557,15 +557,11 @@ $(function () {
 });
 $(".author").find("strong").attr("title", "Menciona a este usuario").on("click", function (event) {
     event.preventDefault();
-    $('.baivietdai').height(auto);    
+    $('.baivietdai').height(auto); 
+    zeditor.textarea.focus();
     zeditor.start('reply', this);
-     zeditor.textarea.focus();
     isTagName = $(this).text();
     $('#editor-textarea')[0].value += '@"' + isTagName + '", ';
-    $('body,html').stop().animate({
-        scrollTop: $('#ze-editor').offset().top
-    }, 100);
-   
     return false;
 });
 if (_userdata.session_logged_in != 1) {
