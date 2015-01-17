@@ -50,6 +50,7 @@ var zeditor = {
         inlinecode_button: '<img src="https://cdn2.iconfinder.com/data/icons/ledicons/page_code.png">',
         send_button: "Enviar",
         tag_button: "@",
+        copyright_button: '<img src="https://cdn2.iconfinder.com/data/icons/color-svg-vector-icons-part-2/512/copyright_right_of_first_publication-16.png"/>',
         spoiler_button: '<img src="https://cdn3.iconfinder.com/data/icons/humano2/16x16/apps/kblogger.png">',
         imgur_placeholder1: "Selecciona los archivos que deseas subir",
         imgur_placeholder2: "URL externa"
@@ -99,7 +100,8 @@ var zeditor = {
                                     zeditor.lang.warning_button + '</span><span title="Moderación Alerta" onclick="zeditor.add(\'[alert]\',\'[/alert]\')" class="editor-button-outer">' +
                                     zeditor.lang.alert_button + '</span><span title="Moderación todo esta bien" onclick="zeditor.add(\'[ok]\',\'[/ok]\')" class="editor-button-outer">' +
                                     zeditor.lang.ok_button + '</span><span title="Moderación Información" onclick="zeditor.add(\'[info]\',\'[/info]\')" class="editor-button-outer">' +
-                                    zeditor.lang.info_button + '</span><span class="editor-button-outer" onclick="zeditor.copyright()" id="ze-copyright">?</span></div></div></div><div id="ze-popups"><div id="ze-subject" class="ze-popups" style="display:none"><input id="editor-subject" type="text"></input></div><div id="ze-mode" class="ze-popups" style="display:none"><p><center>Selecciona un tema</center></p><p><input type="radio" name="ze-mode" checked="checked"> Light grey</input><p></div><div id="ze-color" class="ze-popups" style="display:none"></div><div id="ze-smiley" class="ze-popups" style="display:none"></div><div id="ze-image" class="ze-popups" style="display:none"><input type="text" style="height:20px;border:1px solid #BDBDBD" /><div><br><span class="editor-button-confirm" onclick="zeditor.popup(\'ze-image\', this);zeditor.add(\'[img]\'+this.parentNode.previousSibling.value, \'[/img]\');this.parentNode.previousSibling.value=\'\'">OK</span></div></div><div id="ze-upload" class="ze-popups" style="display:none"><div id="ze-imgur"><span id="ze-imgur-mode" class="editor-button-confirm" onclick="zeditor.imgur.mode()">Mode</span><span onclick="zeditor.imgur.files()"><input id="ze-imgur-input" type="input" placeholder="' +
+                                    zeditor.lang.info_button + '</span></div><span class="editor-button-outer" onclick="zeditor.copyright()" id="ze-copyright">' +
+                                    zeditor.lang.copyright_button + '</span></div></div><div id="ze-popups"><div id="ze-subject" class="ze-popups" style="display:none"><input id="editor-subject" type="text"></input></div><div id="ze-mode" class="ze-popups" style="display:none"><p><center>Selecciona un tema</center></p><p><input type="radio" name="ze-mode" checked="checked"> Light grey</input><p></div><div id="ze-color" class="ze-popups" style="display:none"></div><div id="ze-smiley" class="ze-popups" style="display:none"></div><div id="ze-image" class="ze-popups" style="display:none"><input type="text" style="height:20px;border:1px solid #BDBDBD" /><div><br><span class="editor-button-confirm" onclick="zeditor.popup(\'ze-image\', this);zeditor.add(\'[img]\'+this.parentNode.previousSibling.value, \'[/img]\');this.parentNode.previousSibling.value=\'\'">OK</span></div></div><div id="ze-upload" class="ze-popups" style="display:none"><div id="ze-imgur"><span id="ze-imgur-mode" class="editor-button-confirm" onclick="zeditor.imgur.mode()">Mode</span><span onclick="zeditor.imgur.files()"><input id="ze-imgur-input" type="input" placeholder="' +
                                     zeditor.lang.imgur_placeholder1 + '" value="" disabled></span><span id="ze-imgur-submit" class="editor-button-confirm" onclick="zeditor.imgur.submit(this)">Submit</span><input type="file" id="ze-imgur-placeholder" multiple><div id="ze-imgur-status"></div><div id="ze-imgur-images"></div></div></div></div><div id="outer-preview"><div id="ze-preview" ondblclick="zeditor.closePreview(this)"></div><div id="editor-loading" style="display: none"><img src="http://www.adictosalgear.org/adictosalgear/files/lodwall.gif" style="border:none!important" /><br>' +
                                     zeditor.lang.loading + '</div><textarea name="message" id="editor-textarea" placeholder="Escribe tu mensaje"></textarea></div><div id="editor-data"><input type="hidden" value="reply" name="mode"><input type="hidden" value="1" name="notify"></div><div id="editor-post-tool"><span class="mp-msg" style="margin-top:7px;position:absolute;margin-left:311px;color:#fff;"></span><div id="editor-post-button"><span  id="editor-send-button" onclick="zeditor.post(this)">' +
                                     zeditor.lang.send_button + '</span><span onclick="zeditor.preview(this)" id="editor-preview-button">' +
@@ -116,9 +118,9 @@ var zeditor = {
         }
     },
   copyright: function () {
-		if (alert("zEditor 1.7.1 \nClick Modificado por Chalo")) {
+		alert("zEditor 1.7.1 \n Modificado por Chalo") 
 			
-		}
+		
 	},
     quote: function (a) {
         zeditor.loading("on");
