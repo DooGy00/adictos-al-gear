@@ -739,6 +739,9 @@ setTimeout(function () {
                 return false
             })
         } else {
+              $('a[href*="/login"]').on("click", function () {
+           document.getElementById('quickLoginPanel').getElementsByTagName('form')[0].redirect.value = window.location.href;
+           });
             $("#logout").add('a[href="http://source.openphpbb.com/login?logout=1"]').on("click", function () {
                 if (!document.getElementById("quickLogoutPanel")) {
                     $("body").append(a);
@@ -770,8 +773,7 @@ setTimeout(function () {
             })
         }
     });
-    $('a[href*="/login"]').on("click", function () {
-           document.getElementById('quickLoginPanel').getElementsByTagName('form')[0].redirect.value = window.location.href;});
+   
 }, 500);
 setTimeout(function () {
     if (tm) {
