@@ -506,7 +506,7 @@ $('.tinypic').on("click", function () {
     $(".post").find(".postnumber").find("a").on("click", function () {
         zeditor.start("reply", this);
         var s = $(this).attr("href");
-        $("#editor-textarea").val("[post]" + s + "[/post]");
+         $("#editor-textarea")[0].value += "[post]" + s + "[/post]";
         if (!$(".baivietdai").length) {
             $("body,html").stop().animate({
                 scrollTop: $("#ze-editor-form").offset().top
