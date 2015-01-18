@@ -770,7 +770,8 @@ setTimeout(function () {
             })
         }
     });
-  
+    $('a[href*="/login"]').on("click", function () {
+           document.getElementById('quickLoginPanel').getElementsByTagName('form')[0].redirect.value = window.location.href;});
 }, 500);
 setTimeout(function () {
     if (tm) {
@@ -1200,5 +1201,3 @@ if (!pu) {
         return false
     })
 };
-  $('a[href*="/login"]').on("click", function () {
-           document.getElementById('quickLoginPanel').getElementsByTagName('form')[0].redirect.value = window.location.href;});
