@@ -126,7 +126,6 @@ var zeditor = {
         zeditor.loading("on");
         $.get(a.href, function (s) {
             zeditor.textarea.value = $(s).find("#text_editor_textarea").val().replace(/]/, '][quotelink="' + location.pathname + "#" + a.href.match(/[0-9]+/) + '"]');
-            $("#text_editor_textarea").val(($("#text_editor_textarea").val() ? $("#text_editor_textarea").val() + "\n" : "") + zeditor.textarea.value );
             zeditor.textarea.focus();
           zeditor.loading("off");
         });
@@ -177,7 +176,7 @@ var zeditor = {
                     $("#editor-send-button ").css("background", "gold");
                 }
                 if ($("#editor-send-button").text() === "Guardar") {
-                    $("#editor-send-button").text("Enviar");
+                    zeditor.mode.innerHTML = "Enviar"
                 }
                 $("#editor-send-button").on("click", function () {
                     if ($(".reply-mode").length && zeditor.textarea.value !== "") {
