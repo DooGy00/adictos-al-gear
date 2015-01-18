@@ -176,7 +176,7 @@ var zeditor = {
                     $("#editor-send-button ").css("background", "gold");
                 }
                 if ($("#editor-send-button").text() === "Guardar") {
-                    zeditor.mode.innerHTML = "Enviar"
+                    zeditor.send_button.innerHTML = "Enviar"
                 }
                 $("#editor-send-button").on("click", function () {
                     if ($(".reply-mode").length && zeditor.textarea.value !== "") {
