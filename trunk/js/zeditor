@@ -113,6 +113,7 @@ var zeditor = {
         zeditor.subject = document.getElementById("editor-subject");
         zeditor.mode = document.getElementById("editor-mode").getElementsByTagName("span")[1];
         zeditor.editor = document.getElementById("ze-editor");
+        zeditor.send_button = document.getElementById("editor-send-button"); 
         if (_userdata.user_level >= 1) {
             $(".modbar").removeAttr("style");
         }
@@ -197,7 +198,7 @@ var zeditor = {
                 zeditor.quote(a);
                 zeditor.mode.innerHTML = zeditor.lang.quote;
                 if ($("#editor-send-button").text() === "Guardar") {
-                    $("#editor-send-button").text("Enviar");
+                     zeditor.send_button.innerHTML = "Enviar"
                 }
                 zeditor.textarea.focus();
                 $(".mp-msg").fadeOut("200");
@@ -214,7 +215,7 @@ var zeditor = {
                 break;
             case "pm":
                 if ($("#editor-send-button").text() === "Guardar") {
-                    $("#editor-send-button").text("Enviar");
+                   zeditor.send_button.innerHTML = "Enviar"
                 }
                 zeditor.textarea.focus();
                 zeditor.url = !1;
