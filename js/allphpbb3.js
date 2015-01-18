@@ -722,8 +722,10 @@ setTimeout(function () {
             B + '><input class="button2" type="submit" value="No" name="cancel" id="quickLogoutClose" ' + B + "></fieldset></form></div>";
         if (!document.getElementById("logout")) {
             $('a[href*="/login"]').on("click", function () {
+             if (document.getElementById("quickLoginPanel")) {
+ document.getElementById('quickLoginPanel').getElementsByTagName('form')[0].redirect.value = window.location.href;
+   }
                 if (!document.getElementById("quickLoginPanel")) {
-                    document.getElementById('quickLoginPanel').getElementsByTagName('form')[0].redirect.value = window.location.href;
                     $("body").append(u);
                     $("#quickLoginPanel").css("left", t.offsetX + "%").css("top", "-25%").animate({
                         top: "40px"
@@ -771,7 +773,7 @@ setTimeout(function () {
             })
         }
     });
-
+  
 }, 500);
 setTimeout(function () {
     if (tm) {
