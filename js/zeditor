@@ -429,7 +429,7 @@ var zeditor = {
             post: "Send",
             folder: "inbox"
         }, function () {
-            $("textarea").attr("placeholder", _userdata.username + " tu mensaje privado se envió con éxito")
+            zeditor.textarea.placeholder=  _userdata.username + " tu mensaje privado se envió con éxito";
         })
     },
     replace: function (a) {
