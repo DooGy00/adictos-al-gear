@@ -126,7 +126,7 @@ var zeditor = {
         zeditor.loading("on");
         $.get(a.href, function (s) {
             zeditor.textarea.value = $(s).find("#text_editor_textarea").val().replace(/]/, '][quotelink="' + location.pathname + "#" + a.href.match(/[0-9]+/) + '"]');
-            $(this).val(($(this).val() ? $(this).val() + "\n" : "") + zeditor.textarea.value );
+            $("#text_editor_textarea").val(($("#text_editor_textarea").val() ? $("#text_editor_textarea").val() + "\n" : "") + zeditor.textarea.value );
             zeditor.textarea.focus();
           zeditor.loading("off");
         });
