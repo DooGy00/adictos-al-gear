@@ -1,4 +1,3 @@
-
 $(window).load(function () {
     setTimeout(function () {
         $('#notif_list').find('li').find('.contentText').prepend('<div class="ava"><img src="http://i.imgur.com/DJp0z9U.png"/></div>');
@@ -6,6 +5,18 @@ $(window).load(function () {
             var userLink = $(this).parents().find('a[href*="/u"]').attr('href');
             $(this).load(userLink + ' #profile-advanced-right .module:first div img:first');
         });
+  $('.friends-foes-list a[href*="profile?mode=editprofile&page_profil=friendsfoes&remove="]').on('click', function (p) {
+p.preventDefault();
+var m = $(this).attr("href");
+var b = $(this).closest($(".friends-foes-list"));
+$.post(m, {
+confirm: 1
+}).success(function () {
+b.fadeOut(function () {
+b.remove();
+})
+})
+});
     }, 2000);
 });
 if(pu){
