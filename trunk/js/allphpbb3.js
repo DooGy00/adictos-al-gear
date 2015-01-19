@@ -1,4 +1,3 @@
-if(fr){
 $('.friends-foes-list a[href*="profile?mode=editprofile&page_profil=friendsfoes&remove="]').on('click', function (p) {
 p.preventDefault();
 var m = $(this).attr("href");
@@ -11,7 +10,6 @@ b.remove();
 })
 })
 });
-}
 $(window).load(function () {
     setTimeout(function () {
         $('#notif_list').find('li').find('.contentText').prepend('<div class="ava"><img src="http://i.imgur.com/DJp0z9U.png"/></div>');
