@@ -343,7 +343,7 @@ $('.tinypic').on("click", function () {
             var s = $(this).attr("href");
             $('<div id="moveTpcHw"><div class="mtHwCont"><div id="closeHwCont">Mover un tema<img title="Fechar" src="http://i.imgur.com/ELI5O7H.png" class="closeHwm"></div><div id="contHw"><img width="75" src="http://i.imgur.com/b2x7Vag.gif" style="margin-left: 35%;"></div></div><div id="lightBG"></div></div>"').insertBefore("body");
             $("<style>#lightBG {background-color: rgba(0, 0, 0, 0.6);height: 100%;left: 0;position: fixed;top: 0;width: 100%;z-index: 5;}#moveTpcHw {position: fixed;display:none;}.mtHwCont {background: none repeat scroll 0 0 #fff;border: 5px solid #cccccc;border-radius: 2px;height: auto;margin: 10% 40% 0;opacity: 1;padding: 10px;position: relative;width: 470px;z-index: 10;}#closeHwCont {font-family: sans-serif;background-color: #ddd;border-bottom: 1px solid #ccc;height: 23px;margin: -10px -10px 15px;padding: 10px;}#closeHwCont img {float: right;}</style>").insertBefore("body");
-            $(".closeHwm").click(function () {
+            $(".closeHwm").on("click",function () {
                 $("#moveTpcHw").fadeOut("400", function () {
                     $("#moveTpcHw").delay("500").remove()
                 })
@@ -353,7 +353,7 @@ $('.tinypic').on("click", function () {
                 $(this).find("label, .main-head").remove();
                 $("#contHw form").css("margin-left", "-250px");
                 $("#contHw .buttons2").css("border-top", "medium none");
-                $('#contHw input[name="confirm"]').click(function (t) {
+                $('#contHw input[name="confirm"]').on("click",function (t) {
                     t.preventDefault();
                     var u = $("#contHw select").val();
                     $.post(s, {
@@ -373,7 +373,7 @@ $('.tinypic').on("click", function () {
             600 <= $(this).height() && $(this).addClass("baivietdai").height(310).after('<p class="thugon"><span><span class="viewfull">Ver completo</span><span class="viewhide" style="display:none">Colapsar</span></span><span><span class="fullOff" style="float:right">Desactivar colapso</span><span class="fullOn" style="float:right;display:none">Activar colapso</span></span></p>')
         });
         "100%" == my_getcookie("thugonbaiviet") && ($(".fullOn, .viewhide,.fullOff, .viewfull").toggle(), $(".baivietdai").height("100%"));
-        $(".viewfull, .viewhide, .fullOff, .fullOn").click(function () {
+        $(".viewfull, .viewhide, .fullOff, .fullOn").on("click",function () {
             var u = "100%",
                 t = $(this),
                 s = t.attr("class");
