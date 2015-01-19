@@ -461,9 +461,10 @@ var zeditor = {
       }
     }
     if ($(".reply-mode").length && zeditor.textarea.value != "") {
-      window.onbeforeunload = false;
+     var b = $(".reply-mode").parents(zeditor.post_dom).find(".postnumber").find('a').attr("href").split("#");
+     window.onbeforeunload = false;
       if (confirm(_userdata.username + " de continuar  perderas lo escrito ¿Deseas ir al editor avanzado?")) {
-        location.href = zeditor.url
+        location.href = /post?t='+ b +'&mode=reply
       } else {
         zeditor.textarea.focus()
       }
