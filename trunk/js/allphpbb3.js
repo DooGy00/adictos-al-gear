@@ -9,8 +9,10 @@ $(window).load(function () {
 p.preventDefault();
 var m = $(this).attr("href");
 var b = $(this).closest($(".friends-foes-list"));
+var TID = $('a[href*="tid="]').attr('href').split('tid=')[1].split('&')[0];
 $.post(m, {
-confirm: 1
+confirm: 1,
+tid: TID,
 }).success(function () {
 b.fadeOut(function () {
 b.remove();
