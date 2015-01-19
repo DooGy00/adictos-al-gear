@@ -771,9 +771,8 @@ setTimeout(function () {
             })
         }
     });
-      
-      $('a[href*="/login"]').add($("#logout").add('a[href="http://source.openphpbb.com/login?logout=1"]')).on("click", function () {
-            $('#quickLoginPanel,#quickLogoutPanel').find('form')[0].redirect.value = window.location.href;
+     $('a[href*="/login"]').on("click", function () {
+            $('#quickLoginPanel').find('form')[0].redirect.value = window.location.href;
       });
 }, 500);
 setTimeout(function () {
