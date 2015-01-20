@@ -449,8 +449,9 @@ var zeditor = {
       location.href = zeditor.url;
       window.onbeforeunload = false
     }
-    var a = $(".mp-mode").parents(zeditor.post_dom).find(".author").find('a[href^="/u"]').eq(0).attr("href").split("u");
+   
     if ($(".mp-mode").length && zeditor.textarea.value === "") {
+     var a = $(".mp-mode").parents(zeditor.post_dom).find(".author").find('a[href^="/u"]').eq(0).attr("href").split("u");
       location.href = "privmsg?mode=post&u=" + a[1]
     } else {
       window.onbeforeunload = false;
