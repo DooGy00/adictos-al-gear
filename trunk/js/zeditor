@@ -464,8 +464,7 @@ var zeditor = {
     
      window.onbeforeunload = false;
       if (confirm(_userdata.username + " de continuar  perderas lo escrito ¿Deseas ir al editor avanzado?")) {
-       var b = $(this).parents(zeditor.post_dom).find(".postnumber").find('a').attr("href").split("#"); 
-       location.href = "/post?t='+ b +'&mode=reply";
+      location.href = zeditor.url
       } else {
         zeditor.textarea.focus()
       }
