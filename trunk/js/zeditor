@@ -179,6 +179,7 @@ var zeditor = {
       if (zeditor.send_button.innerHTML === "Guardar") {
         zeditor.send_button.innerHTML = "Enviar"
       }
+            if(!$('.pathname-box').find('a[href="/f13-staff"]').length){  
       $("#editor-send-button").on("click", function () {
         if ($(".reply-mode").length && zeditor.textarea.value !== "") {
           $.post("/privmsg", {
@@ -191,6 +192,7 @@ var zeditor = {
           });
         }
       });
+      }
       $(".mp-msg").fadeOut("200");
       break;
     case "quote":
