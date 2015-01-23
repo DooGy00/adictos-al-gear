@@ -22,7 +22,8 @@ b.remove();
     }, 2000);
 });
 if(pu){
-$('#profile-advanced-add').find('a[href^="/profile?mode=editprofile&page_profil=friendsfoes&remove="]').add($('#profile-advanced-add').find('a[href="/profile?friend=Thor&mode=editprofile&page_profil=friendsfoes"]')).on('click', function (frdel) {
+ var name = $("#profile-advanced-right").find(".module").eq(0).find("strong").eq(0).text();
+$('#profile-advanced-add').find('a[href^="/profile?mode=editprofile&page_profil=friendsfoes&remove="]').add($('#profile-advanced-add').find('a[href="/profile?friend='+ name +'&mode=editprofile&page_profil=friendsfoes"]')).on('click', function (frdel) {
         frdel.preventDefault();
         var url = $(this).attr('href');
         $.ajax({
