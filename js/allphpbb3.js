@@ -30,7 +30,7 @@ $('#profile-advanced-add').find('a[href^="/profile?mode=editprofile&page_profil=
             url: url,
             type: 'GET',
             success: function (frdelS) {
-                window.location.reload();
+              $("#profile-advanced-add").find(".mainmenu").eq(0).text("Solicitud enviada").attr("style","background-position: 15px 50%;text-indent: 0;padding-left: 50px;width: 249px;z-index: 50;line-height: 30px;color: #FFF;left: -160px;transition: 550ms ease;");
             },
             error: function () {
                 alert('Fallo, intentalo de nuevo');
