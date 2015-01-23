@@ -164,6 +164,15 @@ var zeditor = {
     });
   },
   start: function (t, a) {
+  var zeditoronbeforeunload = $("#editor-post-button").find("span");
+window.onbeforeunload = function (s) {
+  if (zeditor.textarea.value != "") {
+    return _userdata.username + " tienes texto en el editor que podrias perder"
+  }
+};
+zeditoronbeforeunload.submit = function (s) {
+  window.onbeforeunload = false
+};
     $(zeditor.editor).appendTo($(a).parents(zeditor.post_dom).find(zeditor.message_dom));
     $(zeditor.editor).slideDown();
     switch (t) {
@@ -557,15 +566,7 @@ var zeditor = {
     },
   },
 };
-var zeditoronbeforeunload = $("#editor-post-button").find("span");
-window.onbeforeunload = function (s) {
-  if (zeditor.textarea.value != "") {
-    return _userdata.username + " tienes texto en el editor que podrias perder"
-  }
-};
-zeditoronbeforeunload.submit = function (s) {
-  window.onbeforeunload = false
-};
+
 $(function () {
   zeditor.ready()
 });
