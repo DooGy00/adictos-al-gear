@@ -22,7 +22,7 @@ b.remove();
     }, 2000);
 });
 if(pu){
- var name = $("#profile-advanced-right").find(".module").eq(0).find("strong").eq(0).text();
+ var name = $("#profile-advanced-right").find(".module").eq(0).find("strong").eq(0).text().replace(/\s/g, "+");
 $('#profile-advanced-add').find('a[href^="/profile?mode=editprofile&page_profil=friendsfoes&remove="]').add($('#profile-advanced-add').find('a[href="/profile?friend='+ name +'&mode=editprofile&page_profil=friendsfoes"]')).on('click', function (frdel) {
         frdel.preventDefault();
         var url = $(this).attr('href');
