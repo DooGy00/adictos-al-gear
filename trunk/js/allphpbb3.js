@@ -283,7 +283,7 @@ $('.tinypic').on("click", function () {
 $("#editor-textarea").on("keyup",function () {
     if ("@" === $("#editor-textarea").val().split("")[$("#editor-textarea").val().length - 1]) {
         var b = prompt("Introduce el nombre del usuario a etiquetar").replace(/\s/g, "+");
-        $("#editor-textarea").val(($("#editor-textarea").val() ? $("#editor-textarea").val() + "" : "") + "[url=http://" + window.location.hostname + "/profile?mode=viewprofile&u=" + b + "]" + b + "[/url]");
+        $("#editor-textarea").val(($("#editor-textarea").val() ? $("#editor-textarea").val() + "" : "") + b);
         (b);
        
        $.post("/privmsg", {
