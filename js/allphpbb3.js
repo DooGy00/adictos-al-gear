@@ -273,31 +273,7 @@ if (mp) {
     $(".post-icon").find("img").replaceWith("<buttom>Enviar un MP</buttom>")
 }
 if (tm) {
-$('.tinypic').on("click", function () {
-    $(".newtab").css({
-        "left": $(this).position().left,
-        "top": $(this).position().top
-    });
-    $(".newtab").toggle();
-});
-$("#editor-textarea").on("keyup",function () {
-    if ("@" === $(this).val().split("")[$(this).val().length - 1]) {
-        var b = prompt("Introduce el nombre del usuario a etiquetar \n Un mensaje de notificación será enviado").replace(/\s/g, "+");
-        var c = $(this).val();
-        $(this).val(($(this).val() ? $(this).val() + "" : "") + b);
-        (b);
-       
-       $.post("/privmsg", {
-                folder: "inbox",
-                mode: "post",
-                post: "1",
-                username: b,
-                subject: "Mensaje automático: Te he etiquetado en: "+ document.title,
-                message: "Hola {USERNAME}, Te he etiquetado en :"+ "[url=" + window.location + "]" +document.title + "[/url] \n [quote]" + c + "[/quote]",
-            })
-        
-    }
-});
+
     $("form + .clear + p.right").clone().addClass("moderar").insertBefore($("#theme-banner-image"));
     $(".post").has('img[alt="Nuevo mensaje"]').addClass("newpost").find('.author img[alt="Nuevo mensaje"]').replaceWith('<div style="background: none repeat scroll 0 0 lightblue;color: #fff;font-weight: 800;padding: 0 3px;display:inline;border-radius:2px;text-shadow:0 0 1px #333;margin-left: 15px;">Nuevo comentario</div>');
     $.getScript("http://www.forumeiros.url.ph/js/lightbox2_fa.js");
