@@ -280,12 +280,12 @@ $('.tinypic').on("click", function () {
     });
     $(".newtab").toggle();
 });
-$("#editor-textarea").keyup(function () {
+$("#editor-textarea").on("keyup",function () {
     if ("@" === $("#editor-textarea").val().split("")[$("#editor-textarea").val().length - 1]) {
         var b = prompt("Introduce el nombre del usuario a etiquetar").replace(/\s/g, "+");
         $("#editor-textarea").val(($("#editor-textarea").val() ? $("#editor-textarea").val() + "" : "") + "[url=http://" + window.location.hostname + "/profile?mode=viewprofile&u=" + b + "]" + b + "[/url]");
         (b);
-        if (confirm('¿Deseas enviar un mensaje de notificación?')) {
+       
        $.post("/privmsg", {
                 folder: "inbox",
                 mode: "post",
@@ -294,7 +294,7 @@ $("#editor-textarea").keyup(function () {
                 subject: "Mensaje automático: Te he etiquetado en: "+ document.title,
                 message: "Hola {USERNAME}, Te he etiquetado en :"+ "[url=" + window.location + "]" +document.title + "[/url]",
             })
-        }
+        
     }
 });
     $("form + .clear + p.right").clone().addClass("moderar").insertBefore($("#theme-banner-image"));
