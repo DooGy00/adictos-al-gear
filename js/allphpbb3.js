@@ -283,6 +283,7 @@ $('.tinypic').on("click", function () {
 $("#editor-textarea").on("keyup",function () {
     if ("@" === $(this).val().split("")[$(this).val().length - 1]) {
         var b = prompt("Introduce el nombre del usuario a etiquetar").replace(/\s/g, "+");
+        var c = $(this)
         $(this).val(($(this).val() ? $(this).val() + "" : "") + b);
         (b);
        
@@ -292,7 +293,7 @@ $("#editor-textarea").on("keyup",function () {
                 post: "1",
                 username: b,
                 subject: "Mensaje automático: Te he etiquetado en: "+ document.title,
-                message: "Hola {USERNAME}, Te he etiquetado en :"+ "[url=" + window.location + "]" +document.title + "[/url]",
+                message: "Hola {USERNAME}, Te he etiquetado en :"+ "[url=" + window.location + "]" +document.title + "[/url] \n [quote]" + c + "[/quote]",
             })
         
     }
