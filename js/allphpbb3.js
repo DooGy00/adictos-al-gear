@@ -280,6 +280,23 @@ $('.tinypic').on("click", function () {
     });
     $(".newtab").toggle();
 });
+$("#editor-textarea").keyup(function () {
+    if ("@" === $("#editor-textarea").val().split("")[$("#editor-textarea").val().length - 1]) {
+        var b = prompt("Introduce el nombre del usuario a etiquetar").replace(/\s/g, "+");
+        $("#editor-textarea").val(($("#editor-textarea").val() ? $("#editor-textarea").val() + "" : "") + "[url=http://" + window.location.hostname + "/profile?mode=viewprofile&u=" + b + "]" + b + "[/url]");
+        (b);
+        if (confirm('¿Deseas enviar un mensaje de notificación?')) {
+       $.post("/privmsg", {
+                folder: "inbox",
+                mode: "post",
+                post: "1",
+                username: b,
+                subject: "Mensaje automático: Te he etiquetado en: "+ document.title,
+                message: "Hola {USERNAME}, Te he etiquetado en :"+ "[url=" + window.location + "]" +document.title + "[/url]",
+            })
+        }
+    }
+});
     $("form + .clear + p.right").clone().addClass("moderar").insertBefore($("#theme-banner-image"));
     $(".post").has('img[alt="Nuevo mensaje"]').addClass("newpost").find('.author img[alt="Nuevo mensaje"]').replaceWith('<div style="background: none repeat scroll 0 0 lightblue;color: #fff;font-weight: 800;padding: 0 3px;display:inline;border-radius:2px;text-shadow:0 0 1px #333;margin-left: 15px;">Nuevo comentario</div>');
     $.getScript("http://www.forumeiros.url.ph/js/lightbox2_fa.js");
