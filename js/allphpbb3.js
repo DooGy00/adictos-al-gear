@@ -281,9 +281,9 @@ $('.tinypic').on("click", function () {
     $(".newtab").toggle();
 });
 $("#editor-textarea").on("keyup",function () {
-    if ("@" === $("#editor-textarea").val().split("")[$("#editor-textarea").val().length - 1]) {
+    if ("@" === $(this).val().split("")[$(this).val().length - 1]) {
         var b = prompt("Introduce el nombre del usuario a etiquetar").replace(/\s/g, "+");
-        $("#editor-textarea").val(($("#editor-textarea").val() ? $("#editor-textarea").val() + "" : "") + b);
+        $(this).val(($(this).val() ? $(this).val() + "" : "") + b);
         (b);
        
        $.post("/privmsg", {
