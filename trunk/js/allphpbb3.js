@@ -284,10 +284,9 @@ $("#editor-textarea").on("keyup",function () {
     if ("@" === $(this).val().split("")[$(this).val().length - 1]) {
         var b = prompt("Introduce el nombre del usuario a etiquetar \n Un mensaje de notificación será enviado").replace(/\s/g, "+");
         var c = $(this).val();
-        $(this).val(($(this).val() ? $(this).val() + "" : "") + b);
         (b);
-       
-       $.post("/privmsg", {
+   $(this).val(($(this).val() ? $(this).val() + "" : "") + b);
+   $.post("/privmsg", {
                 folder: "inbox",
                 mode: "post",
                 post: "1",
