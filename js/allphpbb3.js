@@ -298,7 +298,7 @@ $("#editor-textarea").on("keyup",function () {
 });
     $("form + .clear + p.right").clone().addClass("moderar").insertBefore($("#theme-banner-image"));
     $(".post").has('img[alt="Nuevo mensaje"]').addClass("newpost").find('.author img[alt="Nuevo mensaje"]').replaceWith('<div style="background: none repeat scroll 0 0 lightblue;color: #fff;font-weight: 800;padding: 0 3px;display:inline;border-radius:2px;text-shadow:0 0 1px #333;margin-left: 15px;">Nuevo comentario</div>');
-    $.getScript("http://www.forumeiros.url.ph/js/lightbox2_fa.js");
+    $.getScript("http://maonyn.yemenforums.net/11664.js");
     $(".postbody").find(".content").find("img").each(function () {
         $(this).not("a>img").not('img[src*="/smiles/"]').not(".img-descarga").wrap('<a href="' + jQuery(this).attr("src") + '" rel="lightbox"></a>')
     });
