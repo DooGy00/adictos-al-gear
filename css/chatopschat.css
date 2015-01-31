@@ -1,0 +1,614 @@
+#achat_update_button {
+    display: none!important;
+}
+
+#chatbox {
+    line-height: 15px!important;
+}
+
+#chatbox_header {
+
+    padding-top: 0;
+    padding-bottom: 0;
+    border-bottom: 1px solid #d2691e;
+}
+
+.achat_row.clearfix {
+    background: aliceblue;
+    padding: 5px 2px;
+    border-bottom: 1px solid #DDD;
+    border-top: 1px solid #FFF;
+}
+
+#avacweb_chat {
+    z-index: 1001!important;
+}
+
+#chatbox:after {
+    border: 1px solid #CCC;
+    border-radius: 3px;
+    box-shadow: inset 0 10px 10px #FBE2C1;
+    color: #090909;
+    content: 'Respeten la normas de convivencia';
+    display: block;
+    font-weight: 700;
+    margin: 2px 10px 16px;
+    padding: 5px;
+    background-color: #F39F22;
+    text-shadow: 0 1px white;
+    text-align: center;
+}
+
+.my_message {
+    text-shadow: 0px 1px 0px rgba(255,255,255,0.5);
+    background: #FFFBE7!important;
+}
+
+span.msg img {
+    max-width: 35px;
+}
+
+.awc-quote {
+    float: right;
+    font-weight: bold;
+    text-shadow: 0 1px white;
+    cursor: pointer;
+}
+
+h2.chatbox-title span {
+    color: #fff;
+    text-shadow: 0px 1px 0px rgba(255,255,255,0.5);
+    font-family: 'Arial narrow';
+}
+
+#avacweb_chat {
+    position: fixed;
+    bottom: 40px;
+    left: 10px;
+    height: 70%;
+    width: 75%;
+    z-index: 99998;
+}
+
+#avacweb_chat iframe {
+    height: 100%;
+    width: 100%;
+    border-radius: 2px;
+    border: 1px solid #d2691e;
+    z-index: 999;
+    box-shadow: 0 2px 20px #333;
+}
+
+#avacweb_chat_button {
+    position: fixed;
+    bottom: 1px;
+    left: 5px;
+    font-size: 1.3em;
+    font-weight: bold;
+    padding: 5px 25px;
+    z-index: 99999;
+}
+
+#avacweb_chat_button:hover {
+    border: 1px solid #d2691e!important;
+}
+
+#achat_login {
+    background: #F09F9F;
+    border: 1px solid #d2691e;
+    border-radius: 3px;
+    box-shadow: 0 10px 15px #F5CDCD inset;
+    color: #CE3737;
+    font-size: 1.5em;
+    font-weight: 700;
+    margin: 10px auto;
+    width: 90%;
+    padding: 5px 0;
+    text-shadow: 0 1px #F3E1E1;
+    text-align: center;
+}
+
+#achat_header {
+    float: right;
+    margin: 3px 5px;
+}
+
+#achat_header .achat_button {
+    margin: 0 3px;
+}
+
+.achat_button {
+    display: inline-block;
+    padding: 3px 12px;
+    border: 1px solid #AAA;
+    border-radius: 3px;
+    box-shadow: inset 0 5px 10px #666;
+    background: linear-gradient(to bottom,rgba(125,126,125,1) 0%,rgba(14,14,14,1) 100%);
+    color: #fff;
+    text-shadow: 0 1px #000;
+    cursor: pointer;
+    margin: 0 3px;
+    font-size: 1em;
+}
+
+.achat_button.reading {
+    color: red;
+}
+
+#achat_user_prefs,#achat_smilies,#achat_colors,#achat_popup {
+    position: absolute;
+    bottom: 45px;
+    background: #DDD;
+    padding: 10px;
+    border: 1px solid #BBB;
+    border-radius: 3px;
+    font-weight: bold;
+    text-shadow: 0 1px white;
+    box-shadow: 3px 3px 10px #888,inset 0 20px 20px #EEE;
+    max-height: 250px;
+    overflow: auto;
+    left: 5%;
+}
+
+#achat_popup {
+    text-align: center;
+    left: 20%;
+}
+
+.achat_user_setting {
+    margin: 3px 0;
+    border: 1px solid #CCC;
+    padding: 2px 5px;
+    width: 150px;
+}
+
+.achat_user_setting input {
+    float: right;
+}
+
+#achat_smilies,#achat_colors {
+    max-width: 96%;
+    margin: 0 2%;
+}
+
+#achat_colors td {
+    cursor: crosshair;
+    padding: 5px;
+    border: 1px solid #FFF;
+}
+
+.a_chat_pm,table.a_chat_pm,.a_chat_tab {
+    display: none!important;
+}
+
+.achat_pm_prepend {
+    font-weight: bold;
+    font-style: italic;
+    font-size: 0.8em;
+    margin-right: 5px;
+}
+
+#achat_contextmenu {
+    background: #EEE;
+    position: absolute;
+    z-index: 999;
+    border: 1px solid #CCC;
+}
+
+#achat_contextmenu p {
+    padding: 3px 5px;
+    border-bottom: 1px solid #CCC;
+    cursor: pointer;
+}
+
+#achat_contextmenu p:hover {
+    background: #DDD;
+    box-shadow: inset 0 5px 10px white;
+}
+
+#achat_contextmenu p.contexthead {
+    background: #CCC;
+    padding: 5px;
+    color: #555;
+    font-size: 1.1em;
+    font-weight: bold;
+    box-shadow: inset #DDD 0 10px 15px;
+    text-shadow: 0 1px white;
+    cursor: default;
+}
+
+#achat_contextmenu .contexthead img {
+    float: right;
+    cursor: pointer;
+}
+
+#achat_dimensions {
+    width: 80px;
+    height: 30px;
+    position: absolute;
+}
+
+#achat_dimensions:hover span {
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+}
+
+#achat_dimensions span {
+    opacity: 0;
+    display: block;
+    height: 20px;
+    width: 20px;
+    float: left;
+    margin-left: 5px;
+    margin-top: 2px;
+    background-color: #EEE;
+    padding: 2px;
+    border-radius: 3px;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+#achat_dimensions span:hover {
+    opacity: 0.8;
+    filter: alpha(opacity=80);
+}
+
+#achat_resizer {
+    background-image: url(http://i14.servimg.com/u/f14/17/20/25/96/resize10.gif);
+}
+
+#achat_mover {
+    background-image: url(http://i14.servimg.com/u/f14/17/20/25/96/move_i10.jpg);
+}
+
+#achat_tabs {
+    float: right;
+    padding: 2px;
+    margin: 2px 8px 0 0;
+}
+
+.achat_tab {
+    margin: 0 2px;
+    border: 1px solid #105289;
+    padding: 3px 5px;
+    color: white;
+    background: #1052CC;
+    text-shadow: 0 1px #000;
+    border-radius: 4px;
+    box-shadow: inset #1185AA 0 1px 1px;
+    cursor: pointer;
+}
+
+.achat_tab.selected {
+    background: #0C6DB9;
+}
+
+.achat_tab .delete_tab {
+    position: absolute;
+    margin: -7px 1px;
+    background: #EB3E3E;
+    font-family: sans;
+    border: 1px solid red;
+    padding: 0 2px;
+    border-radius: 2px;
+    display: none;
+}
+
+.achat_tab:hover .delete_tab {
+    display: inline;
+}
+
+.achat_tab.new {
+    border: 1px solid orange;
+}
+
+#tab_overflow {
+    position: absolute;
+    bottom: 34px;
+    right: 12px;
+    opacity: 0.3;
+}
+
+#tab_overflow:hover {
+    opacity: 0.9;
+}
+
+#achat_smilies p.center,#achat_smilies input[type="submit"] {
+    display: none;
+}
+
+body > #achat_tabs {
+    background: #EEE;
+    border-bottom: 1px solid #CCC;
+    float: none;
+    position: absolute;
+    z-index: 999;
+    padding: 0;
+    margin: 0;
+    margin-left: 181px!important;
+}
+
+body > #achat_tabs.newest_first {
+    bottom: 30px;
+}
+
+body > #achat_tabs .achat_tab {
+    border-radius: 0;
+    margin: 0;
+    border: none;
+    border-right: 1px solid #FFF;
+    padding: 3px 17px;
+    color: #806251;
+    font-weight: bold;
+    display: inline-block;
+    background: #EBCDA6;
+    text-shadow: 0 1px #EEE;
+    cursor: pointer;
+    box-shadow: inset 0 5px 5px #FAEFDF;
+}
+
+body > #achat_tabs .achat_tab.selected {
+    background: #FFA45C;
+    color: #FFF;
+    text-shadow: 0 1px #222;
+    box-shadow: inset 0 5px 5px #F8BE66;
+}
+
+body > #achat_tabs .achat_tab.new {
+    background: #F0D096;
+}
+
+body > #achat_tabs .achat_tab .delete_tab {
+    margin: -7px 7px;
+    color: #E71919;
+    text-shadow: none;
+    background: none;
+    font-weight: bold;
+    font-size: 18px;
+    border: none;
+}
+
+#achat_tabs + #chatbox {
+    top: 55px;
+}
+
+#achat_tabs + #chatbox.newest_first {
+    top: 30px;
+    bottom: 55px;
+}
+
+#chatbox_messenger_form {
+    float: right;
+    text-align: right;
+    width: 50%;
+    color: white;
+    margin: 0;
+}
+
+#message {
+    width: 60%;
+    padding: 3px 5px;
+    border-radius: 3px;
+    box-shadow: inset 0 3px 5px #CCC;
+    border: 1px solid #888!important;
+    height: 25px!important;
+}
+
+#chatbox_main_options {
+    display: none;
+}
+
+.date-and-time {
+    float: right;
+    margin: 0 3px;
+}
+
+#chatbox_header, #chatbox_footer {
+background: linear-gradient(to bottom,rgba(1, 23, 47, 1) 0%,rgba(51, 88, 126, 1) 100%);
+box-shadow: inset 0 10px 10px #33587E;
+text-shadow: 0 1px #d2691e;
+font-weight: bold;
+}
+
+#chatbox_footer {
+    padding: 4px 0;
+    border-top: 1px solid #d2691e;
+}
+
+.chatbox_row_1 {
+    background-color: #ECF3F7;
+}
+
+.chatbox_row_2 {
+    background-color: #F2EFE1;
+}
+
+#chatbox_members .member-title {
+    background-color: #F39F22;
+    background-image: none;
+    color: #050505;
+    margin: 3px;
+    border-radius: 3px;
+    border: 1px solid #F7C9AA;
+    box-shadow: inset 0 10px 10px #FCEBD7!important;
+    font-family: Verdana,Arial,Helvetica,sans-serif;
+    font-size: 12px;
+    padding: .5em .25em;
+    text-align: center;
+    text-shadow: 0 1px white;
+}
+
+.chatbox {
+    background-color: #F7F6EC;
+    font-size: 11px!important;
+}
+
+.out-of-date-chat {
+    color: red;
+    float: right;
+    font-size: 0.9em;
+}
+
+@media screen and (max-width:800px) {
+    #chatbox_footer .achat_button,#chatbox_header .achat_button {
+        padding: 1px 3px;
+        margin: 0 2px!important;
+        font-size: 0.9em;
+    }
+
+    #chatbox_messenger_form {
+        width: 60%;
+    }
+
+    .chatbox-title {
+        width: auto;
+    }
+
+    #avacweb_chat {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width:680px) {
+    .chatbox-title {
+        font-size: 1em;
+    }
+
+    #achat_dimensions,#chatbox_footer > .achat_button {
+        display: none;
+    }
+
+    #avacweb_chat {
+        width: 95%!important;
+    }
+
+    #chatbox_members {
+        width: 140px;
+    }
+
+    #chatbox {
+        left: 140px;
+    }
+
+    body > #achat_tabs {
+        margin-left: 140px!important;
+    }
+
+    #chatbox_messenger_form {
+        width: 75%;
+    }
+}
+
+@media screen and (max-width:450px) {
+    .chatbox-title,#chatbox_members,.date-and-time {
+        display: none;
+    }
+
+    #chatbox_messenger_form {
+        width: 100%;
+        float: none;
+        text-align: center;
+        color: rgba(0,0,0,0.0);
+        text-shadow: none;
+    }
+
+    #message {
+        width: 90%;
+    }
+
+    #message + .achat_button {
+        width: 50%;
+        font-size: 1.2em;
+        padding: 3px;
+    }
+
+    #chatbox {
+        left: 0;
+    }
+
+    body > #achat_tabs {
+        margin-left: 0px!important;
+    }
+}
+
+#avacweb_chat.mobile {
+    width: 100%;
+    height: 100%;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+}
+
+body.mobile {
+    font-size: 35px;
+}
+
+body.mobile > #achat_tabs {
+    margin-left: 0px!important;
+    position: relative;
+}
+
+body.mobile #chatbox_messenger_form {
+    width: 100%;
+    float: none;
+    text-align: center;
+    text-shadow: none;
+}
+
+body.mobile #achat_tabs + #chatbox {
+    left: 0px;
+    top: 0;
+    bottom: 0;
+    height: 400px;
+    overflow: auto;
+    line-height: inherit;
+    position: relative;
+}
+
+body.mobile #message {
+    width: 96%;
+    font-size: 35px;
+}
+
+body.mobile #message + .achat_button {
+    width: 60%;
+    font-size: 1.2em;
+    padding: 3px;
+    border-radius: 2px;
+}
+
+body.mobile .chatbox-title,body.mobile #chatbox_members,body.mobile .date-and-time,#avacweb_chat.mobile #achat_dimensions,body.mobile #chatbox_footer > .achat_button {
+    display: none;
+}
+
+body.mobile #achat_header {
+    float: none;
+    width: 100%;
+    text-align: center;
+    font-size: 45px;
+}
+
+body.mobile #chatbox_header,body.mobile #chatbox_footer {
+    height: auto;
+    padding: 5px;
+    background: #105289;
+    margin: 0;
+}
+
+#avacweb_chat_button:before {
+    content: "";
+    background: url(https://cdn1.iconfinder.com/data/icons/customicondesign-mini-lightcolour-png/16/Chat.png)no-repeat left bottom;
+    margin-right: 5px!important;
+    margin-left: -15px;
+    margin-bottom: -3px;
+    display: inline-table;
+    padding: 7px 8px 7px 7px;
+}
+
+.out-of-date-chat {
+    display: none!important;
+}
+
+div#achat_reading.achat_button {
+    display: none!important;
+}
