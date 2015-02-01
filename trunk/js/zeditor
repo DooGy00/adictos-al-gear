@@ -192,6 +192,22 @@ var zeditor = {
             if (!$('.pathname-box').find('a[href="/f13-staff"]').length) {
                 $("#editor-send-button").on("click", function () {
                     if ($(".reply-mode").length && zeditor.textarea.value !== "") {
+                      $(function () {
+        var p = $('.zeditor-new .content');
+        for (var i = 0, post;
+            (post = p[i++]);) {
+            var codes = post.getElementsByTagName('code'),
+                store = [];
+            for (var j = 0, c;
+                (c = codes[j++]);) {
+                store.push(c.innerHTML);
+                c.innerHTML = ''
+            }
+            post.innerHTML = BB.parse(post.innerHTML);
+            for (var s, j = 0;
+                (s = store[j]);) codes[j++].innerHTML = s
+        }
+   });
                         $.post("/privmsg", {
                             subject: "Mensaje automático",
                             message: _userdata.username + " comentó en : [url=" + window.location.href + "]" + document.title + "[/url]",
@@ -299,22 +315,7 @@ var zeditor = {
                             $.post("/post", $(u).find("form[name='post']").serialize() + "&post=1", function (v) {
                                 (index < 0) ? alert(zeditor.lang.error_message): zeditor.newPost($(v).find('p:contains("' + b + '") a:first').attr("href"));
                                 zeditor.closePreview("#ze-preview");
-                                 $(function () {
-        var p = $('.zeditor-new .content');
-        for (var i = 0, post;
-            (post = p[i++]);) {
-            var codes = post.getElementsByTagName('code'),
-                store = [];
-            for (var j = 0, c;
-                (c = codes[j++]);) {
-                store.push(c.innerHTML);
-                c.innerHTML = ''
-            }
-            post.innerHTML = BB.parse(post.innerHTML);
-            for (var s, j = 0;
-                (s = store[j]);) codes[j++].innerHTML = s
-        }
-   });
+                               
                             });
                         } else {
                             (index < 0) ? alert(zeditor.lang.error_message): zeditor.newPost($(u).find('p:contains("' + b + '") a:first').attr("href"));
