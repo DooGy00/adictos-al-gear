@@ -316,7 +316,7 @@ var zeditor = {
         zeditor.editor.style.display = "none";
         if (zeditor.mode.innerHTML == zeditor.lang.reply || zeditor.mode.innerHTML == zeditor.lang.quote) {
             $.get(a, function (t) {
-          $.getScript("http://adictosalgear.org/js/OPSBBcode.js");
+      
                 $('<div class="zeditor-new">' + zeditor.replace($(t).find("#p" + s).wrapAll("<div></div>").parent().html()) + "</div>").insertAfter(zeditor.post_dom + ":last");
                 $(".postprofile").last().find(".f_a2").contents().filter(function () {
                     return this.nodeType === 3;
@@ -336,6 +336,7 @@ var zeditor = {
         }
        
         zeditor.textarea.value = "", $(function () {
+            $.getScript("http://adictosalgear.org/js/OPSBBcode.js");
             if (_userdata.user_posts > 5) {
                 if ($(".post").first().find(".descargar").length > 0) {
                     $(".descargar").find("a,span").removeAttr("style");
