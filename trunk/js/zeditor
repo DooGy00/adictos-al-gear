@@ -333,6 +333,8 @@ var zeditor = {
                 $(dom).hide().fadeIn("slow");
             });
         }
+        var example = document.getElementsByClassName('content');
+          example.innerHTML = LGBB.parse(example.innerHTML);
         zeditor.textarea.value = "", $(function () {
             if (_userdata.user_posts > 5) {
                 if ($(".post").first().find(".descargar").length > 0) {
