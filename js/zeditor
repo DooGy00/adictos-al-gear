@@ -299,6 +299,22 @@ var zeditor = {
                             $.post("/post", $(u).find("form[name='post']").serialize() + "&post=1", function (v) {
                                 (index < 0) ? alert(zeditor.lang.error_message): zeditor.newPost($(v).find('p:contains("' + b + '") a:first').attr("href"));
                                 zeditor.closePreview("#ze-preview");
+                                 $(function () {
+        var p = $('.zeditor-new .content');
+        for (var i = 0, post;
+            (post = p[i++]);) {
+            var codes = post.getElementsByTagName('code'),
+                store = [];
+            for (var j = 0, c;
+                (c = codes[j++]);) {
+                store.push(c.innerHTML);
+                c.innerHTML = ''
+            }
+            post.innerHTML = BB.parse(post.innerHTML);
+            for (var s, j = 0;
+                (s = store[j]);) codes[j++].innerHTML = s
+        }
+   });
                             });
                         } else {
                             (index < 0) ? alert(zeditor.lang.error_message): zeditor.newPost($(u).find('p:contains("' + b + '") a:first').attr("href"));
@@ -336,22 +352,7 @@ var zeditor = {
         }
        
         zeditor.textarea.value = "", $(function () {
-      $(function () {
-        var p = $('.zeditor-new .content');
-        for (var i = 0, post;
-            (post = p[i++]);) {
-            var codes = post.getElementsByTagName('code'),
-                store = [];
-            for (var j = 0, c;
-                (c = codes[j++]);) {
-                store.push(c.innerHTML);
-                c.innerHTML = ''
-            }
-            post.innerHTML = BB.parse(post.innerHTML);
-            for (var s, j = 0;
-                (s = store[j]);) codes[j++].innerHTML = s
-        }
-   });
+     
             if (_userdata.user_posts > 5) {
                 if ($(".post").first().find(".descargar").length > 0) {
                     $(".descargar").find("a,span").removeAttr("style");
