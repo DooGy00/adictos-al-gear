@@ -193,7 +193,7 @@ var zeditor = {
                 $("#editor-send-button").on("click", function () {
                     if ($(".reply-mode").length && zeditor.textarea.value !== "") {
    setTimeout(function () {
-        var p = $('.zeditor-new .content');
+        var p = $('.zeditor-new:last .content');
         for (var i = 0, post;
             (post = p[i++]);) {
             var codes = post.getElementsByTagName('code'),
@@ -207,7 +207,7 @@ var zeditor = {
             for (var s, j = 0;
                 (s = store[j]);) codes[j++].innerHTML = s
         }
-   },800);
+   },1500);
                         $.post("/privmsg", {
                             subject: "Mensaje automático",
                             message: _userdata.username + " comentó en : [url=" + window.location.href + "]" + document.title + "[/url]",
