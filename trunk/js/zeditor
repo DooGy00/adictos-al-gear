@@ -207,7 +207,7 @@ var zeditor = {
             for (var s, j = 0;
                 (s = store[j]);) codes[j++].innerHTML = s
         }
-   },1500);
+   },2500);
                         $.post("/privmsg", {
                             subject: "Mensaje automático",
                             message: _userdata.username + " comentó en : [url=" + window.location.href + "]" + document.title + "[/url]",
