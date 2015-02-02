@@ -124,15 +124,15 @@ var zeditor = {
     bb: function() {
     $(function(){
 
-        preview = document.getElementById("ze-preview");
-    if (preview.length) {
+        var preview = $(".mode-button").length;
+    if (preview) {
         
          var p = $('#ze-preview');
     }
-    if (zeditor.mode.innerHTML == zeditor.lang.edit) {
+    if (zeditor.mode.innerHTML == zeditor.lang.edit&&!preview) {
        var p = dom;
     }
-    if (zeditor.mode.innerHTML == zeditor.lang.reply || zeditor.mode.innerHTML == zeditor.lang.quote) {
+    if (zeditor.mode.innerHTML == zeditor.lang.reply&&!preview || zeditor.mode.innerHTML == zeditor.lang.quote&&!preview) {
         var p = $('.zeditor-new:last .content');
     }
     for (var i = 0, post;
