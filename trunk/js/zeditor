@@ -124,9 +124,17 @@ var zeditor = {
     bb: function() {
     $(function(){
 
-                  var p = $('.zeditor-new:last .content,#ze-preview,dom');
-                 
-                
+        preview = document.getElementById("ze-preview");
+    if (preview.length) {
+        
+         var p = $('#ze-preview');
+    }
+    if (zeditor.mode.innerHTML == zeditor.lang.edit) {
+       var p = dom;
+    }
+    if (zeditor.mode.innerHTML == zeditor.lang.reply || zeditor.mode.innerHTML == zeditor.lang.quote) {
+        var p = $('.zeditor-new:last .content');
+    }
     for (var i = 0, post;
         (post = p[i++]);) {
         var codes = post.getElementsByTagName('code'),
@@ -270,6 +278,7 @@ var zeditor = {
         zeditor.textarea.focus();
     },
     preview: function(a) {
+        $("##editor-mode span").addClass("prevMode");
         preview = document.getElementById("ze-preview");
         if (preview.style.display == "block") {
             preview.style.display = "none";
@@ -296,6 +305,7 @@ var zeditor = {
         zeditor.textarea.focus();
         document.getElementById("editor-preview-button").innerHTML = zeditor.lang.preview_button;
         document.getElementById("editor-top").setAttribute("style", "height:38px; transform: scaleY(1);-webkit-transform:scaleY(1)");
+        $("##editor-mode span").removeClass("prevMode");
     },
     post: function(a) {
         if (zeditor.mode.innerHTML == zeditor.lang.quote) {
