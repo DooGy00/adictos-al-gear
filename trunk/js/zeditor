@@ -123,8 +123,8 @@ var zeditor = {
     },
     bb: function() {
     $(function(){
-    preview = document.getElementById("ze-preview");
-    if (preview.length) {
+    preview = $('#ze-preview').length;
+    if (preview) {
        var p = $('#ze-preview');
     
     }
