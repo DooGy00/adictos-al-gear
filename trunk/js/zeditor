@@ -123,7 +123,8 @@ var zeditor = {
     },
     bb: function() {
     alert("ok");
-    if (zeditor.mode.innerHTML == zeditor.lang.edit) {
+    preview = document.getElementById("ze-preview");
+    if (preview.length) {
         var p = dom;
     }
     if (zeditor.mode.innerHTML == zeditor.lang.preview) {
