@@ -1,4 +1,3 @@
-
 var zeditor = {
     version: "phpbb3",
     lang: {
@@ -290,7 +289,7 @@ var zeditor = {
             }, function(s) {
                 preview.style.display = "block";
                 preview.innerHTML = zeditor.replace($(s).find(zeditor.preview_dom).html());
-               bb()
+               zeditor.bb()
             });
         }
     },
