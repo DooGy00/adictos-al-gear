@@ -278,16 +278,17 @@ var zeditor = {
         zeditor.textarea.focus();
     },
     preview: function(a) {
-        $(".mode-button").addClass("prevMode");
+  
         preview = document.getElementById("ze-preview");
         if (preview.style.display == "block") {
             preview.style.display = "none";
             document.getElementById("editor-top").setAttribute("style", "height:38px; transform: scaleY(1);-webkit-transform: scaleY(1)");
             a.innerHTML = zeditor.lang.preview_button;
+               $(".mode-button").removeClass("prevMode");
         } else {
             a.innerHTML = zeditor.lang.close_button;
             document.getElementById("editor-top").setAttribute("style", "height:3px; transform: scaleY(0);-webkit-transform: scaleY(0)");
-           
+                 $(".mode-button").addClass("prevMode");
             $.post(zeditor.url, {
                 message: zeditor.textarea.value,
                 preview: "Preview"
@@ -306,7 +307,7 @@ var zeditor = {
         zeditor.textarea.focus();
         document.getElementById("editor-preview-button").innerHTML = zeditor.lang.preview_button;
         document.getElementById("editor-top").setAttribute("style", "height:38px; transform: scaleY(1);-webkit-transform:scaleY(1)");
-        $(".mode-button").removeClass("prevMode");
+     
     },
     post: function(a) {
         if (zeditor.mode.innerHTML == zeditor.lang.quote) {
