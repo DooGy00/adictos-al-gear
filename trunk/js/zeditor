@@ -278,7 +278,7 @@ var zeditor = {
         zeditor.textarea.focus();
     },
     preview: function(a) {
-        $("##editor-mode span").addClass("prevMode");
+        $("#editor-mode span").addClass("prevMode");
         preview = document.getElementById("ze-preview");
         if (preview.style.display == "block") {
             preview.style.display = "none";
@@ -305,7 +305,7 @@ var zeditor = {
         zeditor.textarea.focus();
         document.getElementById("editor-preview-button").innerHTML = zeditor.lang.preview_button;
         document.getElementById("editor-top").setAttribute("style", "height:38px; transform: scaleY(1);-webkit-transform:scaleY(1)");
-        $("##editor-mode span").removeClass("prevMode");
+        $("#editor-mode span").removeClass("prevMode");
     },
     post: function(a) {
         if (zeditor.mode.innerHTML == zeditor.lang.quote) {
