@@ -278,7 +278,7 @@ var zeditor = {
         zeditor.textarea.focus();
     },
     preview: function(a) {
-        $("#editor-mode span").addClass("prevMode");
+        $(".mode-button").addClass("prevMode");
         preview = document.getElementById("ze-preview");
         if (preview.style.display == "block") {
             preview.style.display = "none";
@@ -287,6 +287,7 @@ var zeditor = {
         } else {
             a.innerHTML = zeditor.lang.close_button;
             document.getElementById("editor-top").setAttribute("style", "height:3px; transform: scaleY(0);-webkit-transform: scaleY(0)");
+            $(".mode-button").removeClass("prevMode");
             $.post(zeditor.url, {
                 message: zeditor.textarea.value,
                 preview: "Preview"
@@ -305,7 +306,7 @@ var zeditor = {
         zeditor.textarea.focus();
         document.getElementById("editor-preview-button").innerHTML = zeditor.lang.preview_button;
         document.getElementById("editor-top").setAttribute("style", "height:38px; transform: scaleY(1);-webkit-transform:scaleY(1)");
-        $("#editor-mode span").removeClass("prevMode");
+        $(".mode-button").removeClass("prevMode");
     },
     post: function(a) {
         if (zeditor.mode.innerHTML == zeditor.lang.quote) {
