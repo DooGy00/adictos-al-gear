@@ -122,7 +122,7 @@ var zeditor = {
         alert("zEditor 1.7.1 \n Modificado por Chalo \n Exclusivo para OS phpbb3")
     },
     bb: function() {
-    alert("ok");
+    $(function(){
     preview = document.getElementById("ze-preview");
     if (preview.length) {
         var p = dom;
@@ -147,7 +147,7 @@ var zeditor = {
         for (var s, j = 0;
             (s = store[j]);) codes[j++].innerHTML = s
     }
-
+});
 },
     quote: function(a) {
         zeditor.loading("on");
