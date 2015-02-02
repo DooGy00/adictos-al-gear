@@ -374,20 +374,7 @@ var zeditor = {
             dom = $(zeditor.editor).parents(zeditor.post_dom).find(zeditor.message_dom);
             $.get(a, function(t) {
                 setTimeout(function() {
-                    var p = dom;
-                    for (var i = 0, post;
-                        (post = p[i++]);) {
-                        var codes = post.getElementsByTagName('code'),
-                            store = [];
-                        for (var j = 0, c;
-                            (c = codes[j++]);) {
-                            store.push(c.innerHTML);
-                            c.innerHTML = ''
-                        }
-                        post.innerHTML = BB.parse(post.innerHTML);
-                        for (var s, j = 0;
-                            (s = store[j]);) codes[j++].innerHTML = s
-                    }
+                  zeditor.bb();
                 }, 200);
                 $(dom).html(zeditor.replace($(t).find("#p" + s + " " + zeditor.message_dom).html()));
                 $(dom).hide().fadeIn("slow");
