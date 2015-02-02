@@ -294,7 +294,7 @@ var zeditor = {
                 preview.innerHTML = zeditor.replace($(s).find(zeditor.preview_dom).html());
               setTimeout(function() { 
               zeditor.bb()
-              },200)
+              },1200)
             });
         }
     },
