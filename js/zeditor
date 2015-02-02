@@ -124,7 +124,7 @@ var zeditor = {
     bb: function() {
     $(function(){
 
-        var preview = $(".mode-button").length;
+        var preview = $(".prevMode").length;
     if (preview) {
         
          var p = $('#ze-preview');
