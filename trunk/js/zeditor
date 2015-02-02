@@ -122,6 +122,7 @@ var zeditor = {
         alert("zEditor 1.7.1 \n Modificado por Chalo \n Exclusivo para OS phpbb3")
     },
     bb: function() {
+    alert("ok");
     if (zeditor.mode.innerHTML == zeditor.lang.edit) {
         var p = dom;
     }
