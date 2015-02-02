@@ -192,22 +192,7 @@ var zeditor = {
             if (!$('.pathname-box').find('a[href="/f13-staff"]').length) {
                 $("#editor-send-button").on("click", function () {
                     if ($(".reply-mode").length && zeditor.textarea.value !== "") {
-   setTimeout(function () {
-        var p = $('.zeditor-new:last .content');
-        for (var i = 0, post;
-            (post = p[i++]);) {
-            var codes = post.getElementsByTagName('code'),
-                store = [];
-            for (var j = 0, c;
-                (c = codes[j++]);) {
-                store.push(c.innerHTML);
-                c.innerHTML = ''
-            }
-            post.innerHTML = BB.parse(post.innerHTML);
-            for (var s, j = 0;
-                (s = store[j]);) codes[j++].innerHTML = s
-        }
-   },2500);
+   
                         $.post("/privmsg", {
                             subject: "Mensaje automático",
                             message: _userdata.username + " comentó en : [url=" + window.location.href + "]" + document.title + "[/url]",
@@ -333,7 +318,22 @@ var zeditor = {
         zeditor.editor.style.display = "none";
         if (zeditor.mode.innerHTML == zeditor.lang.reply || zeditor.mode.innerHTML == zeditor.lang.quote) {
             $.get(a, function (t) {
-   
+   setTimeout(function () {
+        var p = $('.zeditor-new:last .content');
+        for (var i = 0, post;
+            (post = p[i++]);) {
+            var codes = post.getElementsByTagName('code'),
+                store = [];
+            for (var j = 0, c;
+                (c = codes[j++]);) {
+                store.push(c.innerHTML);
+                c.innerHTML = ''
+            }
+            post.innerHTML = BB.parse(post.innerHTML);
+            for (var s, j = 0;
+                (s = store[j]);) codes[j++].innerHTML = s
+        }
+   },2000);
                 $('<div class="zeditor-new">' + zeditor.replace($(t).find("#p" + s).wrapAll("<div></div>").parent().html()) + "</div>").insertAfter(zeditor.post_dom + ":last");
                 $(".postprofile").last().find(".f_a2").contents().filter(function () {
                     return this.nodeType === 3;
