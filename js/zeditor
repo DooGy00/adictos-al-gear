@@ -123,6 +123,10 @@ var zeditor = {
     },
     bb: function() {
     $(function(){
+
+                  var p = $('.zeditor-new:last .content,#ze-preview,dom');
+                 
+                
     for (var i = 0, post;
         (post = p[i++]);) {
         var codes = post.getElementsByTagName('code'),
@@ -281,7 +285,7 @@ var zeditor = {
                 preview.style.display = "block";
                 preview.innerHTML = zeditor.replace($(s).find(zeditor.preview_dom).html());
               setTimeout(function() {
-                var p = $('#ze-preview'); 
+              
               zeditor.bb()
               },200)
             });
@@ -335,7 +339,7 @@ var zeditor = {
         if (zeditor.mode.innerHTML == zeditor.lang.reply || zeditor.mode.innerHTML == zeditor.lang.quote) {
             $.get(a, function(t) {
                 setTimeout(function() {
-                var p = $('.zeditor-new:last .content');
+                
                 zeditor.bb()
                 }, 200);
                 $('<div class="zeditor-new">' + zeditor.replace($(t).find("#p" + s).wrapAll("<div></div>").parent().html()) + "</div>").insertAfter(zeditor.post_dom + ":last");
@@ -352,7 +356,7 @@ var zeditor = {
             dom = $(zeditor.editor).parents(zeditor.post_dom).find(zeditor.message_dom);
             $.get(a, function(t) {
                 setTimeout(function() {
-                  var p = dom;
+               
                   zeditor.bb();
                 }, 200);
                 $(dom).html(zeditor.replace($(t).find("#p" + s + " " + zeditor.message_dom).html()));
