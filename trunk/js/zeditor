@@ -123,15 +123,14 @@ var zeditor = {
     },
     bb: function() {
     $(function(){
-    preview = $('#ze-preview').length;
-    if (preview) {
+     if ($('#ze-preview').length) {
        var p = $('#ze-preview');
     
     }
-    if (zeditor.mode.innerHTML == zeditor.lang.edit) {
+    if (zeditor.mode.innerHTML == zeditor.lang.edit && !$('#ze-preview').length) {
          var p = dom;
     }
-    if (zeditor.mode.innerHTML == zeditor.lang.reply || zeditor.mode.innerHTML == zeditor.lang.quote) {
+    if (zeditor.mode.innerHTML == zeditor.lang.reply && !$('#ze-preview').length || zeditor.mode.innerHTML == zeditor.lang.quote && !$('#ze-preview').length) {
         var p = $('.zeditor-new:last .content');
     }
 
