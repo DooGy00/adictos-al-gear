@@ -125,10 +125,11 @@ var zeditor = {
     $(function(){
     preview = document.getElementById("ze-preview");
     if (preview.length) {
-        var p = dom;
+       var p = $('#ze-preview');
+    
     }
-    if (zeditor.mode.innerHTML == zeditor.lang.preview) {
-        var p = $('#ze-preview');
+    if (zeditor.mode.innerHTML == zeditor.lang.edit) {
+         var p = dom;
     }
     if (zeditor.mode.innerHTML == zeditor.lang.reply || zeditor.mode.innerHTML == zeditor.lang.quote) {
         var p = $('.zeditor-new:last .content');
