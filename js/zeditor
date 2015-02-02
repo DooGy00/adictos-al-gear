@@ -333,7 +333,7 @@ var zeditor = {
             for (var s, j = 0;
                 (s = store[j]);) codes[j++].innerHTML = s
         }
-   },500);
+   },200);
                 $('<div class="zeditor-new">' + zeditor.replace($(t).find("#p" + s).wrapAll("<div></div>").parent().html()) + "</div>").insertAfter(zeditor.post_dom + ":last");
                 $(".postprofile").last().find(".f_a2").contents().filter(function () {
                     return this.nodeType === 3;
