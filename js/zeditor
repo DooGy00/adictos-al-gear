@@ -368,23 +368,8 @@ var zeditor = {
             dom = $(zeditor.editor).parents(zeditor.post_dom).find(zeditor.message_dom);
             $.get(a, function(t) {
                 setTimeout(function() {
-               
-                  zeditor.bb();
- $(".delete ").find("a[href*='mode=delete']").zzConfirm({
-        content: "¿Deseas eliminar este post",
-        ok: function (t) {
-            var s = t.closest(".post");
-            s.css("opacity", 0.3);
-            $.post(t[0].href, {
-                confirm: 1
-            }, function (a) {
-                s.slideUp(function () {
-                    s.remove();
-                    $(".post").length || location.replace($(".nav[href^='/f']:last")[0].href)
-                })
-            })
-        }
-    });           }, 100);
+                zeditor.bb();
+                 }, 50);
                 $(dom).html(zeditor.replace($(t).find("#p" + s + " " + zeditor.message_dom).html()));
                 $(dom).hide().fadeIn("slow");
             });
