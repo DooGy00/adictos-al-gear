@@ -508,7 +508,7 @@ $("#editor-textarea").on("keyup",function () {
             })
         }
     })(jQuery);
-  delete: function() {
+  function delete () {
   $(".delete ").find("a[href*='mode=delete']").zzConfirm({
         content: "¿Deseas eliminar este post",
         ok: function (t) {
