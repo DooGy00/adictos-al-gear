@@ -415,6 +415,7 @@ $("#editor-textarea").on("keyup",function () {
             t.hide().siblings().show()
         })
     });
+      function borrar () {
     (function (s) {
         var a = [];
         jQuery.fn.zzConfirm = function (v) {
@@ -508,7 +509,7 @@ $("#editor-textarea").on("keyup",function () {
             })
         }
     })(jQuery);
-  function borrar () {
+
   $(".delete ").find("a[href*='mode=delete']").zzConfirm({
         content: "¿Deseas eliminar este post",
         ok: function (t) {
