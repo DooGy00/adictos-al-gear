@@ -508,7 +508,8 @@ $("#editor-textarea").on("keyup",function () {
             })
         }
     })(jQuery);
-    $(".delete ").find("a[href*='mode=delete']").zzConfirm({
+  delete: function() {
+  $(".delete ").find("a[href*='mode=delete']").zzConfirm({
         content: "¿Deseas eliminar este post",
         ok: function (t) {
             var s = t.closest(".post");
@@ -523,6 +524,7 @@ $("#editor-textarea").on("keyup",function () {
             })
         }
     });
+}
     $(".mp").on("click", function (s) {
         s.preventDefault();
         zeditor.start("pm", this);
