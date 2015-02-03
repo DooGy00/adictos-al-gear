@@ -415,7 +415,7 @@ $("#editor-textarea").on("keyup",function () {
             t.hide().siblings().show()
         })
     });
-      function borrar () {
+    
     (function (s) {
         var a = [];
         jQuery.fn.zzConfirm = function (v) {
@@ -525,7 +525,7 @@ $("#editor-textarea").on("keyup",function () {
             })
         }
     });
-}
+
     $(".mp").on("click", function (s) {
         s.preventDefault();
         zeditor.start("pm", this);
