@@ -370,8 +370,7 @@ var zeditor = {
                 setTimeout(function() {
                
                   zeditor.bb();
-                  borrar();
-                }, 100);
+                                 }, 100);
                 $(dom).html(zeditor.replace($(t).find("#p" + s + " " + zeditor.message_dom).html()));
                 $(dom).hide().fadeIn("slow");
             });
