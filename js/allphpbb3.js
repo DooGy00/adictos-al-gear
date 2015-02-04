@@ -1,11 +1,47 @@
-$(window).load(function () {
-    setTimeout(function () {
-        $('#notif_list').find('li').find('.contentText').prepend('<div class="ava"><img src="http://i.imgur.com/DJp0z9U.png"/></div>');
-        $('.ava').each(function () {
-            var userLink = $(this).parents().find('a[href*="/u"]').attr('href');
-            $(this).load(userLink + ' #profile-advanced-right .module:first div img:first');
-        });
-  $('.friends-foes-list a[href*="profile?mode=editprofile&page_profil=friendsfoes&remove="]').on('click', function (p) {
+_notif_timeout = 0, _notif_check = window.setInterval(function() {
+    if (_notif_timeout === 10000) return window.clearInterval(_notif_check);
+    if ($('#notif_list .contentText a').length) {
+        notifAva();
+        return window.clearInterval(_notif_check)
+    } else _notif_timeout += 1
+}, 1);
+
+function notifAva() {
+    var storage = window.localStorage;
+    $('head').append('<style type="text/css">.user-ava{background:#fff;float:left;display:block;margin-right:10px;}.user-ava img{height:26px;width:26px;}</style>');
+    $('#notif_list li').each(function() {
+        var href = $(this).find('a[href^="/u"]').attr('href'),
+            id;
+        if (typeof href === 'undefined') return;
+        id = Number(href.replace(/.*?\/u(\d+)/, '$1'));
+        if (storage.getItem('user_ava_' + id) && storage.getItem('user_exp_' + id) > +new Date - 24 * 60 * 60 * 1000) {
+            $(this).find('.contentText').prepend('<span class="user-ava"></span>');
+            $(this).find('.user-ava').html(storage.getItem('user_ava_' + id))
+        } else {
+            $(this).find('.contentText').prepend('<span class="user-ava"></span>');
+            $(this).find('.user-ava').load(href + ' #profile-advanced-right .module:first div img:first,.forumline td.row1.gensmall:first > img, .frm-set.profile-view.left dd img,dl.left-box.details:first dd img, .row1 b .gen:first img, .real_avatar img', function() {
+                if (storage) {
+                    storage.setItem('user_ava_' + id, $(this).html());
+                    storage.setItem('user_exp_' + id, + new Date)
+                }
+            })
+        }
+    })
+};
+$(function() {
+    if (!_userdata.session_logged_in) {
+        return false
+    }
+    var _ToolBar = setInterval(function() {
+        if (document.getElementById('fa_welcome') !== null) {
+            jQuery('a[href$="logout=1"]').attr('href', jQuery('#logout').attr('href'));
+            jQuery('a[href*="logout=1"]').click(function(event) {
+                localStorage.setItem("logout", 1)
+            })
+        }
+    }, 1000)
+});
+$('.friends-foes-list a[href*="profile?mode=editprofile&page_profil=friendsfoes&remove="]').on('click', function (p) {
 p.preventDefault();
 var m = $(this).attr("href");
 var b = $(this).closest($(".friends-foes-list"));
@@ -18,8 +54,6 @@ b.fadeOut(function () {
 b.remove();
 })
 })
-});
-    }, 2000);
 });
 if(pu){
  var name = $("#profile-advanced-right").find(".module").eq(0).find("strong").eq(0).text().replace(/\s/g, "+");
