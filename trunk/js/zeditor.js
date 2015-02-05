@@ -133,7 +133,7 @@ var zeditor = {
        var p = dom;
     }
     if (zeditor.mode.innerHTML == zeditor.lang.reply&&!preview || zeditor.mode.innerHTML == zeditor.lang.quote&&!preview) {
-        var p = $('.zeditor-new:last .content');
+      var p = $('.zeditor-new:last').find('.content');
     }
     for (var i = 0, post;
         (post = p[i++]);) {
@@ -360,7 +360,7 @@ var zeditor = {
                 }).wrap("<p></p>");
                 $("html,body").animate({
                     scrollTop: $(".zeditor-new:last").offset().top
-                }, 300);
+                }, 200);
                 zeditor.button(".zeditor-new:last " + zeditor.button_dom);
             });
         }
