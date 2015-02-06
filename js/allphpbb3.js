@@ -91,7 +91,22 @@
             })
         }
     })(jQuery);
-
+$('.friends-foes-list a[href*="friendsfoes&remove="]')
+content: "¿Deseas eliminarlo de tu lista de amigos?",
+ok: function (t) {
+var m = t.attr("href");
+var b = t.closest($(".friends-foes-list"));
+var TID = $('a[href*="tid="]').attr('href').split('tid=')[1].split('&')[0];
+$.post(m, {
+confirm: 1,
+tid: TID,
+}, function (a) {
+b.fadeOut(function () {
+b.remove();
+})
+})
+}
+});
   $('a[href*="wall?d"]').zzConfirm({
   content: "¿Deseas eliminar el post de tu muro?",
 ok: function (t) {
@@ -180,20 +195,7 @@ $(function() {
         }
     }, 1000)
 });
-$('.friends-foes-list a[href*="profile?mode=editprofile&page_profil=friendsfoes&remove="]').on('click', function (p) {
-p.preventDefault();
-var m = $(this).attr("href");
-var b = $(this).closest($(".friends-foes-list"));
-var TID = $('a[href*="tid="]').attr('href').split('tid=')[1].split('&')[0];
-$.post(m, {
-confirm: 1,
-tid: TID,
-}).success(function () {
-b.fadeOut(function () {
-b.remove();
-})
-})
-});
+
 if(pu){
  var name = $("#profile-advanced-right").find(".module").eq(0).find("strong").eq(0).text().replace(/\s/g, "+");
 $('#profile-advanced-add').find('a[href^="/profile?mode=editprofile&page_profil=friendsfoes&remove="]').add($('#profile-advanced-add').find('a[href="/profile?friend='+ name +'&mode=editprofile&page_profil=friendsfoes"]')).on('click', function (frdel) {
