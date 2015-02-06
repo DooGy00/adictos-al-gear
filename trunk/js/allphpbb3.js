@@ -341,8 +341,11 @@ $("#editor-textarea").on("keyup",function () {
         $(".tema-info").find("h1").prepend('<img src="https://cdn2.iconfinder.com/data/icons/pittogrammi/142/91-48.png"style="margin-top: -10px;margin-bottom: -12px;">')
     }
     $(function () {
-        $('a[href*="/modcp?mode=delete"]').on("click", function (p) {
-            p.preventDefault();
+        $('a[href*="/modcp?mode=delete"]').zzConfirm({
+        
+        
+         ok: function (ele) {
+            ele.preventDefault();
             var m = $(this).attr("href");
             var o = $(this);
             if (confirm('¿Deseas eliminar este tema?, esto es irreversible')) {
@@ -354,6 +357,7 @@ $("#editor-textarea").on("keyup",function () {
                     $(location).attr('href', url);
                 })
             }
+		 }
         });
         $('a[href*="/modcp?mode=lock"]').on("click", function (s) {
             s.preventDefault();
