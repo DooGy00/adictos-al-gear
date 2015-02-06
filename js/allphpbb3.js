@@ -150,19 +150,13 @@ $('.news_topic_title').on("click", function () {
     });
 });
 if (wl) {
-
- $('<div id="layer" class="hide" style="display:none"><div id="box" class="hide"><a id="close" style="float:right;cursor:pointer;"><img src="http://illiweb.com/fa/prosilver/icon_post_delete.gif" /></a> <br /> </br><span id="mess-text"></div></div></div></div>').insertAfter("body");
-$("#AAGquickvm_message").length && ($(window).on("beforeunload", function () {
+   $("#AAGquickvm_message").length && ($(window).on("beforeunload", function () {
         if ($("textarea").val().length) {
-            $("#layer").fadeIn( )
-            $( _userdata.username + " todavía no has enviado el mensaje.").prependTo("#mess-text");
-            
+            return _userdata.username + " todavía no has enviado el mensaje."
         }
     }), $("#AAGquickvm_send").submit(function () {
-        $(window).off("beforeunload")
-    }));
-    $('#AAGquickvm_send').on("click", function () {
-        var name = $("#profile-advanced-right").find(".module").eq(0).find("strong").eq(0).text()
+        $(window).off("beforeunload");
+          var name = $("#profile-advanced-right").find(".module").eq(0).find("strong").eq(0).text()
         $.post("/privmsg", {
             subject: 'Mensaje automático',
             message: _userdata.username + " escribió en el muro de : [url=" + window.location.href + "]" + name + "[/url]",
@@ -171,7 +165,8 @@ $("#AAGquickvm_message").length && ($(window).on("beforeunload", function () {
             folder: "profile",
             post: "Send"
         });
-    });
+    }));
+    
 }
 if ($("#fa_menulist").length) {
     var status_box = {
