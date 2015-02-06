@@ -1,13 +1,5 @@
-jQuery.cachedScript = function( url, options ) {
- options = $.extend( options || {}, {
-    dataType: "script",
-    cache: true,
-    url: url
-  });
- return jQuery.ajax( options );
-};
- $.cachedScript( "https://adictos-al-gear.googlecode.com/svn/trunk/js/confirm.js" ).done(function( script, textStatus ) {
-  console.log( textStatus );
+$.cachedScript( "https://adictos-al-gear.googlecode.com/svn/trunk/js/confirm.js" ).done(function() {
+  
   $('.friends-foes-list a[href*="friendsfoes&remove="]').zzConfirm({
 content: "¿Deseas eliminarlo de tu lista de amigos?",
 ok: function (t) {
