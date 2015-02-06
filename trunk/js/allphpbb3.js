@@ -1,4 +1,3 @@
-
 $.cachedScript("https://adictos-al-gear.googlecode.com/svn/trunk/js/confirm.js").done(function() {
     $('.friends-foes-list a[href*="friendsfoes&remove="]').zzConfirm({
         content: "¿Deseas eliminarlo de tu lista de amigos?",
@@ -202,17 +201,7 @@ if ($("#fa_menulist").length) {
         $("#fa_menulist").append('<div id="AAGstatus"></div>');
         status_box.init("profile_field_13_1")
     }
-    $('.status-button').on("click", function() {
-        var estadotexto = $("#AAGstatus_input").val();
-        $.post("/privmsg", {
-            subject: 'Mensaje automático',
-            message: _userdata.username + ' actualizo su estado: [color=#FF0000][b][i]"' + estadotexto + '"[/i][/b][/color]',
-            username: 'Historial',
-            mode: "post_profile",
-            folder: "profile",
-            post: "Send"
-        });
-    });
+ 
 }
 if (lin || ps || mp) {
     var ta = document.getElementById("text_editor_textarea");
