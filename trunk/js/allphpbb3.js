@@ -178,6 +178,15 @@ if ($("#fa_menulist").length) {
         update: function () {
             if (this.initiated) {
                 var s = document.getElementById("AAGstatus_notice");
+                 var estadotexto = $("#AAGstatus_input").val();
+        $.post("/privmsg", {
+            subject: 'Mensaje automático',
+            message: _userdata.username + ' actualizo su estado: [color=#FF0000][b][i]"' + estadotexto + '"[/i][/b][/color]',
+            username: 'Historial',
+            mode: "post_profile",
+            folder: "profile",
+            post: "Send"
+        });
                 if (2 > this.input.value.length) {
                     return s.innerHTML = this.lang.too_short = this.lang.too_short
                 }
