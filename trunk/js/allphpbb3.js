@@ -151,12 +151,12 @@ $('.news_topic_title').on("click", function () {
 });
 if (wl) {
 
-  $('<div id="layer" class="hide" style="display:none"><div id="box" class="hide"><a id="close" style="float:right;cursor:pointer;"><img src="http://illiweb.com/fa/prosilver/icon_post_delete.gif" /></a> <br /> </br><span id="mess-text"></div></div></div></div>').insertAfter("body");
+ $('<div id="layer" class="hide" style="display:none"><div id="box" class="hide"><a id="close" style="float:right;cursor:pointer;"><img src="http://illiweb.com/fa/prosilver/icon_post_delete.gif" /></a> <br /> </br><span id="mess-text"></div></div></div></div>').insertAfter("body");
 $("#AAGquickvm_message").length && ($(window).on("beforeunload", function () {
         if ($("textarea").val().length) {
-            $("#layer").fadeIn( function(){
-            $("#mess-text").text(_userdata.username + " todavía no has enviado el mensaje.");
-            });
+            $("#layer").fadeIn( )
+            $( _userdata.username + " todavía no has enviado el mensaje.").prependTo("#mess-text");
+            
         }
     }), $("#AAGquickvm_send").submit(function () {
         $(window).off("beforeunload")
