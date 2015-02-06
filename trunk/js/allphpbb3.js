@@ -517,9 +517,9 @@ $("#editor-textarea").on("keyup",function () {
     })(jQuery);
 
   $('a[href*="wall?d"]').zzConfirm({
+  content: "¿Deseas eliminar el post de tu muro?",
 ok: function (t) {
-content: "¿Deseas eliminar el post de tu muro?",
-    var m = t.attr("href");
+ var m = t.attr("href");
     var TID = $('a[href*="tid="]').attr('href').split('tid=')[1].split('&')[0];
     var b = t.closest($(".message-block").parent("li"));
         $.post(m, {
