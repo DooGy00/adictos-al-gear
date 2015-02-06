@@ -515,10 +515,10 @@ $("#editor-textarea").on("keyup",function () {
             })
         }
     })(jQuery);
-  if(wl){
+
   $('a[href*="wall?d"]').zzConfirm({
 ok: function (t) {
-content: "¿Deseas eliminar el post de tu muro?";
+content: "¿Deseas eliminar el post de tu muro?",
     var m = t.attr("href");
     var TID = $('a[href*="tid="]').attr('href').split('tid=')[1].split('&')[0];
     var b = t.closest($(".message-block").parent("li"));
@@ -532,7 +532,7 @@ content: "¿Deseas eliminar el post de tu muro?";
        })
      }
 });
-  }
+  
   $(".delete ").find("a[href*='mode=delete']").zzConfirm({
         content: "¿Deseas eliminar este post",
         ok: function (t) {
