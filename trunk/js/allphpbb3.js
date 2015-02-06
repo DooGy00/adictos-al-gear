@@ -91,7 +91,7 @@
             })
         }
     })(jQuery);
-$('.friends-foes-list a[href*="friendsfoes&remove="]')
+$('.friends-foes-list a[href*="friendsfoes&remove="]').zzConfirm({
 content: "¿Deseas eliminarlo de tu lista de amigos?",
 ok: function (t) {
 var m = t.attr("href");
