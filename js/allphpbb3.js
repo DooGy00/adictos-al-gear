@@ -156,15 +156,7 @@ if (wl) {
         }
     }), $("#AAGquickvm_send").submit(function () {
         $(window).off("beforeunload");
-          var name = $("#profile-advanced-right").find(".module").eq(0).find("strong").eq(0).text()
-        $.post("/privmsg", {
-            subject: 'Mensaje automático',
-            message: _userdata.username + " escribió en el muro de : [url=" + window.location.href + "]" + name + "[/url]",
-            username: 'Historial',
-            mode: "post_profile",
-            folder: "profile",
-            post: "Send"
-        });
+      
     }));
     
 }
