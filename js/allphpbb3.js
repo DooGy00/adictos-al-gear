@@ -184,17 +184,10 @@ if ($("#fa_menulist").length) {
                 var t = document.getElementById("logout");
                 t && (t = t.href, t = t.substring(t.indexOf("tid=") + 4, t.indexOf("&key")), t = "id=" + this.id.substring(this.id.lastIndexOf("_") + 1) + '&active=1&content=[["' + this.id + '", "' + this.input.value + '"]]&tid=' + t + "&user=" + this.user_id, $.post("/ajax_profile.forum?jsoncallback=jQuery1", t, function (a) { 
                     0 < a.indexOf(status_box.input.value) ? (status_box.input.value = "", s.innerHTML = status_box.lang.updated, setTimeout("document.getElementById('AAGstatus_notice').innerHTML=\" \"", 2500)) : s.innerHTML = status_box.lang.error
-                      }, function(notif) {
-                       $.post("/privmsg", {
-            subject: 'Mensaje automático',
-            message: _userdata.username + ' actualizo su estado: [color=#FF0000][b][i]"' + estadotexto + '"[/i][/b][/color]',
-            username: 'Historial',
-            mode: "post_profile",
-            folder: "profile",
-            post: "Send"
-        });
-                      
                       }
+                     
+                      
+                      
                 
                 ))
             }
