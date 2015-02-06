@@ -341,24 +341,7 @@ $("#editor-textarea").on("keyup",function () {
         $(".tema-info").find("h1").prepend('<img src="https://cdn2.iconfinder.com/data/icons/pittogrammi/142/91-48.png"style="margin-top: -10px;margin-bottom: -12px;">')
     }
     $(function () {
-        $('a[href*="/modcp?mode=delete"]').zzConfirm({
-        
-        
-         ok: function (ele) {
-            ele.preventDefault();
-            var m = $(this).attr("href");
-            var o = $(this);
-            if (confirm('¿Deseas eliminar este tema?, esto es irreversible')) {
-                $.post(m, {
-                    confirm: 1
-                }).success(function () {
-                    alert('Tema borrado');
-                    var url = "/";
-                    $(location).attr('href', url);
-                })
-            }
-		 }
-        });
+   
         $('a[href*="/modcp?mode=lock"]').on("click", function (s) {
             s.preventDefault();
             var a = $(this).attr("href");
@@ -563,6 +546,22 @@ $("#editor-textarea").on("keyup",function () {
             })
         }
     });
+       $('a[href*="/modcp?mode=delete"]').zzConfirm({
+         ok: function (ele) {
+            ele.preventDefault();
+            var m = $(this).attr("href");
+            var o = $(this);
+            if (confirm('¿Deseas eliminar este tema?, esto es irreversible')) {
+                $.post(m, {
+                    confirm: 1
+                }).success(function () {
+                    alert('Tema borrado');
+                    var url = "/";
+                    $(location).attr('href', url);
+                })
+            }
+		 }
+        });
 
     $(".mp").on("click", function (s) {
         s.preventDefault();
