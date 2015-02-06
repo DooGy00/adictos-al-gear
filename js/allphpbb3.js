@@ -99,22 +99,7 @@ $('.news_topic_title').on("click", function () {
     });
 });
 if (wl) {
-$('a[href*="wall?d"]').zzConfirm({
-ok: function (t) {
-content: "¿Deseas eliminar el post de tu muro?";
-    var m = t.attr("href");
-    var TID = $('a[href*="tid="]').attr('href').split('tid=')[1].split('&')[0];
-    var b = t.closest($(".message-block").parent("li"));
-        $.post(m, {
-            tid: TID,
-            confirm: 1
-        }, function (a) {
-          b.fadeOut(function () {
-                b.remove();
-          })
-       })
-     }
-});
+
     $("#AAGquickvm_message").length && ($(window).on("beforeunload", function () {
         if ($("textarea").val().length) {
             return _userdata.username + " todavía no has enviado el mensaje."
@@ -530,7 +515,24 @@ $("#editor-textarea").on("keyup",function () {
             })
         }
     })(jQuery);
-
+  if(wl){
+  $('a[href*="wall?d"]').zzConfirm({
+ok: function (t) {
+content: "¿Deseas eliminar el post de tu muro?";
+    var m = t.attr("href");
+    var TID = $('a[href*="tid="]').attr('href').split('tid=')[1].split('&')[0];
+    var b = t.closest($(".message-block").parent("li"));
+        $.post(m, {
+            tid: TID,
+            confirm: 1
+        }, function (a) {
+          b.fadeOut(function () {
+                b.remove();
+          })
+       })
+     }
+});
+  }
   $(".delete ").find("a[href*='mode=delete']").zzConfirm({
         content: "¿Deseas eliminar este post",
         ok: function (t) {
