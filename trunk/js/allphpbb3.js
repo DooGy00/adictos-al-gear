@@ -47,7 +47,7 @@ ok: function (t) {
             })
         }
     });
-  });
+
        $('a[href*="/modcp?mode=delete"]').zzConfirm({
         content: "¿Deseas eliminar este tema",
          ok: function (t) {
@@ -61,6 +61,7 @@ ok: function (t) {
                 })
              }
         });
+     });
 _notif_timeout = 0, _notif_check = window.setInterval(function() {
     if (_notif_timeout === 10000) return window.clearInterval(_notif_check);
     if ($('#notif_list .contentText a').length) {
