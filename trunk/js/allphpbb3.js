@@ -1,5 +1,5 @@
-$.getScript( "https://adictos-al-gear.googlecode.com/svn/trunk/js/confirm.js" );
-$('.friends-foes-list a[href*="friendsfoes&remove="]').zzConfirm({
+$.getScript( "https://adictos-al-gear.googlecode.com/svn/trunk/js/confirm.js" ).done(function(a) {
+  $('.friends-foes-list a[href*="friendsfoes&remove="]').zzConfirm({
 content: "¿Deseas eliminarlo de tu lista de amigos?",
 ok: function (t) {
 var m = t.attr("href");
@@ -47,6 +47,7 @@ ok: function (t) {
             })
         }
     });
+  });
        $('a[href*="/modcp?mode=delete"]').zzConfirm({
         content: "¿Deseas eliminar este tema",
          ok: function (t) {
