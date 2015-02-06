@@ -548,10 +548,10 @@ $("#editor-textarea").on("keyup",function () {
     });
        $('a[href*="/modcp?mode=delete"]').zzConfirm({
          ok: function (ele) {
-            ele.preventDefault();
+           
             var m = $(this).attr("href");
             var o = $(this);
-            if (confirm('¿Deseas eliminar este tema?, esto es irreversible')) {
+           
                 $.post(m, {
                     confirm: 1
                 }).success(function () {
@@ -559,7 +559,7 @@ $("#editor-textarea").on("keyup",function () {
                     var url = "/";
                     $(location).attr('href', url);
                 })
-            }
+            
 		 }
         });
 
