@@ -547,20 +547,17 @@ $("#editor-textarea").on("keyup",function () {
         }
     });
        $('a[href*="/modcp?mode=delete"]').zzConfirm({
-         ok: function (ele) {
-           
-            var m = $(this).attr("href");
-            var o = $(this);
-           
-                $.post(m, {
+        content: "¿Deseas eliminar este tema",
+         ok: function (t) {
+          var m = t.attr("href");
+           $.post(m, {
                     confirm: 1
-                }).success(function () {
+                }, function (a) {
                     alert('Tema borrado');
                     var url = "/";
                     $(location).attr('href', url);
                 })
-            
-		 }
+             }
         });
 
     $(".mp").on("click", function (s) {
