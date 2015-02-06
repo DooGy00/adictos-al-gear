@@ -149,17 +149,7 @@ $('.news_topic_title').on("click", function () {
         post: "Send"
     });
 });
-if (wl) {
-   $("#AAGquickvm_message").length && ($(window).on("beforeunload", function () {
-        if ($("textarea").val().length) {
-            return _userdata.username + " todavía no has enviado el mensaje."
-        }
-    }), $("#AAGquickvm_send").submit(function () {
-        $(window).off("beforeunload");
-      
-    }));
-    
-}
+
 if ($("#fa_menulist").length) {
     var status_box = {
         lang: {
