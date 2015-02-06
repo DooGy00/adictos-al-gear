@@ -3,9 +3,9 @@
         jQuery.fn.zzConfirm = function (v) {
             var z = jQuery.extend({
                 content: "¿Estás seguro?",
-                lang: ["Ok", "Cancelar"],
+                lang: ["Si", "Cancelar"],
                 width: "auto",
-                dir: "left",
+                dir: "top",
                 toggle: !1,
                 clickOut: !1,
                 ok: function (D, C) {},
