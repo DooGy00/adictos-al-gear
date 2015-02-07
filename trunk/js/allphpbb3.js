@@ -589,7 +589,7 @@ $(".panel.mps-index").after('<div class="forabg preview-mp"><ul class="topiclist
             _activePM = $(this).attr("href");
             $("#ajaxPM_nav, .notif_ajaxPM").remove();
                 var aw = $(".postprofile").find("strong").first().text();
-            $('.ajaxPM_link:first').parent().addClass("i_reply").end().replaceWith(")
+           
             $("#ajaxPM").html('<div style="text-align:center;font-size:16px;">Cargando...</div>').load(_activePM + ' form[action^="/privmsg"]', function() {
                 $("#ajaxPM_header dl").append('<dd id="ajaxPM_nav" style="float:right"><a id="directLink" class="ajaxPM_link">Responder MP a ' + aw'</a>&nbsp;&bull;&nbsp;<a id="clearSelected" class="ajaxPM_link">Limpiar</a></dd>');
                 $("#directLink").attr("href", _activePM);
