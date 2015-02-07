@@ -347,7 +347,7 @@ if (tm) {
     $(".post").has('img[alt="Nuevo mensaje"]').addClass("newpost").find('.author img[alt="Nuevo mensaje"]').replaceWith('<div style="background: none repeat scroll 0 0 lightblue;color: #fff;font-weight: 800;padding: 0 3px;display:inline;border-radius:2px;text-shadow:0 0 1px #333;margin-left: 15px;">Nuevo comentario</div>');
 
     $(".postbody").find(".content").find("img").each(function() {
-        $(this).not("a>img").not('img[src*="/smiles/"]').not(".img-descarga").wrap('<a href="' + jQuery(this).attr("src") + '" rel="lightbox"></a>')
+        $(this).not("a>img").not('img[src*="/smiles/"]').not(".img-descarga").wrap('<a href="' + jQuery(this).attr("src") + '" rel="lightbox"></a>');
     });
     if ($('img[alt="Este tema está cerrado y no puedes editar mensajes o responder"]').length) {
         $(".tema-info").addClass("lock-theme").attr("style", "background:url(https://cdn2.iconfinder.com/data/icons/ios-7-icons/50/lock-32.png)rgba(237,36,20,0.35)");
