@@ -360,7 +360,7 @@ var zeditor = {
                 }).wrap("<p></p>");
               if($(".descargar.hidecode").length){
                $("html,body").animate({
-                    scrollTop: $(".codebox").offset().top
+                    scrollTop: $(".texto-descarga").offset().top
                 }, 200);
               }else{
                 $("html,body").animate({
