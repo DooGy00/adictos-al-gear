@@ -564,10 +564,10 @@ if (sub) {
         })
     })
 }
+if(mp){$(".post-icon").find("img").replaceWith("<buttom>Enviar un MP</buttom>");}
 var mpindex = $(".forabg").length;
 if (mp && mpindex) {
     $(function() {
-    $(".post-icon").find("img").replaceWith("<buttom>Enviar un MP</buttom>");
 $(".panel.mps-index").after('<div class="forabg preview-mp"><ul class="topiclist"><li id="ajaxPM_header" class="header"><dl><dt>Selecciona el mensaje :</dt></dl></li></ul><div id="ajaxPM" class="panel" style="padding:3px;"><div style="text-align:center;font-size:16px;">No hay mensaje seleccionado</div></div></div>');
         _activePM = undefined;
         $(".pmlist").find(".topictitle").on("click", function() {
