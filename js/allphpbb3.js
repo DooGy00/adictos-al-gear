@@ -329,11 +329,14 @@ if (tm) {
         });
         $(".newtab").toggle();
     });
-    $("#editor-textarea").on("keyup", function() {
+ 
+
+ $("#editor-textarea").on("keyup", function() {
         if ("@" === $(this).val().split("")[$(this).val().length - 1]) {
-            var b = prompt("Introduce el nombre del usuario a etiquetar \n Un mensaje de notificación será enviado").replace(/\s/g, "+");
+            $('<div id="layer" class="hide" style="display:none"><div id="box" class="hide" style="text-align: justify;width: 500px;height: 250px;position: fixed;z-index: 999;padding: 10px;left: 33%;top: 30%;border-radius: 3px;background: white;font-size: 16px!Important;border: 2px solid #ccc;"><a id="close" style="float:right;cursor:pointer;"><img src="http://illiweb.com/fa/prosilver/icon_post_delete.gif" /></a> <span class="cab-txt">Introduce el nombre del usuario a etiquetar</span><br /> </br><input class="inpname" style="width:450px"><br/><button>Aceptar</button></input><span id="mess-text"></div></div></div></div>').insertAfter("body");
+            var b = $(".inpname").val().replace(/\s/g, "+");
             var c = $(this).val();
-            (b);
+            
             $(this).val(($(this).val() ? $(this).val() + "" : "") + b);
             $.post("/privmsg", {
                 folder: "inbox",
@@ -345,6 +348,7 @@ if (tm) {
             })
         }
     });
+
     $("form + .clear + p.right").clone().addClass("moderar").insertBefore($("#theme-banner-image"));
     $(".post").has('img[alt="Nuevo mensaje"]').addClass("newpost").find('.author img[alt="Nuevo mensaje"]').replaceWith('<div style="background: none repeat scroll 0 0 lightblue;color: #fff;font-weight: 800;padding: 0 3px;display:inline;border-radius:2px;text-shadow:0 0 1px #333;margin-left: 15px;">Nuevo comentario</div>');
 
