@@ -590,12 +590,10 @@ $(".panel.mps-index").after('<div class="forabg preview-mp"><ul class="topiclist
             }
             _activePM = $(this).attr("href");
             $("#ajaxPM_nav, .notif_ajaxPM").remove();
-           
-           
-            $("#ajaxPM").html('<div style="text-align:center;font-size:16px;">Cargando...</div>').load(_activePM + ' form[action^="/privmsg"]', function() {
+             $("#ajaxPM").html('<div style="text-align:center;font-size:16px;">Cargando...</div>').load(_activePM + ' form[action^="/privmsg"]', function() {
                 $("#ajaxPM_header dl").append('<dd id="ajaxPM_nav" style="float:right"><a id="directLink" class="ajaxPM_link">Responder MP</a>&nbsp;&bull;&nbsp;<a id="clearSelected" class="ajaxPM_link">Limpiar</a></dd>');
                 $("#directLink").attr("href", _activePM);
-                
+                  $('#directLink').text("Responder MP a " + $(".postprofile").find("strong").first().text())
                 $("#clearSelected").on("click", function() {
                     $("#ajaxPM").html('<div style="text-align:center;font-size:16px;">No seleccionaste un mensaje</div>');
                     $("#ajaxPM_nav, .notif_ajaxPM").remove();
