@@ -566,6 +566,7 @@ if (sub) {
 }
 if(mp){$(".post-icon").find("img").replaceWith("<buttom>Enviar un MP</buttom>");
 $(".profile-icons.mps").find('a[href*="/privmsg?mode=quote&"]').html('<span class="mpquote" style="font-size:10px">Citar</span>');
+$('.post-icon').find("a").text("Responder MP a " + $(".postprofile").find("strong").first().text());
 }
 var mpindex = $(".forabg").length;
 if (mp && mpindex) {
