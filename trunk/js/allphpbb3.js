@@ -564,7 +564,9 @@ if (sub) {
         })
     })
 }
-if(mp){$(".post-icon").find("img").replaceWith("<buttom>Enviar un MP</buttom>");}
+if(mp){$(".post-icon").find("img").replaceWith("<buttom>Enviar un MP</buttom>");
+$(".profile-icons.mps").find('a[href*="/privmsg?mode=quote&"]').html('<span class="mpquote" style="font-size:10px">Citar</span>');
+}
 var mpindex = $(".forabg").length;
 if (mp && mpindex) {
     $(function() {
@@ -588,12 +590,12 @@ $(".panel.mps-index").after('<div class="forabg preview-mp"><ul class="topiclist
             }
             _activePM = $(this).attr("href");
             $("#ajaxPM_nav, .notif_ajaxPM").remove();
-                var aw = $(".postprofile").find("strong").first().text();
+           
            
             $("#ajaxPM").html('<div style="text-align:center;font-size:16px;">Cargando...</div>').load(_activePM + ' form[action^="/privmsg"]', function() {
                 $("#ajaxPM_header dl").append('<dd id="ajaxPM_nav" style="float:right"><a id="directLink" class="ajaxPM_link">Responder MP</a>&nbsp;&bull;&nbsp;<a id="clearSelected" class="ajaxPM_link">Limpiar</a></dd>');
                 $("#directLink").attr("href", _activePM);
-                  $('.ajaxPM_link:first').parent().addClass("i_reply").end().text("Responder MP a " + aw)
+                  $('.ajaxPM_link:first').parent().addClass("i_reply").text("Responder MP a " + $(".postprofile").find("strong").first().text())
                 $("#clearSelected").on("click", function() {
                     $("#ajaxPM").html('<div style="text-align:center;font-size:16px;">No seleccionaste un mensaje</div>');
                     $("#ajaxPM_nav, .notif_ajaxPM").remove();
