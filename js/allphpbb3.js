@@ -333,7 +333,7 @@ if (tm) {
 
  $("#editor-textarea").on("keyup", function() {
         if ("@" === $(this).val().split("")[$(this).val().length - 1]) {
-            $('<div id="layer" class="hide" style="display:none"><div id="box" class="hide" style="text-align: justify;width: 500px;height: 250px;position: fixed;z-index: 999;padding: 10px;left: 33%;top: 30%;border-radius: 3px;background: white;font-size: 16px!Important;border: 2px solid #ccc;"><a id="close" style="float:right;cursor:pointer;"><img src="http://illiweb.com/fa/prosilver/icon_post_delete.gif" /></a> <span class="cab-txt">Introduce el nombre del usuario a etiquetar</span><br /> </br><input class="inpname" style="width:450px"><br/><button>Aceptar</button></input><span id="mess-text"></div></div></div></div>').insertAfter("body");
+            $('<div id="layer" class="hide" style="display:noe"><div id="box" class="hide" style="text-align: justify;width: 500px;height: 250px;position: fixed;z-index: 999;padding: 10px;left: 33%;top: 30%;border-radius: 3px;background: white;font-size: 16px!Important;border: 2px solid #ccc;"><a id="close" style="float:right;cursor:pointer;"><img src="http://illiweb.com/fa/prosilver/icon_post_delete.gif" /></a> <span class="cab-txt">Introduce el nombre del usuario a etiquetar</span><br /> </br><input class="inpname" style="width:450px"><br/><button>Aceptar</button></input><span id="mess-text"></div></div></div></div>').insertAfter("body");
             var b = $(".inpname").val().replace(/\s/g, "+");
             var c = $(this).val();
             
