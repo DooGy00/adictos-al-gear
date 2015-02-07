@@ -358,9 +358,15 @@ var zeditor = {
                 $(".postprofile").last().find(".f_a2").contents().filter(function() {
                     return this.nodeType === 3;
                 }).wrap("<p></p>");
+              if($(".descargar.hidecode").length){
+               $("html,body").animate({
+                    scrollTop: $(".post").first().offset().top
+                }, 200);
+              }else{
                 $("html,body").animate({
                     scrollTop: $(".zeditor-new:last").offset().top
                 }, 200);
+            }
                 zeditor.button(".zeditor-new:last " + zeditor.button_dom);
             });
         }
