@@ -318,9 +318,7 @@ if (lin || ps || mp) {
         }
     })
 }
-if (mp) {
-    $(".post-icon").find("img").replaceWith("<buttom>Enviar un MP</buttom>")
-}
+
 if (tm) {
     $('.tinypic').on("click", function() {
         $(".newtab").css({
@@ -569,7 +567,8 @@ if (sub) {
 var mpindex = $(".forabg").length;
 if (mp && mpindex) {
     $(function() {
-        $(".panel.mps-index").after('<div class="forabg preview-mp"><ul class="topiclist"><li id="ajaxPM_header" class="header"><dl><dt>Selecciona el mensaje :</dt></dl></li></ul><div id="ajaxPM" class="panel" style="padding:3px;"><div style="text-align:center;font-size:16px;">No hay mensaje seleccionado</div></div></div>');
+    $(".post-icon").find("img").replaceWith("<buttom>Enviar un MP</buttom>");
+$(".panel.mps-index").after('<div class="forabg preview-mp"><ul class="topiclist"><li id="ajaxPM_header" class="header"><dl><dt>Selecciona el mensaje :</dt></dl></li></ul><div id="ajaxPM" class="panel" style="padding:3px;"><div style="text-align:center;font-size:16px;">No hay mensaje seleccionado</div></div></div>');
         _activePM = undefined;
         $(".pmlist").find(".topictitle").on("click", function() {
             if ($(this).attr("href") == _activePM) {
@@ -589,8 +588,10 @@ if (mp && mpindex) {
             }
             _activePM = $(this).attr("href");
             $("#ajaxPM_nav, .notif_ajaxPM").remove();
+                var aw = $(".postprofile").find("strong").first().text();
+            $('.ajaxPM_link:first').parent().addClass("i_reply").end().replaceWith(")
             $("#ajaxPM").html('<div style="text-align:center;font-size:16px;">Cargando...</div>').load(_activePM + ' form[action^="/privmsg"]', function() {
-                $("#ajaxPM_header dl").append('<dd id="ajaxPM_nav" style="float:right"><a id="directLink" class="ajaxPM_link">Ver más</a>&nbsp;&bull;&nbsp;<a id="clearSelected" class="ajaxPM_link">Limpiar</a></dd>');
+                $("#ajaxPM_header dl").append('<dd id="ajaxPM_nav" style="float:right"><a id="directLink" class="ajaxPM_link">Responder MP a ' + aw'</a>&nbsp;&bull;&nbsp;<a id="clearSelected" class="ajaxPM_link">Limpiar</a></dd>');
                 $("#directLink").attr("href", _activePM);
                 $("#clearSelected").on("click", function() {
                     $("#ajaxPM").html('<div style="text-align:center;font-size:16px;">No seleccionaste un mensaje</div>');
