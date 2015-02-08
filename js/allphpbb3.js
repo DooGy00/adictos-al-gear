@@ -569,7 +569,15 @@ if (sub) {
         })
     })
 }
-if(mp){$(".post-icon").find("img").replaceWith("<buttom>Enviar un MP</buttom>");
+if(mp){
+(function(O) {
+O(function() {
+  O(document.forms.post.post).on("click", function() {
+                        "" == document.forms.post.subject.value && (document.forms.post.subject.value = "Mensaje enviado sin título a " + $('input[name="username[]"]').val())
+                    })
+                })
+            })(jQuery);
+$(".post-icon").find("img").replaceWith("<buttom>Enviar un MP</buttom>");
 $(".profile-icons.mps").find('a[href*="/privmsg?mode=quote&"]').html('<span class="mpquote" style="font-size:10px">Citar</span>');
 $('.post-icon').find("a").text("Responder MP a " + $(".postprofile").find("strong").first().text());
 }
@@ -745,11 +753,11 @@ setTimeout(function() {
         }
     });
 }, 500);
-$(function() {
+setTimeout(function() {
     if (tm) {
         $("p.right").find("iframe").addClass("facelike").detach().appendTo(".post:eq(0)")
     }
-});
+},5000);
 (function() {
     function a(z, w) {
         return w ? z.replace(/\r?\n/g, "<br/>") : z.replace(/\<br\s?\/?\>/gi, "\n")
