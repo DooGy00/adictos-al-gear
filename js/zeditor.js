@@ -93,7 +93,7 @@ var zeditor = {
                 zeditor.lang.smiley_button + '</span><span class="editor-button-outer" onclick="zeditor.popup(\'ze-upload\', this);zeditor.imgur.prepare()" title="Subir una imagen">' +
                 zeditor.lang.upload_button + '</span><span class="editor-button-outer tinypic" ><img src="http://i.imgur.com/vU0Y04s.png"/></span><span class="editor-button-outer" onclick="zeditor.tag(this)" title="Etiqueta al usuario de este post">' +
                 zeditor.lang.tag_button + '</span><span title="Ocultar un link para compartir" onclick="zeditor.add(\'[download]\',\' [/download]\')" class="editor-button-outer">' +
-                zeditor.lang.download_button + '</span><span title="Ocultar un code para compartir" onclick="zeditor.add(\'[hidecode]\',\' [/hidecode\]')" class="editor-button-outer">' +
+                zeditor.lang.download_button + '</span><span title="Ocultar un code para compartir" onclick="zeditor.add(\'[hidecode]\',\' [/hidecode]\')" class="editor-button-outer">' +
                 zeditor.lang.hidecode_button + '</span><span title="ocultar texto de los visitantes" onclick="zeditor.add(\'[noguest]\',\'[/noguest]\')" class="editor-button-outer">' +
                 zeditor.lang.noguest_button + '</span><span title="Colocar tags IMG a una imagen" onclick="zeditor.add(\'[img]\',\'[/img]\')" class="editor-button-outer">' +
                 zeditor.lang.tagimg_button + '</span><span title="Contenido offtopic" onclick="zeditor.add(\'[offtopic]\',\'[/offtopic]\')" class="editor-button-outer">' +
