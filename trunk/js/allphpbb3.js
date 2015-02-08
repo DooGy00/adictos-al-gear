@@ -215,7 +215,7 @@ if (lin || ps || mp) {
     $(".sceditor-toolbar", function() {
         $(".sceditor-button").prependTo(".sceditor-group:eq(0)");
         $(".sceditor-group:eq(0)").addClass("piloto");
-        $('<a class="sceditor-button post-preview-button" unselectable="on" title="Post Preview"><div unselectable="on" style="background-image:url(http://www.adictosalgear.org/adictosalgear/files/tv.png)!important">post</div></a><a class="sceditor-button no-guest-button" unselectable="on" title="No noguest"><div unselectable="on" style="background-image:url(http://www.adictosalgear.org/adictosalgear/files/glasses.png)!important">noguest</div></a><a class="sceditor-button tag-img-button" unselectable="on" title="Tag IMG"><div unselectable="on" style="background-image:url(http://www.adictosalgear.org/adictosalgear/files/tag.png)!important">IMG</div></a><a class="sceditor-button download-button" unselectable="on" title="Formato descargar"><div unselectable="on" style="background-image:url(http://www.adictosalgear.org/adictosalgear/files/savepdf.png)!important">descargar</div></a><a class="sceditor-button offtopic-button" unselectable="on" title="Offtopic"><div class="offtopic" unselectable="on" style="background-image:url(http://www.adictosalgear.org/adictosalgear/files/offtopic.png)!important" ></div></a><a title="Insert a linked image" class="sceditor-button sceditor-button-imganc"><div class="button-img-link" unselectable="on" style="background:url(http://i39.servimg.com/u/f39/18/21/41/30/imganc10.png)!important;">IMG link</div></a><a title="Coloca un codigo oculto" class="sceditor-button sceditor-button-hidecode"><div class="button-hidecode" unselectable="on" style="background:url(https://cdn1.iconfinder.com/data/icons/jigsoar-icons/16/_code.png)!important;">IMG link</div></a>').insertBefore(".sceditor-button-quote");
+        $('<a class="sceditor-button post-preview-button" unselectable="on" title="Post Preview"><div unselectable="on" style="background-image:url(http://www.adictosalgear.org/adictosalgear/files/tv.png)!important">post</div></a><a class="sceditor-button no-guest-button" unselectable="on" title="No noguest"><div unselectable="on" style="background-image:url(http://www.adictosalgear.org/adictosalgear/files/glasses.png)!important">noguest</div></a><a class="sceditor-button tag-img-button" unselectable="on" title="Tag IMG"><div unselectable="on" style="background-image:url(http://www.adictosalgear.org/adictosalgear/files/tag.png)!important">IMG</div></a><a class="sceditor-button download-button" unselectable="on" title="Formato descargar"><div unselectable="on" style="background-image:url(https://cdn0.iconfinder.com/data/icons/octicons/1024/cloud-download-16.png)!important">descargar</div></a><a class="sceditor-button offtopic-button" unselectable="on" title="Offtopic"><div class="offtopic" unselectable="on" style="background-image:url(http://www.adictosalgear.org/adictosalgear/files/offtopic.png)!important" ></div></a><a title="Insert a linked image" class="sceditor-button sceditor-button-imganc"><div class="button-img-link" unselectable="on" style="background:url(http://i39.servimg.com/u/f39/18/21/41/30/imganc10.png)!important;">IMG link</div></a><a title="Coloca un codigo oculto" class="sceditor-button sceditor-button-hidecode"><div class="button-hidecode" unselectable="on" style="background:url(https://cdn1.iconfinder.com/data/icons/jigsoar-icons/16/_code.png)!important;">Hidecode</div></a>').insertBefore(".sceditor-button-quote");
         $(".post-preview-button").on("click", function() {
             $("#text_editor_textarea").sceditor("instance").insertText("[post]", "[/post]")
         });
@@ -231,9 +231,10 @@ if (lin || ps || mp) {
         $(".offtopic-button").on("click", function() {
             $("#text_editor_textarea").sceditor("instance").insertText("[offtopic]", "[/offtopic]")
         });
-        $(".offtopic-button").on("click", function() {
+        $(".sceditor-button-hidecode").on("click", function() {
             $("#text_editor_textarea").sceditor("instance").insertText("[hidecode]", "[/hidecode]")
         });
+        
         $(".sceditor-button-size").on("click", function() {
             s(9, "before");
             s(8, "before");
@@ -305,7 +306,7 @@ if (lin || ps || mp) {
             $(".sceditor-insertimganc").remove()
         });
         if (_userdata.user_level >= 1) {
-        $(".sceditor-button-dailymotion").remove();
+        $(".sceditor-button-dailymotion").add(".sceditor-button-pastetext").remove();
             $('<a class="sceditor-button warning-button" unselectable="on" title="Advertencia"><div unselectable="on" style="background-image:url(http://www.adictosalgear.org/adictosalgear/files/error.png)!important">Advertencia</div></a><a class="sceditor-button alert-button" unselectable="on" title="Alerta"><div unselectable="on" style="background-image:url(http://www.adictosalgear.org/adictosalgear/files/alert.png)!important">Alerta</div></a><a class="sceditor-button ok-button" unselectable="on" title="Éxito"><div unselectable="on" style="background-image:url(http://www.adictosalgear.org/adictosalgear/files/accept.png)!important">Exito</div></a><a class="sceditor-button info-button" unselectable="on" title="Información"><div unselectable="on" style="background-image:url(http://www.adictosalgear.org/adictosalgear/files/infop.png)!important">info</div></a>').insertBefore(".sceditor-button-source");
             $(".warning-button").on("click", function() {
                 $("#text_editor_textarea").sceditor("instance").insertText("[warning]", "[/warning]")
