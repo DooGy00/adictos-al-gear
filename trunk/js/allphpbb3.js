@@ -570,7 +570,9 @@ if (sub) {
     })
 }
 if(mp){
-if($("form").find("p").text() === "¿Estás seguro de que deseas borrar estos mensajes?"){$(".panel").attr("style","min-height:300px")}
+if($("form").find("p").text() === "¿Estás seguro de que deseas borrar estos mensajes?"){$(".panel").attr("style","min-height:300px");
+$("#content").addClass("formMp");
+}
 (function(O) {
 O(function() {
    /privmsg\?mode=post/.test(window.location) && O(document.forms.post.post).on("click", function() {
