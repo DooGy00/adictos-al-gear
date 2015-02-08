@@ -572,7 +572,7 @@ if (sub) {
 if(mp){
 (function(O) {
 O(function() {
-  O(document.forms.post.post).on("click", function() {
+   /privmsg\?mode=post/.test(window.location) && O(document.forms.post.post).on("click", function() {
                         "" == document.forms.post.subject.value && (document.forms.post.subject.value = "Mensaje enviado sin título a " + $('input[name="username[]"]').val())
                     })
                 })
