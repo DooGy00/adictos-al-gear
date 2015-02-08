@@ -610,7 +610,7 @@ $(".panel.mps-index").after('<div class="forabg preview-mp"><ul class="topiclist
         })
     })
 }
-if (ps) {
+if (ps || mp) {
     var s = document.getElementsByTagName('INPUT'),
         i;
     for (i = 0; i < s.length; i++) {
@@ -745,11 +745,11 @@ setTimeout(function() {
         }
     });
 }, 500);
-setTimeout(function() {
+$(function() {
     if (tm) {
         $("p.right").find("iframe").addClass("facelike").detach().appendTo(".post:eq(0)")
     }
-}, 5000);
+});
 (function() {
     function a(z, w) {
         return w ? z.replace(/\r?\n/g, "<br/>") : z.replace(/\<br\s?\/?\>/gi, "\n")
@@ -922,7 +922,7 @@ function selectCode(u) {
     }
 }
 $(function() {
-    $("dl.codebox:not(.spoiler,.hidecode) dt").append('<table class="cabecera-code"><td class="sel-code"><td><img class="codeimg" src="https://cdn1.iconfinder.com/data/icons/hawcons/32/698678-icon-70-document-code-24.png"/></td><td class="titulo-code">Código:</td><td onClick="selectCode(this)" class="selectCode" style="cursor:pointer">Seleccionar el contenido</td></table>')
+    $("dl.codebox:not(.spoiler,.hidecode)").find("dt").append('<table class="cabecera-code"><td class="sel-code"><td><img class="codeimg" src="https://cdn1.iconfinder.com/data/icons/hawcons/32/698678-icon-70-document-code-24.png"/></td><td class="titulo-code">Código:</td><td onClick="selectCode(this)" class="selectCode" style="cursor:pointer">Seleccionar el contenido</td></table>')
 });
 if (tm) {
     $(document).ready(function() {
