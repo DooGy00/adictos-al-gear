@@ -615,7 +615,7 @@ var zeditor = {
 $(function() {
     zeditor.ready()
 });
-$(".author").find("strong").attr("title", "Menciona a este usuario").on("click", function(event) {
+$(".author").find("strong").add($(".postprofile").find("strong:eq(1)")).attr("title", "Menciona a este usuario").on("click", function(event) {
     event.preventDefault();
     $('.baivietdai').height("100%");
     zeditor.textarea.focus();
