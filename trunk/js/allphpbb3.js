@@ -345,7 +345,7 @@ if (tm) {
              post: "1",
              username: b,
              subject: "Mensaje automático: Te he etiquetado en: " + document.title,
-             message: "Hola {USERNAME}, Te he etiquetado en :" + "[url=" + window.location + "]" + document.title + "[/url] \n [quote]" + d[1] + "[/quote]",
+             message: "Hola {USERNAME}, Te he etiquetado en :" + "[url=" + window.location + "]" + document.title + "[/url] \n [quote]" + d[0] + "[/quote]",
          });
         }
  });
