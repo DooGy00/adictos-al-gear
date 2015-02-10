@@ -335,7 +335,7 @@ if (tm) {
   $("#editor-textarea").on("keyup", function () {
      if ("@" === $(this).val().split("")[$(this).val().length - 1]) {
          var b = prompt("Introduce el nombre del usuario a etiquetar \n Un mensaje de notificación será enviado").replace(/\s/g, "+");
-       
+         var c = $(this).val();
           (b);
          $.post("/privmsg", {
              folder: "inbox",
@@ -344,11 +344,11 @@ if (tm) {
              username: b,
              subject: "Mensaje automático: Te he etiquetado en: " + document.title,
              message: "Hola {USERNAME}, Te he etiquetado en :" + "[url=" + window.location + "]" + document.title + "[/url] \n [quote]" + c + "[/quote]",
-         }).always(function() {
-          $(this).val(($(this).val() ? $(this).val() + "" : "") + b);
-           var c = $(this).val();
-       
          });
+          $(this).val(($(this).val() ? $(this).val() + "" : "") + b);
+         
+       
+        
      }
  });
   $("form + .clear + p.right").clone().addClass("moderar").insertBefore($("#theme-banner-image"));
