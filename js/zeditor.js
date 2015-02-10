@@ -621,14 +621,14 @@ $(".author").find("strong").add($(".postprofile").find("strong:eq(1)")).attr("ti
     zeditor.textarea.focus();
     zeditor.start('reply', this);
     isTagName = $(this).text();
-    isValue = $(this).closest(".post").find(".zeditor-message").find("span:eq(0)").text().split("@");
+    isValue = $(this).closest(".post").find(".zeditor-message").find("span:eq(0)").text();
      $.post("/privmsg", {
              folder: "inbox",
              mode: "post",
              post: "1",
              username: isTagName,
              subject: "Mensaje automático: Te he etiquetado en: " + document.title,
-       message: "[quote]Hola {USERNAME}, Te he etiquetado en :" + "[url=" + window.location + "]" + document.title + "[/url] \n " + isValue[0] + "[/quote]",
+       message: "[quote]Hola {USERNAME}, Te he etiquetado en :" + "[url=" + window.location + "]" + document.title + "[/url] \n " + isValue + "[/quote]",
          });
     $('#editor-textarea')[0].value += '@"' + isTagName + '", ';
     return false;
