@@ -621,7 +621,7 @@ $(".author").find("strong").add($(".postprofile").find("strong:eq(1)")).attr("ti
     zeditor.textarea.focus();
     zeditor.start('reply', this);
     isTagName = $(this).text();
-    isValue = $(this).closest(".post").find(".content").text();
+    isValue = $(this).closest(".post").find(".zeditor-message").find("span").text();
      $.post("/privmsg", {
              folder: "inbox",
              mode: "post",
