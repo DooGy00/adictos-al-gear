@@ -337,9 +337,8 @@ if (tm) {
          var b = prompt("Introduce el nombre del usuario a etiquetar \n Un mensaje de notificación será enviado").replace(/\s/g, "+");
          var c = $(this).val();
           (b);
-             $(this).val(($(this).val() ? $(this).val() + "" : "") + b);
-       setTimeout(function(){
-        $.post("/privmsg", {
+          $(this).val(($(this).val() ? $(this).val() + "" : "") + b);
+          $.post("/privmsg", {
              folder: "inbox",
              mode: "post",
              post: "1",
@@ -347,9 +346,7 @@ if (tm) {
              subject: "Mensaje automático: Te he etiquetado en: " + document.title,
              message: "Hola {USERNAME}, Te he etiquetado en :" + "[url=" + window.location + "]" + document.title + "[/url] \n [quote]" + c + "[/quote]",
          });
-       
-      },500);  
-    }
+        }
  });
   $("form + .clear + p.right").clone().addClass("moderar").insertBefore($("#theme-banner-image"));
     $(".post").has('img[alt="Nuevo mensaje"]').addClass("newpost").find('.author img[alt="Nuevo mensaje"]').replaceWith('<div style="background: none repeat scroll 0 0 lightblue;color: #fff;font-weight: 800;padding: 0 3px;display:inline;border-radius:2px;text-shadow:0 0 1px #333;margin-left: 15px;">Nuevo comentario</div>');
