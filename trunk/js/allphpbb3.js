@@ -345,6 +345,13 @@ if (lin || ps || mp) {
 }
 
 if (tm) {
+    $('.tinypic').on("click", function() {
+        $(".newtab").css({
+            "left": $(this).position().left,
+            "top": $(this).position().top
+        });
+        $(".newtab").toggle();
+    });
 $("form + .clear + p.right").clone().addClass("moderar").insertBefore($("#theme-banner-image"));
     $(".post").has('img[alt="Nuevo mensaje"]').addClass("newpost").find('.author img[alt="Nuevo mensaje"]').replaceWith('<div style="background: none repeat scroll 0 0 lightblue;color: #fff;font-weight: 800;padding: 0 3px;display:inline;border-radius:2px;text-shadow:0 0 1px #333;margin-left: 15px;">Nuevo comentario</div>');
 
