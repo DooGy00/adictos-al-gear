@@ -363,7 +363,7 @@ $("form + .clear + p.right").clone().addClass("moderar").insertBefore($("#theme-
                 url: a,
                 type: "GET",
                 success: function(t) {
-                    alert("Tema bloqueado.");
+                  
                     window.location.reload()
                 },
                 error: function() {
@@ -379,7 +379,7 @@ $("form + .clear + p.right").clone().addClass("moderar").insertBefore($("#theme-
                 url: a,
                 type: "GET",
                 success: function(t) {
-                    alert("Tema desbloqueado.");
+                    
                     window.location.reload()
                 },
                 error: function() {
@@ -395,7 +395,7 @@ $("form + .clear + p.right").clone().addClass("moderar").insertBefore($("#theme-
                 url: a,
                 type: "GET",
                 success: function(t) {
-                    alert("Se envió el tema a la papelera");
+                    
                     window.location.reload()
                 },
                 error: function() {
