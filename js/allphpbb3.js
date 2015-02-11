@@ -1,4 +1,47 @@
    console.log("--------------> inicia code externo");
+if(ps){
+var aagtags = {
+		question: "¿Deseas etiquetar un usuario?",
+		username: "Introduce el nombre del usuario a etiquetar",
+		notify: "¿Deseas que sea notificado por inbox? (ACEPTAR es la mejor opción)",
+		notif_subject: "Fuiste etiquetado en : ",
+		notif_message: "Hola {USERNAME}, Te he etiquetado en : "
+	};
+	(function(e) {
+		function t() {
+			if (/\/?t\d+.*/.test(window.location.pathname) || /\/?post.*/.test(window.location.pathname)) r = e("#text_editor_textarea").sceditor("instance"), r[i](function() {
+				if ("@" == r.val().split("")[r.val().length - 1]) {
+					var e = !r.inSourceMode();
+					if (confirm(aagtags.question)) {
+						var t = prompt(aagtags.username).replace(/\s/g, "+");
+						e ? r.wysiwygEditorInsertHtml('<a href="http://' + window.location.hostname + "/profile?mode=viewprofile&u=" + t + '">' + t + "</a>") : r.insert("[url=http://" + window.location.hostname + "/profile?mode=viewprofile&u=" + t + "]" + t + "[/url]");
+						 n(t)
+					}
+				}
+			})
+		}
+
+		function n(t) {
+			var n = aagtags.notif_subject.replace(/\s/g, "+") + document.title ,
+				r = aagtags.notif_message.replace(/\s/g, "+")  + "[url="+ window.location+"]"+document.title+"[/url]";
+			e.get("/privmsg?mode=post", function(i) {
+				i = e(i).find('form[action="/privmsg"]').serialize() + "&post=Send";
+				i = i.replace("username%5B%5D=", "username%5B%5D=" + t).replace("subject=", "subject=" + n).replace("message=", "message=" + r);
+				e.post("/privmsg", i)
+			})
+		}
+		var r, i = function() {
+			var e = window.navigator.userAgent,
+				t = e.indexOf("MSIE "),
+				n = e.indexOf("Trident/");
+			return 0 < t ? !0 : 0 < n ? (e.indexOf("rv:"), !0) : !1
+		}() ? "keyDown" : "keyUp";
+		e(window).load(function() {
+			(void 0 == aagtags.users || RegExp(aagtags.users.replace(/,\s?/g, "|")).test(document.getElementById("i_icon_mini_logout").alt.replace(/.*\[ (.*) \]/, "$1"))) && t()
+		})
+	})(jQuery);
+
+}
 $.cachedScript("https://adictos-al-gear.googlecode.com/svn/trunk/js/confirm.js").done(function() {
     $('.friends-foes-list a[href*="friendsfoes&remove="]').zzConfirm({
         content: "¿Deseas eliminarlo de tu lista de amigos?",
