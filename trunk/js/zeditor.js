@@ -153,7 +153,7 @@ var zeditor = {
 });
 },
     quote: function(a) {
-    zeditor.tinypic();
+
         zeditor.loading("on");
         $.get(a.href, function(s) {
             zeditor.textarea.value += $(s).find("#text_editor_textarea").val().replace(/]/, '][quotelink="' + location.pathname + "#" + a.href.match(/[0-9]+/) + '"]\n');
@@ -162,7 +162,7 @@ var zeditor = {
         });
     },
     edit: function(a) {
-    zeditor.tinypic();
+ 
         zeditor.loading("on");
         zeditor.url = a.href;
         if (zeditor.textarea.value !== "") {
@@ -194,17 +194,11 @@ var zeditor = {
             $(this).find('a[href*="editpost"]').attr("onclick", "zeditor.start('edit', this); return false");
         });
     },
-  tinypic: function(){
-     $(this).find('.tinypic').on("click", function() {
-        $(".newtab").css({
-            "left": $(this).position().left,
-            "top": $(this).position().top
-        });
-        $(".newtab").toggle();
-    });
+ 
+ 
   
   
-  },
+ 
     start: function(t, a) {
      
         var zeditoronbeforeunload = $("#editor-post-button").find("span").eq(0);
@@ -222,7 +216,7 @@ var zeditor = {
         switch (t) {
             case "reply":
                 zeditor.textarea.focus();
-                 zeditor.tinypic();
+                
                 zeditor.url = $('a[href^="/post?t="]').first().attr("href");
                 zeditor.mode.innerHTML = zeditor.lang.reply;
                 zeditor.textarea.placeholder = _userdata.username + " escribe un comentario...";
