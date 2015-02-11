@@ -637,4 +637,4 @@ $(".author").find("strong").add($(".postprofile").find("strong:eq(1)")).attr("ti
 if (_userdata.session_logged_in != 1) {
     $(".pbutton1").add(".pbutton2").removeAttr("onclick");
 }
-console.log("--------------> Completado to lo relacionado con Zeditor :)");
+console.log("--------------> Completado todo lo relacionado con Zeditor :)");
