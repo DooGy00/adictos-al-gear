@@ -18,7 +18,7 @@ var aagtags = {
 						e ? r.wysiwygEditorInsertHtml('<a href="http://' + window.location.hostname + "/profile?mode=viewprofile&u=" + t + '">' + t + "</a>") : r.insert("[url=http://" + window.location.hostname + "/profile?mode=viewprofile&u=" + t + "]" + t + "[/url]");
 						 n(t)
               }
-         }else{alert("Antes de etiquetar, debes colocar el titulo del tema")  return false}
+         }else{alert("Antes de etiquetar, debes colocar el titulo del tema")  return}
 			})
 		}
 
