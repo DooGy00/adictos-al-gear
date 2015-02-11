@@ -63,6 +63,25 @@ $.cachedScript("https://adictos-al-gear.googlecode.com/svn/trunk/js/confirm.js")
         }
     });
 });
+if(tm || wl){
+ $("#editor-textarea").add("#AAGquickvm_message").on("keyup", function () {
+     if ("@" === $(this).val().split("")[$(this).val().length - 1]) {
+         var b = prompt("Introduce el nombre del usuario a etiquetar \n Un mensaje de notificación será enviado").replace(/\s/g, "+");
+         var c =  $(this).val();
+         var d = $(this).val().split("@");
+          (b);
+         $(this).val(($(this).val() ? $(this).val() + "" : "") + b);
+          $.post("/privmsg", {
+             folder: "inbox",
+             mode: "post",
+             post: "1",
+             username: b,
+             subject: "Mensaje automático: Te he etiquetado en: " + document.title,
+             message: "[quote]Hola {USERNAME}, Te he etiquetado en :" + "[url=" + window.location + "]" + document.title + "[/url] \n " + d[0] + "[/quote]",
+         });
+    }
+ });
+}
 _notif_timeout = 0, _notif_check = window.setInterval(function() {
     if (_notif_timeout === 10000) return window.clearInterval(_notif_check);
     if ($('#notif_list .contentText a').length) {
@@ -333,23 +352,7 @@ if (tm) {
         });
         $(".newtab").toggle();
     });
-  $("#editor-textarea").on("keyup", function () {
-     if ("@" === $(this).val().split("")[$(this).val().length - 1]) {
-         var b = prompt("Introduce el nombre del usuario a etiquetar \n Un mensaje de notificación será enviado").replace(/\s/g, "+");
-         var c =  $(this).val();
-         var d = $(this).val().split("@");
-          (b);
-         $(this).val(($(this).val() ? $(this).val() + "" : "") + b);
-          $.post("/privmsg", {
-             folder: "inbox",
-             mode: "post",
-             post: "1",
-             username: b,
-             subject: "Mensaje automático: Te he etiquetado en: " + document.title,
-             message: "[quote]Hola {USERNAME}, Te he etiquetado en :" + "[url=" + window.location + "]" + document.title + "[/url] \n " + d[0] + "[/quote]",
-         });
-        }
- });
+ 
   $("form + .clear + p.right").clone().addClass("moderar").insertBefore($("#theme-banner-image"));
     $(".post").has('img[alt="Nuevo mensaje"]').addClass("newpost").find('.author img[alt="Nuevo mensaje"]').replaceWith('<div style="background: none repeat scroll 0 0 lightblue;color: #fff;font-weight: 800;padding: 0 3px;display:inline;border-radius:2px;text-shadow:0 0 1px #333;margin-left: 15px;">Nuevo comentario</div>');
 
