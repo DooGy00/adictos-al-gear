@@ -18,7 +18,7 @@ var aagtags = {
 						e ? r.wysiwygEditorInsertHtml('<a href="http://' + window.location.hostname + "/profile?mode=viewprofile&u=" + t + '">' + t + "</a>") : r.insert("[url=http://" + window.location.hostname + "/profile?mode=viewprofile&u=" + t + "]" + t + "[/url]");
 						 n(t)
               }
-         }else{$("#postingbox").find("input.medium").eq(0).val("Escribe un titulo antes").focus()}
+         }else{$("#postingbox").find("input.medium").eq(0).val("Escribe un titulo antes")}
 			})
 		}
 
