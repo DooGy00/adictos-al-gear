@@ -216,7 +216,7 @@ var zeditor = {
         };
         $(zeditor.editor).appendTo($(a).parents(zeditor.post_dom).find(zeditor.message_dom));
         $(zeditor.editor).slideDown();
-      
+       zeditor.tinypic();
         switch (t) {
             case "reply":
                 zeditor.textarea.focus();
