@@ -216,7 +216,7 @@ var zeditor = {
         };
         $(zeditor.editor).appendTo($(a).parents(zeditor.post_dom).find(zeditor.message_dom));
         $(zeditor.editor).slideDown();
-      zeditor.tinypic();
+      
         switch (t) {
             case "reply":
                 zeditor.textarea.focus();
@@ -245,6 +245,7 @@ var zeditor = {
                     });
                 }
                 $(".mp-msg").fadeOut("200");
+                zeditor.tinypic();
                 break;
             case "quote":
                 zeditor.url = a.href;
@@ -254,6 +255,7 @@ var zeditor = {
                     zeditor.send_button.innerHTML = "Enviar"
                 }
                 zeditor.textarea.focus();
+                 zeditor.tinypic();
                 $(".mp-msg").fadeOut("200");
                 break;
             case "edit":
@@ -264,6 +266,7 @@ var zeditor = {
                     $(".baivietdai").height("100%");
                 }
                 zeditor.textarea.focus();
+                 zeditor.tinypic();
                 $(".mp-msg").fadeOut("200");
                 break;
             case "pm":
@@ -277,6 +280,7 @@ var zeditor = {
                 var s = $(".mp-mode").parents(zeditor.post_dom).find(".author").find('a[href^="/u"]').eq(0).text();
                 $(".mp-msg").fadeIn("200").html("Mensaje para:" + s);
                 zeditor.textarea.focus();
+                zeditor.tinypic();
                 break;
         }
     },
