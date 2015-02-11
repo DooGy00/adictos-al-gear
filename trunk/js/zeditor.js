@@ -271,11 +271,12 @@ var zeditor = {
                 $(".mp-msg").fadeOut("200");
                 break;
             case "pm":
-             zeditor.tinypic();
+             
                 if (zeditor.send_button.innerHTML === "Guardar") {
                     zeditor.send_button.innerHTML = "Enviar"
                 }
-                zeditor.textarea.focus();
+                
+                zeditor.tinypic();
                 zeditor.url = !1;
                 zeditor.mode.innerHTML = zeditor.lang.pm;
                 zeditor.textarea.placeholder = _userdata.username + " redacta tu mensaje privado...";
