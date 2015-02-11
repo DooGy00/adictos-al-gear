@@ -1,6 +1,6 @@
    console.log("--------------> inicia code externo");
-var titulotema = $("#postingbox").find("input.medium").eq(0).val(); 
-if (ps && titulotema.length != 0) {
+
+if (ps) {
     var aagtags = {  
         question: "¿Deseas etiquetar un usuario?",
           username: "Introduce el nombre del usuario a etiquetar",
@@ -44,9 +44,7 @@ if (ps && titulotema.length != 0) {
         }) 
     })(jQuery);
 
-} else {
-    $("#postingbox").find("input.medium").eq(0).val("Escribe un titulo antes")
-}	
+} 
 $.cachedScript("https://adictos-al-gear.googlecode.com/svn/trunk/js/confirm.js").done(function() {
     $('.friends-foes-list a[href*="friendsfoes&remove="]').zzConfirm({
         content: "¿Deseas eliminarlo de tu lista de amigos?",
