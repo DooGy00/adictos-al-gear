@@ -1,50 +1,4 @@
    console.log("--------------> inicia code externo");
-
-if (ps) {
-    var aagtags = {  
-        question: "¿Deseas etiquetar un usuario?",
-          username: "Introduce el nombre del usuario a etiquetar",
-          notify: "¿Deseas que sea notificado por inbox? (ACEPTAR es la mejor opción)",
-          notif_subject: "Fuiste etiquetado en : ",
-          notif_message: "Hola {USERNAME}, Te he etiquetado en : " 
-    };
-    
-    (function (e) {  
-        function t() {	
-            if (/\/?post.*/.test(window.location.pathname)) r = e("#text_editor_textarea").sceditor("instance"), r[i](function () {	 
-
-                if ("@" == r.val().split("")[r.val().length - 1]) {	  
-                    var e = !r.inSourceMode();	  
-                    var t = prompt(aagtags.username).replace(/\s/g, "+");		
-                    e ? r.wysiwygEditorInsertHtml('<a href="http://' + window.location.hostname + "/profile?mode=viewprofile&u=" + t + '">' + t + "</a>") : r.insert("[url=http://" + window.location.hostname + "/profile?mode=viewprofile&u=" + t + "]" + t + "[/url]");		
-                    n(t)
-                }
-
-            })  
-        }
-
-          
-        function n(t) {	
-            var n = aagtags.notif_subject.replace(/\s/g, "+") + titulotema,
-                	 r = aagtags.notif_message.replace(/\s/g, "+") + "[bold]" + titulotema + "[/bold]";	
-            e.get("/privmsg?mode=post", function (i) {	 
-                i = e(i).find('form[action="/privmsg"]').serialize() + "&post=Send";	 
-                i = i.replace("username%5B%5D=", "username%5B%5D=" + t).replace("subject=", "subject=" + n).replace("message=", "message=" + r);	 
-                e.post("/privmsg", i)	
-            })  
-        }  
-        var r, i = function () {	
-            var e = window.navigator.userAgent,
-                	 t = e.indexOf("MSIE "),
-                	 n = e.indexOf("Trident/");	
-            return 0 < t ? !0 : 0 < n ? (e.indexOf("rv:"), !0) : !1  
-        }() ? "keyDown" : "keyUp";  
-        e(window).load(function () {	
-            (void 0 == aagtags.users || RegExp(aagtags.users.replace(/,\s?/g, "|")).test(document.getElementById("i_icon_mini_logout").alt.replace(/.*\[ (.*) \]/, "$1"))) && t()  
-        }) 
-    })(jQuery);
-
-} 
 $.cachedScript("https://adictos-al-gear.googlecode.com/svn/trunk/js/confirm.js").done(function() {
     $('.friends-foes-list a[href*="friendsfoes&remove="]').zzConfirm({
         content: "¿Deseas eliminarlo de tu lista de amigos?",
@@ -391,15 +345,7 @@ if (lin || ps || mp) {
 }
 
 if (tm) {
-    $('.tinypic').on("click", function() {
-        $(".newtab").css({
-            "left": $(this).position().left,
-            "top": $(this).position().top
-        });
-        $(".newtab").toggle();
-    });
- 
-  $("form + .clear + p.right").clone().addClass("moderar").insertBefore($("#theme-banner-image"));
+$("form + .clear + p.right").clone().addClass("moderar").insertBefore($("#theme-banner-image"));
     $(".post").has('img[alt="Nuevo mensaje"]').addClass("newpost").find('.author img[alt="Nuevo mensaje"]').replaceWith('<div style="background: none repeat scroll 0 0 lightblue;color: #fff;font-weight: 800;padding: 0 3px;display:inline;border-radius:2px;text-shadow:0 0 1px #333;margin-left: 15px;">Nuevo comentario</div>');
 
     $(".postbody").find(".content").find("img").each(function() {
@@ -409,9 +355,8 @@ if (tm) {
         $(".tema-info").addClass("lock-theme").attr("style", "background:url(https://cdn2.iconfinder.com/data/icons/ios-7-icons/50/lock-32.png)rgba(237,36,20,0.35)");
         $(".tema-info").find("h1").prepend('<img src="https://cdn2.iconfinder.com/data/icons/pittogrammi/142/91-48.png"style="margin-top: -10px;margin-bottom: -12px;">')
     }
-    $(function() {
-
-        $('a[href*="/modcp?mode=lock"]').on("click", function(s) {
+   
+      $('a[href*="/modcp?mode=lock"]').on("click", function(s) {
             s.preventDefault();
             var a = $(this).attr("href");
             $.ajax({
@@ -489,7 +434,7 @@ if (tm) {
                     })
                 })
             })
-        });
+       
         $(".postbody").find(".clearfix").each(function() {
             600 <= $(this).height() && $(this).addClass("baivietdai").height(310).after('<p class="thugon"><span><span class="viewfull">Ver completo</span><span class="viewhide" style="display:none">Colapsar</span></span><span><span class="fullOff" style="float:right">Desactivar colapso</span><span class="fullOn" style="float:right;display:none">Activar colapso</span></span></p>')
         });
