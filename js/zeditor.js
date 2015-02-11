@@ -192,6 +192,17 @@ var zeditor = {
             $(this).find('a[href*="editpost"]').attr("onclick", "zeditor.start('edit', this); return false");
         });
     },
+  tinypic: function(){
+     $('.tinypic').on("click", function() {
+        $(".newtab").css({
+            "left": $(this).position().left,
+            "top": $(this).position().top
+        });
+        $(".newtab").toggle();
+    });
+  
+  
+  },
     start: function(t, a) {
     
         var zeditoronbeforeunload = $("#editor-post-button").find("span").eq(0);
@@ -205,13 +216,7 @@ var zeditor = {
         };
         $(zeditor.editor).appendTo($(a).parents(zeditor.post_dom).find(zeditor.message_dom));
         $(zeditor.editor).slideDown();
-         $('.tinypic').on("click", function() {
-        $(".newtab").css({
-            "left": $(this).position().left,
-            "top": $(this).position().top
-        });
-        $(".newtab").toggle();
-    });
+      
         switch (t) {
             case "reply":
                 zeditor.textarea.focus();
