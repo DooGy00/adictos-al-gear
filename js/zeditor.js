@@ -614,8 +614,7 @@ var zeditor = {
     },
 };
 $(function() {
-    zeditor.ready()
-});
+
 $(".author").find("strong").add($(".postprofile").find("strong:eq(1)")).attr("title", "Menciona a este usuario").on("click", function(event) {
     event.preventDefault();
     $('.baivietdai').height("100%");
@@ -644,4 +643,6 @@ if (_userdata.session_logged_in != 1) {
         });
         $(".newtab").toggle();
     });
+     zeditor.ready()
+});
 console.log("--------------> Completado todo lo relacionado con Zeditor :)");
