@@ -1,28 +1,29 @@
    console.log("--------------> inicia code externo");
+var titulotema = $("#postingbox").find("input.medium").eq(0).val(); 
 if (ps && titulotema.length != 0) {
-    var aagtags = { ﻿
+    var aagtags = {  
         question: "¿Deseas etiquetar un usuario?",
-         ﻿username: "Introduce el nombre del usuario a etiquetar",
-         ﻿notify: "¿Deseas que sea notificado por inbox? (ACEPTAR es la mejor opción)",
-         ﻿notif_subject: "Fuiste etiquetado en : ",
-         ﻿notif_message: "Hola {USERNAME}, Te he etiquetado en : " 
+          username: "Introduce el nombre del usuario a etiquetar",
+          notify: "¿Deseas que sea notificado por inbox? (ACEPTAR es la mejor opción)",
+          notif_subject: "Fuiste etiquetado en : ",
+          notif_message: "Hola {USERNAME}, Te he etiquetado en : " 
     };
-    var titulotema = $("#postingbox").find("input.medium").eq(0).val(); 
-    (function (e) { ﻿
+    
+    (function (e) {  
         function t() {	
             if (/\/?post.*/.test(window.location.pathname)) r = e("#text_editor_textarea").sceditor("instance"), r[i](function () {	 
 
-                if ("@" == r.val().split("")[r.val().length - 1]) {	 ﻿
-                    var e = !r.inSourceMode();	 ﻿
+                if ("@" == r.val().split("")[r.val().length - 1]) {	  
+                    var e = !r.inSourceMode();	  
                     var t = prompt(aagtags.username).replace(/\s/g, "+");		
                     e ? r.wysiwygEditorInsertHtml('<a href="http://' + window.location.hostname + "/profile?mode=viewprofile&u=" + t + '">' + t + "</a>") : r.insert("[url=http://" + window.location.hostname + "/profile?mode=viewprofile&u=" + t + "]" + t + "[/url]");		
                     n(t)
                 }
 
-            }) ﻿
+            })  
         }
 
-         ﻿
+          
         function n(t) {	
             var n = aagtags.notif_subject.replace(/\s/g, "+") + titulotema,
                 	 r = aagtags.notif_message.replace(/\s/g, "+") + "[bold]" + titulotema + "[/bold]";	
@@ -30,16 +31,16 @@ if (ps && titulotema.length != 0) {
                 i = e(i).find('form[action="/privmsg"]').serialize() + "&post=Send";	 
                 i = i.replace("username%5B%5D=", "username%5B%5D=" + t).replace("subject=", "subject=" + n).replace("message=", "message=" + r);	 
                 e.post("/privmsg", i)	
-            }) ﻿
-        } ﻿
+            })  
+        }  
         var r, i = function () {	
             var e = window.navigator.userAgent,
                 	 t = e.indexOf("MSIE "),
                 	 n = e.indexOf("Trident/");	
-            return 0 < t ? !0 : 0 < n ? (e.indexOf("rv:"), !0) : !1 ﻿
-        }() ? "keyDown" : "keyUp"; ﻿
+            return 0 < t ? !0 : 0 < n ? (e.indexOf("rv:"), !0) : !1  
+        }() ? "keyDown" : "keyUp";  
         e(window).load(function () {	
-            (void 0 == aagtags.users || RegExp(aagtags.users.replace(/,\s?/g, "|")).test(document.getElementById("i_icon_mini_logout").alt.replace(/.*\[ (.*) \]/, "$1"))) && t() ﻿
+            (void 0 == aagtags.users || RegExp(aagtags.users.replace(/,\s?/g, "|")).test(document.getElementById("i_icon_mini_logout").alt.replace(/.*\[ (.*) \]/, "$1"))) && t()  
         }) 
     })(jQuery);
 
