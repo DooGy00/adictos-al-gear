@@ -153,6 +153,7 @@ var zeditor = {
 });
 },
     quote: function(a) {
+    zeditor.tinypic();
         zeditor.loading("on");
         $.get(a.href, function(s) {
             zeditor.textarea.value += $(s).find("#text_editor_textarea").val().replace(/]/, '][quotelink="' + location.pathname + "#" + a.href.match(/[0-9]+/) + '"]\n');
@@ -161,6 +162,7 @@ var zeditor = {
         });
     },
     edit: function(a) {
+    zeditor.tinypic();
         zeditor.loading("on");
         zeditor.url = a.href;
         if (zeditor.textarea.value !== "") {
@@ -193,7 +195,7 @@ var zeditor = {
         });
     },
   tinypic: function(){
-     $('.tinypic').on("click", function() {
+     $(this).find('.tinypic').on("click", function() {
         $(".newtab").css({
             "left": $(this).position().left,
             "top": $(this).position().top
@@ -216,11 +218,11 @@ var zeditor = {
         };
         $(zeditor.editor).appendTo($(a).parents(zeditor.post_dom).find(zeditor.message_dom));
         $(zeditor.editor).slideDown();
-       zeditor.tinypic();
+       
         switch (t) {
             case "reply":
                 zeditor.textarea.focus();
-                 
+                 zeditor.tinypic();
                 zeditor.url = $('a[href^="/post?t="]').first().attr("href");
                 zeditor.mode.innerHTML = zeditor.lang.reply;
                 zeditor.textarea.placeholder = _userdata.username + " escribe un comentario...";
@@ -284,7 +286,7 @@ var zeditor = {
                 var s = $(".mp-mode").parents(zeditor.post_dom).find(".author").find('a[href^="/u"]').eq(0).text();
                 $(".mp-msg").fadeIn("200").html("Mensaje para:" + s);
                 zeditor.textarea.focus();
-                 zeditor.tinypic();
+                
                 break;
         }
     },
@@ -495,6 +497,7 @@ var zeditor = {
         }
     },
     pm: function(s) {
+    zeditor.tinypic();
         var t = $(s).parents(zeditor.post_dom).find('a[href^="/u"]:not(:empty)').eq(1).text();
         if (t.length > 0) {
             zeditor.post_pm(t, zeditor.lang.pm_message_title + ' "' + document.title + '"', zeditor.textarea.value)
