@@ -193,6 +193,13 @@ var zeditor = {
         });
     },
     start: function(t, a) {
+     $('.tinypic').on("click", function() {
+        $(".newtab").css({
+            "left": $(this).position().left,
+            "top": $(this).position().top
+        });
+        $(".newtab").toggle();
+    });
         var zeditoronbeforeunload = $("#editor-post-button").find("span").eq(0);
         window.onbeforeunload = function(s) {
             if (zeditor.textarea.value != "") {
@@ -639,13 +646,5 @@ if (_userdata.session_logged_in != 1) {
 
      zeditor.ready()
 });
-$(function(){
-  $('.tinypic').on("click", function() {
-        $(".newtab").css({
-            "left": $(this).position().left,
-            "top": $(this).position().top
-        });
-        $(".newtab").toggle();
-    });
-    });
+
 console.log("--------------> Completado todo lo relacionado con Zeditor :)");
