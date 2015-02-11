@@ -248,6 +248,7 @@ var zeditor = {
                 zeditor.tinypic();
                 break;
             case "quote":
+                zeditor.tinypic();
                 zeditor.url = a.href;
                 zeditor.quote(a);
                 zeditor.mode.innerHTML = zeditor.lang.quote;
@@ -255,7 +256,7 @@ var zeditor = {
                     zeditor.send_button.innerHTML = "Enviar"
                 }
                 zeditor.textarea.focus();
-                 zeditor.tinypic();
+                 
                 $(".mp-msg").fadeOut("200");
                 break;
             case "edit":
@@ -270,6 +271,7 @@ var zeditor = {
                 $(".mp-msg").fadeOut("200");
                 break;
             case "pm":
+             zeditor.tinypic();
                 if (zeditor.send_button.innerHTML === "Guardar") {
                     zeditor.send_button.innerHTML = "Enviar"
                 }
@@ -280,7 +282,7 @@ var zeditor = {
                 var s = $(".mp-mode").parents(zeditor.post_dom).find(".author").find('a[href^="/u"]').eq(0).text();
                 $(".mp-msg").fadeIn("200").html("Mensaje para:" + s);
                 zeditor.textarea.focus();
-                zeditor.tinypic();
+               
                 break;
         }
     },
