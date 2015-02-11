@@ -193,13 +193,7 @@ var zeditor = {
         });
     },
     start: function(t, a) {
-     $('.tinypic').on("click", function() {
-        $(".newtab").css({
-            "left": $(this).position().left,
-            "top": $(this).position().top
-        });
-        $(".newtab").toggle();
-    });
+    
         var zeditoronbeforeunload = $("#editor-post-button").find("span").eq(0);
         window.onbeforeunload = function(s) {
             if (zeditor.textarea.value != "") {
@@ -211,6 +205,13 @@ var zeditor = {
         };
         $(zeditor.editor).appendTo($(a).parents(zeditor.post_dom).find(zeditor.message_dom));
         $(zeditor.editor).slideDown();
+         $('.tinypic').on("click", function() {
+        $(".newtab").css({
+            "left": $(this).position().left,
+            "top": $(this).position().top
+        });
+        $(".newtab").toggle();
+    });
         switch (t) {
             case "reply":
                 zeditor.textarea.focus();
