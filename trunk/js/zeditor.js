@@ -204,7 +204,7 @@ var zeditor = {
   
   },
     start: function(t, a) {
-     zeditor.tinypic();
+     
         var zeditoronbeforeunload = $("#editor-post-button").find("span").eq(0);
         window.onbeforeunload = function(s) {
             if (zeditor.textarea.value != "") {
@@ -220,7 +220,7 @@ var zeditor = {
         switch (t) {
             case "reply":
                 zeditor.textarea.focus();
-                 zeditor.tinypic();
+                 
                 zeditor.url = $('a[href^="/post?t="]').first().attr("href");
                 zeditor.mode.innerHTML = zeditor.lang.reply;
                 zeditor.textarea.placeholder = _userdata.username + " escribe un comentario...";
@@ -249,7 +249,7 @@ var zeditor = {
                
                 break;
             case "quote":
-                zeditor.tinypic();
+              
                 zeditor.url = a.href;
                 zeditor.quote(a);
                 zeditor.mode.innerHTML = zeditor.lang.quote;
@@ -268,7 +268,7 @@ var zeditor = {
                     $(".baivietdai").height("100%");
                 }
                 zeditor.textarea.focus();
-                 zeditor.tinypic();
+                
                 $(".mp-msg").fadeOut("200");
                 break;
             case "pm":
@@ -277,14 +277,14 @@ var zeditor = {
                     zeditor.send_button.innerHTML = "Enviar"
                 }
                 
-                zeditor.tinypic();
+               
                 zeditor.url = !1;
                 zeditor.mode.innerHTML = zeditor.lang.pm;
                 zeditor.textarea.placeholder = _userdata.username + " redacta tu mensaje privado...";
                 var s = $(".mp-mode").parents(zeditor.post_dom).find(".author").find('a[href^="/u"]').eq(0).text();
                 $(".mp-msg").fadeIn("200").html("Mensaje para:" + s);
                 zeditor.textarea.focus();
-               
+                 zeditor.tinypic();
                 break;
         }
     },
