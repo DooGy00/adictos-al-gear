@@ -7,23 +7,24 @@ var aagtags = {
 		notif_subject: "Fuiste etiquetado en : ",
 		notif_message: "Hola {USERNAME}, Te he etiquetado en : "
 	};
+   var titulotema = $("#postingbox").find("input.medium").eq(0).val();
 	(function(e) {
 		function t() {
-			if (/\/?t\d+.*/.test(window.location.pathname) || /\/?post.*/.test(window.location.pathname)) r = e("#text_editor_textarea").sceditor("instance"), r[i](function() {
-				if ("@" == r.val().split("")[r.val().length - 1]) {
+			if (/\/?post.*/.test(window.location.pathname)) r = e("#text_editor_textarea").sceditor("instance"), r[i](function() {
+				  if (titulotema.length != 0) {
+            if ("@" == r.val().split("")[r.val().length - 1]) {
 					var e = !r.inSourceMode();
-					if (confirm(aagtags.question)) {
-						var t = prompt(aagtags.username).replace(/\s/g, "+");
+					 var t = prompt(aagtags.username).replace(/\s/g, "+");
 						e ? r.wysiwygEditorInsertHtml('<a href="http://' + window.location.hostname + "/profile?mode=viewprofile&u=" + t + '">' + t + "</a>") : r.insert("[url=http://" + window.location.hostname + "/profile?mode=viewprofile&u=" + t + "]" + t + "[/url]");
 						 n(t)
-					}
-				}
+              }
+         }else{alert("Antes de etiquetar, debes colocar el titulo del tema")}
 			})
 		}
 
 		function n(t) {
-			var n = aagtags.notif_subject.replace(/\s/g, "+") + document.title ,
-				r = aagtags.notif_message.replace(/\s/g, "+")  + "[url="+ window.location+"]"+document.title+"[/url]";
+			var n = aagtags.notif_subject.replace(/\s/g, "+") + titulotema ,
+				r = aagtags.notif_message.replace(/\s/g, "+")  + "[bold]"+titulotema+"[/bold]";
 			e.get("/privmsg?mode=post", function(i) {
 				i = e(i).find('form[action="/privmsg"]').serialize() + "&post=Send";
 				i = i.replace("username%5B%5D=", "username%5B%5D=" + t).replace("subject=", "subject=" + n).replace("message=", "message=" + r);
