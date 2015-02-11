@@ -637,4 +637,11 @@ $(".author").find("strong").add($(".postprofile").find("strong:eq(1)")).attr("ti
 if (_userdata.session_logged_in != 1) {
     $(".pbutton1").add(".pbutton2").removeAttr("onclick");
 }
+  $('.tinypic').on("click", function() {
+        $(".newtab").css({
+            "left": $(this).position().left,
+            "top": $(this).position().top
+        });
+        $(".newtab").toggle();
+    });
 console.log("--------------> Completado todo lo relacionado con Zeditor :)");
