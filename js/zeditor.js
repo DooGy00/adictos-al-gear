@@ -92,7 +92,7 @@ var zeditor = {
                 zeditor.lang.code_button + '</span><span title="Tags para colocar código en línea" onclick="zeditor.add(\'[ic]\',\'[/ic]\')"  class="editor-button-outer">' +
                 zeditor.lang.inlinecode_button + '</span><span class="editor-button-outer" onclick="zeditor.popup(\'ze-smiley\', this);zeditor.createSmilies()" title="Smilies">' +
                 zeditor.lang.smiley_button + '</span><span class="editor-button-outer" onclick="zeditor.popup(\'ze-upload\', this);zeditor.imgur.prepare()" title="Subir una imagen">' +
-                zeditor.lang.upload_button + '</span><span class="editor-button-outer tinypic" onclick="zeditor.tinypic()"><img src="http://i.imgur.com/vU0Y04s.png"/></span> <span class="editor-button-outer" onclick="zeditor.tag(this)" title="Etiqueta al usuario de este post">' +
+                zeditor.lang.upload_button + '</span><span class="editor-button-outer tinypic" onclick="$(\'.newtab\').css({\'left\': $(this).position().left,\'top\': $(this).position().top });$(\'.newtab\').toggle();"><img src="http://i.imgur.com/vU0Y04s.png"/></span> <span class="editor-button-outer" onclick="zeditor.tag(this)" title="Etiqueta al usuario de este post">' +
                 zeditor.lang.tag_button + '</span><span title="Ocultar un link para compartir" onclick="zeditor.add(\'[download]\',\' [/download]\')" class="editor-button-outer">' +
                 zeditor.lang.download_button + '</span><span title="Ocultar un code para compartir" onclick="zeditor.add(\'[hidecode]\',\' [/hidecode]\')" class="editor-button-outer">' +
                 zeditor.lang.hidecode_button + '</span><span title="ocultar texto de los visitantes" onclick="zeditor.add(\'[noguest]\',\'[/noguest]\')" class="editor-button-outer">' +
@@ -123,17 +123,7 @@ var zeditor = {
     copyright: function() {
         alert("zEditor 1.7.1 \n Modificado por Chalo \n Exclusivo para OS phpbb3")
     },
-     tinypic: function() {
-       
-            $(".newtab").css({
-                "left": $(this).position().left,
-                "top": $(this).position().top
-            });
-            $(".newtab").toggle();
-   
-
-
-    },
+    
     bb: function() {
         $(function() {
 
