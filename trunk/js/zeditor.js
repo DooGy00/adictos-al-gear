@@ -1,4 +1,3 @@
-
 console.log("--------------> Zeditor");
 var zeditor = {
     version: "phpbb3",
@@ -124,6 +123,17 @@ var zeditor = {
     copyright: function() {
         alert("zEditor 1.7.1 \n Modificado por Chalo \n Exclusivo para OS phpbb3")
     },
+     tinypic: function() {
+        $('.tinypic').on("click", function() {
+            $(".newtab").css({
+                "left": $(this).position().left,
+                "top": $(this).position().top
+            });
+            $(".newtab").toggle();
+        });
+
+
+    },
     bb: function() {
         $(function() {
 
@@ -195,17 +205,7 @@ var zeditor = {
             $(this).find('a[href*="editpost"]').attr("onclick", "zeditor.start('edit', this); return false");
         });
     },
-    tinypic: function() {
-        $('.tinypic').on("click", function() {
-            $(".newtab").css({
-                "left": $(this).position().left,
-                "top": $(this).position().top
-            });
-            $(".newtab").toggle();
-        });
-
-
-    },
+   
     start: function(t, a) {
 
         var zeditoronbeforeunload = $("#editor-post-button").find("span").eq(0);
