@@ -124,13 +124,13 @@ var zeditor = {
         alert("zEditor 1.7.1 \n Modificado por Chalo \n Exclusivo para OS phpbb3")
     },
      tinypic: function() {
-        $('.tinypic').on("click", function() {
+       
             $(".newtab").css({
                 "left": $(this).position().left,
                 "top": $(this).position().top
             });
             $(".newtab").toggle();
-        });
+   
 
 
     },
