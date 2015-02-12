@@ -1,4 +1,5 @@
-   console.log("--------------> Zeditor");
+
+console.log("--------------> Zeditor");
 var zeditor = {
     version: "phpbb3",
     lang: {
@@ -31,8 +32,8 @@ var zeditor = {
         center_button: '<img src="https://cdn3.iconfinder.com/data/icons/tango-icon-library/48/format-justify-center-16.png"/>',
         offtopic_button: '<img src="http://www.adictosalgear.org/adictosalgear/files/offtopic.png"/>',
         tagimg_button: '<img src="http://www.adictosalgear.org/adictosalgear/files/tag.png"/>',
-      
-       download_button: '<img src="https://cdn0.iconfinder.com/data/icons/octicons/1024/cloud-download-16.png"/>',
+
+        download_button: '<img src="https://cdn0.iconfinder.com/data/icons/octicons/1024/cloud-download-16.png"/>',
         noguest_button: '<img src="http://www.adictosalgear.org/adictosalgear/files/glasses.png"/>',
         bold_button: '<img src="https://cdn3.iconfinder.com/data/icons/fugue/icon/edit-bold.png"/>',
         italic_button: '<img src="https://cdn3.iconfinder.com/data/icons/fugue/icon/edit-italic.png"/>',
@@ -92,7 +93,7 @@ var zeditor = {
                 zeditor.lang.code_button + '</span><span title="Tags para colocar código en línea" onclick="zeditor.add(\'[ic]\',\'[/ic]\')"  class="editor-button-outer">' +
                 zeditor.lang.inlinecode_button + '</span><span class="editor-button-outer" onclick="zeditor.popup(\'ze-smiley\', this);zeditor.createSmilies()" title="Smilies">' +
                 zeditor.lang.smiley_button + '</span><span class="editor-button-outer" onclick="zeditor.popup(\'ze-upload\', this);zeditor.imgur.prepare()" title="Subir una imagen">' +
-                zeditor.lang.upload_button + '</span><span class="editor-button-outer tinypic" ><img src="http://i.imgur.com/vU0Y04s.png"/></span><span class="editor-button-outer" onclick="zeditor.tag(this)" title="Etiqueta al usuario de este post">' +
+                zeditor.lang.upload_button + '</span><span class="editor-button-outer tinypic" onclick="zeditor.tinypic()"><img src="http://i.imgur.com/vU0Y04s.png"/></span> <span class="editor-button-outer" onclick="zeditor.tag(this)" title="Etiqueta al usuario de este post">' +
                 zeditor.lang.tag_button + '</span><span title="Ocultar un link para compartir" onclick="zeditor.add(\'[download]\',\' [/download]\')" class="editor-button-outer">' +
                 zeditor.lang.download_button + '</span><span title="Ocultar un code para compartir" onclick="zeditor.add(\'[hidecode]\',\' [/hidecode]\')" class="editor-button-outer">' +
                 zeditor.lang.hidecode_button + '</span><span title="ocultar texto de los visitantes" onclick="zeditor.add(\'[noguest]\',\'[/noguest]\')" class="editor-button-outer">' +
@@ -124,34 +125,34 @@ var zeditor = {
         alert("zEditor 1.7.1 \n Modificado por Chalo \n Exclusivo para OS phpbb3")
     },
     bb: function() {
-    $(function(){
+        $(function() {
 
-        var preview = $(".prevMode").length;
-    if (preview) {
-        
-         var p = $('#ze-preview');
-    }
-    if (zeditor.mode.innerHTML == zeditor.lang.edit&&!preview) {
-       var p = dom;
-    }
-    if (zeditor.mode.innerHTML == zeditor.lang.reply&&!preview || zeditor.mode.innerHTML == zeditor.lang.quote&&!preview) {
-      var p = $('.zeditor-new:last').find('.content');
-    }
-    for (var i = 0, post;
-        (post = p[i++]);) {
-        var codes = post.getElementsByTagName('code'),
-            store = [];
-        for (var j = 0, c;
-            (c = codes[j++]);) {
-            store.push(c.innerHTML);
-            c.innerHTML = ''
-        }
-        post.innerHTML = BB.parse(post.innerHTML);
-        for (var s, j = 0;
-            (s = store[j]);) codes[j++].innerHTML = s
-    }
-});
-},
+            var preview = $(".prevMode").length;
+            if (preview) {
+
+                var p = $('#ze-preview');
+            }
+            if (zeditor.mode.innerHTML == zeditor.lang.edit && !preview) {
+                var p = dom;
+            }
+            if (zeditor.mode.innerHTML == zeditor.lang.reply && !preview || zeditor.mode.innerHTML == zeditor.lang.quote && !preview) {
+                var p = $('.zeditor-new:last').find('.content');
+            }
+            for (var i = 0, post;
+                (post = p[i++]);) {
+                var codes = post.getElementsByTagName('code'),
+                    store = [];
+                for (var j = 0, c;
+                    (c = codes[j++]);) {
+                    store.push(c.innerHTML);
+                    c.innerHTML = ''
+                }
+                post.innerHTML = BB.parse(post.innerHTML);
+                for (var s, j = 0;
+                    (s = store[j]);) codes[j++].innerHTML = s
+            }
+        });
+    },
     quote: function(a) {
 
         zeditor.loading("on");
@@ -162,7 +163,7 @@ var zeditor = {
         });
     },
     edit: function(a) {
- 
+
         zeditor.loading("on");
         zeditor.url = a.href;
         if (zeditor.textarea.value !== "") {
@@ -194,13 +195,19 @@ var zeditor = {
             $(this).find('a[href*="editpost"]').attr("onclick", "zeditor.start('edit', this); return false");
         });
     },
- 
- 
-  
-  
- 
+    tinypic: function() {
+        $('.tinypic').on("click", function() {
+            $(".newtab").css({
+                "left": $(this).position().left,
+                "top": $(this).position().top
+            });
+            $(".newtab").toggle();
+        });
+
+
+    },
     start: function(t, a) {
-     
+
         var zeditoronbeforeunload = $("#editor-post-button").find("span").eq(0);
         window.onbeforeunload = function(s) {
             if (zeditor.textarea.value != "") {
@@ -212,11 +219,11 @@ var zeditor = {
         };
         $(zeditor.editor).appendTo($(a).parents(zeditor.post_dom).find(zeditor.message_dom));
         $(zeditor.editor).slideDown();
-       
+
         switch (t) {
             case "reply":
                 zeditor.textarea.focus();
-                
+
                 zeditor.url = $('a[href^="/post?t="]').first().attr("href");
                 zeditor.mode.innerHTML = zeditor.lang.reply;
                 zeditor.textarea.placeholder = _userdata.username + " escribe un comentario...";
@@ -242,10 +249,10 @@ var zeditor = {
                     });
                 }
                 $(".mp-msg").fadeOut("200");
-               
+
                 break;
             case "quote":
-              
+
                 zeditor.url = a.href;
                 zeditor.quote(a);
                 zeditor.mode.innerHTML = zeditor.lang.quote;
@@ -253,7 +260,7 @@ var zeditor = {
                     zeditor.send_button.innerHTML = "Enviar"
                 }
                 zeditor.textarea.focus();
-                 
+
                 $(".mp-msg").fadeOut("200");
                 break;
             case "edit":
@@ -264,23 +271,23 @@ var zeditor = {
                     $(".baivietdai").height("100%");
                 }
                 zeditor.textarea.focus();
-                
+
                 $(".mp-msg").fadeOut("200");
                 break;
             case "pm":
-             
+
                 if (zeditor.send_button.innerHTML === "Guardar") {
                     zeditor.send_button.innerHTML = "Enviar"
                 }
-                
-               
+
+
                 zeditor.url = !1;
                 zeditor.mode.innerHTML = zeditor.lang.pm;
                 zeditor.textarea.placeholder = _userdata.username + " redacta tu mensaje privado...";
                 var s = $(".mp-mode").parents(zeditor.post_dom).find(".author").find('a[href^="/u"]').eq(0).text();
                 $(".mp-msg").fadeIn("200").html("Mensaje para:" + s);
                 zeditor.textarea.focus();
-                
+
                 break;
         }
     },
@@ -297,27 +304,27 @@ var zeditor = {
         zeditor.textarea.focus();
     },
     preview: function(a) {
-  
+
         preview = document.getElementById("ze-preview");
         if (preview.style.display == "block") {
             preview.style.display = "none";
             document.getElementById("editor-top").setAttribute("style", "height:38px; transform: scaleY(1);-webkit-transform: scaleY(1)");
             a.innerHTML = zeditor.lang.preview_button;
-               $(".mode-button").removeClass("prevMode");
+            $(".mode-button").removeClass("prevMode");
         } else {
             a.innerHTML = zeditor.lang.close_button;
             document.getElementById("editor-top").setAttribute("style", "height:3px; transform: scaleY(0);-webkit-transform: scaleY(0)");
-                 $(".mode-button").addClass("prevMode");
+            $(".mode-button").addClass("prevMode");
             $.post(zeditor.url, {
                 message: zeditor.textarea.value,
                 preview: "Preview"
             }, function(s) {
                 preview.style.display = "block";
                 preview.innerHTML = zeditor.replace($(s).find(zeditor.preview_dom).html());
-              setTimeout(function() {
-              
-              zeditor.bb()
-              },10)
+                setTimeout(function() {
+
+                    zeditor.bb()
+                }, 10)
             });
         }
     },
@@ -326,7 +333,7 @@ var zeditor = {
         zeditor.textarea.focus();
         document.getElementById("editor-preview-button").innerHTML = zeditor.lang.preview_button;
         document.getElementById("editor-top").setAttribute("style", "height:38px; transform: scaleY(1);-webkit-transform:scaleY(1)");
-     
+
     },
     post: function(a) {
         if (zeditor.mode.innerHTML == zeditor.lang.quote) {
@@ -370,22 +377,22 @@ var zeditor = {
         if (zeditor.mode.innerHTML == zeditor.lang.reply || zeditor.mode.innerHTML == zeditor.lang.quote) {
             $.get(a, function(t) {
                 setTimeout(function() {
-                
-                zeditor.bb()
+
+                    zeditor.bb()
                 }, 100);
                 $('<div class="zeditor-new">' + zeditor.replace($(t).find("#p" + s).wrapAll("<div></div>").parent().html()) + "</div>").insertAfter(zeditor.post_dom + ":last");
                 $(".postprofile").last().find(".f_a2").contents().filter(function() {
                     return this.nodeType === 3;
                 }).wrap("<p></p>");
-              if($(".descargar.hidecode").length){
-               $("html,body").animate({
-                    scrollTop: $(".texto-descarga").offset().top
-                }, 200);
-              }else{
-                $("html,body").animate({
-                    scrollTop: $(".zeditor-new:last").offset().top
-                }, 200);
-            }
+                if ($(".descargar.hidecode").length) {
+                    $("html,body").animate({
+                        scrollTop: $(".texto-descarga").offset().top
+                    }, 200);
+                } else {
+                    $("html,body").animate({
+                        scrollTop: $(".zeditor-new:last").offset().top
+                    }, 200);
+                }
                 zeditor.button(".zeditor-new:last " + zeditor.button_dom);
             });
         }
@@ -393,8 +400,8 @@ var zeditor = {
             dom = $(zeditor.editor).parents(zeditor.post_dom).find(zeditor.message_dom);
             $.get(a, function(t) {
                 setTimeout(function() {
-                zeditor.bb();
-                 }, 50);
+                    zeditor.bb();
+                }, 50);
                 $(dom).html(zeditor.replace($(t).find("#p" + s + " " + zeditor.message_dom).html()));
                 $(dom).hide().fadeIn("slow");
             });
@@ -491,7 +498,7 @@ var zeditor = {
         }
     },
     pm: function(s) {
-    zeditor.tinypic();
+
         var t = $(s).parents(zeditor.post_dom).find('a[href^="/u"]:not(:empty)').eq(1).text();
         if (t.length > 0) {
             zeditor.post_pm(t, zeditor.lang.pm_message_title + ' "' + document.title + '"', zeditor.textarea.value)
@@ -632,30 +639,29 @@ var zeditor = {
     },
 };
 $(function() {
+  $(".author").find("strong").add($(".postprofile").find("strong:eq(1)")).attr("title", "Menciona a este usuario").on("click", function(event) {
+        event.preventDefault();
+        $('.baivietdai').height("100%");
+        zeditor.textarea.focus();
+        zeditor.start('reply', this);
+        isTagName = $(this).text();
+        isValue = $(this).closest(".post").find(".zeditor-message").find("span:eq(0)").text();
+        $.post("/privmsg", {
+            folder: "inbox",
+            mode: "post",
+            post: "1",
+            username: isTagName,
+            subject: "Mensaje automático: Te he etiquetado en: " + document.title,
+            message: "[quote]Hola {USERNAME}, Te he etiquetado en :" + "[url=" + window.location + "]" + document.title + "[/url] \n " + isValue + "[/quote]",
+        });
+        $('#editor-textarea')[0].value += '@"' + isTagName + '", ';
+        return false;
+    });
+    if (_userdata.session_logged_in != 1) {
+        $(".pbutton1").add(".pbutton2").removeAttr("onclick");
+    }
 
-$(".author").find("strong").add($(".postprofile").find("strong:eq(1)")).attr("title", "Menciona a este usuario").on("click", function(event) {
-    event.preventDefault();
-    $('.baivietdai').height("100%");
-    zeditor.textarea.focus();
-    zeditor.start('reply', this);
-    isTagName = $(this).text();
-    isValue = $(this).closest(".post").find(".zeditor-message").find("span:eq(0)").text();
-     $.post("/privmsg", {
-             folder: "inbox",
-             mode: "post",
-             post: "1",
-             username: isTagName,
-             subject: "Mensaje automático: Te he etiquetado en: " + document.title,
-       message: "[quote]Hola {USERNAME}, Te he etiquetado en :" + "[url=" + window.location + "]" + document.title + "[/url] \n " + isValue + "[/quote]",
-         });
-    $('#editor-textarea')[0].value += '@"' + isTagName + '", ';
-    return false;
-});
-if (_userdata.session_logged_in != 1) {
-    $(".pbutton1").add(".pbutton2").removeAttr("onclick");
-}
-
-     zeditor.ready()
+    zeditor.ready()
 });
 
 console.log("--------------> Completado todo lo relacionado con Zeditor :)");
