@@ -63,45 +63,39 @@ $.cachedScript("https://adictos-al-gear.googlecode.com/svn/trunk/js/confirm.js")
         }
     });
 });
-if(tm || wl){
- $("#editor-textarea").add("#AAGquickvm_message").on("keyup", function () {
-     if ("@" === $(this).val().split("")[$(this).val().length - 1]) {
-         var b = prompt("Introduce el nombre del usuario a etiquetar \n Un mensaje de notificación será enviado").replace(/\s/g, "+");
-         var c =  $(this).val();
-         var d = $(this).val().split("@");
-         
-          (b);
-         $(this).val(($(this).val() ? $(this).val() + "" : "") + b);
-          $.post("/privmsg", {
-             folder: "inbox",
-             mode: "post",
-             post: "1",
-             username: b,
-             subject: "Mensaje automático: Te he etiquetado en: " + document.title,
-             message: "[quote]Hola {USERNAME}, Te he etiquetado en :" + "[url=" + window.location + "]" + document.title + "[/url] \n " + d[0] + "[/quote]",
-         });
-    }
- });
-}
-if(ind){
- $(".inner_usu  textarea").on("keyup", function () {
-     if ("@" === $(this).val().split("")[$(this).val().length - 1]) {
-         var b = prompt("Introduce el nombre del usuario a etiquetar \n Un mensaje de notificación será enviado").replace(/\s/g, "+");
-         var c =  $(this).val();
-         var d = $(this).val().split("@");
-         var e = $("#leermaswall").attr("href");
-          (b);
-         $(this).val(($(this).val() ? $(this).val() + "" : "") + b);
-          $.post("/privmsg", {
-             folder: "inbox",
-             mode: "post",
-             post: "1",
-             username: b,
-             subject: "Mensaje automático: Te he etiquetado en:Mi muro, desde el indice " ,
-             message: "[quote]Hola {USERNAME}, Te he etiquetado en :" + "[url=" + e + "]Mi muro[/url] \n " + d[0] + "[/quote]",
-         });
-    }
- });
+if (tm || wl || ind) {
+    $("#editor-textarea").add("#AAGquickvm_message").on("keyup", function () {
+        if ("@" === $(this).val().split("")[$(this).val().length - 1]) {
+            var b = prompt("Introduce el nombre del usuario a etiquetar \n Un mensaje de notificación será enviado").replace(/\s/g, "+");
+            var c = $(this).val();
+            var d = $(this).val().split("@");
+            var e = $("#leermaswall").attr("href");
+            (b);
+            if (tm || wl) {
+                $(this).val(($(this).val() ? $(this).val() + "" : "") + b);
+                $.post("/privmsg", {
+                    folder: "inbox",
+                    mode: "post",
+                    post: "1",
+                    username: b,
+                    subject: "Mensaje automático: Te he etiquetado en: " + document.title,
+                    message: "[quote]Hola {USERNAME}, Te he etiquetado en :" + "[url=" + window.location + "]" + document.title + "[/url] \n " + d[0] + "[/quote]",
+                });
+            } else {
+
+                $(this).val(($(this).val() ? $(this).val() + "" : "") + b);
+                $.post("/privmsg", {
+                    folder: "inbox",
+                    mode: "post",
+                    post: "1",
+                    username: b,
+                    subject: "Mensaje automático: Te he etiquetado en:Mi muro, desde el indice ",
+                    message: "[quote]Hola {USERNAME}, Te he etiquetado en :" + "[url=http://source.openphpbb.com" + e + "]Mi muro[/url] \n " + d[0] + "[/quote]",
+                });
+
+            }
+        }
+    });
 }
 
 _notif_timeout = 0, _notif_check = window.setInterval(function() {
