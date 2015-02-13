@@ -64,7 +64,7 @@ $.cachedScript("https://adictos-al-gear.googlecode.com/svn/trunk/js/confirm.js")
     });
 });
 if (tm || wl || ind) {
-    $("#editor-textarea").add("#AAGquickvm_message").on("keyup", function () {
+    $("#editor-textarea").add("#AAGquickvm_message").add(".inner_usu  textarea").on("keyup", function () {
         if ("@" === $(this).val().split("")[$(this).val().length - 1]) {
             var b = prompt("Introduce el nombre del usuario a etiquetar \n Un mensaje de notificación será enviado").replace(/\s/g, "+");
             var c = $(this).val();
