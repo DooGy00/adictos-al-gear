@@ -1,4 +1,3 @@
-
 console.log("--------------> inicia code externo");
 $.cachedScript("https://adictos-al-gear.googlecode.com/svn/trunk/js/confirm.js").done(function() {
     $('.friends-foes-list a[href*="friendsfoes&remove="]').zzConfirm({
@@ -657,7 +656,7 @@ if (ps || mp) {
                 if ($("#postingbox").find("input.medium").eq(0).val().length <= 10) {
                     alert(_userdata.username + "Tu título debe tener más de 10 caracteres")
                 }
-                if ($("#postingbox").find("input.medium").eq(0).val().length >= 10  &&  !$('a[href="/f13-staff"]').length) {
+                if ($("#postingbox").find("input.medium").eq(0).val().length >= 10) {
                     var v = $("#postingbox").find(".inputbox.medium").val();
                     $.post("/privmsg", {
                         subject: "Mensaje automático",
