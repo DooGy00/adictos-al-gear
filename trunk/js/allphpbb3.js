@@ -674,7 +674,7 @@ if (ps || mp) {
         })
     })(jQuery);
 }
-setTimeout(function() {
+$(function() {
     $(function() {
         var t = {
             time: 750,
@@ -745,7 +745,7 @@ setTimeout(function() {
             })
         }
     });
-}, 500);
+});
 setTimeout(function() {
     if (tm) {
         $("p.right").find("iframe").addClass("facelike").detach().appendTo(".post:eq(0)")
