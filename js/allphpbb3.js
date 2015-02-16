@@ -153,7 +153,7 @@ if (pu) {
         });
     });
 }
-$('.lastpost a[href*="/t"]:not(".last-post-icon,a[href*=\"?view=newest\"]"),.bg_none a[href*="/t"]:not(".last-post-icon,a[href*=\"?view=newest\"]")').on("click", function() {
+$('.lastpost a[href*="/t"]:not(".last-post-icon,a[href*=\"?view=newest\"]")').add('.bg_none a[href*="/t"]:not(".last-post-icon,a[href*=\"?view=newest\"]")').on("click", function() {
     var indtema = $(this).text(),
         urltema = $(this).attr("href");
     $.post("/privmsg", {
