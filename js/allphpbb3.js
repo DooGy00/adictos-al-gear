@@ -95,7 +95,7 @@ if (tm || wl || ind) {
 }
 _notif_timeout = 0, _notif_check = window.setInterval(function() {
     if (_notif_timeout === 10000) return window.clearInterval(_notif_check);
-    if ($('#notif_list .contentText a').length) {
+    if ($('#notif_list').find('.contentText').find('a').length) {
         notifAva();
         return window.clearInterval(_notif_check)
     } else _notif_timeout += 1
@@ -114,7 +114,7 @@ function notifAva() {
             $(this).find('.user-ava').html(storage.getItem('user_ava_' + id))
         } else {
             $(this).find('.contentText').prepend('<span class="user-ava"></span>');
-            $(this).find('.user-ava').load(href + ' #profile-advanced-right .module:first div img:first,.forumline td.row1.gensmall:first > img, .frm-set.profile-view.left dd img,dl.left-box.details:first dd img, .row1 b .gen:first img, .real_avatar img', function() {
+            $(this).find('.user-ava').load(href + ' #profile-advanced-right .module:first div img:first', function() {
                 if (storage) {
                     storage.setItem('user_ava_' + id, $(this).html());
                     storage.setItem('user_exp_' + id, +new Date)
@@ -129,8 +129,8 @@ $(function() {
     }
     var _ToolBar = setInterval(function() {
         if (document.getElementById('fa_welcome') !== null) {
-            jQuery('a[href$="logout=1"]').attr('href', jQuery('#logout').attr('href'));
-            jQuery('a[href*="logout=1"]').click(function(event) {
+            $('a[href$="logout=1"]').attr('href', $('#logout').attr('href'));
+            $('a[href*="logout=1"]').on("click",function(event) {
                 localStorage.setItem("logout", 1)
             })
         }
