@@ -399,14 +399,14 @@ var zeditor = {
         }
         $("#" + a).siblings().hide();
     },
-   createSmilies: function () {
-        smiley = document.getElementById("ze-smiley");
-        if (smiley.innerHTML === "") {
-            $(smiley).load("/smilies.forum?mode=smilies_frame", function () {
-                this.innerHTML = this.innerHTML.replace(/alt=\"(.*?)\"/g, "onclick=\"zeditor.smiley('$1')\"");
-            });
-        }
-    },
+ createSmilies: function () {
+		smiley = document.getElementById('ze-smiley');
+		if (smiley.innerHTML == '') {
+			$(smiley).load('/smilies.forum?mode=smilies_frame', function () {
+				this.innerHTML = this.innerHTML.replace(/alt=\"(.*?)\"/g, 'onclick="zeditor.smiley(\'$1\')"')
+			})
+		}
+	},
     createColor: function() {
         if (!document.getElementById("ze-color-inner")) {
             var t = '<table cellspacing="0" id="ze-color-inner">';
@@ -448,10 +448,10 @@ var zeditor = {
         document.getElementById("ze-color-hex").value = (16777216 + v).toString(16).slice(1)
     },
     smiley: function (a) {
-        zeditor.textarea.value += a;
-        zeditor.textarea.focus();
-        document.getElementById("ze-smiley").style.display = "none"
-    },
+		zeditor.textarea.value += a;
+		zeditor.textarea.focus();
+		document.getElementById('ze-smiley').style.display = 'none'
+	},
     tag: function(s) {
         var a = $(s).parents(zeditor.post_dom).find('a[href^="/u"]:has(span)').eq(0).text(),
             t = $(s).parents(zeditor.post_dom).find(".nombre-tema").find("a").attr("href");
