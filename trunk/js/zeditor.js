@@ -402,7 +402,7 @@ var zeditor = {
     createSmilies: function() {
         smiley = document.getElementById("ze-smiley");
         if (smiley.innerHTML === "") {
-            $(smiley).load(" /smilies.forum?mode=smilies_frame", function() {
+            $(smiley).load("/smilies.forum?mode=smilies_frame", function() {
                 this.innerHTML = this.innerHTML.replace(/alt=\"(.*?)\"/g, "onclick=\"zeditor.smiley('$1')\"");
             });
         }
