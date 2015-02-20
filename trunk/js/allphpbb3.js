@@ -351,6 +351,22 @@ if (lin || ps || mp) {
     })
 }
 if (tm) {
+  $(function(){
+$(".postbody").find(".clearfix").each(function() {
+            600 <= $(this).height() && $(this).addClass("baivietdai").height(310).after('<p class="thugon"><span><span class="viewfull">Ver completo</span><span class="viewhide" style="display:none">Colapsar</span></span><span><span class="fullOff" style="float:right">Desactivar colapso</span><span class="fullOn" style="float:right;display:none">Activar colapso</span></span></p>')
+        });
+        "100%" == my_getcookie("thugonbaiviet") && ($(".fullOn, .viewhide,.fullOff, .viewfull").toggle(), $(".baivietdai").height("100%"));
+        $(".viewfull, .viewhide, .fullOff, .fullOn").on("click", function() {
+            var u = "100%",
+                t = $(this),
+                s = t.attr("class");
+            if ("viewhide" == s || "fullOn" == s) {
+                u = 310
+            }
+            "fullOff" == s || "fullOn" == s ? (my_setcookie("thugonbaiviet", u, !0), $(".fullOff, .fullOn").toggle()) : (t.closest(".thugon").prev().height(u), $(window).scrollTop(t.closest(".post").offset().top));
+            t.hide().siblings().show()
+        });
+        });
     $("form + .clear + p.right").clone().addClass("moderar").insertBefore($("#theme-banner-image"));
     $(".post").has('img[alt="Nuevo mensaje"]').addClass("newpost").find('.author img[alt="Nuevo mensaje"]').replaceWith('<div style="background: none repeat scroll 0 0 lightblue;color: #fff;font-weight: 800;padding: 0 3px;display:inline;border-radius:2px;text-shadow:0 0 1px #333;margin-left: 15px;">Nuevo comentario</div>');
     $(".postbody").find(".content").find("img").each(function() {
@@ -435,20 +451,7 @@ if (tm) {
                 })
             })
         })
-        $(".postbody").find(".clearfix").each(function() {
-            600 <= $(this).height() && $(this).addClass("baivietdai").height(310).after('<p class="thugon"><span><span class="viewfull">Ver completo</span><span class="viewhide" style="display:none">Colapsar</span></span><span><span class="fullOff" style="float:right">Desactivar colapso</span><span class="fullOn" style="float:right;display:none">Activar colapso</span></span></p>')
-        });
-        "100%" == my_getcookie("thugonbaiviet") && ($(".fullOn, .viewhide,.fullOff, .viewfull").toggle(), $(".baivietdai").height("100%"));
-        $(".viewfull, .viewhide, .fullOff, .fullOn").on("click", function() {
-            var u = "100%",
-                t = $(this),
-                s = t.attr("class");
-            if ("viewhide" == s || "fullOn" == s) {
-                u = 310
-            }
-            "fullOff" == s || "fullOn" == s ? (my_setcookie("thugonbaiviet", u, !0), $(".fullOff, .fullOn").toggle()) : (t.closest(".thugon").prev().height(u), $(window).scrollTop(t.closest(".post").offset().top));
-            t.hide().siblings().show()
-        })
+        
     });
     $(".mp").on("click", function(s) {
         s.preventDefault();
