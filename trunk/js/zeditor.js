@@ -89,7 +89,7 @@ var zeditor = {
                 zeditor.lang.postlink_button + '</span><span title="Spoilers" onclick="zeditor.add(\'[spoiler]\',\'[/spoiler]\')" class="editor-button-outer">' +
                 zeditor.lang.spoiler_button + '</span><span title="Tags para colocar código, contine además el hide" onclick="zeditor.add(\'[hide][code]\',\'[/code][/hide]\')"  class="editor-button-outer">' +
                 zeditor.lang.code_button + '</span><span title="Tags para colocar código en línea" onclick="zeditor.add(\'[ic]\',\'[/ic]\')"  class="editor-button-outer">' +
-                zeditor.lang.inlinecode_button + '</span><span class="editor-button-outer" onclick="zeditor.popup(\'ze-smiley\', this);zeditor.createSmilies()" title="Smilies">' +
+                zeditor.lang.inlinecode_button + '</span><span class="editor-button-outer" onclick="" title="Smilies">' +
                 zeditor.lang.smiley_button + '</span><span class="editor-button-outer" onclick="zeditor.popup(\'ze-upload\', this);zeditor.imgur.prepare()" title="Subir una imagen">' +
                 zeditor.lang.upload_button + '</span><span class="editor-button-outer tinypic" onclick="$(\'.newtab\').css({\'left\': $(this).position().left,\'top\': $(this).position().top });$(\'.newtab\').toggle();"><img src="http://i.imgur.com/vU0Y04s.png"/></span> <span class="editor-button-outer" onclick="zeditor.tag(this)" title="Etiqueta al usuario de este post">' +
                 zeditor.lang.tag_button + '</span><span title="Ocultar un link para compartir" onclick="zeditor.add(\'[download]\',\' [/download]\')" class="editor-button-outer">' +
