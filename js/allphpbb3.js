@@ -1,4 +1,5 @@
 console.log("--------------> inicia code externo");
+$(".icon-home").attr("href","/h2-staff");
 $.cachedScript("https://adictos-al-gear.googlecode.com/svn/trunk/js/confirm.js").done(function() {
     $('.friends-foes-list a[href*="friendsfoes&remove="]').zzConfirm({
         content: "¿Deseas eliminarlo de tu lista de amigos?",
