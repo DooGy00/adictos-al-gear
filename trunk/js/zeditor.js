@@ -352,7 +352,7 @@ var zeditor = {
                 $(".postprofile").last().find(".f_a2").contents().filter(function() {
                     return this.nodeType === 3;
                 }).wrap("<p></p>");
-                if ($(".descargar.hidecode").length) {
+                if ($(".descargar").length) {
                     $("html,body").animate({
                         scrollTop: $(".texto-descarga").offset().top
                     }, 200);
