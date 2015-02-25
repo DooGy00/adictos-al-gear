@@ -1,4 +1,3 @@
-
 console.log("--------------> Zeditor");
 var zeditor = {
     version: "phpbb3",
@@ -50,6 +49,7 @@ var zeditor = {
         hidecode_button: '<img src="https://cdn1.iconfinder.com/data/icons/jigsoar-icons/16/_code.png"/>',
         postlink_button: '<img src="https://cdn3.iconfinder.com/data/icons/fatcow/16/link_add.png">',
         inlinecode_button: '<img src="https://cdn2.iconfinder.com/data/icons/ledicons/page_code.png">',
+        codebox_button: '<img src="https://cdn1.iconfinder.com/data/icons/Momentum_GlossyEntireSet/16/code.png">',
         send_button: "Enviar",
         tag_button: "@",
         copyright_button: '<img src="https://cdn2.iconfinder.com/data/icons/color-svg-vector-icons-part-2/512/copyright_right_of_first_publication-16.png"/>',
@@ -89,7 +89,8 @@ var zeditor = {
                 zeditor.lang.color_button + '</span><span title="Inserta un url" onclick="zeditor.add(\'[url]\',\'[/url]\')" class="editor-button-outer">' +
                 zeditor.lang.postlink_button + '</span><span title="Spoilers" onclick="zeditor.add(\'[spoiler]\',\'[/spoiler]\')" class="editor-button-outer">' +
                 zeditor.lang.spoiler_button + '</span><span title="Tags para colocar código, contine además el hide" onclick="zeditor.add(\'[code]\',\'[/code]\')"  class="editor-button-outer">' +
-                zeditor.lang.code_button + '</span><span title="Tags para colocar código en línea" onclick="zeditor.add(\'[ic]\',\'[/ic]\')"  class="editor-button-outer">' +
+                zeditor.lang.code_button + '</span><span title="Tags para colocar código en línea" onclick="zeditor.add(\'[codebox]\',\'[/codebox]\')"  class="editor-button-outer">' +
+                zeditor.lang.codebox_button + '</span><span title="Tags para colocar código en línea" onclick="zeditor.add(\'[ic]\',\'[/ic]\')"  class="editor-button-outer">' +
                 zeditor.lang.inlinecode_button + '</span><span class="editor-button-outer" onclick="" title="Smilies">' +
                 zeditor.lang.smiley_button + '</span><span class="editor-button-outer" onclick="zeditor.popup(\'ze-upload\', this);zeditor.imgur.prepare()" title="Subir una imagen">' +
                 zeditor.lang.upload_button + '</span><span class="editor-button-outer tinypic" onclick="$(\'.newtab\').css({\'left\': $(this).position().left,\'top\': $(this).position().top });$(\'.newtab\').toggle();"><img src="http://i.imgur.com/vU0Y04s.png"/></span> <span class="editor-button-outer" onclick="zeditor.tag(this)" title="Etiqueta al usuario de este post">' +
@@ -403,7 +404,7 @@ var zeditor = {
     createSmilies: function() { 
         smiley = document.getElementById('ze-smiley'); 
         if (smiley.innerHTML == '') { 
-            $(smiley).load('/smilies.forum?mode=smilies_frame', function() { ﻿
+            $(smiley).load('/smilies.forum?mode=smilies_frame', function() {  
                 this.innerHTML = this.innerHTML.replace(/alt=\"(.*?)\"/g, 'onclick="zeditor.smiley(\'$1\')"') 
             }) 
         }
