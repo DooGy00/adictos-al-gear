@@ -103,7 +103,7 @@
              $("#live_notif").find("a").attr("style", "text-decoration:none!important");
               var userLink = $("#live_notif").find('a[href*="/u"]').attr('href');
   $("#live_notif").each(function () {
-  $(".fa_notification").find(".content").prepend('<div class="avanotif"></div>');   
+  $(".fa_notification").find(".content").prepend('<div class="avanotif"><img src="http://www.iitedu.org.in/img/unknown_user.png"></div>');   
   $("#live_notif").find(".avanotif").load(userLink + ' #profile-advanced-right .module:first div img:first');
   });
          }
