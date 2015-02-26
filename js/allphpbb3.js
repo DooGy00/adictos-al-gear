@@ -102,7 +102,10 @@
              $('#notif_unread').text($('#notif_unread').text().replace(/[\(\)]/g, ''));
              $("#live_notif").find("a").attr("style", "text-decoration:none!important");
               var userLink = $("#live_notif").find('a[href*="/u"]').attr('href');
-  $(".fa_notification").find(".content").prepend('<div class="avanotif"></div>');   $("#live_notif").find(".avanotif").load(userLink + ' #profile-advanced-right .module:first div img:first').children().attr("style","float:left;width:20px;height:20px;border-radius:100%");
+  $(".fa_notification").find(".content").prepend('<div class="avanotif"></div>');   $("#live_notif").find(".avanotif").load(userLink + ' #profile-advanced-right .module:first div img:first');
+  setTimeout(function () {
+  $(".avanotif").find("img").attr("style","float:left;width:20px;height:20px;border-radius:100%");
+  },300);
          }
          var nbnotifs = $('#notif_unread').text();
          if (nbnotifs != '') {
